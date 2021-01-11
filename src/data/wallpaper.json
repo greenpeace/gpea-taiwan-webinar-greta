@@ -1,0 +1,28 @@
+{
+  "data": [
+    {
+      "issue": "Oceans",
+      "content": {
+        "wallpaperList": [
+          "https://cdn.shopify.com/s/files/1/0045/4875/5546/files/GP04OET_High_res_1920_tiny.jpg?v=1609295863"
+        ]
+      }
+    },
+    {
+      "issue": "Forests",
+      "content": {
+        "wallpaperList": [
+          "https://cdn.shopify.com/s/files/1/0045/4875/5546/files/GP04OET_High_res_1920_tiny.jpg?v=1609295863"
+        ]
+      }
+    },
+    {
+      "issue": "Arctic",
+      "content": {
+        "wallpaperList": [
+          "https://cdn.shopify.com/s/files/1/0045/4875/5546/files/GP04OET_High_res_1920_tiny.jpg?v=1609295863"
+        ]
+      }
+    }
+  ]
+}
