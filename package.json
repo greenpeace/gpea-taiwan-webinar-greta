@@ -14,9 +14,13 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.0",
     "craco-less": "^1.17.1",
+    "fs": "^0.0.1-security",
+    "ftps": "^1.1.1",
     "i": "^0.3.6",
     "node-sass": "^4.14.1",
     "npm": "^6.14.9",
+    "os": "^0.1.1",
+    "path": "^0.12.7",
     "qs": "^6.9.4",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -40,8 +44,10 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "test": "craco test",
-    "eject": "react-scripts eject"
+    "build:en": "PUBLIC_URL=https://api.greenpeace.org.hk/2021/universal craco build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "deploy": "yarn build:en && node mc-deploy.js"
   },
   "eslintConfig": {
     "extends": [
