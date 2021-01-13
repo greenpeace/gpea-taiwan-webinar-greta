@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Banner from "apps/petition/components/banner";
 import Carousel from "apps/petition/components/carousel";
 import * as swiperActions from "store/actions/action-types/swiper-actions";
@@ -75,12 +75,11 @@ const SlideScreen = ({swiper, slideIndex, updateSwiperSlide, togglePanel}) => {
           立即聯署 <FontAwesomeIcon icon={['fas', 'check']} />
         </span>
       </a>
-      {/* <div className="copy-right">© GREENPEACE 2021</div> */}
     </div>
   );
 };
 
-const mapStateToProps = ({ swiper, theme }) => {
+const mapStateToProps = ({ swiper }) => {
   return {
     swiper: swiper.data,
     slideIndex: swiper.slideIndex

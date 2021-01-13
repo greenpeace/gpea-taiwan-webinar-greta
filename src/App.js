@@ -8,6 +8,7 @@ import 'swiper/components/pagination/pagination.scss';
 import 'swiper/components/scrollbar/scrollbar.scss';
 import 'rsuite/lib/styles/index.less';
 import "react-sliding-pane/dist/react-sliding-pane.css";
+import "form.less";
 import Header from "apps/petition/components/header";
 import Aside from "apps/petition/components/aside";
 import Main from "apps/petition/components/main";
@@ -24,9 +25,6 @@ let App = ({loading}) => {
         <Aside />
         <div id="wrapper">
           <Main />
-        </div>
-        <div className="element">
-          <div className="element-item"></div>
         </div>
       </div>
       <div className="custom-form-wrap">

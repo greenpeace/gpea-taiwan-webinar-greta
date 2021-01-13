@@ -14,7 +14,6 @@ const Index = () =>{
       </aside>
       <div className="share-btn showshare color-bg"><span>分享 <FontAwesomeIcon icon={['fab', 'creative-commons-share']} size="lg"/></span></div>
       <div className="hc_dec_color">
-        {/* <div className="page-subtitle page-subtitle-custom"><span>綠色和平存在，因為脆弱的地球需要改變、需要行動。</span></div> */}
         <div className="page-subtitle page-subtitle-custom"><span>號召更多朋友參與</span></div>
       </div>
   </>
