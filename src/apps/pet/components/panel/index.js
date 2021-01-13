@@ -1,6 +1,6 @@
 import React, { Component, useState } from "react";
 import SlidingPane from "react-sliding-pane";
-import RegistrationForm from "apps/petition/components/main/registrationForm"
+import RegistrationForm from "../../../../components/form/registrationForm"
 import { connect } from "react-redux";
 import * as themeActions from "store/actions/action-types/theme-actions";
 

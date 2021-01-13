@@ -1,18 +1,19 @@
 import React from 'react';
 import * as swiperActions from "store/actions/action-types/swiper-actions";
 import { connect } from "react-redux";
+import Header from "apps/pet/components/header";
+import Aside from "apps/pet/components/aside";
 import SlideScreen from "./slideScreen"
 
 const Index = () => {
   return (
-    <div className="content full-height" data-pagetitle="Home slider">
-      <div className="fl-wrap full-height hero-conatiner">
-        <SlideScreen/>
-        <div className="hero-scroll-down-notifer">
-          <div className="scroll-down-wrap ">
-            <div className="mousey">
-              <div className="scroller"></div>
-            </div>
+    <div id="main">
+      <Header />
+      {/* <Aside /> */}
+      <div id="wrapper">
+        <div className="content full-height" data-pagetitle="Home slider">
+          <div className="fl-wrap full-height hero-conatiner">
+            <SlideScreen/>
           </div>
         </div>
       </div>

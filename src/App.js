@@ -9,24 +9,16 @@ import 'swiper/components/scrollbar/scrollbar.scss';
 import 'rsuite/lib/styles/index.less';
 import "react-sliding-pane/dist/react-sliding-pane.css";
 import "form.less";
-import Header from "apps/pet/components/header";
-import Aside from "apps/pet/components/aside";
 import Main from "apps/pet/components/main";
 import Panel from "apps/pet/components/panel";
 import Spinner from "components/spinner"
-import RegistrationForm from "apps/pet/components/main/registrationForm";
+import RegistrationForm from "./components/form/registrationForm";
 
 let App = ({loading}) => {
   return (
     <div className="App">
       {loading && <Spinner/>}
-      <div id="main">
-        <Header />
-        <Aside />
-        <div id="wrapper">
-          <Main />
-        </div>
-      </div>
+      <Main />
       <div className="custom-form-wrap">
         <RegistrationForm/>
       </div>

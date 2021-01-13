@@ -1,6 +1,6 @@
 import React from 'react';
-import Banner from "apps/petition/components/banner";
-import Carousel from "apps/petition/components/carousel";
+import Banner from "apps/pet/components/banner";
+import Carousel from "apps/pet/components/carousel";
 import * as swiperActions from "store/actions/action-types/swiper-actions";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import { connect } from "react-redux";
@@ -32,14 +32,6 @@ const SlideScreen = ({swiper, slideIndex, updateSwiperSlide, togglePanel}) => {
 
   return (
     <div className="hero-wrapper fl-wrap full-height hidden-item">
-      {/* <div className="video-wrap">
-        <div className="videobg">
-          <video autoPlay muted>
-            <source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.webm" type="video/webm"/>
-            <source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" type="video/mp4"/>
-          </video>
-        </div>
-      </div> */}
       <span className="hc_dec"></span>
       <div className="hero-slider-wrap home-half-slider fl-wrap full-height">
         <div className="hero-slider fs-gallery-wrap fl-wrap full-height">
@@ -50,9 +42,9 @@ const SlideScreen = ({swiper, slideIndex, updateSwiperSlide, togglePanel}) => {
         <Carousel />
         <div className="hero-corner-dec"></div>
       </div>
-      <div className="clone-counter">
+      {/* <div className="clone-counter">
         <div className="current">{currentSlide}</div>
-      </div>
+      </div> */}
       <div className="swiper-counter hs_counter">
         <div className="current">{currentSlide}</div>
         <div className="total">{totalSlide}</div>
