@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import * as themeActions from "store/actions/action-types/theme-actions";
 import { connect } from "react-redux";
-import RegistrationForm from "./registrationForm"
+import RegistrationForm from "../../../../components/form/registrationForm"
 
 const RegistrationScreen = () => {
   return <RegistrationForm/>;

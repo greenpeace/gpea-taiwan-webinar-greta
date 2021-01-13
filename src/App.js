@@ -14,7 +14,7 @@ import Aside from "apps/petition/components/aside";
 import Main from "apps/petition/components/main";
 import Panel from "apps/petition/components/panel";
 import Spinner from "components/spinner"
-import RegistrationForm from "apps/petition/components/main/registrationForm";
+import RegistrationForm from "./components/form/registrationForm";
 
 let App = ({loading}) => {
   return (
