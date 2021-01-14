@@ -17,6 +17,7 @@ h1, h2, h3, h4, h5, h6{
   background: @main-background;
   width: auto;
   right: @form-width;
+  z-index: 99999;
 }
 
 #wrapper{
@@ -28,6 +29,45 @@ h1, h2, h3, h4, h5, h6{
 .img{
   display: block;
   width: 100%;
+}
+
+/* Thanks screen */
+.custom-main{
+  .full-height{
+    margin-right: -75px;
+  }
+}
+
+.custom-gp-form-wrap{
+  padding: 0 !important;
+  background: @third-background;
+}
+
+.custom-bg{
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  opacity: .2;
+  background-image: url('https://cdn.shopify.com/s/files/1/0045/4875/5546/files/demo_v_tiny.jpg?v=1610593188');
+}
+
+.thanks-content{
+  padding: 0 30px;
+  p{
+    font-size: 1rem;
+    line-height: 1.75rem;
+  }
+}
+
+.thanks-download-image-wrap{
+  img{
+    padding-bottom: 30px;
+  }
+}
+
+.thanks-slider-wrap{
+  margin-right: 180px;
+  margin-left: 30px;
 }
 
 /* Header */
@@ -42,6 +82,7 @@ h1, h2, h3, h4, h5, h6{
 
 .main-header{
   height: 60px;
+  width: initial;
   background: @main-background;
 }
 

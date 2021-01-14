@@ -15,7 +15,7 @@ import Panel from "apps/pet/components/panel";
 import Spinner from "components/spinner"
 import RegistrationForm from "./components/form/registrationForm";
 
-let App = ({loading, initFormState, fakeSubmit}) => {
+let App = ({loading, initFormState, fakeSubmit, submitted}) => {
 
   useEffect(() => {
     const queryString = window.location.search;
@@ -32,7 +32,11 @@ let App = ({loading, initFormState, fakeSubmit}) => {
       {loading && <Spinner/>}
       <Main />
       <div className="custom-form-wrap">
-        <RegistrationForm/>
+        {submitted ? <div className="custom-gp-form custom-gp-form-wrap">
+          <div className="custom-bg"></div>
+        </div>
+        :
+        <RegistrationForm/>}
       </div>
       <Panel/>
     </div>
@@ -41,7 +45,8 @@ let App = ({loading, initFormState, fakeSubmit}) => {
 
 const mapStateToProps = ({ theme }) => {
   return {
-    loading: theme.lastAction === themeActions.SUBMIT_FORM
+    loading: theme.lastAction === themeActions.SUBMIT_FORM,
+    submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS
   };
 };
 
