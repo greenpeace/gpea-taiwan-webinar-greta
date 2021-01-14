@@ -1,6 +1,6 @@
 import React from 'react';
 import * as themeActions from "store/actions/action-types/theme-actions";
-import { FlexboxGrid, ButtonToolbar, IconButton,Icon } from "rsuite";
+import { FlexboxGrid, ButtonToolbar, IconButton,Icon, fluid, gutter, Row, Col, Grid } from "rsuite";
 import { connect } from "react-redux";
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -44,19 +44,32 @@ const Thanks = () => {
         <FlexboxGrid.Item colspan={24} align="bottom">
           <div className="thanks-slider-wrap">
           <Swiper
-            spaceBetween={10}
-            slidesPerView={12}
-            // navigation
+            spaceBetween={5}
+            slidesPerView={1}
+            navigation
             // observer={true}
             // observeParents={true}
             // parallax={true}
             // scrollbar={{ draggable: true }}
           >
-          {Array.from({ length: 36 }).map(d=>
             <SwiperSlide>
-              <img src="https://www.greenpeace.org/static/planet4-taiwan-stateless/2020/06/230499e4-gp036zk_medium_res-polar-bears-in-canada.jpg" className="img"/>
+              <Grid fluid>
+                <Row gutter={16}>
+                {Array.from({ length: 16 }).map(d=>
+                    <Col xs={3}><img src="https://www.greenpeace.org/static/planet4-taiwan-stateless/2020/06/230499e4-gp036zk_medium_res-polar-bears-in-canada.jpg" className="img wallpaper-thumbnail"/></Col>
+                )}
+                </Row>
+              </Grid>
             </SwiperSlide>
-          )}
+            <SwiperSlide>
+              <Grid fluid>
+                <Row gutter={16}>
+                {Array.from({ length: 16 }).map(d=>
+                    <Col xs={3}><img src="https://www.greenpeace.org/static/planet4-taiwan-stateless/2020/06/230499e4-gp036zk_medium_res-polar-bears-in-canada.jpg" className="img wallpaper-thumbnail"/></Col>
+                )}
+                </Row>
+              </Grid>
+            </SwiperSlide>
           </Swiper>
           </div>
         </FlexboxGrid.Item>
