@@ -1,19 +1,18 @@
 import React from 'react';
-import * as swiperActions from "store/actions/action-types/swiper-actions";
+import * as themeActions from "store/actions/action-types/theme-actions";
 import { connect } from "react-redux";
 import Header from "apps/pet/components/header";
-import Aside from "apps/pet/components/aside";
+import Thanks from "apps/pet/components/thanks";
 import SlideScreen from "./slideScreen"
 
-const Index = () => {
+const Index = ({submitted}) => {
   return (
     <div id="main">
       <Header />
-      {/* <Aside /> */}
       <div id="wrapper">
         <div className="content full-height" data-pagetitle="Home slider">
           <div className="fl-wrap full-height hero-conatiner">
-            <SlideScreen/>
+            {submitted ? <Thanks/> : <SlideScreen/>}
           </div>
         </div>
       </div>
@@ -21,20 +20,11 @@ const Index = () => {
   );
 };
 
-const mapStateToProps = ({ swiper, theme }) => {
+const mapStateToProps = ({ theme }) => {
   return {
-    swiper: swiper.data,
-    slideIndex: swiper.slideIndex,
-    theme: theme
+    theme: theme,
+    submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    updateSwiperSlide: (data) => {
-      dispatch({ type: swiperActions.UPDATE_SWIPER_SLIDE, data });
-    }
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Index);
+export default connect(mapStateToProps)(Index);
