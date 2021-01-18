@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { connect } from "react-redux";
 import * as themeActions from "store/actions/action-types/theme-actions";
@@ -14,11 +14,12 @@ import {
 import { Grid, Row, Col } from "rsuite";
 import ProgressBar from "apps/petition/components/progress";
 
-const progress = [{ bgcolor: "#65CC02", completed: 123000, target: 150000 }];
-
 let RegistrationForm = ({ togglePanel, toggleTheme, submitForm, submitted }) => {
   const refForm = useRef();
   const refCheckbox = useRef();
+  const [numSignupTarget, setNumSignupTarget] = useState(100000);
+  const [numResponses, setNumResponses] = useState(0);
+  const progress = [{ bgcolor: "#65CC02", completed: numResponses, target: numSignupTarget }];
   const { StringType, NumberType } = Schema.Types;
   const model = Schema.Model({
     Email: StringType().isEmail("請填上有效電郵地址").isRequired("請填寫資料"),
@@ -33,6 +34,11 @@ let RegistrationForm = ({ togglePanel, toggleTheme, submitForm, submitted }) => 
       }, "請輸入8位數字"),
     Birthdate: StringType().isRequired("請填寫資料"),
   });
+
+  useEffect(() => {
+    setNumSignupTarget(document.getElementById('numSignupTarget').value)
+    setNumResponses(document.getElementById('numResponses').value)
+  }, []);
 
   const TextField = (props) => {
     const { name, label, accepter, handleOnChange, ...rest } = props;
