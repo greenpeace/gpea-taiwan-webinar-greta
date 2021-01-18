@@ -48,6 +48,12 @@ const themeReducer = (state = initState, action) => {
         lastAction: action.type,
       };
 
+    case Actions.INIT_FORM_STATE:
+      return {
+        ...initState,
+        lastAction: action.type,
+      };
+
     default:
       return state;
   }

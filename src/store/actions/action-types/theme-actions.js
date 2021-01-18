@@ -6,3 +6,5 @@ export const SET_FORM_VALUE = "SET_FORM_VALUE";
 export const SUBMIT_FORM = "SUBMIT_FORM";
 export const SUBMIT_FORM_SUCCESS = "SUBMIT_FORM_SUCCESS";
 export const SUBMIT_FORM_FAIL = "SUBMIT_FORM_FAIL";
+
+export const INIT_FORM_STATE = "INIT_FORM_STATE";

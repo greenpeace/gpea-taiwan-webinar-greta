@@ -24,7 +24,7 @@ const wrap = {
   left:0,
   right:0,
   background: 'rgba(26, 28, 38, .9)',
-  zIndex: 99999
+  zIndex: 99999999
 }
 
 const Spinner = () => (
