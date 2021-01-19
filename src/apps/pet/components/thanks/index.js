@@ -78,7 +78,7 @@ const Thanks = () => {
               <Row gutter={12}>
                 <Col xs={12}>
                   <Button
-                    class="button-donate"
+                    className="button-donate"
                     size="lg"
                     appearance="default"
                     block
@@ -88,7 +88,7 @@ const Thanks = () => {
                 </Col>
                 <Col xs={12}>
                   <Button
-                    color="button-share"
+                    className="button-share"
                     size="lg"
                     appearance="default"
                     block
