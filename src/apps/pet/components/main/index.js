@@ -3,7 +3,7 @@ import * as themeActions from "store/actions/action-types/theme-actions";
 import { connect } from "react-redux";
 import Header from "apps/pet/components/header";
 import Thanks from "apps/pet/components/thanks";
-import SlideScreen from "./slideScreen";
+import Content from "./contentScreen";
 
 const Index = ({submitted}) => {
   return (
@@ -12,7 +12,7 @@ const Index = ({submitted}) => {
       <div id="wrapper">
         <div className="content full-height" data-pagetitle="Home slider">
           <div className="fl-wrap full-height hero-conatiner">
-            {submitted ? <Thanks/> : <SlideScreen/>}
+            {submitted ? <Thanks/> : <Content/>}
           </div>
         </div>
       </div>
