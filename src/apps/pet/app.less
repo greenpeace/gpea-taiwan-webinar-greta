@@ -34,7 +34,7 @@ h1, h2, h3, h4, h5, h6{
 /* Thanks screen */
 .custom-main{
   .full-height{
-    // margin-right: -75px;
+    margin-right: -235px;
   }
 }
 
@@ -52,7 +52,7 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .thanks-content{
-  padding: 0 30px;
+  // padding: 0 90px;
   text-align: left;
   h1{
     margin-bottom: 10px;
@@ -67,10 +67,10 @@ h1, h2, h3, h4, h5, h6{
   padding: 5px 0;
 }
 
-.thanks-slider-wrap{
-  margin-right: 180px;
-  margin-left: 30px;
-}
+// .thanks-slider-wrap{
+//   margin-right: 180px;
+//   margin-left: 30px;
+// }
 
 /* Header */
 .logo{
@@ -280,6 +280,25 @@ a.btn:hover{
   }
 }
 
+.wallpaper-thumbnail-col{
+  height: 160px;
+  margin-bottom: 15px;
+}
+
+.wallpaper-thumbnail-mobile{
+  height:100%;
+  background-size: cover;
+}
+
+.mobile-download,
+.cate-switcher {
+  display: none;
+}
+
+.thanks-slider-wrap{
+  max-width: 960px;
+}
+
 @media only screen and (min-width: 1065px){
   .header-contacts{
     display: block; 
@@ -338,6 +357,27 @@ a.btn:hover{
     top: 55px;
   }
 
+  .custom-main{
+    .full-height{
+      margin-right: 0px;
+    }
+  }
+
+  .mobile-sticky{
+    >div{
+      z-index: 9;
+      background-color: #FFF;
+    }
+  }
+
+  .cate-switcher{
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    display: block;
+    z-index: 10;
+  }
+
   .thanks-slider-wrap{
     margin-right: 0px;
     margin-left: 0px;
@@ -376,12 +416,16 @@ a.btn:hover{
       z-index: 3;
       bottom: 15px;
       right: 15px;
+      display: block;
     }
   }
 
-  .thanks-content,
+  .thanks-content{
+    padding: 30px;
+  }
+
   .thanks-slider-wrap{
-    padding: 0 30px;
+    padding: 0 20px;
   }
 
   .wallpaper-thumbnail-mobile{

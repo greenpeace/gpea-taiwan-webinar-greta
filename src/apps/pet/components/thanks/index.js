@@ -5,41 +5,45 @@ import { connect } from "react-redux";
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import axios from 'axios'
+import Sticky from 'react-sticky-el';
 import fileDownload from 'js-file-download'
 import wallpaper from "../../../../data/wallpaper.json"
 
 // install Swiper components
 SwiperCore.use([Scrollbar, A11y]);
 
-const handleDownload = (url, filename) => {
-  axios.get(url, {
-    responseType: 'blob',
-  })
-  .then((res) => {
-    fileDownload(res.data, filename)
-  })
-}
-
 const Thanks = () => {
   const [Arctic, setArctic] = useState([]);
   const [Forests, setForests] = useState([]);
   const [Oceans, setOceans] = useState([]);
   const [current, setCurrent] = useState([]);
-  const [download, setDownload] = useState("/wallpaper/Forests/GP0STO5DC_Web_size.jpg");
+  const [displayCate, setDisplayCate] = useState(false);
+  const [download, setDownload] = useState("/wallpaper/Arctic/GP0OLY_Web_size.jpg");
+
+  const handleDownload = (url, filename) => {
+    axios.get(url, {
+      responseType: 'blob',
+    })
+    .then((res) => {
+      fileDownload(res.data, filename)
+    })
+  }
+
+  const handleSwitchDownload = (cate) => {
+    const getFirstItem = cate.content?.wallpaperList[0]
+    setDownload(getFirstItem)
+    setCurrent(cate)
+  }
 
   useEffect(() => {
-
     setArctic(wallpaper.data.find(d=>d.issue==="Arctic"))
     setForests(wallpaper.data.find(d=>d.issue==="Forests"))
     setOceans(wallpaper.data.find(d=>d.issue==="Oceans"))
-
   }, [wallpaper]);
 
-  // console.log('Arctic--', Arctic)
-  // console.log('Forests--', Forests)
-  // console.log('Oceans--', Oceans)
-
-  console.log('download--', download)
+  useEffect(() => {
+    setCurrent(Arctic)
+  }, [Arctic]);
 
   return (
       <div className="show-grid full-height">
@@ -49,50 +53,55 @@ const Thanks = () => {
             <h3>感謝您的下載！</h3>
               <p>您願意進一步行動，捐助支持綠色和平更多環境項目嗎？</p>
               <p>守護海洋，保衛森林，我們需要您的支持為環境堅持努力。綠色和平不接受政府、企業捐款，請立刻加入我們的<b>1%會員計畫，以您的1%收入，支持我們的100%財政獨立。</b></p>
-              {/* <Grid fluid>
+              <Grid fluid>
                 <Row gutter={12}>
                   <Col xs={12}><Button color="green" appearance='default' block><b>捐助支持</b></Button></Col>
                   <Col xs={12}><Button color="violet" appearance='default' block><b>分享</b></Button></Col>
                 </Row>
-              </Grid> */}
+              </Grid>
           </div>
         </FlexboxGrid.Item>
-        <FlexboxGrid.Item componentClass={Col} xs={24} md={15}>
+        <FlexboxGrid.Item componentClass={Col} xs={24} md={10} style={{padding: 0}}>
+        <Sticky className="mobile-sticky" onFixedToggle={()=>setDisplayCate(!displayCate)}>
           <div className="thanks-download-image-wrap">
             <img src={download} className="img"/>
             <div className="thanks-mobile-background-image" style={{backgroundImage: `url(${download})`}}></div>
             <div className="mobile-download">
               <ButtonToolbar>
-                <IconButton icon={<Icon icon="download" />} onClick={() => {handleDownload(download, 'wallpaper-01.jpg')}}>下載</IconButton>
+                <IconButton icon={<Icon icon="download" />} onClick={() => {handleDownload(download, download.split('/').pop())}}>下載</IconButton>
               </ButtonToolbar>
             </div>
           </div>
+          </Sticky>
         </FlexboxGrid.Item>
-        <FlexboxGrid.Item componentClass={Col} colspan={24} align="bottom">
+        <FlexboxGrid.Item componentClass={Col} xs={24} md={24} align="bottom">
           <div className="thanks-slider-wrap">
-          <Swiper spaceBetween={5} slidesPerView={1}>
-            <SwiperSlide>
+          {/* <Swiper spaceBetween={5} slidesPerView={1}>
+            <SwiperSlide> */}
               <Grid fluid>
                 <Row gutter={16}>
-                {Forests.content?.wallpaperList.map((d, i) =>
-                  <Col key={i} xs={12} md={4} className="wallpaper-thumbnail-col" onClick={()=>setDownload(d)}>
+                {current.content?.wallpaperList.map((d, i) =>
+                  <Col key={i} xs={12} md={6} className="wallpaper-thumbnail-col" onClick={()=>setDownload(d)}>
                     <div className="img wallpaper-thumbnail wallpaper-thumbnail-mobile" style={{backgroundImage: `url(${d})`}}></div>
                   </Col>
                 )}
                 </Row>
               </Grid>
-            </SwiperSlide>
-          </Swiper>
+            {/* </SwiperSlide>
+          </Swiper> */}
           </div>
         </FlexboxGrid.Item>
       </FlexboxGrid>
-      {/* <a href="#" className="start-btn cta-custom-display">
-        <span>
-          {" "}
-          立即聯署
-        </span>
-      </a> */}
-      </div>
+      {displayCate && <div className="cate-switcher">
+        <Grid fluid>
+          <Row gutter={16}>
+            <Col xs={8} onClick={()=>handleSwitchDownload(Arctic)}><Button color="yellow" appearance='default' block><b>Arctic</b></Button></Col>
+            <Col xs={8} onClick={()=>handleSwitchDownload(Forests)}><Button color="orange" appearance='default' block><b>Forests</b></Button></Col>
+            <Col xs={8} onClick={()=>handleSwitchDownload(Oceans)}><Button color="cyan" appearance='default' block><b>Oceans</b></Button></Col>
+          </Row>
+        </Grid>
+      </div>}
+    </div>
   );
 };
 
