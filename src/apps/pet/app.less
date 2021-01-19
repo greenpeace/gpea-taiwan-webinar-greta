@@ -34,7 +34,7 @@ h1, h2, h3, h4, h5, h6{
 /* Thanks screen */
 .custom-main{
   .full-height{
-    margin-right: -75px;
+    // margin-right: -75px;
   }
 }
 
@@ -53,6 +53,10 @@ h1, h2, h3, h4, h5, h6{
 
 .thanks-content{
   padding: 0 30px;
+  text-align: left;
+  h1{
+    margin-bottom: 10px;
+  }
   p{
     font-size: 1rem;
     line-height: 1.75rem;
@@ -61,12 +65,6 @@ h1, h2, h3, h4, h5, h6{
 
 .wallpaper-thumbnail{
   padding: 5px 0;
-}
-
-.thanks-download-image-wrap{
-  img{
-    padding-bottom: 30px;
-  }
 }
 
 .thanks-slider-wrap{
@@ -276,6 +274,12 @@ a.btn:hover{
   left: 7%;
 }
 
+.thanks-download-image-wrap{
+  img{
+    padding-bottom: 30px;
+  }
+}
+
 @media only screen and (min-width: 1065px){
   .header-contacts{
     display: block; 
@@ -330,11 +334,71 @@ a.btn:hover{
 }
 
 @media screen and (max-width:564px){
+  #wrapper{
+    top: 55px;
+  }
+
+  .thanks-slider-wrap{
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+
+  .thanks-mobile-background-image{
+    background-position: center;
+    background-size: cover;
+    opacity: .3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+  }
+
+  .thanks-download-image-wrap{
+    height: 380px;
+    margin: 15px 0;
+    padding: 0 15px;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img{
+      width: 90%;
+      padding-bottom: 0px;
+      position: relative;
+      z-index: 3;
+    }
+    .mobile-download{
+      position: absolute;
+      z-index: 3;
+      bottom: 15px;
+      right: 15px;
+    }
+  }
+
+  .thanks-content,
+  .thanks-slider-wrap{
+    padding: 0 30px;
+  }
+
+  .wallpaper-thumbnail-mobile{
+    height:100%;
+    background-size: cover;
+  }
+
+  .wallpaper-thumbnail-col{
+    height: 160px;
+    margin-bottom: 15px;
+  }
+
   .main-header, .share-btn{
     height: 55px;
   }
-  #wrapper{
-    top: 55px;
+  .main-header{
+    width: 100%;
   }
   .share-btn span{
     top: 22px;
@@ -353,6 +417,13 @@ a.btn:hover{
   .half-hero-wrap h4{
     font-size: 1rem;
   }
+
+  .custom-main{
+    .full-height{
+      height: auto;
+    }
+  }
+
   .overlay{
     opacity: .5;
   }
