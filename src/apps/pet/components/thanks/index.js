@@ -4,6 +4,7 @@ import {
   FlexboxGrid,
   ButtonToolbar,
   Button,
+  Divider,
   IconButton,
   Icon,
   fluid,
@@ -61,12 +62,8 @@ const Thanks = () => {
 
   return (
     <div className="show-grid full-height">
-      <FlexboxGrid
-        align="middle"
-        justify="space-around"
-        className="full-height"
-      >
-        <FlexboxGrid.Item componentClass={Col} xs={24} md={9}>
+      <FlexboxGrid align="middle" className="full-height">
+        <FlexboxGrid.Item componentClass={Col} xs={24} md={10}>
           <div className="thanks-content">
             <h2>感謝您的下載！</h2>
             <p>您願意進一步行動，捐助支持綠色和平更多環境項目嗎？</p>
@@ -98,16 +95,28 @@ const Thanks = () => {
                 </Col>
               </Row>
             </Grid>
+            <Divider />
+            <div className="cate-switcher">
+              <p className="cate-headline">揀選你喜愛的環境照片</p>
+              <Grid fluid className="cate-grid">
+                <Row gutter={16}>
+                  <Col xs={8} onClick={() => handleSwitchDownload(Arctic)}>
+                    <b>北極</b>
+                  </Col>
+                  <Col xs={8} onClick={() => handleSwitchDownload(Forests)}>
+                    <b>森林</b>
+                  </Col>
+                  <Col xs={8} onClick={() => handleSwitchDownload(Oceans)}>
+                    <b>海洋</b>
+                  </Col>
+                </Row>
+              </Grid>
+            </div>
           </div>
         </FlexboxGrid.Item>
-        <FlexboxGrid.Item
-          componentClass={Col}
-          xs={24}
-          md={10}
-          style={{ padding: 0 }}
-        >
+        <FlexboxGrid.Item componentClass={Col} xs={24} md={10}>
           <Sticky
-            className="mobile-sticky"
+            className="thanks-download-sticky mobile-sticky"
             topOffset={60}
             onFixedToggle={() => setDisplayCate(!displayCate)}
           >
@@ -117,6 +126,7 @@ const Thanks = () => {
                 className="thanks-mobile-background-image"
                 style={{ backgroundImage: `url(${download})` }}
               ></div>
+
               <div className="mobile-download">
                 <ButtonToolbar>
                   <IconButton
@@ -137,7 +147,7 @@ const Thanks = () => {
             {/* <Swiper spaceBetween={5} slidesPerView={1}>
             <SwiperSlide> */}
             <Grid fluid>
-              <Row gutter={12}>
+              <Row gutter={16}>
                 {current.content?.wallpaperList.map((d, i) => (
                   <Col
                     key={i}
@@ -159,6 +169,7 @@ const Thanks = () => {
           </div>
         </FlexboxGrid.Item>
       </FlexboxGrid>
+      {/*
       {displayCate && (
         <div className="cate-switcher">
           <Grid fluid>
@@ -182,6 +193,7 @@ const Thanks = () => {
           </Grid>
         </div>
       )}
+      */}
     </div>
   );
 };

@@ -27,7 +27,7 @@ let App = ({ loading, initFormState, fakeSubmit, submitted }) => {
   }, []);
 
   return (
-    <div className="App prose lg:prose-xl">
+    <div className="App">
       {loading && <Spinner />}
       <Main />
       <div className="custom-form-wrap">

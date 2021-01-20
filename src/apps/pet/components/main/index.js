@@ -1,18 +1,20 @@
-import React from 'react';
+import React from "react";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import { connect } from "react-redux";
 import Header from "apps/pet/components/header";
 import Thanks from "apps/pet/components/thanks";
 import Content from "./contentScreen";
 
-const Index = ({submitted}) => {
+const Index = ({ submitted }) => {
   return (
     <div id="main" className={submitted ? "custom-main" : ""}>
       <Header />
       <div id="wrapper">
         <div className="content full-height" data-pagetitle="Home slider">
           <div className="fl-wrap full-height hero-conatiner">
-            {submitted ? <Thanks/> : <Content/>}
+            <article className="prose lg:prose-lg">
+              {submitted ? <Thanks /> : <Content />}
+            </article>
           </div>
         </div>
       </div>
@@ -23,7 +25,7 @@ const Index = ({submitted}) => {
 const mapStateToProps = ({ theme }) => {
   return {
     theme: theme,
-    submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS
+    submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
   };
 };
 
