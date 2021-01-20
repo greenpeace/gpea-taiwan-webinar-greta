@@ -128,7 +128,11 @@ const Thanks = ({ selectedImage }) => {
             onFixedToggle={() => setDisplayCate(!displayCate)}
           >
             <div className="thanks-download-image-wrap">
-              <img src={download} className="img" />
+              <img
+                src={process.env.PUBLIC_URL + download}
+                className="img"
+                alt=""
+              />
               <div
                 className="thanks-mobile-background-image"
                 style={{
