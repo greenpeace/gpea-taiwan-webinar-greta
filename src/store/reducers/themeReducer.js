@@ -6,6 +6,7 @@ const initState = {
   displayForm: false,
   displayPanel: false,
   lastAction: null,
+  submitted: false
 };
 
 const themeReducer = (state = initState, action) => {
@@ -40,6 +41,7 @@ const themeReducer = (state = initState, action) => {
       return {
         ...state,
         lastAction: action.type,
+        submitted: true
       };
 
     case Actions.SUBMIT_FORM_FAIL:
@@ -49,6 +51,11 @@ const themeReducer = (state = initState, action) => {
       };
 
     case Actions.INIT_FORM_STATE:
+      return {
+        ...initState,
+        lastAction: action.type,
+      };
+    case Actions.INIT_STATE:
       return {
         ...initState,
         lastAction: action.type,

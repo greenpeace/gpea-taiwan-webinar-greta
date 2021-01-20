@@ -7,14 +7,14 @@ import Content from "./contentScreen";
 import Panel from "../../../../components/panel";
 import RegistrationForm from "../../../../components/form/registrationForm";
 
-const Index = ({ initFormState, fakeSubmit, submitted, petition }) => {
+const Index = ({ initState, fakeSubmit, submitted, petition }) => {
   useEffect(() => {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     if (urlParams.get("page") === "thanks") {
       fakeSubmit();
     } else {
-      initFormState();
+      initState();
     }
   }, []);
 
@@ -41,7 +41,7 @@ const Index = ({ initFormState, fakeSubmit, submitted, petition }) => {
           <RegistrationForm />
         )}
       </div>
-      <Panel />
+      <Panel closePanel={submitted}/>
     </>
   );
 };
@@ -50,17 +50,17 @@ const mapStateToProps = ({ theme, petition }) => {
   return {
     theme: theme,
     petition: petition,
-    submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
+    submitted: theme.submitted,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    initFormState: () => {
-      dispatch({ type: themeActions.INIT_FORM_STATE });
-    },
     fakeSubmit: () => {
       dispatch({ type: themeActions.SUBMIT_FORM_SUCCESS });
+    },
+    initState: () => {
+      dispatch({ type: themeActions.INIT_STATE });
     },
   };
 };
