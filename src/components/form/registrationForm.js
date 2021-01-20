@@ -126,10 +126,16 @@ let RegistrationForm = ({
           <Grid fluid>
             <Row className="show-grid">
               <Col xs={24}>
-                <div className="form-header">{formContent.form_header}</div>
-                <div className="form-description">
-                  {formContent.form_description}
-                </div>
+                {formContent.form_header && (
+                  <div className="form-header">
+                    <h2>{formContent.form_header}</h2>
+                  </div>
+                )}
+                {formContent.form_description && (
+                  <div className="form-description">
+                    <p>{formContent.form_description}</p>
+                  </div>
+                )}
               </Col>
             </Row>
             <Row className="show-grid">

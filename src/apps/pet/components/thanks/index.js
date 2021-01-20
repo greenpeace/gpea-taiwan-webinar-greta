@@ -23,7 +23,7 @@ import wallpaper from "../../../../data/wallpaper.json";
 // install Swiper components
 SwiperCore.use([Scrollbar, A11y]);
 
-const Thanks = ({selectedImage}) => {
+const Thanks = ({ selectedImage }) => {
   const [Arctic, setArctic] = useState([]);
   const [Forests, setForests] = useState([]);
   const [Oceans, setOceans] = useState([]);
@@ -53,7 +53,7 @@ const Thanks = ({selectedImage}) => {
   const handleSetDownload = (d) => {
     setDownload(d);
     selectedImage(d);
-  }
+  };
 
   useEffect(() => {
     setArctic(wallpaper.data.find((d) => d.issue === "Arctic"));
@@ -211,7 +211,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     selectedImage: (src) => {
       dispatch({ type: themeActions.SWITCH_SELECTED_IMAGE, src });
-    }
+    },
   };
 };
 
