@@ -3,17 +3,8 @@ import * as themeActions from "store/actions/action-types/theme-actions";
 import { connect } from "react-redux";
 import {
   FlexboxGrid,
-  ButtonToolbar,
-  Button,
-  IconButton,
-  Icon,
-  fluid,
-  gutter,
-  Row,
   Col,
-  Grid,
 } from "rsuite";
-import SlideScreen from "./slideScreen";
 import Banner from "../../images/wallpaper/wallpaper_banner.jpg";
 
 const Content = ({ togglePanel }) => {
@@ -50,7 +41,6 @@ const Content = ({ togglePanel }) => {
         </FlexboxGrid>
       </div>
 
-      {/** TODO: Mobile form button **/}
       <a
         href="#"
         className="start-btn cta-custom-display"

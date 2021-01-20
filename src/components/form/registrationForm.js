@@ -258,7 +258,7 @@ let RegistrationForm = ({
       )}
       <div className="copy-right">
         <span>
-          <a href="https://www.greenpeace.org/hk" target="_blank">
+          <a href="https://www.greenpeace.org/hk" target="_blank" rel="noreferrer">
             {formContent.link_policy}
           </a>
         </span>

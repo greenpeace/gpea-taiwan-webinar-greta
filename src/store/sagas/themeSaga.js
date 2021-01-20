@@ -1,4 +1,4 @@
-import { call, delay, put, select } from "redux-saga/effects";
+import { call, put } from "redux-saga/effects";
 import qs from "qs";
 import axios from "axios";
 import * as Actions from "../actions/action-types/theme-actions";

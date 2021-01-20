@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import * as themeActions from "store/actions/action-types/theme-actions";
 
@@ -18,7 +18,7 @@ let App = ({ loading }) => {
   const [blockScroll, allowScroll] = ScrollHandler();
   useEffect(() => {
     loading ? blockScroll() : allowScroll();
-  }, [loading]);
+  }, [loading, blockScroll, allowScroll]);
 
   return (
     <div className="App">

@@ -1,27 +1,18 @@
 import React, { useState, useEffect } from "react";
 import {
   FlexboxGrid,
-  ButtonToolbar,
   Button,
   Divider,
-  IconButton,
-  Icon,
-  fluid,
-  gutter,
   Row,
   Col,
   Grid,
 } from "rsuite";
 import * as themeActions from "apps/pet/actions/index";
 import { connect } from "react-redux";
-import SwiperCore, { Scrollbar, A11y } from "swiper";
-import axios from "axios";
+// import axios from "axios";
 import Sticky from "react-sticky-el";
-import fileDownload from "js-file-download";
+// import fileDownload from "js-file-download";
 import wallpaper from "../../../../data/wallpaper.json";
-
-// install Swiper components
-SwiperCore.use([Scrollbar, A11y]);
 
 const Thanks = ({ selectedImage }) => {
   const [Arctic, setArctic] = useState([]);
@@ -33,15 +24,15 @@ const Thanks = ({ selectedImage }) => {
     "/wallpaper/Arctic/GP0OLY_Web_size.jpg"
   );
 
-  const handleDownload = (url, filename) => {
-    axios
-      .get(url, {
-        responseType: "blob",
-      })
-      .then((res) => {
-        fileDownload(res.data, filename);
-      });
-  };
+  // const handleDownload = (url, filename) => {
+  //   axios
+  //     .get(url, {
+  //       responseType: "blob",
+  //     })
+  //     .then((res) => {
+  //       fileDownload(res.data, filename);
+  //     });
+  // };
 
   const handleSwitchDownload = (cate) => {
     const getFirstItem = cate.content?.wallpaperList[0];
@@ -56,10 +47,11 @@ const Thanks = ({ selectedImage }) => {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     setArctic(wallpaper.data.find((d) => d.issue === "Arctic"));
     setForests(wallpaper.data.find((d) => d.issue === "Forests"));
     setOceans(wallpaper.data.find((d) => d.issue === "Oceans"));
-  }, [wallpaper]);
+  }, []);
 
   useEffect(() => {
     const getFirstItem = Arctic.content?.wallpaperList[0];
@@ -122,7 +114,6 @@ const Thanks = ({ selectedImage }) => {
           </div>
         </FlexboxGrid.Item>
         <FlexboxGrid.Item componentClass={Col} xs={24} sm={14} md={12} lg={12}>
-        
           <Sticky
             className="thanks-download-sticky mobile-sticky"
             topOffset={0}

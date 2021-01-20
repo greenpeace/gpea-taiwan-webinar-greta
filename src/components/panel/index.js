@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import SlidingPane from "react-sliding-pane";
 import RegistrationForm from "../form/registrationForm"
 import { connect } from "react-redux";
@@ -17,11 +17,6 @@ function usePrevious(value) {
 
 
 const Panel = ({theme, closePanel, togglePanel}) => {
-  const [state, setState] = useState({
-    isPaneOpen: false,
-    isPaneOpenLeft: false,
-    isPaneOpenBottom: false
-  });
   const prevClosePanel = usePrevious(closePanel)
 
   useEffect(() => {
@@ -31,7 +26,7 @@ const Panel = ({theme, closePanel, togglePanel}) => {
     if(closePanel !== prevClosePanel && closePanel === true){
       togglePanel(false)
     }
-  }, [closePanel]);
+  }, [prevClosePanel, togglePanel, closePanel]);
 
   return (
     <div>
@@ -39,7 +34,6 @@ const Panel = ({theme, closePanel, togglePanel}) => {
           isOpen={theme.displayPanel}
           from="bottom"
           width="100%"
-          onRequestClose={() => setState({ isPaneOpenBottom: false })}
         >
           <RegistrationForm/>
         </SlidingPane>

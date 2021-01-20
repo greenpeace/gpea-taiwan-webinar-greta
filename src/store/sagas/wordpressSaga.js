@@ -1,4 +1,4 @@
-import { all, call, delay, put, take, takeLatest } from "redux-saga/effects";
+import { call, put } from "redux-saga/effects";
 import axios from "axios";
 import * as Actions from "../actions/action-types/wordpress-actions";
 
@@ -18,7 +18,6 @@ export function* fetchWordpressContent() {
     } else {
       yield put({ type: Actions.FETCH_WORDPRESS_CONTENT_FAIL });
     }
-    // yield put({ type: Actions.FETCH_HOME_PAGE_SUCCESS, data });
   } catch (e) {
     yield put({ type: Actions.FETCH_WORDPRESS_CONTENT_FAIL });
   }
