@@ -131,7 +131,9 @@ const Thanks = ({ selectedImage }) => {
               <img src={download} className="img" />
               <div
                 className="thanks-mobile-background-image"
-                style={{ backgroundImage: `url(${download})` }}
+                style={{
+                  backgroundImage: `url(${process.env.PUBLIC_URL}${download})`,
+                }}
               ></div>
 
               {/* <div className="mobile-download">
