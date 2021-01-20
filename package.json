@@ -71,6 +71,8 @@
   },
   "devDependencies": {
     "eslint-plugin-import": "^2.22.1",
+    "less": "^4.1.0",
+    "less-loader": "^7.2.1",
     "prettier": "2.2.1"
   }
 }

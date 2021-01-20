@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { hot } from "react-hot-loader/root";
 import { connect } from "react-redux";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import "App.less";
@@ -36,4 +35,4 @@ const mapStateToProps = ({ theme }) => {
 
 App = connect(mapStateToProps)(App);
 
-export default hot(App);
+export default App;
