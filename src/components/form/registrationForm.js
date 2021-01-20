@@ -241,7 +241,6 @@ let RegistrationForm = ({
                   <button
                     type="submit"
                     className="custom-button custom-button-active"
-                    style={{ marginTop: "30px" }}
                   >
                     {formContent.submit_text}
                   </button>
