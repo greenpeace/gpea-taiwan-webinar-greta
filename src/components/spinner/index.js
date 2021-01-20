@@ -24,11 +24,12 @@ const wrap = {
   left:0,
   right:0,
   background: 'rgba(26, 28, 38, .9)',
-  zIndex: 99999999
+  zIndex: 99999999,
 }
 
-const Spinner = () => (
-  <div className="sweet-loading" style={wrap}>
+const Spinner = () => {
+  return(
+    <div className="sweet-loading" style={wrap}>
     <div className="clip-wrap" style={clipWrap}>
       <ClipLoader
         css={override}
@@ -40,6 +41,7 @@ const Spinner = () => (
       處理中...
     </div>
   </div>
-)
+  )
+}
 
 export default Spinner;

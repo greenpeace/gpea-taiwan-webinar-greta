@@ -12,8 +12,14 @@ import "react-sliding-pane/dist/react-sliding-pane.css";
 import "form.less";
 import Main from "apps/pet/components/main";
 import Spinner from "components/spinner";
+import ScrollHandler from "components/spinner/scrollHandler"
 
 let App = ({ loading }) => {
+  const [blockScroll, allowScroll] = ScrollHandler();
+  useEffect(() => {
+    loading ? blockScroll() : allowScroll()
+  }, [loading])
+  
   return (
     <div className="App">
       {loading && <Spinner />}
