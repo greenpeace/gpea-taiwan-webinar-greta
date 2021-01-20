@@ -163,7 +163,9 @@ const Thanks = ({ selectedImage }) => {
                   >
                     <div
                       className="img wallpaper-thumbnail wallpaper-thumbnail-mobile"
-                      style={{ backgroundImage: `url(${d})` }}
+                      style={{
+                        backgroundImage: `url(${process.env.PUBLIC_URL}${d})`,
+                      }}
                     ></div>
                   </Col>
                 ))}
@@ -172,31 +174,6 @@ const Thanks = ({ selectedImage }) => {
           </div>
         </FlexboxGrid.Item>
       </FlexboxGrid>
-      {/*
-      {displayCate && (
-        <div className="cate-switcher">
-          <Grid fluid>
-            <Row gutter={16}>
-              <Col xs={8} onClick={() => handleSwitchDownload(Arctic)}>
-                <Button color="yellow" appearance="default" block>
-                  <b>Arctic</b>
-                </Button>
-              </Col>
-              <Col xs={8} onClick={() => handleSwitchDownload(Forests)}>
-                <Button color="orange" appearance="default" block>
-                  <b>Forests</b>
-                </Button>
-              </Col>
-              <Col xs={8} onClick={() => handleSwitchDownload(Oceans)}>
-                <Button color="cyan" appearance="default" block>
-                  <b>Oceans</b>
-                </Button>
-              </Col>
-            </Row>
-          </Grid>
-        </div>
-      )}
-      */}
     </div>
   );
 };
