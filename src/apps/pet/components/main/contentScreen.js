@@ -15,7 +15,7 @@ import {
 } from "rsuite";
 import Banner from "../../images/wallpaper/wallpaper_banner.jpg";
 
-const Content = () => {
+const Content = ({togglePanel}) => {
   return (
     <>
       <div className="main-content-wrap">
@@ -47,7 +47,7 @@ const Content = () => {
       </div>
 
       {/** TODO: Mobile form button **/}
-      <a href="#" className="start-btn cta-custom-display">
+      <a href="#" className="start-btn cta-custom-display" onClick={()=>togglePanel(true)}>
         <span> 立即聯署</span>
       </a>
     </>
@@ -61,4 +61,12 @@ const mapStateToProps = ({ theme }) => {
   };
 };
 
-export default connect(mapStateToProps)(Content);
+const mapDispatchToProps = dispatch => {
+  return {
+    togglePanel: (bol) => {
+      dispatch({ type: themeActions.TOGGLE_PANEL, bol });
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Content);
