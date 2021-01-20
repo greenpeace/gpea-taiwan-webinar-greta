@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { connect } from "react-redux";
 import * as themeActions from "store/actions/action-types/theme-actions";
-import { Schema, Button } from "rsuite";
+import { Schema } from "rsuite";
 import {
   Form,
   FormGroup,
@@ -13,52 +13,87 @@ import {
 } from "rsuite";
 import { Grid, Row, Col } from "rsuite";
 import ProgressBar from "apps/petition/components/progress";
+import SubmittedForm from "./submittedForm";
+import content from "./content.json";
 
-let RegistrationForm = ({ togglePanel, toggleTheme, submitForm, submitted }) => {
+let RegistrationForm = ({
+  togglePanel,
+  toggleTheme,
+  submitForm,
+  submitted,
+  formContent = content,
+}) => {
   const refForm = useRef();
   const refCheckbox = useRef();
   const [numSignupTarget, setNumSignupTarget] = useState(100000);
   const [numResponses, setNumResponses] = useState(0);
-  const progress = [{ bgcolor: "#65CC02", completed: numResponses, target: numSignupTarget }];
+  const [mobileCountryCode, setMobileCountryCode] = useState([
+    { label: "+852", value: "852" },
+    { label: "+853", value: "853" },
+  ]);
+  const [birthDateYear, setBirthDateYear] = useState([]);
   const { StringType, NumberType } = Schema.Types;
+  const progress = [
+    { bgcolor: "#65CC02", completed: numResponses, target: numSignupTarget },
+  ];
   const model = Schema.Model({
-    Email: StringType().isEmail("請填上有效電郵地址").isRequired("請填寫資料"),
-    LastName: StringType().isRequired("請填寫資料"),
-    FirstName: StringType().isRequired("請填寫資料"),
-    MobileCountryCode: StringType().isRequired("請填寫資料"),
+    Email: StringType()
+      .isEmail(formContent.invalid_email_alert)
+      .isRequired(formContent.empty_data_alert),
+    LastName: StringType().isRequired(formContent.empty_data_alert),
+    FirstName: StringType().isRequired(formContent.empty_data_alert),
+    MobileCountryCode: StringType().isRequired(formContent.empty_data_alert),
     MobilePhone: NumberType()
-      .isInteger("請輸入有效格式")
-      .isRequired("請填寫資料")
+      .isInteger(formContent.invalid_format_alert)
+      .isRequired(formContent.empty_data_alert)
       .addRule((value) => {
         return value.toString().length === 8;
-      }, "請輸入8位數字"),
-    Birthdate: StringType().isRequired("請填寫資料"),
+      }, formContent.minimum_8_characters),
+    Birthdate: StringType().isRequired(formContent.empty_data_alert),
   });
 
   useEffect(() => {
-    setNumSignupTarget(document.getElementById('numSignupTarget').value)
-    setNumResponses(document.getElementById('numResponses').value)
+    setNumSignupTarget(document.getElementById("numSignupTarget").value);
+    setNumResponses(document.getElementById("numResponses").value);
+    let optionYear = [];
+
+    async function fetchOptionYear() {
+      let nowYear = new Date().getFullYear();
+      let targetYear = nowYear - 110;
+      for (var i = nowYear - 20; i >= targetYear; i--) {
+        await optionYear.push({ label: i, value: i.toString() });
+      }
+      setBirthDateYear(optionYear);
+    }
+    fetchOptionYear(optionYear);
   }, []);
 
   const TextField = (props) => {
     const { name, label, accepter, handleOnChange, ...rest } = props;
     return (
       <FormGroup>
-        <ControlLabel>{label} </ControlLabel>
+        {label && <ControlLabel>{label} </ControlLabel>}
         <FormControl name={name} accepter={accepter} {...rest} />
       </FormGroup>
     );
   };
 
-  const TextFieldOnly = (props) => {
-    const { name, accepter, handleOnChange, ...rest } = props;
-    return (
-      <FormGroup>
-        <FormControl name={name} accepter={accepter} {...rest} />
-      </FormGroup>
-    );
+  const closeAll = () => {
+    togglePanel(false);
+    toggleTheme(false);
   };
 
+  const handleSubmit = (isValid) => {
+    const OptIn = refCheckbox.current.state?.checked;
+    if (isValid) {
+      const { formValue } = refForm.current.state;
+      submitForm({
+        ...formValue,
+        OptIn,
+        Birthdate: `${formValue.Birthdate}-01-01`,
+      });
+    }
+  };
   class CustomField extends React.PureComponent {
     render() {
       const { name, message, label, accepter, error, ...props } = this.props;
@@ -75,19 +110,6 @@ let RegistrationForm = ({ togglePanel, toggleTheme, submitForm, submitted }) => 
     }
   }
 
-  const closeAll = () => {
-    togglePanel(false);
-    toggleTheme(false);
-  };
-
-  const handleSubmit = (isValid) => {
-    const OptIn = refCheckbox.current.state?.checked;
-    if (isValid) {
-      const { formValue } = refForm.current.state;
-      submitForm({ ...formValue, OptIn, Birthdate: `${formValue.Birthdate}-01-01` });
-    }
-  };
-
   return (
     <div className="custom-gp-form">
       <div className="form-close" onClick={() => closeAll()}>
@@ -97,200 +119,154 @@ let RegistrationForm = ({ togglePanel, toggleTheme, submitForm, submitted }) => 
           color="lime"
         />
       </div>
-      {submitted ? 
-      <div className="submitted-content">
-      <Grid fluid>
-        <Row className="show-grid">
-          <Col xs={24}>
-            <div className="form-header">感謝您加入聯署!</div>
-            <div className="form-description">
-              您願意進一步xxxx....
-            </div>
-            <div className="sp-line"></div>
-          </Col>
-        </Row>
-        {/* <Row className="show-grid">
-          <Col xs={24}>
-            {progress.map((item, idx) => (
-              <ProgressBar
-                key={idx}
-                bgcolor={item.bgcolor}
-                completed={item.completed}
-                target={item.target}
-              />
-            ))}
-            <div className="sp-line"></div>
-          </Col>
-        </Row> */}
-        <Row className="show-grid">
-          <Col xs={24}>
-            <Button color="orange" block href="https://www.greenpeace.org/hongkong" target="_blank">支持我們</Button>
-            <Button color="green" block href="https://www.greenpeace.org/hongkong" target="_blank">分享出去</Button>
-          </Col>
-        </Row>
-      </Grid>
-      </div> : <>
-      <Grid fluid>
-        <Row className="show-grid">
-          <Col xs={24}>
-            <div className="form-header">守護香港未來</div>
-            <div className="form-description">
-              我們需要大家的力量，一同發聲，促請政府優先發展棕地，放棄不負責任的「明日大嶼」填海計劃
-            </div>
-          </Col>
-        </Row>
-        <Row className="show-grid">
-          <Col xs={24}>
-            {progress.map((item, idx) => (
-              <ProgressBar
-                key={idx}
-                bgcolor={item.bgcolor}
-                completed={item.completed}
-                target={item.target}
-              />
-            ))}
-            <div className="sp-line"></div>
-          </Col>
-        </Row>
-      </Grid>
-      <Form model={model} ref={refForm} onSubmit={(d) => handleSubmit(d)}>
-        <Grid fluid>
-          <Row className="show-grid">
-            <Col xs={24}>
-              <FormGroup>
-                <TextField
-                  name="Email"
-                  label="電郵地址 Email Address"
-                  autoComplete="off"
-                />
-              </FormGroup>
-            </Col>
-          </Row>
-
-          <Row className="show-grid">
-            <Col xs={12}>
-              <FormGroup>
-                <TextField
-                  name="LastName"
-                  label="姓氏 Last Name"
-                  autoComplete="off"
-                />
-              </FormGroup>
-            </Col>
-            <Col xs={12}>
-              <FormGroup>
-                <TextField
-                  name="FirstName"
-                  label="名字 First Name"
-                  autoComplete="off"
-                />
-              </FormGroup>
-            </Col>
-          </Row>
-
-          <Row className="show-grid">
-            <Col xs={24}>
-              <FormGroup>
-                <ControlLabel>手提號碼 Phone Number</ControlLabel>
-                <Col xs={8} style={{ paddingLeft: 0 }}>
-                  <CustomField
-                    name="MobileCountryCode"
-                    searchable={false}
-                    cleanable={false}
-                    placeholder="請選擇"
-                    accepter={SelectPicker}
-                    data={[
-                      {
-                        label: "+852",
-                        value: "852",
-                      },
-                      {
-                        label: "+853",
-                        value: "853",
-                      },
-                    ]}
+      {submitted ? (
+        <SubmittedForm />
+      ) : (
+        <>
+          <Grid fluid>
+            <Row className="show-grid">
+              <Col xs={24}>
+                <div className="form-header">{formContent.form_header}</div>
+                <div className="form-description">
+                  {formContent.form_description}
+                </div>
+              </Col>
+            </Row>
+            <Row className="show-grid">
+              <Col xs={24}>
+                {progress.map((item, idx) => (
+                  <ProgressBar
+                    key={idx}
+                    bgcolor={item.bgcolor}
+                    completed={item.completed}
+                    target={item.target}
                   />
-                </Col>
-                <Col xs={16} style={{ paddingRight: 0 }}>
+                ))}
+                <div className="sp-line"></div>
+              </Col>
+            </Row>
+          </Grid>
+          <Form model={model} ref={refForm} onSubmit={(d) => handleSubmit(d)}>
+            <Grid fluid>
+              <Row className="show-grid">
+                <Col xs={24}>
                   <FormGroup>
-                    <TextFieldOnly
-                      type="number"
-                      name="MobilePhone"
-                      label="手提號碼 Phone Number"
+                    <TextField
+                      name="Email"
+                      label={formContent.label_email}
                       autoComplete="off"
                     />
                   </FormGroup>
                 </Col>
-              </FormGroup>
-            </Col>
-          </Row>
+              </Row>
 
-          <Row className="show-grid">
-            <Col xs={24}>
-              <FormGroup>
-                <ControlLabel>出生年份 Year Of Birth</ControlLabel>
-                <CustomField
-                  name="Birthdate"
-                  searchable={false}
-                  cleanable={false}
-                  placeholder="請選擇"
-                  accepter={SelectPicker}
-                  data={[
-                    {
-                      label: "2000",
-                      value: "2000",
-                    },
-                    {
-                      label: "2019",
-                      value: "2019",
-                    },
-                  ]}
-                />
-              </FormGroup>
-            </Col>
-          </Row>
+              <Row className="show-grid">
+                <Col xs={12}>
+                  <FormGroup>
+                    <TextField
+                      name="LastName"
+                      label={formContent.label_last_name}
+                      autoComplete="off"
+                    />
+                  </FormGroup>
+                </Col>
+                <Col xs={12}>
+                  <FormGroup>
+                    <TextField
+                      name="FirstName"
+                      label={formContent.label_first_name}
+                      autoComplete="off"
+                    />
+                  </FormGroup>
+                </Col>
+              </Row>
 
-          <Row className="show-grid">
-            <Col xs={24}>
-              <div className="custom-form-reminder">
-                <Checkbox name="OptIn" ref={refCheckbox} defaultChecked>
-                  我願意收到綠色和平發送的通訊，讓我能掌握環保工作的最新脈動！綠色和平尊重並保障您的個人資料，您隨時可取消訂閱，請參考
-                  私隱政策。
-                </Checkbox>
-              </div>
-            </Col>
-          </Row>
+              <Row className="show-grid">
+                <Col xs={24}>
+                  <FormGroup>
+                    <ControlLabel>{formContent.label_phone}</ControlLabel>
+                    <Col xs={8} style={{ paddingLeft: 0 }}>
+                      <CustomField
+                        name="MobileCountryCode"
+                        searchable={false}
+                        cleanable={false}
+                        placeholder={formContent.select}
+                        accepter={SelectPicker}
+                        data={mobileCountryCode}
+                      />
+                    </Col>
+                    <Col xs={16} style={{ paddingRight: 0 }}>
+                      <FormGroup>
+                        <TextField
+                          type="number"
+                          name="MobilePhone"
+                          autoComplete="off"
+                        />
+                      </FormGroup>
+                    </Col>
+                  </FormGroup>
+                </Col>
+              </Row>
 
-          <Row className="show-grid">
-            <Col xs={24}>
-              <button
-                type="submit"
-                className="custom-button custom-button-active"
-                style={{ marginTop: "30px" }}
-              >
-                提交聯署
-              </button>
-            </Col>
-          </Row>
-        </Grid>
-      </Form>
-      </>}
+              <Row className="show-grid">
+                <Col xs={24}>
+                  <FormGroup>
+                    <ControlLabel>
+                      {formContent.label_year_of_birth}
+                    </ControlLabel>
+                    <CustomField
+                      name="Birthdate"
+                      searchable={false}
+                      cleanable={false}
+                      placeholder={formContent.select}
+                      accepter={SelectPicker}
+                      data={birthDateYear}
+                    />
+                  </FormGroup>
+                </Col>
+              </Row>
+
+              <Row className="show-grid">
+                <Col xs={24}>
+                  <div className="custom-form-reminder">
+                    <Checkbox name="OptIn" ref={refCheckbox} defaultChecked>
+                      {formContent.form_remind}
+                    </Checkbox>
+                  </div>
+                </Col>
+              </Row>
+
+              <Row className="show-grid">
+                <Col xs={24}>
+                  <button
+                    type="submit"
+                    className="custom-button custom-button-active"
+                    style={{ marginTop: "30px" }}
+                  >
+                    {formContent.submit_text}
+                  </button>
+                </Col>
+              </Row>
+            </Grid>
+          </Form>
+        </>
+      )}
       <div className="copy-right">
         <span>
           <a href="https://www.greenpeace.org/hk" target="_blank">
-            私隱政策與個人資料收集聲明
+            {formContent.link_policy}
           </a>
         </span>
-        <span>© GREENPEACE 2021</span>
+        <span>{formContent.copy_right}</span>
       </div>
     </div>
   );
 };
 
-const mapStateToProps = ({theme }) => {
+const mapStateToProps = ({ theme }) => {
   return {
     theme: theme,
-    submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS
+    submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
   };
 };
 
