@@ -70,7 +70,7 @@ const Thanks = ({ selectedImage }) => {
   return (
     <div className="show-grid full-height">
       <FlexboxGrid align="middle" className="full-height">
-        <FlexboxGrid.Item componentClass={Col} xs={24} md={10}>
+        <FlexboxGrid.Item componentClass={Col} xs={24} sm={10} md={12} lg={10}>
           <div className="thanks-content">
             <h2>感謝您的下載！</h2>
             <p>您願意進一步行動，捐助支持綠色和平更多環境項目嗎？</p>
@@ -121,7 +121,8 @@ const Thanks = ({ selectedImage }) => {
             </div>
           </div>
         </FlexboxGrid.Item>
-        <FlexboxGrid.Item componentClass={Col} xs={24} md={12}>
+        <FlexboxGrid.Item componentClass={Col} xs={24} sm={14} md={12} lg={12}>
+        
           <Sticky
             className="thanks-download-sticky mobile-sticky"
             topOffset={0}
@@ -140,22 +141,24 @@ const Thanks = ({ selectedImage }) => {
                 }}
               ></div>
 
-              {/* <div className="mobile-download">
-                <ButtonToolbar>
+              <div className="mobile-download">
+                <a href={`${process.env.PUBLIC_URL}${download}`} download={download.split("/").pop()}>下載</a>
+                {/* <ButtonToolbar>
                   <IconButton
                     icon={<Icon icon="download" />}
-                    onClick={() => {
-                      handleDownload(download, download.split("/").pop());
+                    onClick={() => 
+                    {
+                      handleDownload(`${process.env.PUBLIC_URL}${download}`, download.split("/").pop());
                     }}
                   >
                     下載
                   </IconButton>
-                </ButtonToolbar>
-              </div> */}
+                </ButtonToolbar> */}
+              </div>
             </div>
           </Sticky>
         </FlexboxGrid.Item>
-        <FlexboxGrid.Item componentClass={Col} xs={24} md={10} align="bottom">
+        <FlexboxGrid.Item componentClass={Col} xs={24} sm={10} md={12} lg={10} align="bottom">
           <div className="thanks-slider-wrap">
             <Grid fluid>
               <Row gutter={16}>

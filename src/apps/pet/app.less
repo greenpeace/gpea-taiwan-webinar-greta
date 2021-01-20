@@ -24,7 +24,7 @@ body {
 
 #wrapper {
   right: 0;
-  top: 0;
+  top: 60px;
   left: 0;
 }
 
@@ -50,7 +50,6 @@ body {
   background-position: center;
   background-size: cover;
   opacity: 0.2;
-  background-image: url("https://cdn.shopify.com/s/files/1/0045/4875/5546/files/demo_v_tiny.jpg?v=1610593188");
 }
 
 .wallpaper-thumbnail {
@@ -75,6 +74,7 @@ body {
 
 .logo-holder {
   top: 50%;
+  left: 20px;
   position: absolute;
   transform: translateY(-50%);
   img {
@@ -235,11 +235,6 @@ a.btn:hover {
   margin-bottom: 15px;
 }
 
-.wallpaper-thumbnail-mobile {
-  height: 100%;
-  background-size: cover;
-}
-
 .thanks-slider-wrap {
   max-width: 780px;
   padding-top: 30px;
@@ -249,6 +244,19 @@ a.btn:hover {
 .sweet-loading{
   height: 100vh;
   position: fixed !important;
+}
+
+.wallpaper-thumbnail-mobile {
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+}
+
+.thanks-download-sticky {
+  position: fixed;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: inherit;
 }
 
 @media only screen and (min-width: 1065px) {
@@ -288,6 +296,17 @@ a.btn:hover {
       top: 24px;
     }
   }
+  .custom-main {
+    .full-height {
+      margin-right: 0px;
+      height: auto;
+    }
+  }
+
+  .cta-custom-display{
+    display: block;
+  }
+
 
   .copy-right {
     position: relative;
@@ -306,18 +325,19 @@ a.btn:hover {
     top: 55px;
   }
 
-  .custom-main {
-    .full-height {
-      margin-right: 0px;
-    }
-  }
-
   .mobile-sticky {
     > div {
       z-index: 9;
       background-color: #fff;
       padding: 8px 4px;
     }
+  }
+
+  .thanks-download-sticky {
+    position: relative;
+    top: initial;
+    transform: initial;
+    width: initial;
   }
 
   .thanks-slider-wrap {
@@ -364,21 +384,12 @@ a.btn:hover {
     }
   }
 
-  .wallpaper-thumbnail-mobile {
-    height: 100%;
-    background-size: cover;
-  }
-
   .main-header,
   .share-btn {
     height: 48px;
   }
   .main-header {
     width: 100%;
-  }
-
-  .cta-custom-display{
-    display: block;
   }
 
   .rs-input,
@@ -388,9 +399,6 @@ a.btn:hover {
 
   .share-btn span {
     top: 22px;
-  }
-  .logo-holder {
-    top: 50%;
   }
 
   .hero-slider_control-wrap {
@@ -403,13 +411,24 @@ a.btn:hover {
     padding: 0 15px;
   }
 
-  .custom-main {
-    .full-height {
-      height: auto;
-    }
-  }
-
   .overlay {
     opacity: 0.5;
+  }
+}
+
+// Thanks page right background
+@media screen and (min-width: 565px) and (max-width:1065px) {
+  .App{
+    .custom-form-wrap{
+      display: block;
+      width: 180px;
+      .custom-gp-form{
+        height: 100%;
+      }
+    }
+    .custom-main{
+      width: auto !important;
+      right: 180px !important;
+    }
   }
 }
