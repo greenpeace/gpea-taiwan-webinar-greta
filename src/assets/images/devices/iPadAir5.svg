@@ -1,0 +1,37 @@
+<svg width="1363" height="986" viewBox="0 0 1363 986" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Devices / Apple / iPad Air 5">
+<g id="Device Surround" filter="url(#filter0_dd)">
+<path d="M73.2662 980C35.0177 980 4.01123 948.997 4.01123 910.753L4.01119 72.2581C4.01119 34.0139 35.0177 3.01083 73.2662 3.01083L1289.75 3.01078C1327.99 3.01078 1359 34.0138 1359 72.2581L1359 910.753C1359 948.997 1327.99 980 1289.75 980L73.2662 980Z" fill="#3A4245"/>
+</g>
+<path id="Device BG" d="M73.266 973.979C38.3435 973.979 10.0332 945.671 10.0332 910.753L10.0332 72.2582C10.0332 37.3395 38.3435 9.03236 73.266 9.03236L1289.74 9.0323C1324.67 9.0323 1352.98 37.3395 1352.98 72.2581L1352.98 910.753C1352.98 945.671 1324.67 973.978 1289.74 973.978L73.266 973.979Z" fill="#121515"/>
+<g id="Device Buttons">
+<path id="Volume Up" fill-rule="evenodd" clip-rule="evenodd" d="M110.905 3.01074C110.905 1.34796 111.39 -2.1214e-08 111.989 -4.73828e-08L164.02 -2.32175e-06C164.619 -2.34792e-06 165.104 1.34795 165.104 3.01074L110.905 3.01074Z" fill="#121515"/>
+<path id="Volume Down" fill-rule="evenodd" clip-rule="evenodd" d="M175.643 3.01074C175.643 1.34796 176.142 -2.18033e-08 176.757 -4.8699e-08L230.234 -2.38625e-06C230.849 -2.41314e-06 231.348 1.34795 231.348 3.01074L175.643 3.01074Z" fill="#121515"/>
+<path id="Power" fill-rule="evenodd" clip-rule="evenodd" d="M4.01123 165.592C2.34825 165.592 1.00015 164.756 1.00015 163.725L1.00014 74.1251C1.00014 73.0942 2.34825 72.2585 4.01122 72.2585L4.01123 165.592Z" fill="#121515"/>
+</g>
+<g id="Screen">
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="61" y="60" width="1241" height="863">
+<path id="Screen Shape" d="M80.7937 922.796C69.9844 922.796 61.2217 914.034 61.2217 903.226L61.2216 79.7851C61.2216 68.977 69.9844 60.2153 80.7937 60.2153L1282.22 60.2152C1293.03 60.2152 1301.79 68.9769 1301.79 79.7851L1301.79 903.226C1301.79 914.034 1293.03 922.796 1282.22 922.796L80.7937 922.796Z" fill="white"/>
+</mask>
+<g mask="url(#mask0)">
+<path id="Screen [CHANGE ME]" d="M80.7937 922.796C69.9844 922.796 61.2217 914.034 61.2217 903.226L61.2216 79.7851C61.2216 68.977 69.9844 60.2153 80.7937 60.2153L1282.22 60.2152C1293.03 60.2152 1301.79 68.9769 1301.79 79.7851L1301.79 903.226C1301.79 914.034 1293.03 922.796 1282.22 922.796L80.7937 922.796Z" fill="white"/>
+</g>
+</g>
+</g>
+<defs>
+<filter id="filter0_dd" x="0.0112305" y="1.01074" width="1362.99" height="984.989" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+<feOffset/>
+<feGaussianBlur stdDeviation="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.0823529 0 0 0 0 0.25098 0 0 0 0.14 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+<feOffset dy="2"/>
+<feGaussianBlur stdDeviation="2"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.0823529 0 0 0 0 0.25098 0 0 0 0.05 0"/>
+<feBlend mode="normal" in2="effect1_dropShadow" result="effect2_dropShadow"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow" result="shape"/>
+</filter>
+</defs>
+</svg>

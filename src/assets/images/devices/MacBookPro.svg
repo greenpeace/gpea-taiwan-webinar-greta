@@ -1,0 +1,97 @@
+<svg width="2309" height="1380" viewBox="0 0 2309 1380" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Devices / MacBook Pro" filter="url(#filter0_d)">
+<g id="Shadow" filter="url(#filter1_f)">
+<path d="M275.94 1273.97H1994.14C2012.68 1273.97 2057.55 1278.82 2094.37 1284.82C2131.18 1290.81 2143.75 1295.66 2122.44 1295.66H147.643C126.336 1295.66 138.905 1290.81 175.718 1284.82C212.531 1278.82 257.402 1273.97 275.94 1273.97Z" fill="black" fill-opacity="0.4"/>
+</g>
+<g id="Screen">
+<g id="Outside Casing" filter="url(#filter2_dd)">
+<path d="M251.146 127.3C251.146 98.1419 251.146 83.5632 256.82 72.4264C261.811 62.6303 269.775 54.6658 279.57 49.6744C290.706 44 305.283 44 334.439 44H1934.56C1963.72 44 1978.29 44 1989.43 49.6744C1999.23 54.6658 2007.19 62.6303 2012.18 72.4264C2017.85 83.5632 2017.85 98.1419 2017.85 127.299V1173.32C2017.85 1202.47 2017.85 1217.05 2012.18 1228.19C2007.19 1237.98 1999.23 1245.95 1989.43 1250.94C1978.29 1256.61 1963.72 1256.61 1934.56 1256.61H334.439C305.284 1256.61 290.706 1256.61 279.57 1250.94C269.775 1245.95 261.811 1237.98 256.82 1228.19C251.146 1217.05 251.146 1202.47 251.146 1173.32V127.3Z" fill="#3A4245"/>
+</g>
+<path id="Rubber Edging" d="M255.484 124.697C255.484 97.969 255.484 84.6051 260.685 74.3964C265.261 65.4167 272.561 58.1159 281.54 53.5404C291.747 48.3389 305.11 48.3389 331.836 48.3389H1937.16C1963.89 48.3389 1977.25 48.3389 1987.46 53.5404C1996.44 58.1159 2003.74 65.4167 2008.31 74.3964C2013.52 84.6051 2013.52 97.969 2013.52 124.697V1175.92C2013.52 1202.65 2013.52 1216.01 2008.31 1226.22C2003.74 1235.2 1996.44 1242.5 1987.46 1247.08C1977.25 1252.28 1963.89 1252.28 1937.16 1252.28H331.836C305.11 1252.28 291.747 1252.28 281.54 1247.08C272.561 1242.5 265.261 1235.2 260.685 1226.22C255.484 1216.01 255.484 1202.65 255.484 1175.92V124.697Z" fill="#262C2D"/>
+<path id="Screen Black Border" d="M259.823 122.093C259.823 97.795 259.823 85.646 264.551 76.3655C268.71 68.202 275.346 61.5649 283.509 57.4055C292.789 52.6768 304.937 52.6768 329.233 52.6768H1939.77C1964.06 52.6768 1976.21 52.6768 1985.49 57.4055C1993.65 61.5649 2000.29 68.202 2004.45 76.3655C2009.18 85.646 2009.18 97.795 2009.18 122.093V1178.52C2009.18 1202.82 2009.18 1214.97 2004.45 1224.25C2000.29 1232.41 1993.65 1239.05 1985.49 1243.21C1976.21 1247.94 1964.06 1247.94 1939.77 1247.94H329.233C304.937 1247.94 292.789 1247.94 283.509 1243.21C275.346 1239.05 268.71 1232.41 264.551 1224.25C259.823 1214.97 259.823 1202.82 259.823 1178.52V122.093Z" fill="#121515"/>
+<rect id="Rectangle 2" x="259.823" y="1190.45" width="1749.35" height="32.5388" fill="#262C2D"/>
+<g id="Screen_2">
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="296" y="115" width="1677" height="1049">
+<rect id="Screen Shape" x="296.697" y="115.586" width="1675.61" height="1047.75" fill="white"/>
+</mask>
+<g mask="url(#mask0)">
+<rect id="Screen [CHANGE ME]" x="296.697" y="115.586" width="1675.61" height="1047.75" fill="white"/>
+</g>
+</g>
+<g id="Camera">
+<path id="Oval" fill-rule="evenodd" clip-rule="evenodd" d="M1134.5 92.8079C1137.79 92.8079 1140.47 90.137 1140.47 86.8424C1140.47 83.5478 1137.79 80.877 1134.5 80.877C1131.21 80.877 1128.54 83.5478 1128.54 86.8424C1128.54 90.137 1131.21 92.8079 1134.5 92.8079Z" fill="#262C2D"/>
+<path id="Oval_2" fill-rule="evenodd" clip-rule="evenodd" d="M1134.5 90.5711C1136.56 90.5711 1138.23 88.9018 1138.23 86.8427C1138.23 84.7835 1136.56 83.1143 1134.5 83.1143C1132.44 83.1143 1130.77 84.7835 1130.77 86.8427C1130.77 88.9018 1132.44 90.5711 1134.5 90.5711Z" fill="#121515"/>
+<path id="Oval_3" opacity="0.4" fill-rule="evenodd" clip-rule="evenodd" d="M1134.5 86.0968C1134.91 86.0968 1135.25 85.763 1135.25 85.3512C1135.25 84.9393 1134.91 84.6055 1134.5 84.6055C1134.09 84.6055 1133.75 84.9393 1133.75 85.3512C1133.75 85.763 1134.09 86.0968 1134.5 86.0968Z" fill="#636F73"/>
+</g>
+</g>
+<g id="Bottom Casing (Space Gray)">
+<g id="Group">
+<path id="Rectangle 2.1" d="M44 1225.16C44 1223.96 44.9711 1222.99 46.1691 1222.99H1132.33C1133.53 1222.99 1134.5 1223.96 1134.5 1225.16V1256.61H44V1225.16Z" fill="url(#paint0_linear)"/>
+<path id="Rectangle 2.2" d="M2224.46 1225.16C2224.46 1223.96 2223.49 1222.99 2222.29 1222.99H1136.13C1134.93 1222.99 1133.96 1223.96 1133.96 1225.16V1256.61H2224.46V1225.16Z" fill="url(#paint1_linear)"/>
+</g>
+<path id="Rectangle 3" d="M1003.81 1246.85H1265.19C1278.96 1246.85 1290.13 1236.17 1290.13 1222.99H978.869C978.869 1236.17 990.037 1246.85 1003.81 1246.85Z" fill="#4E4F53"/>
+<path id="Rectangle 3.1" d="M1003.81 1246.85H1265.19C1278.96 1246.85 1290.13 1236.17 1290.13 1222.99H978.869C978.869 1236.17 990.037 1246.85 1003.81 1246.85Z" fill="url(#paint2_linear)"/>
+<path id="Union" fill-rule="evenodd" clip-rule="evenodd" d="M1132.87 1256.62H44C44 1256.62 91.7195 1286.98 248.435 1286.98H1132.87H1135.04H2020.57C2177.28 1286.98 2225 1256.62 2225 1256.62H1135.04H1132.87Z" fill="url(#paint3_linear)"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_d" x="0" y="0" width="2309" height="1384" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+<feOffset dx="20" dy="20"/>
+<feGaussianBlur stdDeviation="32"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+</filter>
+<filter id="filter1_f" x="122.27" y="1258.97" width="2025.54" height="51.6925" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="7.5" result="effect1_foregroundBlur"/>
+</filter>
+<filter id="filter2_dd" x="247.146" y="42" width="1774.71" height="1220.61" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+<feOffset/>
+<feGaussianBlur stdDeviation="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.0823529 0 0 0 0 0.25098 0 0 0 0.14 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+<feOffset dy="2"/>
+<feGaussianBlur stdDeviation="2"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.0823529 0 0 0 0 0.25098 0 0 0 0.05 0"/>
+<feBlend mode="normal" in2="effect1_dropShadow" result="effect2_dropShadow"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow" result="shape"/>
+</filter>
+<linearGradient id="paint0_linear" x1="44" y1="1240.34" x2="1134.5" y2="1240.34" gradientUnits="userSpaceOnUse">
+<stop stop-color="#303135"/>
+<stop offset="0.0218797" stop-color="#535458"/>
+<stop offset="0.0363004" stop-color="#4D4E52"/>
+<stop offset="0.05818" stop-color="#333438"/>
+<stop offset="0.0865241" stop-color="#35363A"/>
+<stop offset="0.135753" stop-color="#4E4F53"/>
+<stop offset="0.756906" stop-color="#818286"/>
+<stop offset="1" stop-color="#818286"/>
+</linearGradient>
+<linearGradient id="paint1_linear" x1="2224.46" y1="1240.34" x2="1133.96" y2="1240.34" gradientUnits="userSpaceOnUse">
+<stop stop-color="#303135"/>
+<stop offset="0.0218797" stop-color="#535458"/>
+<stop offset="0.0363004" stop-color="#4D4E52"/>
+<stop offset="0.05818" stop-color="#333438"/>
+<stop offset="0.0865241" stop-color="#35363A"/>
+<stop offset="0.135753" stop-color="#4E4F53"/>
+<stop offset="0.756906" stop-color="#818286"/>
+<stop offset="1" stop-color="#818286"/>
+</linearGradient>
+<linearGradient id="paint2_linear" x1="978.869" y1="1234.92" x2="1290.13" y2="1234.92" gradientUnits="userSpaceOnUse">
+<stop stop-opacity="0.5"/>
+<stop offset="0.139373" stop-color="#818487" stop-opacity="0"/>
+<stop offset="0.860627" stop-color="#818487" stop-opacity="0"/>
+<stop offset="1" stop-opacity="0.5"/>
+</linearGradient>
+<linearGradient id="paint3_linear" x1="1134.5" y1="1256.62" x2="1134.5" y2="1286.98" gradientUnits="userSpaceOnUse">
+<stop stop-color="#303135"/>
+<stop offset="1" stop-color="#08090D"/>
+</linearGradient>
+</defs>
+</svg>
