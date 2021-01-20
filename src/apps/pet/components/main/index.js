@@ -18,8 +18,6 @@ const Index = ({ initFormState, fakeSubmit, submitted, petition }) => {
     }
   }, []);
 
-  console.log('petition--', petition.selectedImage)
-
   return (
     <>
       <div id="main" className={submitted ? "custom-main" : ""}>
