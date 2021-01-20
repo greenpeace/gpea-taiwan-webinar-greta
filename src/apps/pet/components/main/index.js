@@ -7,7 +7,7 @@ import Content from "./contentScreen";
 import Panel from "../../../../components/panel";
 import RegistrationForm from "../../../../components/form/registrationForm";
 
-const Index = ({ initFormState, fakeSubmit, submitted }) => {
+const Index = ({ initFormState, fakeSubmit, submitted, petition }) => {
   useEffect(() => {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
@@ -17,6 +17,8 @@ const Index = ({ initFormState, fakeSubmit, submitted }) => {
       initFormState();
     }
   }, []);
+
+  console.log('petition--', petition.selectedImage)
 
   return (
     <>
@@ -35,7 +37,7 @@ const Index = ({ initFormState, fakeSubmit, submitted }) => {
       <div className="custom-form-wrap">
         {submitted ? (
           <div className="custom-gp-form custom-gp-form-wrap">
-            <div className="custom-bg"></div>
+            <div className="custom-bg" style={{backgroundImage: "url(" + petition.selectedImage + ")"}}></div>
           </div>
         ) : (
           <RegistrationForm />
@@ -46,9 +48,10 @@ const Index = ({ initFormState, fakeSubmit, submitted }) => {
   );
 };
 
-const mapStateToProps = ({ theme }) => {
+const mapStateToProps = ({ theme, petition }) => {
   return {
     theme: theme,
+    petition: petition,
     submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
   };
 };

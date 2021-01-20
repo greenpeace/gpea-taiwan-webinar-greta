@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import * as themeActions from "store/actions/action-types/theme-actions";
 import {
   FlexboxGrid,
   ButtonToolbar,
@@ -13,9 +12,9 @@ import {
   Col,
   Grid,
 } from "rsuite";
+import * as themeActions from "apps/pet/actions/index";
 import { connect } from "react-redux";
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Scrollbar, A11y } from "swiper";
 import axios from "axios";
 import Sticky from "react-sticky-el";
 import fileDownload from "js-file-download";
@@ -24,7 +23,7 @@ import wallpaper from "../../../../data/wallpaper.json";
 // install Swiper components
 SwiperCore.use([Scrollbar, A11y]);
 
-const Thanks = () => {
+const Thanks = ({selectedImage}) => {
   const [Arctic, setArctic] = useState([]);
   const [Forests, setForests] = useState([]);
   const [Oceans, setOceans] = useState([]);
@@ -47,8 +46,14 @@ const Thanks = () => {
   const handleSwitchDownload = (cate) => {
     const getFirstItem = cate.content?.wallpaperList[0];
     setDownload(getFirstItem);
+    selectedImage(getFirstItem);
     setCurrent(cate);
   };
+
+  const handleSetDownload = (d) => {
+    setDownload(d);
+    selectedImage(d);
+  }
 
   useEffect(() => {
     setArctic(wallpaper.data.find((d) => d.issue === "Arctic"));
@@ -57,7 +62,9 @@ const Thanks = () => {
   }, [wallpaper]);
 
   useEffect(() => {
+    const getFirstItem = Arctic.content?.wallpaperList[0];
     setCurrent(Arctic);
+    selectedImage(getFirstItem);
   }, [Arctic]);
 
   return (
@@ -114,10 +121,10 @@ const Thanks = () => {
             </div>
           </div>
         </FlexboxGrid.Item>
-        <FlexboxGrid.Item componentClass={Col} xs={24} md={10}>
+        <FlexboxGrid.Item componentClass={Col} xs={24} md={12}>
           <Sticky
             className="thanks-download-sticky mobile-sticky"
-            topOffset={60}
+            topOffset={0}
             onFixedToggle={() => setDisplayCate(!displayCate)}
           >
             <div className="thanks-download-image-wrap">
@@ -127,7 +134,7 @@ const Thanks = () => {
                 style={{ backgroundImage: `url(${download})` }}
               ></div>
 
-              <div className="mobile-download">
+              {/* <div className="mobile-download">
                 <ButtonToolbar>
                   <IconButton
                     icon={<Icon icon="download" />}
@@ -138,14 +145,12 @@ const Thanks = () => {
                     下載
                   </IconButton>
                 </ButtonToolbar>
-              </div>
+              </div> */}
             </div>
           </Sticky>
         </FlexboxGrid.Item>
-        <FlexboxGrid.Item componentClass={Col} xs={24} md={24} align="bottom">
+        <FlexboxGrid.Item componentClass={Col} xs={24} md={10} align="bottom">
           <div className="thanks-slider-wrap">
-            {/* <Swiper spaceBetween={5} slidesPerView={1}>
-            <SwiperSlide> */}
             <Grid fluid>
               <Row gutter={16}>
                 {current.content?.wallpaperList.map((d, i) => (
@@ -154,7 +159,7 @@ const Thanks = () => {
                     xs={12}
                     md={8}
                     className="wallpaper-thumbnail-col"
-                    onClick={() => setDownload(d)}
+                    onClick={() => handleSetDownload(d)}
                   >
                     <div
                       className="img wallpaper-thumbnail wallpaper-thumbnail-mobile"
@@ -164,8 +169,6 @@ const Thanks = () => {
                 ))}
               </Row>
             </Grid>
-            {/* </SwiperSlide>
-          </Swiper> */}
           </div>
         </FlexboxGrid.Item>
       </FlexboxGrid>
@@ -205,7 +208,11 @@ const mapStateToProps = ({ theme }) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {};
+  return {
+    selectedImage: (src) => {
+      dispatch({ type: themeActions.SWITCH_SELECTED_IMAGE, src });
+    }
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Thanks);
