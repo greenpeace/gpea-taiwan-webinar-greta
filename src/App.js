@@ -14,14 +14,14 @@ import Main from "apps/pet/components/main";
 import Spinner from "components/spinner";
 import ScrollHandler from "components/spinner/scrollHandler";
 
-let App = ({ loading }) => {
+let App = ({ loading, submitted }) => {
   const [blockScroll, allowScroll] = ScrollHandler();
   useEffect(() => {
     loading ? blockScroll() : allowScroll();
   }, [loading, blockScroll, allowScroll]);
 
   return (
-    <div className="App">
+    <div className={`App ${submitted && `submitted-content`}`}>
       {loading && <Spinner />}
       <Main />
     </div>
@@ -31,6 +31,7 @@ let App = ({ loading }) => {
 const mapStateToProps = ({ theme }) => {
   return {
     loading: theme.lastAction === themeActions.SUBMIT_FORM,
+    submitted: theme.submitted,
   };
 };
 

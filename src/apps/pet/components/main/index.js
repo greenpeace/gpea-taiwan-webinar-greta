@@ -5,6 +5,7 @@ import Header from "apps/pet/components/header";
 import Thanks from "apps/pet/components/thanks";
 import Content from "./contentScreen";
 import Panel from "../../../../components/panel";
+import Footer from "../../../../components/footer";
 import RegistrationForm from "../../../../components/form/registrationForm";
 
 const Index = ({ initState, fakeSubmit, submitted, petition }) => {
@@ -22,15 +23,13 @@ const Index = ({ initState, fakeSubmit, submitted, petition }) => {
     <>
       <div id="main" className={submitted ? "custom-main" : ""}>
         <Header />
-        <div id="wrapper">
-          <div className="content full-height" data-pagetitle="Home slider">
-            <div className="fl-wrap full-height hero-conatiner">
+          <div className="content">
               <article className="prose lg:prose-lg">
                 {submitted ? <Thanks /> : <Content />}
               </article>
-            </div>
+              <br clear="both"/>
+              <Footer/>
           </div>
-        </div>
       </div>
       <div className="custom-form-wrap">
         {submitted ? (

@@ -61,53 +61,6 @@ const Content = ({ togglePanel }) => {
                   <p>
                     2020乃多事之年，全球新型冠狀病毒肺炎疫情肆虐，大家都沒法如過去般出國旅行慶祝佳節。因此，綠色和平特別為您拍攝一系列年度照片，內容包括自然景觀、動物奇趣等，讓大家安坐家中抗疫之餘，也能在家「眼睛去旅行」，享受我們為您提供的視覺體驗，盡力減低對地球環境的負荷！
                   </p>
-                  {/* <div className="facts-container fl-wrap">
-                    <div className="inline-facts-wrap">
-                      <div className="inline-facts">
-                        <div className="milestone-counter">
-                          <div className="stats animaper">
-                            <div
-                              className="num"
-                              data-content="0"
-                              data-num="145"
-                            >
-                              145
-                            </div>
-                          </div>
-                        </div>
-                        <h6>Finished projects</h6>
-                      </div>
-                    </div>
-                    <div className="inline-facts-wrap">
-                      <div className="inline-facts">
-                        <div className="milestone-counter">
-                          <div className="stats animaper">
-                            <div
-                              className="num"
-                              data-content="0"
-                              data-num="825"
-                            >
-                              825
-                            </div>
-                          </div>
-                        </div>
-                        <h6>Working hours</h6>
-                      </div>
-                    </div>
-
-                    <div className="inline-facts-wrap">
-                      <div className="inline-facts">
-                        <div className="milestone-counter">
-                          <div className="stats animaper">
-                            <div className="num" data-content="0" data-num="15">
-                              15
-                            </div>
-                          </div>
-                        </div>
-                        <h6>Awards won</h6>
-                      </div>
-                    </div>
-                  </div> */}
               </div>
             </Col>
           </Row>
