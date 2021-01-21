@@ -1,12 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  FlexboxGrid,
-  Button,
-  Divider,
-  Row,
-  Col,
-  Grid,
-} from "rsuite";
+import { FlexboxGrid, Button, Divider, Row, Col, Grid } from "rsuite";
 import * as themeActions from "apps/pet/actions/index";
 import { connect } from "react-redux";
 // import axios from "axios";
@@ -21,7 +14,7 @@ const Thanks = ({ selectedImage }) => {
   const [current, setCurrent] = useState([]);
   const [displayCate, setDisplayCate] = useState(false);
   const [download, setDownload] = useState(
-    "/wallpaper/Arctic/GP0OLY_Web_size.jpg"
+    process.env.PUBLIC_URL + "/wallpaper/Arctic/GP0OLY_Web_size.jpg"
   );
 
   // const handleDownload = (url, filename) => {
@@ -96,17 +89,23 @@ const Thanks = ({ selectedImage }) => {
             </Grid>
             <Divider />
             <div className="cate-switcher">
-              <p className="cate-headline">揀選你喜愛的環境照片</p>
+              <h2 className="cate-headline">揀選你喜愛的環境照片</h2>
               <Grid fluid className="cate-grid">
                 <Row gutter={16}>
                   <Col xs={8} onClick={() => handleSwitchDownload(Arctic)}>
-                    <b>北極</b>
+                    <div className="campaign">
+                      <b>北極</b>
+                    </div>
                   </Col>
                   <Col xs={8} onClick={() => handleSwitchDownload(Forests)}>
-                    <b>森林</b>
+                    <div className="campaign">
+                      <b>森林</b>
+                    </div>
                   </Col>
                   <Col xs={8} onClick={() => handleSwitchDownload(Oceans)}>
-                    <b>海洋</b>
+                    <div className="campaign">
+                      <b>海洋</b>
+                    </div>
                   </Col>
                 </Row>
               </Grid>
@@ -133,11 +132,16 @@ const Thanks = ({ selectedImage }) => {
               ></div>
 
               <div className="mobile-download">
-                <a href={`${process.env.PUBLIC_URL}${download}`} download={download.split("/").pop()}>下載</a>
+                <a
+                  href={`${process.env.PUBLIC_URL}${download}`}
+                  download={download.split("/").pop()}
+                >
+                  下載
+                </a>
                 {/* <ButtonToolbar>
                   <IconButton
                     icon={<Icon icon="download" />}
-                    onClick={() => 
+                    onClick={() =>
                     {
                       handleDownload(`${process.env.PUBLIC_URL}${download}`, download.split("/").pop());
                     }}
@@ -149,7 +153,14 @@ const Thanks = ({ selectedImage }) => {
             </div>
           </Sticky>
         </FlexboxGrid.Item>
-        <FlexboxGrid.Item componentClass={Col} xs={24} sm={10} md={12} lg={10} align="bottom">
+        <FlexboxGrid.Item
+          componentClass={Col}
+          xs={24}
+          sm={10}
+          md={12}
+          lg={10}
+          align="bottom"
+        >
           <div className="thanks-slider-wrap">
             <Grid fluid>
               <Row gutter={16}>
