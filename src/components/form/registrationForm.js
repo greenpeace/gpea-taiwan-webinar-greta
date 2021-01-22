@@ -73,7 +73,7 @@ let RegistrationForm = ({
     return (
       <FormGroup>
         {label && <ControlLabel>{label} </ControlLabel>}
-        <FormControl name={name} accepter={accepter} {...rest} />
+        <FormControl name={name} accepter={accepter} {...rest} checkTrigger={'blur'}/>
       </FormGroup>
     );
   };
@@ -152,7 +152,7 @@ let RegistrationForm = ({
               </Col>
             </Row>
           </Grid>
-          <Form model={model} ref={refForm} onSubmit={(d) => handleSubmit(d)}>
+          <Form model={model} ref={refForm} onSubmit={(d) => handleSubmit(d)} checkDelay={800}>
             <Grid fluid>
               <Row className="show-grid">
                 <Col xs={24}>
