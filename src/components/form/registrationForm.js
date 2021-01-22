@@ -34,7 +34,7 @@ let RegistrationForm = ({
   const [birthDateYear, setBirthDateYear] = useState([]);
   const { StringType, NumberType } = Schema.Types;
   const progress = [
-    { bgcolor: "#65CC02", completed: numResponses, target: numSignupTarget },
+    { bgcolor: "#66cc00", completed: numResponses, target: numSignupTarget },
   ];
   const model = Schema.Model({
     Email: StringType()
@@ -73,7 +73,12 @@ let RegistrationForm = ({
     return (
       <FormGroup>
         {label && <ControlLabel>{label} </ControlLabel>}
-        <FormControl name={name} accepter={accepter} {...rest} checkTrigger={'blur'}/>
+        <FormControl
+          name={name}
+          accepter={accepter}
+          {...rest}
+          checkTrigger={"blur"}
+        />
       </FormGroup>
     );
   };
@@ -152,7 +157,12 @@ let RegistrationForm = ({
               </Col>
             </Row>
           </Grid>
-          <Form model={model} ref={refForm} onSubmit={(d) => handleSubmit(d)} checkDelay={800}>
+          <Form
+            model={model}
+            ref={refForm}
+            onSubmit={(d) => handleSubmit(d)}
+            checkDelay={800}
+          >
             <Grid fluid>
               <Row className="show-grid">
                 <Col xs={24}>
@@ -256,14 +266,6 @@ let RegistrationForm = ({
           </Form>
         </>
       )}
-      <div className="copy-right">
-        <span>
-          <a href="https://www.greenpeace.org/hk" target="_blank" rel="noreferrer">
-            {formContent.link_policy}
-          </a>
-        </span>
-        <span>{formContent.copy_right}</span>
-      </div>
     </div>
   );
 };

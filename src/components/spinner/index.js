@@ -1,17 +1,17 @@
 import React from "react";
 import { css } from "@emotion/core";
 import ClipLoader from "react-spinners/ClipLoader";
- 
+
 // Can be a string as well. Need to ensure each key-value pair ends with ;
 const override = css`
-  border-color: #65CC02;
+  border-color: #66cc00;
 `;
 
 const clipWrap = {
-  position: 'absolute', 
-  left: 0, 
-  right: 0, 
-  marginLeft: 'auto', 
+  position: 'absolute',
+  left: 0,
+  right: 0,
+  marginLeft: 'auto',
   marginRight: 'auto',
   top: '50%',
   color: '#FFF'
