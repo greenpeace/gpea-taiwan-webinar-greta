@@ -17,6 +17,8 @@ const Thanks = ({ selectedImage }) => {
     process.env.PUBLIC_URL + "/wallpaper/Arctic/GP0OLY_Web_size.jpg"
   );
 
+  const campaignButton = [{label_zh:'北極', label: 'Arctic', value: Arctic},{label_zh:'森林', label: 'Forests', value: Forests},{label_zh:'海洋', label: 'Oceans', value: Oceans}]
+
   // const handleDownload = (url, filename) => {
   //   axios
   //     .get(url, {
@@ -51,6 +53,8 @@ const Thanks = ({ selectedImage }) => {
     setCurrent(Arctic);
     selectedImage(getFirstItem);
   }, [Arctic]);
+
+  console.log('current.issue--', current.issue)
 
   return (
     <div className="show-grid full-height">
@@ -92,8 +96,13 @@ const Thanks = ({ selectedImage }) => {
               <h2 className="cate-headline">揀選你喜愛的環境照片</h2>
               <Grid fluid className="cate-grid">
                 <Row gutter={16}>
-                  <Col xs={8} onClick={() => handleSwitchDownload(Arctic)}>
-                    <div className="campaign">
+                {(campaignButton||[]).map(d=><Col key={d.label} xs={8} onClick={() => handleSwitchDownload(d.value)}>
+                    <div className={`${current.issue===d.label ? `campaign active-campaign` : `campaign`}`}>
+                      <b>{d.label_zh}</b>
+                    </div>
+                  </Col>)}
+                  {/* <Col xs={8} onClick={() => handleSwitchDownload(Arctic)}>
+                    <div className={`campaign ${current==='Arctic' && `active-campaign`}`}>
                       <b>北極</b>
                     </div>
                   </Col>
@@ -106,7 +115,7 @@ const Thanks = ({ selectedImage }) => {
                     <div className="campaign">
                       <b>海洋</b>
                     </div>
-                  </Col>
+                  </Col> */}
                 </Row>
               </Grid>
             </div>
