@@ -19,10 +19,10 @@
   }
 }
 
-.active-campaign{
+.active-campaign {
   background-color: #66cc00;
-  b{
-    color: #FFF;
+  b {
+    color: #fff;
   }
 }
 
@@ -35,7 +35,7 @@
   position: relative;
   z-index: 99;
   cursor: pointer;
-  .mobile-download-html5{
+  .mobile-download-html5 {
     position: absolute;
     bottom: 10px;
     right: 20px;
@@ -90,26 +90,35 @@
   }
 }
 
-.download-reminder-overlay{
+.download-reminder-overlay {
   display: none;
   position: absolute;
-  background-color: rgba(0,0,0,.65);
+  width: 100%;
+  height: 100%;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  color: #fff;
-  span{
-    position: absolute;
-   top: 50%;
-   transform: translate(0, -50%);
-   margin-left: -60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  p {
+    visibility: hidden;
   }
 }
 
-.thanks-download-image-wrap:hover{
-  .download-reminder-overlay{
-    display: block;
+.thanks-download-image-wrap {
+  &:hover,
+  &:focus {
+    .download-reminder-overlay {
+      background-color: rgba(255, 255, 255, 0.65);
+    }
+    p {
+      visibility: visible;
+      font-weight: bold;
+      letter-spacing: 0.025em;
+    }
   }
 }
 
@@ -121,12 +130,12 @@
   }
 }
 
-.section-title{
+.section-title {
   text-align: left;
-  &:before{
-    background:#66cc00;
+  &:before {
+    background: #66cc00;
   }
-  p{
+  p {
     margin-right: 0px;
     max-width: 980px;
     font-size: 1.125rem;
@@ -134,15 +143,15 @@
   }
 }
 
-.main-visual-content{
+.main-visual-content {
   text-align: left;
 }
 
-.content{
+.content {
   float: initial;
 }
 
-.section-number{
+.section-number {
   position: absolute;
   right: 120px;
   top: -80px;
@@ -152,7 +161,7 @@
   opacity: 0.7;
   font-family: Oswald, sans-serif;
   transform: rotate(0deg);
-  span:before{
+  span:before {
     background: transparent;
   }
 }
@@ -171,34 +180,34 @@
   visibility: visible;
 }
 
-.footer-wrap{
+.footer-wrap {
   position: relative;
 }
 
-.footer{
+.footer {
   text-align: left;
   padding: 60px 20px;
-  color: rgba(0,0,0,.65);
+  color: rgba(0, 0, 0, 0.65);
   position: relative;
-  ul{
+  ul {
     list-style: none;
     text-align: right;
-    li{
+    li {
       display: inline-block;
       margin-right: 15px;
     }
-    li:last-child{
+    li:last-child {
       margin-right: 0;
     }
   }
-  span{
+  span {
     display: block;
     text-align: right;
   }
 }
 
-.footer:before{
-  content: '';
+.footer:before {
+  content: "";
   position: absolute;
   left: 25px;
   top: 20px;

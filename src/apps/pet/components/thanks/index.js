@@ -41,7 +41,7 @@ const Thanks = ({ selectedImage }) => {
       duration: 800,
       delay: 0,
       smooth: true,
-      offset: -400, // TODO: Need double check the value
+      offset: -280, // TODO: Need double check the value
     });
   };
 
@@ -147,6 +147,10 @@ const Thanks = ({ selectedImage }) => {
                 <div className="download-reminder-overlay">
                   <p>
                     <strong>點擊確認下載圖片</strong>
+                    <br />
+                    <small>
+                      * 如果下載程序沒有自動開始，請長按圖片並選擇下載圖片
+                    </small>
                   </p>
                 </div>
                 <img
