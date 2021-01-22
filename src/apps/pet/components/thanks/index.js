@@ -140,15 +140,24 @@ const Thanks = ({ selectedImage }) => {
             onFixedToggle={() => setDisplayCate(!displayCate)}
           >
             <div className="thanks-download-image-wrap">
-              <a href={`${download}`} download={download.split("/").pop()}>
+              <a
+                href={`${process.env.PUBLIC_URL}${download}`}
+                download={download.split("/").pop()}
+              >
                 <div className="download-reminder-overlay">
-                  <span>點擊確認下載圖片</span>
+                  <p>
+                    <strong>點擊確認下載圖片</strong>
+                  </p>
                 </div>
-                <img src={`${download}`} className="img" alt="" />
+                <img
+                  src={`${process.env.PUBLIC_URL}${download}`}
+                  className="img"
+                  alt=""
+                />
                 <div
                   className="thanks-mobile-background-image"
                   style={{
-                    backgroundImage: `url(${download})`,
+                    backgroundImage: `url(${process.env.PUBLIC_URL}${download})`,
                   }}
                 ></div>
               </a>
@@ -196,7 +205,7 @@ const Thanks = ({ selectedImage }) => {
                     <div
                       className="img wallpaper-thumbnail wallpaper-thumbnail-mobile"
                       style={{
-                        backgroundImage: `url(${d})`,
+                        backgroundImage: `url(${process.env.PUBLIC_URL}${d})`,
                       }}
                     ></div>
                   </Col>
