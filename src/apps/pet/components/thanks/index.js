@@ -17,7 +17,7 @@ const Thanks = ({ selectedImage }) => {
   const [current, setCurrent] = useState([]);
   const [displayCate, setDisplayCate] = useState(false);
   const [download, setDownload] = useState(
-    process.env.PUBLIC_URL + "/wallpaper/Arctic/GP0OLY_Web_size.jpg"
+    wallpaper.data[0].content.wallpaperList[0]
   );
 
   const campaignButton = [
@@ -140,22 +140,15 @@ const Thanks = ({ selectedImage }) => {
             onFixedToggle={() => setDisplayCate(!displayCate)}
           >
             <div className="thanks-download-image-wrap">
-              <a
-                href={`${process.env.PUBLIC_URL}${download}`}
-                download={download.split("/").pop()}
-              >
+              <a href={`${download}`} download={download.split("/").pop()}>
                 <div className="download-reminder-overlay">
                   <span>點擊確認下載圖片</span>
                 </div>
-                <img
-                  src={process.env.PUBLIC_URL + download}
-                  className="img"
-                  alt=""
-                />
+                <img src={`${download}`} className="img" alt="" />
                 <div
                   className="thanks-mobile-background-image"
                   style={{
-                    backgroundImage: `url(${process.env.PUBLIC_URL}${download})`,
+                    backgroundImage: `url(${download})`,
                   }}
                 ></div>
               </a>
@@ -203,7 +196,7 @@ const Thanks = ({ selectedImage }) => {
                     <div
                       className="img wallpaper-thumbnail wallpaper-thumbnail-mobile"
                       style={{
-                        backgroundImage: `url(${process.env.PUBLIC_URL}${d})`,
+                        backgroundImage: `url(${d})`,
                       }}
                     ></div>
                   </Col>
