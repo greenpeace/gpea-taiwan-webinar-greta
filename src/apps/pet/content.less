@@ -34,12 +34,27 @@
 .thanks-download-image-wrap {
   position: relative;
   z-index: 99;
+  cursor: pointer;
+  .mobile-download-html5{
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    z-index: 99;
+    font-size: 30px;
+    color: #fff;
+    margin-bottom: 0;
+  }
   .mobile-download {
     position: absolute;
-    right: 32px;
-    bottom: 16px;
+    right: 0;
+    bottom: 0;
     font-weight: bold;
     letter-spacing: 0.025rem;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 120px 120px;
+    border-color: transparent transparent #66bf00 transparent;
     cursor: pointer;
     a {
       padding: 4px 8px;
@@ -72,6 +87,29 @@
   cursor: pointer;
   &:hover {
     opacity: 1;
+  }
+}
+
+.download-reminder-overlay{
+  display: none;
+  position: absolute;
+  background-color: rgba(0,0,0,.65);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: #fff;
+  span{
+    position: absolute;
+   top: 50%;
+   transform: translate(0, -50%);
+   margin-left: -60px;
+  }
+}
+
+.thanks-download-image-wrap:hover{
+  .download-reminder-overlay{
+    display: block;
   }
 }
 

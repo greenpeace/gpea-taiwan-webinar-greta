@@ -367,6 +367,9 @@ a.btn:hover {
   }
 
   .thanks-download-image-wrap {
+    .download-reminder-overlay{
+      display: none;
+    }
     padding: 12px 0;
     position: relative;
     background-color: rgba(0, 0, 0, 0.8);
@@ -375,21 +378,32 @@ a.btn:hover {
     justify-content: center;
     align-items: center;
     img {
-      width: 90%;
+      margin: 0 !important;
+      width: auto;
+      display: block;
       position: relative;
       z-index: 3;
       max-height: 180px;
       object-fit: cover;
     }
-    .thanks-mobile-background-image {
-      padding: 30px 0;
+    // .thanks-mobile-background-image {
+    //   padding: 30px 0;
+    // }
+    .mobile-download-html5{
+      bottom: 10px;
+      right: 15px;
+      z-index: 99;
+      font-size: 20px;
+      color: #fff;
+      margin-bottom: 0;
     }
     .mobile-download {
       position: absolute;
       z-index: 3;
-      bottom: 15px;
-      right: 15px;
+      bottom: 0px;
+      right: 0px;
       display: block;
+      border-width: 0 0 80px 80px;
     }
   }
 

@@ -4,6 +4,9 @@ import * as themeActions from "apps/pet/actions/index";
 import { connect } from "react-redux";
 // import axios from "axios";
 import Sticky from "react-sticky-el";
+import { animateScroll as scroll, scroller } from "react-scroll";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 // import fileDownload from "js-file-download";
 import wallpaper from "../../../../data/wallpaper.json";
 
@@ -17,7 +20,11 @@ const Thanks = ({ selectedImage }) => {
     process.env.PUBLIC_URL + "/wallpaper/Arctic/GP0OLY_Web_size.jpg"
   );
 
-  const campaignButton = [{label_zh:'北極', label: 'Arctic', value: Arctic},{label_zh:'森林', label: 'Forests', value: Forests},{label_zh:'海洋', label: 'Oceans', value: Oceans}]
+  const campaignButton = [
+    { label_zh: "北極", label: "Arctic", value: Arctic },
+    { label_zh: "森林", label: "Forests", value: Forests },
+    { label_zh: "海洋", label: "Oceans", value: Oceans },
+  ];
 
   // const handleDownload = (url, filename) => {
   //   axios
@@ -29,6 +36,15 @@ const Thanks = ({ selectedImage }) => {
   //     });
   // };
 
+  const scrollTo = (d) => {
+    scroller.scrollTo(d, {
+      duration: 800,
+      delay: 0,
+      smooth: true,
+      offset: -400, // TODO: Need double check the value
+    });
+  };
+
   const handleSwitchDownload = (cate) => {
     const getFirstItem = cate.content?.wallpaperList[0];
     setDownload(getFirstItem);
@@ -39,6 +55,7 @@ const Thanks = ({ selectedImage }) => {
   const handleSetDownload = (d) => {
     setDownload(d);
     selectedImage(d);
+    scrollTo(d);
   };
 
   useEffect(() => {
@@ -53,8 +70,6 @@ const Thanks = ({ selectedImage }) => {
     setCurrent(Arctic);
     selectedImage(getFirstItem);
   }, [Arctic]);
-
-  console.log('current.issue--', current.issue)
 
   return (
     <div className="show-grid full-height">
@@ -96,26 +111,23 @@ const Thanks = ({ selectedImage }) => {
               <h2 className="cate-headline">揀選你喜愛的環境照片</h2>
               <Grid fluid className="cate-grid">
                 <Row gutter={16}>
-                {(campaignButton||[]).map(d=><Col key={d.label} xs={8} onClick={() => handleSwitchDownload(d.value)}>
-                    <div className={`${current.issue===d.label ? `campaign active-campaign` : `campaign`}`}>
-                      <b>{d.label_zh}</b>
-                    </div>
-                  </Col>)}
-                  {/* <Col xs={8} onClick={() => handleSwitchDownload(Arctic)}>
-                    <div className={`campaign ${current==='Arctic' && `active-campaign`}`}>
-                      <b>北極</b>
-                    </div>
-                  </Col>
-                  <Col xs={8} onClick={() => handleSwitchDownload(Forests)}>
-                    <div className="campaign">
-                      <b>森林</b>
-                    </div>
-                  </Col>
-                  <Col xs={8} onClick={() => handleSwitchDownload(Oceans)}>
-                    <div className="campaign">
-                      <b>海洋</b>
-                    </div>
-                  </Col> */}
+                  {(campaignButton || []).map((d) => (
+                    <Col
+                      key={d.label}
+                      xs={8}
+                      onClick={() => handleSwitchDownload(d.value)}
+                    >
+                      <div
+                        className={`${
+                          current.issue === d.label
+                            ? `campaign active-campaign`
+                            : `campaign`
+                        }`}
+                      >
+                        <b>{d.label_zh}</b>
+                      </div>
+                    </Col>
+                  ))}
                 </Row>
               </Grid>
             </div>
@@ -128,25 +140,31 @@ const Thanks = ({ selectedImage }) => {
             onFixedToggle={() => setDisplayCate(!displayCate)}
           >
             <div className="thanks-download-image-wrap">
-              <img
-                src={process.env.PUBLIC_URL + download}
-                className="img"
-                alt=""
-              />
-              <div
-                className="thanks-mobile-background-image"
-                style={{
-                  backgroundImage: `url(${process.env.PUBLIC_URL}${download})`,
-                }}
-              ></div>
+              <a
+                href={`${process.env.PUBLIC_URL}${download}`}
+                download={download.split("/").pop()}
+              >
+                <div className="download-reminder-overlay">
+                  <span>點擊確認下載圖片</span>
+                </div>
+                <img
+                  src={process.env.PUBLIC_URL + download}
+                  className="img"
+                  alt=""
+                />
+                <div
+                  className="thanks-mobile-background-image"
+                  style={{
+                    backgroundImage: `url(${process.env.PUBLIC_URL}${download})`,
+                  }}
+                ></div>
+              </a>
+
+              <div className="mobile-download-html5">
+                <FontAwesomeIcon icon={["fas", "download"]} />
+              </div>
 
               <div className="mobile-download">
-                <a
-                  href={`${process.env.PUBLIC_URL}${download}`}
-                  download={download.split("/").pop()}
-                >
-                  下載
-                </a>
                 {/* <ButtonToolbar>
                   <IconButton
                     icon={<Icon icon="download" />}
@@ -180,6 +198,7 @@ const Thanks = ({ selectedImage }) => {
                     md={8}
                     className="wallpaper-thumbnail-col"
                     onClick={() => handleSetDownload(d)}
+                    name={d}
                   >
                     <div
                       className="img wallpaper-thumbnail wallpaper-thumbnail-mobile"
