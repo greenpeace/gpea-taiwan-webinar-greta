@@ -23,24 +23,27 @@ const Index = ({ initState, fakeSubmit, submitted, petition }) => {
     <>
       <div id="main" className={submitted ? "custom-main" : ""}>
         <Header />
-          <div className="content">
-              <article className="prose lg:prose-lg">
-                {submitted ? <Thanks /> : <Content />}
-              </article>
-              <br clear="both"/>
-              <Footer/>
-          </div>
+        <div className="content">
+          <article className="prose lg:prose-lg">
+            {submitted ? <Thanks /> : <Content />}
+          </article>
+          <br clear="both" />
+          <Footer />
+        </div>
       </div>
       <div className="custom-form-wrap">
         {submitted ? (
           <div className="custom-gp-form custom-gp-form-wrap">
-            <div className="custom-bg" style={{backgroundImage: "url(" + petition.selectedImage + ")"}}></div>
+            <div
+              className="custom-bg"
+              style={{ backgroundImage: "url(" + petition.selectedImage + ")" }}
+            ></div>
           </div>
         ) : (
           <RegistrationForm />
         )}
       </div>
-      <Panel closePanel={submitted}/>
+      <Panel closePanel={submitted} />
     </>
   );
 };

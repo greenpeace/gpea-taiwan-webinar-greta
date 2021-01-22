@@ -53,8 +53,18 @@ let RegistrationForm = ({
   });
 
   useEffect(() => {
-    setNumSignupTarget(document.getElementById("numSignupTarget").value);
-    setNumResponses(document.getElementById("numResponses").value);
+    if (document.querySelector("input[name='numSignupTarget'")) {
+      setNumSignupTarget(
+        document.querySelector("input[name='numSignupTarget'").value
+      );
+    }
+    if (document.querySelector("input[name='numResponses'")) {
+      setNumResponses(
+        document.querySelector("input[name='numResponses'").value
+      );
+    }
+    //
+    // setNumResponses(document.getElementsByName("").value);
     let optionYear = [];
 
     async function fetchOptionYear() {
@@ -143,7 +153,7 @@ let RegistrationForm = ({
                 )}
               </Col>
             </Row>
-            <Row className="show-grid">
+            <Row className="show-grid hidden">
               <Col xs={24}>
                 {progress.map((item, idx) => (
                   <ProgressBar
