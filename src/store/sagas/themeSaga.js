@@ -3,13 +3,14 @@ import qs from "qs";
 import axios from "axios";
 import * as Actions from "../actions/action-types/theme-actions";
 
-const GREEENPEACE_FORM_URL = "https://cloud.greenhk.greenpeace.org/petition-pp"; // process.env.REACT_APP_WORDPRESS_URL
+const FORM_URL = document.querySelector("#mc-form").action;
+const CAMPAIGN_ID = document.querySelector('input[name="CampaignId"]').value;
 
 export function* submitForm(actions) {
   // console.log('actions.form--', actions.form)
-  const formData = qs.stringify({
+  const formData = {
     ...actions.form,
-    CampaignId: "7012u000000OxDYAA0",
+    CampaignId: `${CAMPAIGN_ID}`,
     DonationPageUrl: "https://www.greenpeace.org/eastasia/",
     LeadSource: "Petition - Plastics",
     OptIn: true,
@@ -27,15 +28,28 @@ export function* submitForm(actions) {
     numResponses: "78901",
     numSignupTarget: "123456",
     req: "post_data",
-  });
+  };
 
   // console.log('formData--', formData)
 
   try {
+    console.log("formData-", formData);
+    const getFormData = (object) =>
+      Object.keys(object).reduce((formData, key) => {
+        formData.append(key, object[key]);
+        return formData;
+      }, new FormData());
+    fetch(`${FORM_URL}`, {
+      method: "POST",
+      body: Object.keys(formData).reduce((postData, key) => {
+        postData.append(key, formData[key]);
+        return postData;
+      }, new FormData()),
+    });
     // yield delay(800)
     // yield put({ type: Actions.SUBMIT_FORM_SUCCESS});
     const response = yield call(() =>
-      axios.post(`${GREEENPEACE_FORM_URL}`, formData)
+      axios.post(`${FORM_URL}`, qs.stringify(formData))
     );
 
     console.log("response-", response);
