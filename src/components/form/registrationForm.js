@@ -31,6 +31,7 @@ let RegistrationForm = ({
     { label: "+852", value: "852" },
     { label: "+853", value: "853" },
   ]);
+  const [formDefaultValue, setFormDefaultValue] = useState({MobileCountryCode: '852'});
   const [birthDateYear, setBirthDateYear] = useState([]);
   const { StringType, NumberType } = Schema.Types;
   const progress = [
@@ -78,21 +79,6 @@ let RegistrationForm = ({
     fetchOptionYear(optionYear);
   }, []);
 
-  const TextField = (props) => {
-    const { name, label, accepter, handleOnChange, ...rest } = props;
-    return (
-      <FormGroup>
-        {label && <ControlLabel>{label} </ControlLabel>}
-        <FormControl
-          name={name}
-          accepter={accepter}
-          {...rest}
-          checkTrigger={"blur"}
-        />
-      </FormGroup>
-    );
-  };
-
   const closeAll = () => {
     togglePanel(false);
     toggleTheme(false);
@@ -108,6 +94,22 @@ let RegistrationForm = ({
         Birthdate: `${formValue.Birthdate}-01-01`,
       });
     }
+  };
+
+  const TextField = (props) => {
+    const { name, label, placeholder, accepter, handleOnChange, ...rest } = props;
+    return (
+      <FormGroup>
+        {label && <ControlLabel>{label} </ControlLabel>}
+        <FormControl
+          name={name}
+          accepter={accepter}
+          placeholder={placeholder}
+          {...rest}
+          checkTrigger={"blur"}
+        />
+      </FormGroup>
+    );
   };
   class CustomField extends React.PureComponent {
     render() {
@@ -172,6 +174,7 @@ let RegistrationForm = ({
             ref={refForm}
             onSubmit={(d) => handleSubmit(d)}
             checkDelay={800}
+            formDefaultValue={formDefaultValue}
           >
             <Grid fluid>
               <Row className="show-grid">
@@ -179,6 +182,7 @@ let RegistrationForm = ({
                   <FormGroup>
                     <TextField
                       name="Email"
+                      placeholder={formContent.label_email}
                       label={formContent.label_email}
                       autoComplete="off"
                     />
@@ -191,6 +195,7 @@ let RegistrationForm = ({
                   <FormGroup>
                     <TextField
                       name="LastName"
+                      placeholder={formContent.label_last_name}
                       label={formContent.label_last_name}
                       autoComplete="off"
                     />
@@ -200,6 +205,7 @@ let RegistrationForm = ({
                   <FormGroup>
                     <TextField
                       name="FirstName"
+                      placeholder={formContent.label_first_name}
                       label={formContent.label_first_name}
                       autoComplete="off"
                     />
@@ -225,6 +231,7 @@ let RegistrationForm = ({
                       <FormGroup>
                         <TextField
                           type="number"
+                          placeholder={formContent.label_phone}
                           name="MobilePhone"
                           autoComplete="off"
                         />
