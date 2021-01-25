@@ -25,6 +25,7 @@ let RegistrationForm = ({
 }) => {
   const refForm = useRef();
   const refCheckbox = useRef();
+  const [hiddenFormValues, setHiddenFormValues] = useState([]);
   const [numSignupTarget, setNumSignupTarget] = useState(100000);
   const [numResponses, setNumResponses] = useState(0);
   const [mobileCountryCode, setMobileCountryCode] = useState([
@@ -54,6 +55,9 @@ let RegistrationForm = ({
   });
 
   useEffect(() => {
+    let getHiddenFields = document.querySelectorAll('input[value][type="hidden"]:not([value=""])');
+    setHiddenFormValues([...getHiddenFields].reduce((obj, e) => ({...obj, [e.name]: e.value}), {}))
+    
     if (document.querySelector("input[name='numSignupTarget'")) {
       setNumSignupTarget(
         document.querySelector("input[name='numSignupTarget'").value
@@ -86,9 +90,11 @@ let RegistrationForm = ({
 
   const handleSubmit = (isValid) => {
     const OptIn = refCheckbox.current.state?.checked;
+    console.log('hiddenFormValues--',hiddenFormValues)
     if (isValid) {
       const { formValue } = refForm.current.state;
       submitForm({
+        ...hiddenFormValues,
         ...formValue,
         OptIn,
         Birthdate: `${formValue.Birthdate}-01-01`,
