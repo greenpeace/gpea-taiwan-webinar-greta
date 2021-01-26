@@ -57,7 +57,7 @@ const Thanks = ({ selectedImage }) => {
     );
   };
   const whatsAppShare = () => {
-    var w = "👉 https://act.gp/39fBmX6";
+    var w = "https://act.gp/39fBmX6";
     window.open(w);
   };
   const mainShare = () => {
@@ -123,6 +123,7 @@ const Thanks = ({ selectedImage }) => {
                     appearance="default"
                     block
                     href="https://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK"
+                    target="_blank"
                   >
                     <b>捐助支持</b>
                   </Button>
@@ -132,11 +133,10 @@ const Thanks = ({ selectedImage }) => {
                     className="share-button share-button__main"
                     size="lg"
                     appearance="default"
-                    color="cyan"
                     block
                     onClick={() => mainShare()}
                   >
-                    <b>分享給朋友</b>
+                    <b>分享</b>
                   </Button>
                 </Col>
               </Row>
