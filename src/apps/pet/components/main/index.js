@@ -8,13 +8,13 @@ import Panel from "../../../../components/panel";
 import Footer from "../../../../components/footer";
 import RegistrationForm from "../../../../components/form/registrationForm";
 
-const URL = `https://api.greenpeace.org.hk/2021/universal/`
+const URL = `https://api.greenpeace.org.hk/2021/universal/`;
 
 const Index = ({ initState, fakeSubmit, submitted, petition }) => {
   useEffect(() => {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    if (urlParams.get("page") === "thanks") {
+    if (urlParams.get("page") === "download") {
       fakeSubmit();
     } else {
       initState();
@@ -38,7 +38,10 @@ const Index = ({ initState, fakeSubmit, submitted, petition }) => {
           <div className="custom-gp-form custom-gp-form-wrap">
             <div
               className="custom-bg"
-              style={{ backgroundImage: "url(" + `${URL}${petition.selectedImage}` + ")" }}
+              style={{
+                backgroundImage:
+                  "url(" + `${URL}${petition.selectedImage}` + ")",
+              }}
             ></div>
           </div>
         ) : (

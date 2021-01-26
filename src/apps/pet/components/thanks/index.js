@@ -41,8 +41,40 @@ const Thanks = ({ selectedImage }) => {
       duration: 800,
       delay: 0,
       smooth: true,
-      offset: -280, // TODO: Need double check the value
+      offset: -200, // TODO: Need double check the value
     });
+  };
+  const fbShare = () => {
+    var baseURL = "https://www.facebook.com/sharer/sharer.php";
+    var u =
+      "https://cloud.greenhk.greenpeace.org/petition-general-wallpaper?utm_campaign=wallpaper&utm_source=facebook&utm_medium=social&utm_content=main_share#/";
+    var t = (window.innerHeight - 436) / 2;
+    var l = (window.innerWidth - 626) / 2;
+    window.open(
+      baseURL + "?u=" + encodeURIComponent(u),
+      "_blank",
+      "width=626,height=436,top=" + t + ",left=" + l
+    );
+  };
+  const whatsAppShare = () => {
+    var w = "👉 https://act.gp/39fBmX6";
+    window.open(w);
+  };
+  const mainShare = () => {
+    // WEB SHARE API
+    if (navigator.share) {
+      navigator
+        .share({
+          title: "",
+          text: "👉 ",
+          url: "https://act.gp/2YaXfQW",
+        })
+        .then()
+        .catch();
+    } else {
+      whatsAppShare();
+      // fbShare();
+    }
   };
 
   const handleSwitchDownload = (cate) => {
@@ -86,22 +118,25 @@ const Thanks = ({ selectedImage }) => {
               <Row gutter={12}>
                 <Col xs={12}>
                   <Button
-                    className="button-donate"
+                    className="donate-button"
                     size="lg"
                     appearance="default"
                     block
+                    href="https://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK"
                   >
                     <b>捐助支持</b>
                   </Button>
                 </Col>
                 <Col xs={12}>
                   <Button
-                    className="button-share"
+                    className="share-button share-button__main"
                     size="lg"
                     appearance="default"
+                    color="cyan"
                     block
+                    onClick={() => mainShare()}
                   >
-                    <b>分享</b>
+                    <b>分享給朋友</b>
                   </Button>
                 </Col>
               </Row>
