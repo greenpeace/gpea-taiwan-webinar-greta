@@ -16,7 +16,7 @@ let Footer = () => {
             <Col xs={24} lg={12}>
               <ul>
                 <li>
-                  <a href="http://www.greenpeace.org/hk/" target="_blank">
+                  <a href="http://www.greenpeace.org/hk/" target="_blank" rel="noreferrer">
                     首頁
                   </a>
                 </li>
@@ -24,6 +24,7 @@ let Footer = () => {
                   <a
                     href="https://www.greenpeace.org/hongkong/policies/privacy-and-cookies/"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     私隱政策與個人資料收集聲明
                   </a>
@@ -32,6 +33,7 @@ let Footer = () => {
                   <a
                     href="https://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK&ref=wallpaper_footer"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     捐助支持
                   </a>

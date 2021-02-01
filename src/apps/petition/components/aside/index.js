@@ -6,7 +6,7 @@ const Index = () =>{
           <span className="lh_dec color-bg"></span>
           <div className="left-header_social">
               <ul >
-                  <li><a href="https://www.facebook.com/greenpeacehk/" target="_blank">
+                  <li><a href="https://www.facebook.com/greenpeacehk/" target="_blank" rel="noreferrer">
                   <FontAwesomeIcon icon={['fab', 'facebook-square']} size="lg"/>
                   </a></li>
               </ul>

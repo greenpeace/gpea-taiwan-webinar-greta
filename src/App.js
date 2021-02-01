@@ -10,9 +10,10 @@ import "rsuite/lib/styles/index.less";
 import "react-sliding-pane/dist/react-sliding-pane.css";
 import "App.less";
 
-import Main from "apps/pet/components/main";
 import Spinner from "components/spinner";
 import ScrollHandler from "components/spinner/scrollHandler";
+
+import Main from "apps/survey/components/main";
 
 let App = ({ loading, submitted }) => {
   const [blockScroll, allowScroll] = ScrollHandler();

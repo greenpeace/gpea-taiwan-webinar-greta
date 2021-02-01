@@ -21,6 +21,7 @@ let SubmittedForm = ({ formContent = content }) => {
               block
               href="https://www.greenpeace.org/hongkong"
               target="_blank"
+              rel="noreferrer"
             >
               {formContent.share_button}
             </Button>
@@ -29,6 +30,7 @@ let SubmittedForm = ({ formContent = content }) => {
               block
               href="https://www.greenpeace.org/hongkong"
               target="_blank"
+              rel="noreferrer"
             >
               {formContent.donate_button}
             </Button>
