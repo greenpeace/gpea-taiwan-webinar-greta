@@ -140,13 +140,25 @@
 .section-title {
   text-align: left;
   &:before {
-    background: #66cc00;
+    width: 0px;
+    background: #FFF;
+  }
+  &:after {
+    width: 100%;
   }
   p {
     margin-right: 0px;
     max-width: 980px;
     font-size: 1.125rem;
     line-height: 1.7777778;
+  }
+}
+
+.main-content-wrap{
+  .section-title:first-child{
+    &:before{
+      background: #66cc00;
+    }
   }
 }
 

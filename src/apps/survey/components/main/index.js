@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import { connect } from "react-redux";
-import Header from "apps/pet/components/header";
+import Header from "components/header";
 import Content from "./contentScreen";
-import Panel from "../../../../components/panel";
-import Footer from "../../../../components/footer";
-import RegistrationForm from "../../../../components/form/registrationForm";
+import Panel from "components/panel";
+import Footer from "components/footer";
+import RegistrationForm from "components/form/registrationForm";
 
 const Index = ({ initState, fakeSubmit, submitted }) => {
   useEffect(() => {
@@ -31,7 +31,15 @@ const Index = ({ initState, fakeSubmit, submitted }) => {
         </div>
       </div>
       <div className="custom-form-wrap">
-        <RegistrationForm />
+      <div className="custom-gp-form custom-gp-form-wrap">
+            <div
+              className="custom-bg"
+              style={{
+                backgroundImage:
+                  "url(" + `https://api.greenpeace.org.hk/2021/universal//wallpaper/Oceans/GP0STOE38_Web_size.jpg` + ")",
+              }}
+            ></div>
+          </div>
       </div>
       <Panel closePanel={submitted} />
     </>
