@@ -1,9 +1,10 @@
-import React, { useRef, useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useRef, useState } from "react";
 import { connect } from "react-redux";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import { Schema } from "rsuite";
+import { animateScroll as scroll, scroller } from "react-scroll";
 import {
+  FlexboxGrid,
   Form,
   FormGroup,
   FormControl,
@@ -11,11 +12,12 @@ import {
   SelectPicker,
   Checkbox,
   CheckboxGroup,
+  Radio,
+  RadioGroup,
 } from "rsuite";
 import { Grid, Row, Col } from "rsuite";
-import ProgressBar from "apps/petition/components/progress";
-import SubmittedForm from "./submittedForm";
 import content from "./content.json";
+import survey from "./survey.json";
 
 function FadeInSection(props) {
   const [isVisible, setVisible] = React.useState(false);
@@ -36,51 +38,20 @@ function FadeInSection(props) {
   );
 }
 
-let SurveyForm = ({
-  togglePanel,
-  toggleTheme,
-  submitForm,
-  submitted,
-  formContent = content,
-}) => {
+let SurveyForm = ({ submitForm, submitted, formContent = content }) => {
   const refForm = useRef();
-  const [numSignupTarget, setNumSignupTarget] = useState(100000);
-  const [numResponses, setNumResponses] = useState(0);
-  const [q1, setQ1] = useState([
-    { label: "氣候變化", value: "氣候變化" },
-    { label: "塑膠污染", value: "塑膠污染" },
-    { label: "香港生態", value: "香港生態" },
-    { label: "北極環境", value: "北極環境" },
-    { label: "海洋保育", value: "海洋保育" },
-    { label: "森林破壞", value: "森林破壞" },
-  ]);
-  const [q2, setQ2] = useState([
-    { label: "守護生物多樣性（郊野生態)", value: "守護生物多樣性（郊野生態)" },
-    { label: "素食推廣", value: "素食推廣" },
-    { label: "超市減塑", value: "超市減塑" },
-    { label: "社區減塑", value: "社區減塑" },
-    { label: "氣候災難預防及應對", value: "氣候災難預防及應對" },
-    { label: "阻止填海", value: "阻止填海" },
-  ]);
-  const [q3, setQ3] = useState([
-    { label: "知道", value: "知道" },
-    { label: "不知道", value: "不知道" },
-  ]);
-  const [q4, setQ4] = useState("");
-  const [q5, setQ5] = useState([
-    { label: "20以下", value: "20以下" },
-    { label: "21-29", value: "21-29" },
-    { label: "30-39", value: "30-39" },
-    { label: "40-49", value: "40-49" },
-    { label: "50-59", value: "50-59" },
-    { label: "60＋", value: "60＋" },
-  ]);
   const [formDefaultValue, setFormDefaultValue] = useState();
-  const { StringType, NumberType } = Schema.Types;
-  const progress = [
-    { bgcolor: "#66cc00", completed: numResponses, target: numSignupTarget },
-  ];
+  const { StringType, ArrayType } = Schema.Types;
   const model = Schema.Model({
+    q1: ArrayType()
+      .maxLength(2, "最多兩項選擇")
+      .isRequired(formContent.empty_select_data_alert),
+    q2: ArrayType()
+      .maxLength(2, "最多兩項選擇")
+      .isRequired(formContent.empty_select_data_alert),
+    q3: StringType().isRequired(formContent.empty_select_data_alert),
+    q4: StringType().isRequired(formContent.empty_data_alert),
+    q5: StringType().isRequired(formContent.empty_select_data_alert),
     email: StringType()
       .isEmail(formContent.invalid_email_alert)
       .isRequired(formContent.empty_data_alert),
@@ -88,20 +59,24 @@ let SurveyForm = ({
     firstName: StringType().isRequired(formContent.empty_data_alert),
   });
 
-  const closeAll = () => {
-    togglePanel(false);
-    toggleTheme(false);
-  };
-
   const handleSubmit = (isValid) => {
-    // const OptIn = refCheckbox.current.state?.checked;
-    const { formValue } = refForm.current.state;
-    console.log("formValue--", formValue);
+    const { formValue, formError } = refForm.current.state;
     if (isValid) {
-      const { formValue } = refForm.current.state;
       console.log("formValue--", formValue);
       // submitForm(formValue);
+    } else {
+      console.log("formValue--", formError);
+      scrollTo();
     }
+  };
+
+  const scrollTo = () => {
+    scroller.scrollTo("form", {
+      duration: 800,
+      delay: 0,
+      smooth: true,
+      offset: -200,
+    });
   };
 
   const TextField = (props) => {
@@ -145,22 +120,8 @@ let SurveyForm = ({
   return (
     <>
       <FadeInSection>
-        <Grid fluid>
-          <Row className="show-grid hidden">
-            <Col xs={24}>
-              {progress.map((item, idx) => (
-                <ProgressBar
-                  key={idx}
-                  bgcolor={item.bgcolor}
-                  completed={item.completed}
-                  target={item.target}
-                />
-              ))}
-              <div className="sp-line"></div>
-            </Col>
-          </Row>
-        </Grid>
         <Form
+          name="form"
           model={model}
           ref={refForm}
           onSubmit={(d) => handleSubmit(d)}
@@ -173,7 +134,7 @@ let SurveyForm = ({
                 <div className="section-title">
                   <h2>Q1: 您認為以下哪些環保議題最重要 (最多選擇兩項)</h2>
                   <CustomField name="q1" accepter={CheckboxGroup} inline>
-                    {q1.map((d) => (
+                    {survey.q1.map((d) => (
                       <Checkbox key={d.label} value={d.value}>
                         {d.label}
                       </Checkbox>
@@ -186,7 +147,7 @@ let SurveyForm = ({
                     您認為以下哪些項目最適合於香港推動，幫助環境（最多選擇兩項）
                   </h2>
                   <CustomField name="q2" accepter={CheckboxGroup} inline>
-                    {q2.map((d) => (
+                    {survey.q2.map((d) => (
                       <Checkbox key={d.label} value={d.value}>
                         {d.label}
                       </Checkbox>
@@ -199,11 +160,11 @@ let SurveyForm = ({
                     Q3:
                     您知道綠色和平不接受政府、企業資助，100%倚賴市民支持得以創造環保成就嗎？
                   </h2>
-                  <CustomField name="q3" accepter={CheckboxGroup} inline>
-                    {q3.map((d) => (
-                      <Checkbox key={d.label} value={d.value}>
+                  <CustomField name="q3" accepter={RadioGroup} inline>
+                    {survey.q3.map((d) => (
+                      <Radio key={d.label} value={d.value}>
                         {d.label}
-                      </Checkbox>
+                      </Radio>
                     ))}
                   </CustomField>
                 </div>
@@ -217,7 +178,7 @@ let SurveyForm = ({
                           componentClass="textarea"
                           name="q4"
                           autoComplete="off"
-                          style={{height: '150px'}}
+                          style={{ height: "150px" }}
                         />
                       </FormGroup>
                     </Col>
@@ -226,11 +187,11 @@ let SurveyForm = ({
 
                 <div className="section-title">
                   <h2>Q5: 您的年齡是？</h2>
-                  <CustomField name="q5" accepter={CheckboxGroup} inline>
-                    {q5.map((d) => (
-                      <Checkbox key={d.label} value={d.value}>
+                  <CustomField name="q5" accepter={RadioGroup} inline>
+                    {survey.q5.map((d) => (
+                      <Radio key={d.label} value={d.value}>
                         {d.label}
-                      </Checkbox>
+                      </Radio>
                     ))}
                   </CustomField>
                 </div>
@@ -271,16 +232,16 @@ let SurveyForm = ({
               </Col>
             </Row>
 
-            <Row className="show-grid">
-              <Col xs={24}>
+            <FlexboxGrid justify="center">
+              <FlexboxGrid.Item colspan={10}>
                 <button
                   type="submit"
                   className="custom-button custom-button-active"
                 >
                   {formContent.submit_text}
                 </button>
-              </Col>
-            </Row>
+              </FlexboxGrid.Item>
+            </FlexboxGrid>
           </Grid>
         </Form>
       </FadeInSection>
@@ -297,12 +258,6 @@ const mapStateToProps = ({ theme }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    toggleTheme: (bol) => {
-      dispatch({ type: themeActions.TOGGLE_FORM, bol });
-    },
-    togglePanel: (bol) => {
-      dispatch({ type: themeActions.TOGGLE_PANEL, bol });
-    },
     setForm: (value) => {
       dispatch({ type: themeActions.SET_FORM_VALUE, value });
     },

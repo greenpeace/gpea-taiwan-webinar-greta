@@ -12,18 +12,18 @@ const Content = ({ togglePanel }) => {
           <SurveyForm/>
           </div>
           <div className="section-number">
-            <span>2021</span>
+            <span>問卷調查</span>
           </div>
         </section>
       </div>
 
-      <a
+      {/* <a
         href="#"
         className="start-btn cta-custom-display"
         onClick={() => togglePanel(true)}
       >
         <span>提交</span>
-      </a>
+      </a> */}
     </>
   );
 };

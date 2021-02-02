@@ -41,7 +41,7 @@ const Index = ({ initState, fakeSubmit, submitted }) => {
             ></div>
           </div>
       </div>
-      <Panel closePanel={submitted} />
+      {/* <Panel closePanel={submitted} /> */}
     </>
   );
 };
