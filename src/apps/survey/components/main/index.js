@@ -3,9 +3,7 @@ import * as themeActions from "store/actions/action-types/theme-actions";
 import { connect } from "react-redux";
 import Header from "components/header";
 import Content from "./contentScreen";
-import Panel from "components/panel";
 import Footer from "components/footer";
-import RegistrationForm from "components/form/registrationForm";
 
 const Index = ({ initState, fakeSubmit, submitted }) => {
   useEffect(() => {
@@ -24,7 +22,7 @@ const Index = ({ initState, fakeSubmit, submitted }) => {
         <Header />
         <div className="content">
           <article className="prose lg:prose-lg">
-          <Content />
+            <Content />
           </article>
           <br clear="both" />
           <Footer />

@@ -11,9 +11,9 @@ const Content = ({ togglePanel }) => {
           <div className="container">
           <SurveyForm/>
           </div>
-          <div className="section-number">
+          {/* <div className="section-number">
             <span>問卷調查</span>
-          </div>
+          </div> */}
         </section>
       </div>
 

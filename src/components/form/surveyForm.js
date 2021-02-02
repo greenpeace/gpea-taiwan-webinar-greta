@@ -40,6 +40,7 @@ function FadeInSection(props) {
 
 let SurveyForm = ({ submitForm, submitted, formContent = content }) => {
   const refForm = useRef();
+  const refCheckbox = useRef();
   const [formDefaultValue, setFormDefaultValue] = useState();
   const { StringType, ArrayType } = Schema.Types;
   const model = Schema.Model({
@@ -61,8 +62,13 @@ let SurveyForm = ({ submitForm, submitted, formContent = content }) => {
 
   const handleSubmit = (isValid) => {
     const { formValue, formError } = refForm.current.state;
+    const OptIn = refCheckbox.current.state?.checked;
     if (isValid) {
-      submitForm(formValue)
+      console.log("formValue--", formValue);
+      submitForm({
+        ...formValue,
+        OptIn
+      });
       // submitForm(formValue);
     } else {
       console.log("formValue--", formError);
@@ -197,7 +203,7 @@ let SurveyForm = ({ submitForm, submitted, formContent = content }) => {
                 </div>
 
                 <div className="section-title">
-                  <h2>其他資料</h2>
+                  <h2>個人資料</h2>
 
                   <Row className="show-grid">
                     <Col xs={24} sm={8}>
@@ -205,30 +211,49 @@ let SurveyForm = ({ submitForm, submitted, formContent = content }) => {
                         <TextField
                           name="email"
                           placeholder={formContent.label_email}
+                          label={formContent.label_email}
                           autoComplete="off"
                         />
                       </FormGroup>
                     </Col>
+                  </Row>
+
+                  <Row className="show-grid">
                     <Col xs={12} sm={8}>
                       <FormGroup>
                         <TextField
                           name="lastName"
                           placeholder={formContent.label_last_name}
+                          label={formContent.label_last_name}
                           autoComplete="off"
                         />
                       </FormGroup>
                     </Col>
+                  </Row>
+
+                  <Row className="show-grid">
                     <Col xs={12} sm={8}>
                       <FormGroup>
                         <TextField
                           name="firstName"
                           placeholder={formContent.label_first_name}
+                          label={formContent.label_first_name}
                           autoComplete="off"
                         />
                       </FormGroup>
                     </Col>
                   </Row>
                 </div>
+
+                <Row className="show-grid">
+                <Col xs={24}>
+                  <div className="custom-form-reminder">
+                    <Checkbox name="OptIn" ref={refCheckbox} defaultChecked>
+                      {formContent.form_remind}
+                    </Checkbox>
+                  </div>
+                </Col>
+              </Row>
               </Col>
             </Row>
 
