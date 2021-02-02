@@ -62,7 +62,7 @@ let SurveyForm = ({ submitForm, submitted, formContent = content }) => {
   const handleSubmit = (isValid) => {
     const { formValue, formError } = refForm.current.state;
     if (isValid) {
-      console.log("formValue--", formValue);
+      submitForm(formValue)
       // submitForm(formValue);
     } else {
       console.log("formValue--", formError);
