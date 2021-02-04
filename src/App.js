@@ -13,16 +13,17 @@ import "App.less";
 import Spinner from "components/spinner";
 import ScrollHandler from "components/spinner/scrollHandler";
 
-import Main from "apps/survey/components/main";
+import Main from "apps/petition/components/main";
 
 let App = ({ loading, submitted }) => {
   const [blockScroll, allowScroll] = ScrollHandler();
+  const additionalClass = submitted ? `submitted-content` : ''
   useEffect(() => {
     loading ? blockScroll() : allowScroll();
   }, [loading, blockScroll, allowScroll]);
 
   return (
-    <div className={`App ${submitted && `submitted-content`}`}>
+    <div className={`App ${additionalClass}`}>
       {loading && <Spinner />}
       <Main />
     </div>

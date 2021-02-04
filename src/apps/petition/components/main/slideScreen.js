@@ -32,14 +32,14 @@ const SlideScreen = ({swiper, slideIndex, updateSwiperSlide, togglePanel}) => {
 
   return (
     <div className="hero-wrapper fl-wrap full-height hidden-item">
-      {/* <div className="video-wrap">
+      <div className="video-wrap">
         <div className="videobg">
           <video autoPlay muted>
             <source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.webm" type="video/webm"/>
             <source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" type="video/mp4"/>
           </video>
         </div>
-      </div> */}
+      </div>
       <span className="hc_dec"></span>
       <div className="hero-slider-wrap home-half-slider fl-wrap full-height">
         <div className="hero-slider fs-gallery-wrap fl-wrap full-height">

@@ -1,22 +1,34 @@
-import React from 'react';
+import React from "react";
 import * as swiperActions from "store/actions/action-types/swiper-actions";
 import { connect } from "react-redux";
-import SlideScreen from "./slideScreen"
+import SlideScreen from "./slideScreen";
+import Aside from "../aside";
+import Header from "../header";
+import RegistrationForm from "components/form/registrationForm";
 
 const Index = () => {
   return (
-    <div className="content full-height" data-pagetitle="Home slider">
-      <div className="fl-wrap full-height hero-conatiner">
-        <SlideScreen/>
-        <div className="hero-scroll-down-notifer">
-          <div className="scroll-down-wrap ">
-            <div className="mousey">
-              <div className="scroller"></div>
+    <>
+      <div id="main">
+        <Header />
+        <Aside />
+        <div id="wrapper">
+          <div className="content full-height" data-pagetitle="Home slider">
+            <SlideScreen />
+            <div className="hero-scroll-down-notifer">
+              <div className="scroll-down-wrap ">
+                <div className="mousey">
+                  <div className="scroller"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+      <div className="custom-form-wrap">
+        <RegistrationForm />
+      </div>
+    </>
   );
 };
 
@@ -24,15 +36,15 @@ const mapStateToProps = ({ swiper, theme }) => {
   return {
     swiper: swiper.data,
     slideIndex: swiper.slideIndex,
-    theme: theme
+    theme: theme,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     updateSwiperSlide: (data) => {
       dispatch({ type: swiperActions.UPDATE_SWIPER_SLIDE, data });
-    }
+    },
   };
 };
 
