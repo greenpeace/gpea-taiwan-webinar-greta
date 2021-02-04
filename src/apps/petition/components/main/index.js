@@ -1,12 +1,13 @@
 import React from "react";
 import * as swiperActions from "store/actions/action-types/swiper-actions";
 import { connect } from "react-redux";
+import "../../app.less";
 import SlideScreen from "./slideScreen";
 import Aside from "../aside";
 import Header from "../header";
 import RegistrationForm from "components/form/registrationForm";
 
-const Index = () => {
+function Index(){
   return (
     <>
       <div id="main">

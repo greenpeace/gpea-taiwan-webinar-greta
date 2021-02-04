@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import { connect } from "react-redux";
+import "../../app.less";
 import Header from "components/header";
 import Content from "./contentScreen";
 import Footer from "components/footer";

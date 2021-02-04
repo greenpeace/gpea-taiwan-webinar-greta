@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import { connect } from "react-redux";
-import Header from "apps/pet/components/header";
+import Header from "components/header";
 import Thanks from "apps/pet/components/thanks";
 import Content from "./contentScreen";
-import Panel from "../../../../components/panel";
-import Footer from "../../../../components/footer";
-import RegistrationForm from "../../../../components/form/registrationForm";
+import "../../app.less";
+import Panel from "components/panel";
+import Footer from "components/footer";
+import RegistrationForm from "components/form/registrationForm";
 
 const URL = `https://api.greenpeace.org.hk/2021/universal/`;
 

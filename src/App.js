@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, Suspense } from "react";
 import { connect } from "react-redux";
 import * as themeActions from "store/actions/action-types/theme-actions";
 
@@ -13,7 +13,7 @@ import "App.less";
 import Spinner from "components/spinner";
 import ScrollHandler from "components/spinner/scrollHandler";
 
-import Main from "apps/petition/components/main";
+const Main = React.lazy(() => import(`apps/${process.env.REACT_APP_PROJECT}/components/main`));
 
 let App = ({ loading, submitted }) => {
   const [blockScroll, allowScroll] = ScrollHandler();
@@ -25,7 +25,9 @@ let App = ({ loading, submitted }) => {
   return (
     <div className={`App ${additionalClass}`}>
       {loading && <Spinner />}
-      <Main />
+      <Suspense fallback={<Spinner />}>
+        <Main />
+      </Suspense>
     </div>
   );
 };
