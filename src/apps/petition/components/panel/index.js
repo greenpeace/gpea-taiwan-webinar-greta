@@ -1,6 +1,6 @@
 import React, { Component, useState } from "react";
 import SlidingPane from "react-sliding-pane";
-import RegistrationForm from "../../../../components/form/registrationForm"
+import RegistrationForm from "components/form/registrationForm"
 import { connect } from "react-redux";
 import * as themeActions from "store/actions/action-types/theme-actions";
 
@@ -12,7 +12,7 @@ const Panel = ({theme}) => {
           from="bottom"
           width="100%"
         >
-          {/* <RegistrationForm/> */}
+          <RegistrationForm/>
         </SlidingPane>
     </div>
   );

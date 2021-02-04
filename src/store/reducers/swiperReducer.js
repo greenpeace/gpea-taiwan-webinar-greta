@@ -1,5 +1,5 @@
 import * as Actions from "../actions";
-import banner from "../../data/pets.json"
+import banner from "../../data/banner.json"
 
 const initState = {
   data: banner.data,

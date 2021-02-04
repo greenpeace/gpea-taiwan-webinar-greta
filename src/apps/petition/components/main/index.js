@@ -5,9 +5,10 @@ import "../../app.less";
 import SlideScreen from "./slideScreen";
 import Aside from "../aside";
 import Header from "../header";
+import Panel from "components/panel";
 import RegistrationForm from "components/form/registrationForm";
 
-function Index(){
+const Index = ({submitted}) => {
   return (
     <>
       <div id="main">
@@ -29,6 +30,7 @@ function Index(){
       <div className="custom-form-wrap">
         <RegistrationForm />
       </div>
+      <Panel closePanel={submitted} />
     </>
   );
 };
@@ -38,6 +40,7 @@ const mapStateToProps = ({ swiper, theme }) => {
     swiper: swiper.data,
     slideIndex: swiper.slideIndex,
     theme: theme,
+    submitted: theme.submitted,
   };
 };
 
