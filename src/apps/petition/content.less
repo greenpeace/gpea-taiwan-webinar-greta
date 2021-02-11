@@ -1,3 +1,50 @@
 .left-header_social ul{
   padding: 0px;
 }
+
+.half-hero-wrap{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mobile-content-wrap{
+  padding-top: 5px;
+  position: absolute;
+  bottom: 60px;
+  top: 0px;
+  width: 100%;
+  text-align: left;
+  background: #FFF;
+  overflow: scroll;
+  img{
+    border-radius: 10% / 50%;
+    //border-radius: 33% 40% 20% 20%/50% 50% 70% 60%;
+  }
+  p{
+    color: rgba(0,0,0,.65);
+    line-height: 1.4;
+    font-size: 16px;
+    padding: 15px;
+  }
+  h3{
+    background: @green-background;
+    margin-top: -23px;
+    color: #FFF;
+    padding: 5px 15px;
+    margin-left: 10px;
+    display: inline-block;
+    font-size: 22px;
+    letter-spacing: 4px;
+  }
+}
+
+.start-btn:after{
+  background: none;
+}
+
+@media screen and (max-width:564px){
+  .start-btn{
+    left: 0;
+  }
+}

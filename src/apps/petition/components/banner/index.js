@@ -29,21 +29,25 @@ const Index = ({swiperData, updateSwiperSlide, slideIndex, toggleTheme}) =>{
     mousewheel
     onSlideChange={(swiper) => updateSwiperSlide(swiper.activeIndex)}
   >
-  {(swiperData||[]).map(d=> <SwiperSlide key={d.id}>
+  {(swiperData||[]).map(d=> {
+    const {header, title, description, cta} =  d.content
+    return(
+      <SwiperSlide key={d.id}>
       <div className="swiper-container">
           <div className="swiper-wrapper">
               <div className="swiper-slide">
                   <div className="half-hero-wrap">
-                      {d.content?.header && <div className="hhw_header">{d.content.header}</div>}
-                      {d.content?.title && <h1><span>{d.content?.title}</span></h1>}
-                      {d.content?.description && <h4 dangerouslySetInnerHTML={{ __html: d.content?.description }}></h4>}
+                      {header && <div className="hhw_header">{d.content.header}</div>}
+                      {title && <h1><span>{title}</span></h1>}
+                      {description && <h4 dangerouslySetInnerHTML={{ __html: description }}></h4>}
                       <div className="clearfix"></div>
-                      {d.content?.cta && <a href={void(0)} className="btn fl-btn color-bg" onClick={()=>toggleTheme(true)}><span>{d.content?.cta.content}</span></a>}
+                      {cta.link && <a href={void(0)} className="btn fl-btn color-bg" onClick={()=>toggleTheme(true)}><span>{cta.content}</span></a>}
                   </div>
               </div>
           </div>
       </div>
-    </SwiperSlide>)}
+    </SwiperSlide>
+    )})}
   </Swiper>);
 }
 

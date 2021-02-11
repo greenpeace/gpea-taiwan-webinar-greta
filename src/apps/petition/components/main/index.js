@@ -17,13 +17,6 @@ const Index = ({submitted}) => {
         <div id="wrapper">
           <div className="content full-height" data-pagetitle="Home slider">
             <SlideScreen />
-            <div className="hero-scroll-down-notifer">
-              <div className="scroll-down-wrap ">
-                <div className="mousey">
-                  <div className="scroller"></div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>

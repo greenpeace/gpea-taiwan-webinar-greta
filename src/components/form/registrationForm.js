@@ -12,7 +12,7 @@ import {
   Checkbox,
 } from "rsuite";
 import { Grid, Row, Col } from "rsuite";
-import ProgressBar from "apps/petition/components/progress";
+import ProgressBar from "components/progress";
 import SubmittedForm from "./submittedForm";
 import content from "./content.json";
 
