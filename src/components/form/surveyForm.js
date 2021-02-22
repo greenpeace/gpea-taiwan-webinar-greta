@@ -2,14 +2,12 @@ import React, { useRef, useState } from "react";
 import { connect } from "react-redux";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import { Schema } from "rsuite";
-import { animateScroll as scroll, scroller } from "react-scroll";
 import {
   FlexboxGrid,
   Form,
   FormGroup,
   FormControl,
   ControlLabel,
-  SelectPicker,
   Checkbox,
   CheckboxGroup,
   Radio,
@@ -64,25 +62,11 @@ let SurveyForm = ({ submitForm, submitted, formContent = content }) => {
     const { formValue, formError } = refForm.current.state;
     const OptIn = refCheckbox.current.state?.checked;
     if (isValid) {
-      console.log("formValue--", formValue);
       submitForm({
         ...formValue,
-        OptIn
+        OptIn,
       });
-      // submitForm(formValue);
-    } else {
-      console.log("formValue--", formError);
-      scrollTo();
     }
-  };
-
-  const scrollTo = () => {
-    scroller.scrollTo("form", {
-      duration: 800,
-      delay: 0,
-      smooth: true,
-      offset: -200,
-    });
   };
 
   const TextField = (props) => {
@@ -206,7 +190,7 @@ let SurveyForm = ({ submitForm, submitted, formContent = content }) => {
                   <h2>個人資料</h2>
 
                   <Row className="show-grid">
-                    <Col xs={24} sm={8}>
+                    <Col xs={24} md={8}>
                       <FormGroup>
                         <TextField
                           name="email"
@@ -219,7 +203,7 @@ let SurveyForm = ({ submitForm, submitted, formContent = content }) => {
                   </Row>
 
                   <Row className="show-grid">
-                    <Col xs={12} sm={8}>
+                    <Col xs={24} md={8}>
                       <FormGroup>
                         <TextField
                           name="lastName"
@@ -232,7 +216,7 @@ let SurveyForm = ({ submitForm, submitted, formContent = content }) => {
                   </Row>
 
                   <Row className="show-grid">
-                    <Col xs={12} sm={8}>
+                    <Col xs={24} md={8}>
                       <FormGroup>
                         <TextField
                           name="firstName"
@@ -246,14 +230,14 @@ let SurveyForm = ({ submitForm, submitted, formContent = content }) => {
                 </div>
 
                 <Row className="show-grid">
-                <Col xs={24}>
-                  <div className="custom-form-reminder">
-                    <Checkbox name="OptIn" ref={refCheckbox} defaultChecked>
-                      {formContent.form_remind}
-                    </Checkbox>
-                  </div>
-                </Col>
-              </Row>
+                  <Col xs={24}>
+                    <div className="custom-form-reminder">
+                      <Checkbox name="OptIn" ref={refCheckbox} defaultChecked>
+                        {formContent.form_remind}
+                      </Checkbox>
+                    </div>
+                  </Col>
+                </Row>
               </Col>
             </Row>
 

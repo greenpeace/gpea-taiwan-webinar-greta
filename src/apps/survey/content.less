@@ -1,6 +1,10 @@
 #main{
   max-width: 1280px;
   margin: 0 auto;
+  padding: 0 15px;
+  .logo-holder{
+    left: 0;
+  }
 }
 
 .rs-form-control-wrapper > .rs-input::-webkit-input-placeholder {
@@ -130,6 +134,10 @@
 }
 
 .main-content-wrap{
+  .container{
+    margin: 0;
+    width: 100%;
+  }
   .section-title:first-child{
     &:before{
       background: @green-background;
@@ -175,13 +183,19 @@
   color: #fff;
 }
 
+.custom-form-reminder{
+  .rs-checkbox-wrapper{
+    top: 10px;
+  }
+}
+
 .footer-wrap {
   position: relative;
 }
 
 .footer {
   text-align: left;
-  padding: 60px 20px;
+  padding: 60px 0px;
   color: rgba(0, 0, 0, 0.65);
   position: relative;
   ul {
@@ -204,7 +218,7 @@
 .footer:before {
   content: "";
   position: absolute;
-  left: 25px;
+  left: 0px;
   top: 20px;
   height: 2px;
   width: 60px;

@@ -3,6 +3,8 @@ import SlideContent from "./sildeConent";
 import MobileContent from "./mobileContent";
 import { useMediaQuery } from "react-responsive";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import * as themeActions from "store/actions/action-types/theme-actions";
+import { connect } from "react-redux";
 
 const SlideScreen = ({ togglePanel }) => {
   const handleTogglePanel = () => {
@@ -39,4 +41,12 @@ const SlideScreen = ({ togglePanel }) => {
   );
 };
 
-export default SlideScreen;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    togglePanel: (bol) => {
+      dispatch({ type: themeActions.TOGGLE_PANEL, bol });
+    },
+  };
+};
+
+export default connect(null, mapDispatchToProps)(SlideScreen);
