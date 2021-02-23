@@ -20,11 +20,11 @@ const SlideScreen = ({ togglePanel }) => {
       <div className="hero-wrapper fl-wrap full-height hidden-item">
         {!isMobileDevice ? <SlideContent /> : <MobileContent />}
         <button
+          style={{ width: "100%" }}
           className="start-btn cta-custom-display"
           onClick={() => handleTogglePanel()}
         >
           <span>
-            {" "}
             立即聯署 <FontAwesomeIcon icon={["fas", "check"]} />
           </span>
         </button>

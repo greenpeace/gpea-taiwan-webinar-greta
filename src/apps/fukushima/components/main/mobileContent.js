@@ -11,16 +11,12 @@ const MobileContent = ({ content }) => {
           return (
             <Row key={d.id}>
               <Col xs={24}>
-                <div className="mobile-content">
-                  <img src={d.image_url} className="img mobile-image" />
-                </div>
+                <img src={d.image_url} className="img mobile-image" />
               </Col>
               <Col xs={24}>
+                <h2>{title}</h2>
                 <div className="mobile-content">
-                  <h2>{title}</h2>
-                  <div>
-                    <p dangerouslySetInnerHTML={{ __html: description }} />
-                  </div>
+                  <p dangerouslySetInnerHTML={{ __html: description }} />
                 </div>
               </Col>
             </Row>

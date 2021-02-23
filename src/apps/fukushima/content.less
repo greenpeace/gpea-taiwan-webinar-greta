@@ -1,54 +1,56 @@
-.left-header_social ul{
+.left-header_social ul {
   padding: 0px;
 }
 
-.half-hero-wrap h1{
+.half-hero-wrap h1 {
   font-family: inherit;
 }
 
-.half-hero-wrap{
+.half-hero-wrap {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.mobile-content-wrap{
-  padding-top: 5px;
+.mobile-content-wrap {
   position: absolute;
   bottom: 60px;
   top: 0px;
   width: 100%;
   text-align: left;
-  background: #FFF;
+  background: #fff;
   overflow: scroll;
-  img{
+  img {
     border-radius: 10% / 50%;
-    //border-radius: 33% 40% 20% 20%/50% 50% 70% 60%;
   }
-  p{
-    color: rgba(0,0,0,.65);
-    line-height: 1.4;
-    font-size: 16px;
-    padding: 15px;
+  .mobile-content {
+    padding: 4px 20px 40px;
   }
-  h3{
+  p {
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 1rem;
+    margin-bottom: 20px;
+    text-align: justify;
+  }
+  h2 {
     background: @green-background;
-    margin-top: -23px;
-    color: #FFF;
-    padding: 5px 15px;
-    margin-left: 10px;
+    margin-top: -20px;
+    color: #fff;
+    padding: 4px 8px;
+    margin-left: 8px;
+    margin-bottom: 16px;
     display: inline-block;
-    font-size: 22px;
-    letter-spacing: 4px;
+    font-size: 1.6rem;
+    letter-spacing: 2px;
   }
 }
 
-.start-btn:after{
+.start-btn:after {
   background: none;
 }
 
-@media screen and (max-width:564px){
-  .start-btn{
+@media screen and (max-width: 564px) {
+  .start-btn {
     left: 0;
   }
 }
