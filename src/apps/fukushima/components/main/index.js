@@ -8,10 +8,10 @@ import Header from "../header";
 import Panel from "components/panel";
 import RegistrationForm from "components/form/registrationForm";
 
-const Index = ({submitted}) => {
+const Index = ({ submitted }) => {
   return (
     <>
-      <div id="main">
+      <div id="main" className="fukushima">
         <Header />
         <Aside />
         <div id="wrapper">
