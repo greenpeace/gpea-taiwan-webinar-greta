@@ -6,12 +6,11 @@ import "./index.css";
 import "./fontawesome";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { Helmet, HelmetProvider } from "react-helmet-async";
+import { HelmetProvider } from "react-helmet-async";
 
 ReactDOM.render(
   // <React.StrictMode>
   <HelmetProvider>
-    <Helmet></Helmet>
     <Provider store={configureStore}>
       <App />
     </Provider>

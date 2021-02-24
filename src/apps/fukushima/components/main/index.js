@@ -1,6 +1,7 @@
 import React from "react";
 import * as swiperActions from "store/actions/action-types/swiper-actions";
 import { connect } from "react-redux";
+import { Helmet } from "react-helmet-async";
 import "../../app.less";
 import SlideScreen from "./slideScreen";
 import Aside from "../aside";
@@ -11,6 +12,9 @@ import RegistrationForm from "components/form/registrationForm";
 const Index = ({ submitted }) => {
   return (
     <>
+      <Helmet>
+        <title>Greenpeace 綠色和平 ｜ 制止日本政府將核廢水從福島排放到太平洋</title>
+      </Helmet>
       <div id="main" className="fukushima">
         <Header />
         <Aside />

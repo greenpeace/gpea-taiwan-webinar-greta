@@ -11,10 +11,12 @@ const Index = () =>{
                   </a></li>
               </ul>
           </div>
-      </aside>
-      <div className="share-btn showshare color-bg"><span>分享 <FontAwesomeIcon icon={['fab', 'creative-commons-share']} size="lg"/></span></div> */}
+      </aside> */}
+      {/* MOBILE */}
+      <div className="share-btn showshare color-bg"><span>分享 <FontAwesomeIcon icon={['fab', 'creative-commons-share']} size="lg"/></span></div>
+      {/* DESKTOP */}
       <div className="hc_dec_color">
-        <div className="page-subtitle page-subtitle-custom"><span>號召更多朋友參與</span></div>
+        <div className="page-subtitle page-subtitle-custom share-btn-desktop"><span>分享訊息 <FontAwesomeIcon icon={['fab', 'creative-commons-share']} size="lg"/></span></div>
       </div>
   </>
   );
