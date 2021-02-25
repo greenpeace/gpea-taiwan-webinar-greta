@@ -6,19 +6,40 @@ import "./index.css";
 import "./fontawesome";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { Helmet, HelmetProvider } from "react-helmet-async";
+import { HelmetProvider } from "react-helmet-async";
+import { hydrate, render } from "react-dom";
+import TagManager from "react-gtm-module";
 
-ReactDOM.render(
-  // <React.StrictMode>
+const tagManagerArgs = {
+  gtmId: "GTM-M6LZL75",
+};
+
+TagManager.initialize(tagManagerArgs);
+
+const rootElement = document.getElementById("root");
+
+const renderApp = (
   <HelmetProvider>
-    <Helmet></Helmet>
     <Provider store={configureStore}>
       <App />
     </Provider>
-  </HelmetProvider>,
-  // </React.StrictMode>,
-  document.getElementById("root")
+  </HelmetProvider>
 );
+
+if (rootElement.hasChildNodes()) {
+  hydrate(renderApp, rootElement);
+} else {
+  render(renderApp, rootElement);
+}
+
+// ReactDOM.render(
+//   <HelmetProvider>
+//     <Provider store={configureStore}>
+//     <App />
+//     </Provider>
+//   </HelmetProvider>,
+//   document.getElementById("root")
+// );
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
