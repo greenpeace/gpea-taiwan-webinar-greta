@@ -8,6 +8,8 @@ import Aside from "../aside";
 import Header from "../header";
 import Panel from "components/panel";
 import RegistrationForm from "components/form/registrationForm";
+import SubmittedForm from "components/form/submittedForm";
+import formContent from "./formContent.json";
 
 const Index = ({ submitted }) => {
   return (
@@ -42,9 +44,9 @@ const Index = ({ submitted }) => {
         </div>
       </div>
       <div className="custom-form-wrap">
-        <RegistrationForm />
+        {submitted ? <SubmittedForm formContent={formContent}/> : <RegistrationForm />}
       </div>
-      <Panel closePanel={submitted} />
+      <Panel formContent={formContent}/>
     </>
   );
 };

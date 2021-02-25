@@ -16,7 +16,7 @@ function usePrevious(value) {
 }
 
 
-const Panel = ({theme, closePanel, togglePanel}) => {
+const Panel = ({theme, closePanel, togglePanel, formContent}) => {
   const prevClosePanel = usePrevious(closePanel)
 
   useEffect(() => {
@@ -36,7 +36,7 @@ const Panel = ({theme, closePanel, togglePanel}) => {
           width="100%"
           onRequestClose={()=>null}
         >
-          <RegistrationForm/>
+          <RegistrationForm formContent={formContent}/>
         </SlidingPane>
     </div>
   );

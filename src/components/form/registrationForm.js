@@ -143,7 +143,7 @@ let RegistrationForm = ({
         />
       </div>
       {submitted ? (
-        <SubmittedForm />
+        <SubmittedForm formContent={formContent}/>
       ) : (
         <>
           <Grid fluid>
