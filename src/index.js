@@ -8,6 +8,13 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { HelmetProvider } from "react-helmet-async";
 import { hydrate, render } from "react-dom";
+import TagManager from "react-gtm-module";
+
+const tagManagerArgs = {
+  gtmId: "GTM-M6LZL75",
+};
+
+TagManager.initialize(tagManagerArgs);
 
 const rootElement = document.getElementById("root");
 
