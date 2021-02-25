@@ -1,5 +1,5 @@
 @form-width: 480px;
-@form-background: rgba(26, 28, 38, 0.9);
+@form-background: #292f47;
 @other-background: #1a1c26;
 @button-color: #66cc00;
 
@@ -99,11 +99,11 @@
   right: 0px;
   top: 0px;
   width: @form-width;
+  background-color: @form-background;
   display: none;
 }
 
 .custom-gp-form {
-  background-color: rgba(26, 28, 38, 1);
   text-align: left;
   padding: 20px;
   height: 100%;
@@ -123,8 +123,8 @@
   height: 16px;
   width: 16px;
   position: absolute;
-  right: 16px;
-  top: 0px;
+  right: 24px;
+  top: 4px;
   z-index: 99;
   display: none;
   svg {
@@ -201,7 +201,7 @@
 }
 
 .slide-pane {
-  background-color: #1a1c26;
+  background-color: @form-background;
   position: relative;
   border-radius: 20px 20px 0px 0px;
   padding-top: 20px;
@@ -213,7 +213,7 @@
     height: 16px;
     top: 0;
     left: 0;
-    background-color: #1a1c26;
+    background-color: @form-background;
   }
   .slide-pane__header {
     display: none !important;
@@ -223,8 +223,7 @@
   }
   @media screen and (max-width: 1064px) {
     .slide-pane__content {
-      padding-top: 20px !important;
-      background-color: #1a1c26;
+      background-color: @form-background;
     }
   }
 }
@@ -256,7 +255,7 @@
     display: block;
   }
   .custom-gp-form {
-    background-color: rgba(26, 28, 38, 1);
+    background-color: @form-background;
     height: auto;
     padding-bottom: 70px;
   }
