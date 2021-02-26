@@ -35,7 +35,7 @@ const Index = ({ swiperData, updateSwiperSlide, slideIndex, toggleTheme }) => {
     <Swiper
       spaceBetween={50}
       slidesPerView={1}
-      mousewheel
+      // mousewheel
       onSlideChange={(swiper) => updateSwiperSlide(swiper.activeIndex)}
     >
       {(swiperData || []).map((d) => {
@@ -51,10 +51,10 @@ const Index = ({ swiperData, updateSwiperSlide, slideIndex, toggleTheme }) => {
                     )}
                     {title && <h1>{title}</h1>}
                     {description && (
-                      <p
-                        style={{ fontSize: "0.8rem" }}
+                      <div
+                        className="hhw_description"
                         dangerouslySetInnerHTML={{ __html: description }}
-                      ></p>
+                      ></div>
                     )}
                     <div className="clearfix"></div>
                     {cta.link && (

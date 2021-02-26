@@ -2,13 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import configureStore from "./store/configureStore";
-import "./index.css";
-import "./fontawesome";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { HelmetProvider } from "react-helmet-async";
 import { hydrate, render } from "react-dom";
 import TagManager from "react-gtm-module";
+
+import "./index.css";
+import "./fontawesome";
 
 const tagManagerArgs = {
   gtmId: "GTM-M6LZL75",

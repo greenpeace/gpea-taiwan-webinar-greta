@@ -2,16 +2,6 @@
   padding: 0px;
 }
 
-.half-hero-wrap h1 {
-  font-family: inherit;
-}
-
-.half-hero-wrap {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
 .mobile-content-wrap {
   position: absolute;
   bottom: 60px;
@@ -45,24 +35,46 @@
   }
 }
 
-.start-btn:after {
-  background: none;
-}
-
-.showshare{
+.showshare {
   display: none;
 }
 
-.share-btn-desktop{
+.mobile-content {
+  > div {
+    font-size: 1rem;
+    padding-top: 20px;
+  }
+}
+
+.start-btn {
+  background-color: #66cc00 !important;
+  color: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  span {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    font-weight: bold;
+  }
+  :after {
+    background: none;
+  }
+}
+
+.start-btn .showshare {
+  display: none;
+}
+
+.share-btn-desktop {
   cursor: pointer;
 }
 
-.form-submitted-content{
+.form-submitted-content {
   text-align: left;
-  line-height: 24px;
-  padding: 0 15px;
-  .form-header{
-    color: #FFFFFF;
+  padding: 20px 16px;
+  .form-header {
+    color: #ffffff;
     font-size: 28px;
     font-weight: bold;
     line-height: 38px;
@@ -71,7 +83,7 @@
 }
 
 @media screen and (max-width: 1064px) {
-  .showshare{
+  .showshare {
     display: block;
   }
 }
@@ -80,7 +92,65 @@
   .start-btn {
     left: 0;
   }
-  .share-btn span{
+  .share-btn span {
     top: 20px;
+  }
+}
+
+.hero-slider_control-wrap {
+  .hsc-prev {
+    margin-right: 12px;
+  }
+}
+
+.clone-counter {
+  left: 12px;
+}
+
+.half-hero-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1rem;
+  .btn {
+    padding: 16px 30px;
+  }
+  .btn::after {
+    display: none;
+  }
+  .btn:hover span {
+    left: 0;
+  }
+}
+
+.hhw_description {
+  width: 90%;
+  max-width: 580px;
+  padding-top: 0;
+  padding: 4px 8px;
+  text-align: justify;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.2px;
+}
+
+@media only screen and (max-width: 1280px) {
+  .half-hero-wrap {
+    left: 10%;
+  }
+}
+
+@media screen and (max-width: 564px) {
+  .half-hero-wrap,
+  .fhhw .half-hero-wrap {
+    left: 0;
+    right: 0;
+    padding: 0 15px;
   }
 }

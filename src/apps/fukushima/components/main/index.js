@@ -31,10 +31,10 @@ const Index = ({ submitted }) => {
         />
         <meta
           property="og:image"
-          content="https://www.greenpeace.org/static/planet4-hongkong-stateless/2cac5add-wallpaper_banner.jpg"
+          content="https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/02/e1abe0f4-20210225_fukushima10th_petition_thumbnial-02.jpg"
         />
       </Helmet>
-      <div id="main" className="fukushima">
+      <div id="main">
         <Header />
         <Aside />
         <div id="wrapper">
@@ -44,9 +44,13 @@ const Index = ({ submitted }) => {
         </div>
       </div>
       <div className="custom-form-wrap">
-        {submitted ? <SubmittedForm formContent={formContent}/> : <RegistrationForm />}
+        {submitted ? (
+          <SubmittedForm formContent={formContent} />
+        ) : (
+          <RegistrationForm />
+        )}
       </div>
-      <Panel formContent={formContent}/>
+      <Panel formContent={formContent} />
     </>
   );
 };

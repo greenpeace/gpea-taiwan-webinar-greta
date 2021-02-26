@@ -151,11 +151,6 @@ video {
   background: @other-background;
 }
 
-.half-hero-wrap h4,
-.start-btn span {
-  font-size: 1rem;
-}
-
 .overlay {
   background: rgb(25, 25, 25);
   background: linear-gradient(
@@ -172,18 +167,6 @@ video {
 
 .page-subtitle {
   top: 12px;
-}
-.half-hero-wrap {
-  right: 30px;
-  .btn {
-    padding: 15px 35px;
-  }
-  .btn::after {
-    display: none;
-  }
-  .btn:hover span {
-    left: 0;
-  }
 }
 
 .btn span {
@@ -260,9 +243,6 @@ a.btn:hover {
   .clone-counter {
     display: none;
   }
-  .half-hero-wrap {
-    left: 10%;
-  }
 }
 
 @media screen and (max-width: 1064px) {
@@ -293,31 +273,27 @@ a.btn:hover {
 }
 
 @media screen and (max-width: 564px) {
+  .main-header {
+    box-shadow: 0 10px 10px -10px inset rgb(0 0 0 / 40%);
+  }
   .main-header,
   .share-btn {
-    height: 55px;
+    height: 48px;
   }
   #wrapper {
-    top: 55px;
+    top: 48px;
   }
   .share-btn span {
-    top: 18px;
+    top: 50%;
+    transform: translateY(-50%);
   }
   .logo-holder {
-    top: 15px;
-    left: 15px;
+    top: 50%;
+    left: 16px;
+    transform: translateY(-50%);
   }
   .hero-slider_control-wrap {
     left: 0;
-  }
-  .half-hero-wrap,
-  .fhhw .half-hero-wrap {
-    left: 0;
-    right: 0;
-    padding: 0 15px;
-  }
-  .half-hero-wrap h4 {
-    font-size: 1rem;
   }
   .overlay {
     opacity: 0.5;

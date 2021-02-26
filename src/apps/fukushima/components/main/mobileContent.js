@@ -10,13 +10,19 @@ const MobileContent = ({ content }) => {
           const { title, description } = d.content;
           return (
             <Row key={d.id}>
+              {d.image_url && (
+                <Col xs={24}>
+                  <img
+                    src={d.image_url}
+                    alt={description}
+                    className="img mobile-image"
+                  />
+                </Col>
+              )}
               <Col xs={24}>
-                <img src={d.image_url} className="img mobile-image" />
-              </Col>
-              <Col xs={24}>
-                <h2>{title}</h2>
+                {title && <h2>{title}</h2>}
                 <div className="mobile-content">
-                  <p dangerouslySetInnerHTML={{ __html: description }} />
+                  <div dangerouslySetInnerHTML={{ __html: description }} />
                 </div>
               </Col>
             </Row>

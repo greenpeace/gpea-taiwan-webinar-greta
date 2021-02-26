@@ -1,6 +1,6 @@
 import React from "react";
-import Banner from "apps/petition/components/banner";
-import Carousel from "apps/petition/components/carousel";
+import Banner from "../banner";
+import Carousel from "../carousel";
 import * as swiperActions from "store/actions/action-types/swiper-actions";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import { connect } from "react-redux";
@@ -35,6 +35,7 @@ const SlideContent = ({ swiper, slideIndex, updateSwiperSlide }) => {
       <div className="hero-wrapper fl-wrap full-height hidden-item">
         <div className="video-wrap">
           <div className="videobg">
+            {/*
             <video autoPlay muted>
               <source
                 src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.webm"
@@ -45,6 +46,7 @@ const SlideContent = ({ swiper, slideIndex, updateSwiperSlide }) => {
                 type="video/mp4"
               />
             </video>
+            */}
           </div>
         </div>
         <span className="hc_dec"></span>

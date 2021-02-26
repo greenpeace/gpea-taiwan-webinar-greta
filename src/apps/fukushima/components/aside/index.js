@@ -1,8 +1,9 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Index = () =>{
-  return (<>
-    {/* <aside className="left-header">
+const Index = () => {
+  return (
+    <>
+      {/* <aside className="left-header">
           <span className="lh_dec color-bg"></span>
           <div className="left-header_social">
               <ul >
@@ -13,13 +14,26 @@ const Index = () =>{
           </div>
       </aside> */}
       {/* MOBILE */}
-      <div className="share-btn showshare color-bg"><span>分享 <FontAwesomeIcon icon={['fab', 'creative-commons-share']} size="lg"/></span></div>
+      <div className="share-btn showshare color-bg">
+        <span>
+          分享{" "}
+          <FontAwesomeIcon icon={["fab", "creative-commons-share"]} size="lg" />
+        </span>
+      </div>
       {/* DESKTOP */}
       <div className="hc_dec_color">
-        <div className="page-subtitle page-subtitle-custom share-btn-desktop"><span>分享訊息 <FontAwesomeIcon icon={['fab', 'creative-commons-share']} size="lg"/></span></div>
+        <div className="page-subtitle page-subtitle-custom share-btn-desktop">
+          <span>
+            分享訊息{" "}
+            <FontAwesomeIcon
+              icon={["fab", "creative-commons-share"]}
+              size="lg"
+            />
+          </span>
+        </div>
       </div>
-  </>
+    </>
   );
-}
+};
 
 export default Index;
