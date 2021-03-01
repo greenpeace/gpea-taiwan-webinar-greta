@@ -11601,7 +11601,7 @@ react-sliding-pane@^7.0.0:
     prop-types "^15.7.2"
     react-modal "^3.12.1"
 
-react-snap@@1.10.0:
+react-snap@^1.23.0:
   version "1.23.0"
   resolved "https://registry.yarnpkg.com/react-snap/-/react-snap-1.23.0.tgz#bf857a1810cd1ec8f9c54f5746568bccfb7447e5"
   integrity sha512-spmg2maHSedLrn6QBAfLJkyMqeeffLTIs7h40pS1copW2xBrajx4HEAcanm+7IVGO6SYCPoGwvbU3U30UFN25g==
