@@ -29,6 +29,7 @@
     "react-gtm-module": "^2.0.11",
     "react-helmet-async": "^1.0.7",
     "react-hot-loader": "^4.13.0",
+    "react-mailcheck": "^1.2.0",
     "react-meta-tags": "^1.0.1",
     "react-player": "^2.7.2",
     "react-redux": "^7.2.2",
@@ -49,11 +50,11 @@
   },
   "scripts": {
     "start": "craco start",
-    "build": "PUBLIC_URL=https://api.greenpeace.org.hk/2021/fukushima craco build",
+    "build": "craco build",
     "build:en": "PUBLIC_URL=https://api.greenpeace.org.hk/2021/fukushima craco build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "yarn build && node mc-deploy.js",
+    "deploy": "yarn build:en && node mc-deploy.js && react-snap",
     "postbuild": "react-snap"
   },
   "eslintConfig": {
