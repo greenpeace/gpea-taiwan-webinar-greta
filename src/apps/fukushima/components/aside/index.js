@@ -24,7 +24,7 @@ const Index = () => {
       <div className="hc_dec_color">
         <div className="page-subtitle page-subtitle-custom share-btn-desktop">
           <span>
-            分享訊息{" "}
+            分享{" "}
             <FontAwesomeIcon
               icon={["fab", "creative-commons-share"]}
               size="lg"
