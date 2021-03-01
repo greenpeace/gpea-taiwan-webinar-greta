@@ -46,25 +46,25 @@ const Index = ({ swiperData, updateSwiperSlide, slideIndex, toggleTheme }) => {
               <div className="swiper-wrapper">
                 <div className="swiper-slide">
                   <div className="half-hero-wrap">
-                    {header && (
-                      <div className="hhw_header">{d.content.header}</div>
-                    )}
-                    {title && <h1>{title}</h1>}
-                    {description && (
-                      <div
-                        className="hhw_description"
-                        dangerouslySetInnerHTML={{ __html: description }}
-                      ></div>
-                    )}
-                    <div className="clearfix"></div>
-                    {cta.link && (
-                      <button
-                        className="btn fl-btn color-bg"
-                        onClick={() => toggleTheme(true)}
-                      >
-                        <span>{cta.content}</span>
-                      </button>
-                    )}
+                    <div>
+                      {header && <div className="hhw_header">{header}</div>}
+                      {title && <h1>{title}</h1>}
+                      {description && (
+                        <div
+                          className="hhw_description"
+                          dangerouslySetInnerHTML={{ __html: description }}
+                        ></div>
+                      )}
+                      {cta.link && (
+                        <button
+                          className="btn fl-btn color-bg"
+                          onClick={() => toggleTheme(true)}
+                        >
+                          <span>{cta.content}</span>
+                        </button>
+                      )}
+                      <div className="clearfix"></div>
+                    </div>
                   </div>
                 </div>
               </div>

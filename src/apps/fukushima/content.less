@@ -10,11 +10,12 @@
   text-align: left;
   background: #fff;
   overflow: scroll;
+  padding-top: 4px;
   img {
     border-radius: 10% / 50%;
   }
   .mobile-content {
-    padding: 4px 20px 40px;
+    padding: 4px 16px 60px;
   }
   p {
     color: rgba(0, 0, 0, 0.65);
@@ -42,7 +43,7 @@
 .mobile-content {
   > div {
     font-size: 1rem;
-    padding-top: 20px;
+    padding-top: 16px;
   }
 }
 
@@ -126,13 +127,39 @@
   .btn:hover span {
     left: 0;
   }
+  h1 {
+    font-size: 4.5rem;
+    font-weight: 700;
+  }
+}
+
+@nu-yellow: #ffe600;
+@nu-black: #221f1d;
+
+.hs_counter .current {
+  color: @nu-yellow;
+}
+
+.hc_dec {
+  background-image: url("../../assets/images/nuclear-icon.png");
+  background-size: cover;
+  opacity: 0.1;
+}
+
+.hhw_header {
+  font-size: 1rem;
+  font-weight: bold;
+  color: @nu-yellow;
+  padding-left: 8px;
+  margin-bottom: 20px;
 }
 
 .hhw_description {
   width: 90%;
-  max-width: 600px;
+  max-width: 700px;
   padding-top: 0;
   padding: 4px 8px;
+  margin-top: 60px;
   text-align: justify;
   color: #fff;
   font-size: 1rem;
