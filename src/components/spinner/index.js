@@ -34,7 +34,7 @@ const Spinner = () => {
         <ClipLoader css={override} size={50} color={"#123abc"} loading={true} />
         <br />
         <br />
-        處理中...
+        載入中...
       </div>
     </div>
   );

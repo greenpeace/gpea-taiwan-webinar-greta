@@ -2,10 +2,12 @@ import { call, put } from "redux-saga/effects";
 // import qs from "qs";
 // import axios from "axios";
 import * as Actions from "../actions/action-types/theme-actions";
+import * as helper from "../../helper";
 
-const FORM_URL = document.querySelector("#mc-form").action;
-const CAMPAIGN_ID = document.querySelector('input[name="CampaignId"]').value;
-const CAMPAIGN_NAME = process.env.REACT_APP_PROJECT;
+// const FORM_URL = document.querySelector("#mc-form").action;
+// const CAMPAIGN_ID = document.querySelector('input[name="CampaignId"]').value;
+const FORM_URL = helper.getPostURL();
+const CAMPAIGN_ID = helper.getCampaignID();
 
 export function* submitForm(actions) {
   const formData = {
@@ -50,7 +52,8 @@ export function* submitForm(actions) {
         type: Actions.SUBMIT_FORM_SUCCESS,
       });
       // Tracking
-      console.log("submitted:", CAMPAIGN_NAME);
+      console.log("submitted:", `${process.env.REACT_APP_PROJECT}`);
+      helper.sendPetitionTracking(`${process.env.REACT_APP_PROJECT}`);
     } else {
       yield put({ type: Actions.SUBMIT_FORM_FAIL });
     }

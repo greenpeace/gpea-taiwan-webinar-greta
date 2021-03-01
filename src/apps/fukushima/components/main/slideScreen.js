@@ -24,9 +24,7 @@ const SlideScreen = ({ togglePanel }) => {
           className="start-btn cta-custom-display"
           onClick={() => handleTogglePanel()}
         >
-          <span>
-            立即聯署 <FontAwesomeIcon icon={["fas", "check"]} />
-          </span>
+          立即聯署 <FontAwesomeIcon icon={["fas", "pen"]} />
         </button>
       </div>
       <div className="hero-scroll-down-notifer">

@@ -6,7 +6,7 @@ import whatsapp from "assets/images/social/whatsapp_icon.svg";
 const buttonStyle = {
   color: "#FFFFFF",
   fontWeight: "bold",
-  marginBottom: "15px",
+  marginBottom: "16px",
 };
 
 const mainShare = (event) => {
@@ -14,8 +14,7 @@ const mainShare = (event) => {
   //
   const fbShare = () => {
     var baseURL = "https://www.facebook.com/sharer/sharer.php";
-    var u =
-      "https://cloud.greenhk.greenpeace.org/petition-oceans-elm?utm_campaign=elm&utm_source=facebook&utm_medium=social&utm_content=main_share#/";
+    var u = "https://act.gp/3bLDMwF";
     var t = (window.innerHeight - 436) / 2;
     var l = (window.innerWidth - 626) / 2;
     window.open(
@@ -30,8 +29,8 @@ const mainShare = (event) => {
       .share({
         title: "",
         text:
-          "海洋住屋不對立，為了珍貴脆弱的香港海洋生態，及讓市民安居樂業，一起發聲，要求政府優先發展棕地，放棄不負責任的「明日大嶼」方案！👉 ",
-        url: "https://act.gp/38bpvc8",
+          "立即聯署與綠色和平一起敦促其長期、妥善地存置這批危害生態和人體的廢水，使大家的海洋免於進一步的破壞。👉 ",
+        url: "https://act.gp/3uK2A0S",
       })
       .then()
       .catch();
@@ -43,7 +42,7 @@ const mainShare = (event) => {
 const whatsAppShare = (event) => {
   event.preventDefault();
   var w =
-    "https://api.whatsapp.com/send?text=海洋住屋不對立，為了珍貴脆弱的香港海洋生態，及讓市民安居樂業，一起發聲，要求政府優先發展棕地，放棄不負責任的「明日大嶼」方案！👉 https://act.gp/2JN5EXm";
+    "https://api.whatsapp.com/send?text=立即聯署與綠色和平一起敦促其長期、妥善地存置這批危害生態和人體的廢水，使大家的海洋免於進一步的破壞。👉 https://act.gp/3kzJzsY";
   window.open(w);
 };
 

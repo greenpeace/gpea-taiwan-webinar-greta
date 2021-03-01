@@ -20,7 +20,7 @@ const MobileContent = ({ content }) => {
                 </Col>
               )}
               <Col xs={24}>
-                {title && <h2>{title}</h2>}
+                {title && <h1 dangerouslySetInnerHTML={{ __html: title }}></h1>}
                 <div className="mobile-content">
                   <div dangerouslySetInnerHTML={{ __html: description }} />
                 </div>

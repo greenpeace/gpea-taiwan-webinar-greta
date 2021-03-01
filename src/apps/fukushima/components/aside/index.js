@@ -17,7 +17,7 @@ const Index = () => {
       <div className="share-btn showshare color-bg">
         <span>
           分享{" "}
-          <FontAwesomeIcon icon={["fab", "creative-commons-share"]} size="lg" />
+          <FontAwesomeIcon icon={["fas", "fa-share"]} size="lg" />
         </span>
       </div>
       {/* DESKTOP */}
@@ -26,7 +26,7 @@ const Index = () => {
           <span>
             分享{" "}
             <FontAwesomeIcon
-              icon={["fab", "creative-commons-share"]}
+              icon={["fas", "fa-share"]}
               size="lg"
             />
           </span>

@@ -48,7 +48,12 @@ const Index = ({ swiperData, updateSwiperSlide, slideIndex, toggleTheme }) => {
                   <div className="half-hero-wrap">
                     <div>
                       {header && <div className="hhw_header">{header}</div>}
-                      {title && <h1>{title}</h1>}
+                      {title && (
+                        <h1
+                          className="hhw_title"
+                          dangerouslySetInnerHTML={{ __html: title }}
+                        ></h1>
+                      )}
                       {description && (
                         <div
                           className="hhw_description"

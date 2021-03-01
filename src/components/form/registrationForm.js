@@ -12,8 +12,11 @@ import {
   Checkbox,
 } from "rsuite";
 import { Grid, Row, Col } from "rsuite";
+// import MailCheck from "react-mailcheck";
+
 import ProgressBar from "components/progress";
 import SubmittedForm from "./submittedForm";
+
 import content from "./content.json";
 
 let RegistrationForm = ({
@@ -32,7 +35,9 @@ let RegistrationForm = ({
     { label: "+852", value: "852" },
     { label: "+853", value: "853" },
   ]);
-  const [formDefaultValue, setFormDefaultValue] = useState({MobileCountryCode: '852'});
+  const [formDefaultValue, setFormDefaultValue] = useState({
+    MobileCountryCode: "852",
+  });
   const [birthDateYear, setBirthDateYear] = useState([]);
   const { StringType, NumberType } = Schema.Types;
   const progress = [
@@ -55,9 +60,16 @@ let RegistrationForm = ({
   });
 
   useEffect(() => {
-    let getHiddenFields = document.querySelectorAll('input[value][type="hidden"]:not([value=""])');
-    setHiddenFormValues([...getHiddenFields].reduce((obj, e) => ({...obj, [e.name]: e.value}), {}))
-    
+    let getHiddenFields = document.querySelectorAll(
+      'input[value][type="hidden"]:not([value=""])'
+    );
+    setHiddenFormValues(
+      [...getHiddenFields].reduce(
+        (obj, e) => ({ ...obj, [e.name]: e.value }),
+        {}
+      )
+    );
+
     if (document.querySelector("input[name='numSignupTarget'")) {
       setNumSignupTarget(
         document.querySelector("input[name='numSignupTarget'").value
@@ -69,9 +81,7 @@ let RegistrationForm = ({
       );
     }
     //
-    // setNumResponses(document.getElementsByName("").value);
     let optionYear = [];
-
     async function fetchOptionYear() {
       let nowYear = new Date().getFullYear();
       let targetYear = nowYear - 110;
@@ -90,7 +100,7 @@ let RegistrationForm = ({
 
   const handleSubmit = (isValid) => {
     const OptIn = refCheckbox.current.state?.checked;
-    console.log('hiddenFormValues--',hiddenFormValues)
+    console.log("hiddenFormValues--", hiddenFormValues);
     if (isValid) {
       const { formValue } = refForm.current.state;
       submitForm({
@@ -103,7 +113,14 @@ let RegistrationForm = ({
   };
 
   const TextField = (props) => {
-    const { name, label, placeholder, accepter, handleOnChange, ...rest } = props;
+    const {
+      name,
+      label,
+      placeholder,
+      accepter,
+      handleOnChange,
+      ...rest
+    } = props;
     return (
       <FormGroup>
         {label && <ControlLabel>{label} </ControlLabel>}
@@ -143,7 +160,7 @@ let RegistrationForm = ({
         />
       </div>
       {submitted ? (
-        <SubmittedForm formContent={formContent}/>
+        <SubmittedForm formContent={formContent} />
       ) : (
         <>
           <Grid fluid>
@@ -281,7 +298,8 @@ let RegistrationForm = ({
                     type="submit"
                     className="custom-button custom-button-active"
                   >
-                    {formContent.submit_text}
+                    {formContent.submit_text}{" "}
+                    <FontAwesomeIcon icon={["fas", "pen"]} />
                   </button>
                 </Col>
               </Row>

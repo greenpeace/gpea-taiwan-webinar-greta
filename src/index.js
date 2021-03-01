@@ -15,7 +15,7 @@ const tagManagerArgs = {
   gtmId: "GTM-M6LZL75",
 };
 
-TagManager.initialize(tagManagerArgs);
+  TagManager.initialize(tagManagerArgs);
 
 const rootElement = document.getElementById("root");
 
