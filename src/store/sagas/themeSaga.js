@@ -5,28 +5,12 @@ import * as Actions from "../actions/action-types/theme-actions";
 
 const FORM_URL = document.querySelector("#mc-form").action;
 const CAMPAIGN_ID = document.querySelector('input[name="CampaignId"]').value;
+const CAMPAIGN_NAME = process.env.REACT_APP_PROJECT;
 
 export function* submitForm(actions) {
-
   const formData = {
     ...actions.form,
     CampaignId: `${CAMPAIGN_ID}`,
-    // DonationPageUrl: "https://www.greenpeace.org/eastasia/",
-    // LeadSource: "Petition - Plastics",
-    // Petition_Interested_In_Arctic__c: "false",
-    // Petition_Interested_In_Climate__c: "false",
-    // Petition_Interested_In_Forest__c: "false",
-    // Petition_Interested_In_Health__c: "false",
-    // Petition_Interested_In_Oceans__c: "false",
-    // Petition_Interested_In_Plastics__c: "true",
-    // UtmCampaign: "",
-    // UtmContent: "",
-    // UtmMedium: "",
-    // UtmSource: "",
-    // UtmTerm: "",
-    // numResponses: "78901",
-    // numSignupTarget: "123456",
-    // req: "post_data",
   };
 
   // console.log('formData--', formData)
@@ -65,6 +49,8 @@ export function* submitForm(actions) {
       yield put({
         type: Actions.SUBMIT_FORM_SUCCESS,
       });
+      // Tracking
+      console.log("submitted:", CAMPAIGN_NAME);
     } else {
       yield put({ type: Actions.SUBMIT_FORM_FAIL });
     }
