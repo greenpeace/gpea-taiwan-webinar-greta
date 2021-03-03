@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import * as swiperActions from "store/actions/action-types/swiper-actions";
+import * as themeActions from "store/actions/action-types/theme-actions";
 import { connect } from "react-redux";
 import { Helmet } from "react-helmet-async";
 import "../../app.less";
@@ -11,7 +12,17 @@ import RegistrationForm from "components/form/registrationForm";
 import SubmittedForm from "components/form/submittedForm";
 import formContent from "./formContent.json";
 
-const Index = ({ submitted }) => {
+const Index = ({ initState, fakeSubmit, submitted, petition }) => {
+  useEffect(() => {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    if (urlParams.get("page") === "2") {
+      fakeSubmit();
+    } else {
+      initState();
+    }
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -66,6 +77,12 @@ const mapStateToProps = ({ swiper, theme }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    fakeSubmit: () => {
+      dispatch({ type: themeActions.SUBMIT_FORM_SUCCESS });
+    },
+    initState: () => {
+      dispatch({ type: themeActions.INIT_STATE });
+    },
     updateSwiperSlide: (data) => {
       dispatch({ type: swiperActions.UPDATE_SWIPER_SLIDE, data });
     },
