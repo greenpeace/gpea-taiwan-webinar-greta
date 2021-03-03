@@ -6,12 +6,13 @@ import whatsapp from "assets/images/social/whatsapp_icon.svg";
 const buttonStyle = {
   color: "#FFFFFF",
   fontWeight: "bold",
-  marginBottom: "16px",
+  marginBottom: "20px",
 };
 
-const mainShare = (event) => {
-  event.preventDefault();
-  //
+const donateURL =
+  "http://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK&campaign=fukushima&ref=fukushima-thankyou";
+
+const mainShare = () => {
   const fbShare = () => {
     var baseURL = "https://www.facebook.com/sharer/sharer.php";
     var u = "https://act.gp/3bLDMwF";
@@ -39,8 +40,7 @@ const mainShare = (event) => {
   }
 };
 
-const whatsAppShare = (event) => {
-  event.preventDefault();
+const whatsAppShare = () => {
   var w =
     "https://api.whatsapp.com/send?text=立即聯署與綠色和平一起敦促其長期、妥善地存置這批危害生態和人體的廢水，使大家的海洋免於進一步的破壞。👉 https://act.gp/3kzJzsY";
   window.open(w);
@@ -59,7 +59,8 @@ let SubmittedForm = ({ formContent = content }) => {
             <Button
               style={{ backgroundColor: "#fda22f", ...buttonStyle }}
               block
-              link="https://supporter.ea.greenpeace.org/hk/s/donate"
+              href={{ donateURL }}
+              target="_blank"
               rel="noreferrer"
             >
               {formContent.donate_button}

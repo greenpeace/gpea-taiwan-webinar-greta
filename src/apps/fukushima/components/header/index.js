@@ -9,12 +9,12 @@ const Index = ({ toggleTheme }) => {
 
   return (
     <header className="main-header">
-      <a href="#" className="logo-holder">
+      <div className="logo-holder">
         <img
           src="https://api.greenpeace.org.hk/general/logo/GP-logo-2019-TC-green-%5bweb%5d-01.png"
-          alt=""
+          alt="Greenpeace 綠色和平"
         />
-      </a>
+      </div>
     </header>
   );
 };
