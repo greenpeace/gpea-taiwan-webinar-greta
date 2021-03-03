@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+// import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import configureStore from "./store/configureStore";
 import App from "./App";
@@ -15,7 +15,7 @@ const tagManagerArgs = {
   gtmId: "GTM-M6LZL75",
 };
 
-  TagManager.initialize(tagManagerArgs);
+TagManager.initialize(tagManagerArgs);
 
 const rootElement = document.getElementById("root");
 
