@@ -3,7 +3,6 @@ import * as swiperActions from "store/actions/action-types/swiper-actions";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import { connect } from "react-redux";
 import { Helmet } from "react-helmet-async";
-import "../../app.less";
 import SlideScreen from "./slideScreen";
 import Aside from "../aside";
 import Header from "../header";
@@ -11,6 +10,8 @@ import Panel from "components/panel";
 import RegistrationForm from "components/form/registrationForm";
 import SubmittedForm from "components/form/submittedForm";
 import formContent from "./formContent.json";
+
+import "../../app.less";
 
 const Index = ({ initState, fakeSubmit, submitted, petition }) => {
   useEffect(() => {

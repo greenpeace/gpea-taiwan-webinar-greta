@@ -59,7 +59,7 @@ let SubmittedForm = ({ formContent = content }) => {
             <Button
               style={{ backgroundColor: "#fda22f", ...buttonStyle }}
               block
-              href={{ donateURL }}
+              href={donateURL}
               target="_blank"
               rel="noreferrer"
             >

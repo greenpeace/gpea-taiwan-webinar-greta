@@ -70,15 +70,16 @@ let RegistrationForm = ({
       )
     );
 
-    if (document.querySelector("input[name='numSignupTarget'")) {
-      setNumSignupTarget(
-        document.querySelector("input[name='numSignupTarget'").value
-      );
+    const signupTarget = document.querySelector(
+      "input[name='numSignupTarget']"
+    );
+    const numResponses = document.querySelector("input[name='numResponses']");
+
+    if (signupTarget) {
+      setNumSignupTarget(signupTarget.value);
     }
-    if (document.querySelector("input[name='numResponses'")) {
-      setNumResponses(
-        document.querySelector("input[name='numResponses'").value
-      );
+    if (numResponses) {
+      setNumResponses(numResponses.value);
     }
     //
     let optionYear = [];

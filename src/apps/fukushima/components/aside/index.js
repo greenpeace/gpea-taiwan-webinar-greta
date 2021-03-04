@@ -43,16 +43,12 @@ const Index = () => {
       </aside> */}
       {/* MOBILE */}
       <div className="share-btn showshare color-bg">
-        <span onClick={() => mainShare()}>
-          分享 <FontAwesomeIcon icon={["fas", "fa-share"]} size="lg" />
-        </span>
+        <span onClick={() => mainShare()}>分享</span>
       </div>
       {/* DESKTOP */}
       <div className="hc_dec_color">
         <div className="page-subtitle page-subtitle-custom share-btn-desktop">
-          <span onClick={() => mainShare()}>
-            分享 <FontAwesomeIcon icon={["fas", "fa-share"]} size="lg" />
-          </span>
+          <span onClick={() => mainShare()}>分享</span>
         </div>
       </div>
     </>
