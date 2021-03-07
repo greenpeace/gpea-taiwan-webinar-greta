@@ -9,6 +9,12 @@ const initState = {
 
 const swiperReducer = (state = initState, action) => {
   switch (action.type) {
+    case Actions.SET_SWIPER_DATA:
+      return {
+        ...initState,
+        data: action.data
+      };
+
     case Actions.UPDATE_SWIPER_SLIDE:
       return {
         ...state,
