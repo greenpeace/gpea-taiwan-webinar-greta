@@ -3,6 +3,7 @@ import SlidingPane from "react-sliding-pane";
 import RegistrationForm from "../form/registrationForm"
 import { connect } from "react-redux";
 import * as themeActions from "store/actions/action-types/theme-actions";
+import "react-sliding-pane/dist/react-sliding-pane.css";
 
 // Hook
 function usePrevious(value) {
@@ -14,7 +15,6 @@ function usePrevious(value) {
 
   return ref.current;
 }
-
 
 const Panel = ({theme, closePanel, togglePanel, formContent}) => {
   const prevClosePanel = usePrevious(closePanel)

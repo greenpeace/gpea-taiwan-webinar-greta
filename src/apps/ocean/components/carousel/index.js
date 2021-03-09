@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 
 SwiperCore.use([A11y, Parallax, Autoplay]);
 
-const Index = ({ swiperData, updateSwiperSlide, slideIndex }) => {
+const Index = ({ swiperData, slideIndex }) => {
   const [swiper, setSwiper] = useState(null);
 
   useEffect(() => {

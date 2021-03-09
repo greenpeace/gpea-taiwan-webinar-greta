@@ -9,8 +9,9 @@ import {
   FormControl,
   ControlLabel,
   SelectPicker,
-  Checkbox,
+  Checkbox
 } from "rsuite";
+import "rsuite/lib/styles/index.less";
 import { Grid, Row, Col } from "rsuite";
 // import MailCheck from "react-mailcheck";
 

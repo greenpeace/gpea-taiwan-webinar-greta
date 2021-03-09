@@ -3,15 +3,15 @@ import * as swiperActions from "store/actions/action-types/swiper-actions";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import { connect } from "react-redux";
 import { Helmet } from "react-helmet-async";
-import SlideScreen from "./slideScreen";
-import Aside from "../aside";
-import Header from "../header";
-import Panel from "components/panel";
 import RegistrationForm from "components/form/registrationForm";
 import SubmittedForm from "components/form/submittedForm";
-import formContent from "./formContent.json";
+import SlideScreen from "./components/main/slideScreen";
+import Aside from "./components/aside";
+import Header from "./components/header";
+import Panel from "components/panel";
+import formContent from "./data/formContent.json";
 
-import "../../app.less";
+import "./app.less";
 
 const Index = ({ initState, fakeSubmit, submitted, petition }) => {
   useEffect(() => {
@@ -28,18 +28,18 @@ const Index = ({ initState, fakeSubmit, submitted, petition }) => {
     <>
       <Helmet>
         <html lang="zh" />
-        <title>守護海洋，攜手成立全球海洋保護區！ - Greenpeace 綠色和平 | 香港</title>
+        <title>福島十年 力阻核廢水排放 - Greenpeace 綠色和平 | 香港</title>
         <meta
           property="og:title"
-          content="守護海洋，攜手成立全球海洋保護區！ - Greenpeace 綠色和平 | 香港"
+          content="福島十年 力阻核廢水排放 - Greenpeace 綠色和平 | 香港"
         />
         <meta
           name="description"
-          content="海洋的面積占地球71%，是世界最大的供氧來源，也孕育豐富的生物多樣性，包含鯨魚、海豚、海龜、珊瑚等美妙海洋生物。然而，海洋現在卻因塑膠污染、非法捕魚、氣候變遷等面臨前所未有的重大生態危機。我們需要更多人一起站出來聯署加入，並捐款資助綠色和平！"
+          content="福島第一核電廠事故已經發生十年。日本政府欲將123萬噸對人體及海洋有害的核廢水，排放到太平洋。請即聯署阻止核廢水污染大海，一起守護海洋生態。"
         />
         <meta
           property="og:description"
-          content="海洋的面積占地球71%，是世界最大的供氧來源，也孕育豐富的生物多樣性，包含鯨魚、海豚、海龜、珊瑚等美妙海洋生物。然而，海洋現在卻因塑膠污染、非法捕魚、氣候變遷等面臨前所未有的重大生態危機。我們需要更多人一起站出來聯署加入，並捐款資助綠色和平！"
+          content="福島第一核電廠事故已經發生十年。日本政府欲將123萬噸對人體及海洋有害的核廢水，排放到太平洋。請即聯署阻止核廢水污染大海，一起守護海洋生態。"
         />
         <meta
           property="og:image"
@@ -59,7 +59,7 @@ const Index = ({ initState, fakeSubmit, submitted, petition }) => {
         {submitted ? (
           <SubmittedForm formContent={formContent} />
         ) : (
-          <RegistrationForm formContent={formContent}/>
+          <RegistrationForm />
         )}
       </div>
       <Panel formContent={formContent} />

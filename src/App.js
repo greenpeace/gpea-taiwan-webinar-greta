@@ -1,19 +1,11 @@
+import "App.less";
 import React, { useEffect, Suspense } from "react";
 import { connect } from "react-redux";
 import * as themeActions from "store/actions/action-types/theme-actions";
-
-import "swiper/swiper.scss";
-import "swiper/components/navigation/navigation.scss";
-import "swiper/components/pagination/pagination.scss";
-import "swiper/components/scrollbar/scrollbar.scss";
-import "rsuite/lib/styles/index.less";
-import "react-sliding-pane/dist/react-sliding-pane.css";
-import "App.less";
-
 import Spinner from "components/spinner";
 import ScrollHandler from "components/spinner/scrollHandler";
 
-const Main = React.lazy(() => import(`apps/${process.env.REACT_APP_PROJECT}/components/main`));
+const Main = React.lazy(() => import(`apps/${process.env.REACT_APP_PROJECT}`));
 
 const isIGApp = () => {
   var ua = navigator.userAgent || navigator.vendor || window.opera;
