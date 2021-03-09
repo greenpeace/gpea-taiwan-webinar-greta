@@ -4,9 +4,11 @@ import content from "./content.json";
 import whatsapp from "assets/images/social/whatsapp_icon.svg";
 
 const buttonStyle = {
+  fontSize: "18px",
   color: "#FFFFFF",
   fontWeight: "bold",
   marginBottom: "20px",
+  padding: "12px 20px",
 };
 
 const donateURL =
@@ -56,6 +58,10 @@ let SubmittedForm = ({ formContent = content }) => {
               className="form-header"
               dangerouslySetInnerHTML={{ __html: formContent.thanks_title }}
             ></div>
+            <div
+              className="form-description"
+              dangerouslySetInnerHTML={{ __html: formContent.thanks_ask }}
+            ></div>
             <Button
               style={{ backgroundColor: "#fda22f", ...buttonStyle }}
               block
@@ -65,7 +71,9 @@ let SubmittedForm = ({ formContent = content }) => {
             >
               {formContent.donate_button}
             </Button>
+
             <div className="sp-line"></div>
+
             <div
               className="form-description"
               dangerouslySetInnerHTML={{ __html: formContent.thanks_content }}
