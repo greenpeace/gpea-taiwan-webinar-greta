@@ -27,7 +27,9 @@ const Index = ({ initState, fakeSubmit, submitted }) => {
     <>
       <Helmet>
         <html lang="zh" />
-        <title>守護海洋，攜手成立全球海洋保護區！ - Greenpeace 綠色和平 | 香港</title>
+        <title>
+          守護海洋，攜手成立全球海洋保護區！ - Greenpeace 綠色和平 | 香港
+        </title>
         <meta
           property="og:title"
           content="守護海洋，攜手成立全球海洋保護區！ - Greenpeace 綠色和平 | 香港"
@@ -42,7 +44,7 @@ const Index = ({ initState, fakeSubmit, submitted }) => {
         />
         <meta
           property="og:image"
-          content="https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/02/e1abe0f4-20210225_fukushima10th_petition_thumbnial-02.jpg"
+          content="https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/03/26435735-og-petition.jpeg"
         />
       </Helmet>
       <div id="main">
@@ -58,7 +60,7 @@ const Index = ({ initState, fakeSubmit, submitted }) => {
         {submitted ? (
           <SubmittedForm formContent={formContent} />
         ) : (
-          <RegistrationForm formContent={formContent}/>
+          <RegistrationForm formContent={formContent} />
         )}
       </div>
       <Panel formContent={formContent} />
