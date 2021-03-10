@@ -9,10 +9,10 @@ import SwiperCore, {
   Autoplay,
 } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper.scss";
-import "swiper/components/navigation/navigation.scss";
-import "swiper/components/pagination/pagination.scss";
-import "swiper/components/scrollbar/scrollbar.scss";
+import "apps/oceans/components/main/node_modules/swiper/swiper.scss";
+import "apps/oceans/components/main/node_modules/swiper/components/navigation/navigation.scss";
+import "apps/oceans/components/main/node_modules/swiper/components/pagination/pagination.scss";
+import "apps/oceans/components/main/node_modules/swiper/components/scrollbar/scrollbar.scss";
 
 // install Swiper components
 SwiperCore.use([Scrollbar, A11y, Parallax, Autoplay]);
