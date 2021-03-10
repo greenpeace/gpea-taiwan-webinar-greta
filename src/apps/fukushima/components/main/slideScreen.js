@@ -1,7 +1,7 @@
-import "apps/oceans/components/main/node_modules/swiper/swiper.scss";
-import "apps/oceans/components/main/node_modules/swiper/components/navigation/navigation.scss";
-import "apps/oceans/components/main/node_modules/swiper/components/pagination/pagination.scss";
-import "apps/oceans/components/main/node_modules/swiper/components/scrollbar/scrollbar.scss";
+import "swiper/swiper.scss";
+import "swiper/components/navigation/navigation.scss";
+import "swiper/components/pagination/pagination.scss";
+import "swiper/components/scrollbar/scrollbar.scss";
 
 import React from "react";
 import SlideContent from "./sildeConent";
