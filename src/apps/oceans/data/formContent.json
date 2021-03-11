@@ -13,19 +13,19 @@
   "minimum_8_characters": "請輸入8位數字",
 
   "form_header": "守護海洋，攜手成立全球海洋保護區！",
-  "form_description": "號召更多朋友參與，達到最新目標：4,000,000 聯署。",
+  "form_description": "不管是氣候變遷或是塑膠污染我們都責無旁貸，綠色和平主張在2030年前須成立至少30%的海洋保護區，邀請您立即聯署一起守護海洋。",
   "form_remind": "我願意收到綠色和平發送的通訊，讓我能掌握環保工作的最新脈動！綠色和平尊重並保障您的個人資料，您隨時可取消訂閱，請參考私隱政策。",
 
   "submit_text": "立即聯署",
 
-  "thanks_title": "<p>感謝您加入聯署，阻截核廢水排放，守護海洋生態！</p>",
-  "thanks_ask": "<p>綠色和平是核災後，最快趕赴現場的環境機構之一，10年來進行超過30次的實地檢測調查。此刻，我們急需您的捐助支持，以反對日本政府將核廢水排放到太平洋，長遠淘汰危害您我、下一代的核能！</p>",
-  "thanks_content": "<p>堅持反核使命，守護海洋生態，綠色和平急需您的支持，在不接受政商界資助下，維持足夠資源推動項目工作！</p>",
+  "thanks_title": "<p>謝謝您加入為海洋發聲！</p>",
+  "thanks_ask": "<p>多年來，綠色和平以建立30%海洋保護區為目標，在推動環境工作愈見困難的此刻，我們仍堅持不接受政商界支持。請即以每日約$3小額捐助，支持綠色和平爭取成立全球海洋公約，並邁向建立30%海洋保護區願景！</p>",
+  "thanks_content": "",
   "share_button": "分享出去",
   "donate_button": "捐助支持",
-  "donateURL": "http://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK&campaign=fukushima&ref=fukushima-thankyou",
-  "shareMessage": "立即聯署與綠色和平一起敦促其長期、妥善地存置這批危害生態和人體的廢水，使大家的海洋免於進一步的破壞。👉 ",
-  "fbURL": "https://act.gp/3bLDMwF",
-  "mainURL": "https://act.gp/3uK2A0S",
-  "whatsappURL": "https://act.gp/3kzJzsY"
+  "donateURL": "http://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK&campaign=oceans&ref=oceans-thankyou",
+  "shareMessage": "多年來，綠色和平以建立30%海洋保護區為目標，立即聯署守護海洋，攜手成立全球海洋保護區！👉 ",
+  "fbURL": "https://act.gp/3eG7pTl",
+  "mainURL": "https://act.gp/3l2XZCq",
+  "whatsappURL": "https://act.gp/3eG7kPx"
 }

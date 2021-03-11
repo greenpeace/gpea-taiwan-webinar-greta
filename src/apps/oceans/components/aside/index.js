@@ -1,9 +1,7 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 const mainShare = () => {
   const fbShare = () => {
     var baseURL = "https://www.facebook.com/sharer/sharer.php";
-    var u = "https://act.gp/3bLDMwF";
+    var u = "https://act.gp/3eG7pTl";
     var t = (window.innerHeight - 436) / 2;
     var l = (window.innerWidth - 626) / 2;
     window.open(
@@ -18,8 +16,8 @@ const mainShare = () => {
       .share({
         title: "",
         text:
-          "立即聯署與綠色和平一起敦促其長期、妥善地存置這批危害生態和人體的廢水，使大家的海洋免於進一步的破壞。👉 ",
-        url: "https://act.gp/3uK2A0S",
+          "多年來，綠色和平以建立30%海洋保護區為目標，立即聯署守護海洋，攜手成立全球海洋保護區！👉 ",
+        url: "https://act.gp/3l2XZCq",
       })
       .then()
       .catch();

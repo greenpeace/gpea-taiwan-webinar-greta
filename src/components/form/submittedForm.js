@@ -37,9 +37,7 @@ let SubmittedForm = ({ formContent = content }) => {
             >
               {formContent.donate_button}
             </Button>
-
             <div className="sp-line"></div>
-
             <div
               className="form-description"
               dangerouslySetInnerHTML={{ __html: formContent.thanks_content }}

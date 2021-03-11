@@ -160,9 +160,11 @@ let headersTmpl = `%%[
 
     /**** Retreive number of responses in campaign used for any petition where petition sign up progress bar is needed to display signups compared to targeted number of signups ****/
     SET @Rows = LookupRows("ENT.Campaign_Salesforce","Id", @CampaignId)
-    IF RowCount(@CampaignRows) > 0 THEN
+    IF RowCount(@Rows) > 0 THEN
       SET @CampaignRow = Row(@Rows, 1)
-      SET @NumberOfResponses = Field(@CampaignRow, "NumberOfResponses")
+      SET @NumberOfContacts = Field(@CampaignRow, "NumberOfContacts")
+      SET @NumberOfLeads = Field(@CampaignRow, "NumberOfLeads")
+      SET @NumberOfResponses = ADD(@NumberOfContacts, @NumberOfLeads)
       SET @Petition_Signup_Target__c = Field(@CampaignRow, "Petition_Signup_Target__c")
     ENDIF
 

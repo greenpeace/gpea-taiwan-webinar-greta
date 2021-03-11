@@ -1,19 +1,24 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import Banner from "../banner";
 import Carousel from "../carousel";
 import * as swiperActions from "store/actions/action-types/swiper-actions";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import swiperContent from "../../data/swiper.json"
+import swiperContent from "../../data/swiper.json";
 
-const SlideContent = ({ swiper, slideIndex, updateSwiperSlide, setSwiperSlide }) => {
+import videoBG from "../../../../assets/videos/e96a2abcec677ba251bdd4e8c9ddb5ef.mp4";
 
+const SlideContent = ({
+  swiper,
+  slideIndex,
+  updateSwiperSlide,
+  setSwiperSlide,
+}) => {
   useEffect(() => {
-    const {data = []} = swiperContent
-    setSwiperSlide(data)
+    const { data = [] } = swiperContent;
+    setSwiperSlide(data);
   }, []);
-
 
   const currentSlide = `${
     slideIndex + 1 >= 10 ? slideIndex + 1 : `0${slideIndex + 1}`
@@ -42,7 +47,11 @@ const SlideContent = ({ swiper, slideIndex, updateSwiperSlide, setSwiperSlide })
     <>
       <div className="hero-wrapper fl-wrap full-height hidden-item">
         <div className="video-wrap">
-          <div className="videobg"></div>
+          <div className="videobg">
+            <video autoPlay muted>
+              <source src={videoBG} type="video/mp4" />
+            </video>
+          </div>
         </div>
         <span className="hc_dec"></span>
         <div className="hero-slider-wrap home-half-slider fl-wrap full-height">
