@@ -1,16 +1,9 @@
 {
-  "extends": [
-    "react-app",
-    "plugin:import/errors",
-    "plugin:import/warnings"
-  ],
+  "extends": ["react-app", "plugin:import/errors", "plugin:import/warnings"],
   "settings": {
     "import/resolver": {
       "node": {
-        "moduleDirectory": [
-          "node_modules",
-          "src/"
-        ]
+        "moduleDirectory": ["node_modules", "src/"]
       }
     }
   }

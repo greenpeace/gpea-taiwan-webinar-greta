@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
-const WebTitle = ({text, titleStyle}) => {
-  return(
-  <>
-    <h3 style={titleStyle}>
-      {text}
-    </h3>
-  </>
-  )
-}
+const WebTitle = ({ text, titleStyle }) => {
+  return (
+    <>
+      <h3 style={titleStyle}>{text}</h3>
+    </>
+  );
+};
 
-export default WebTitle
+export default WebTitle;

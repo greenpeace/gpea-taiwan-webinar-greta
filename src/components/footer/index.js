@@ -16,7 +16,11 @@ let Footer = () => {
             <Col xs={24} lg={12}>
               <ul>
                 <li>
-                  <a href="http://www.greenpeace.org/hk/" target="_blank" rel="noreferrer">
+                  <a
+                    href="http://www.greenpeace.org/hk/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     首頁
                   </a>
                 </li>

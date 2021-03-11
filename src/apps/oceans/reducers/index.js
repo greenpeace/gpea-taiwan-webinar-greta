@@ -2,7 +2,7 @@ import * as Actions from "../actions";
 
 const initState = {
   data: [],
-  lastAction: null
+  lastAction: null,
 };
 
 const petitionReducer = (state = initState, action) => {
@@ -10,20 +10,20 @@ const petitionReducer = (state = initState, action) => {
     case Actions.FETCH_WORDPRESS_CONTENT_START:
       return {
         ...state,
-        lastAction: action.type
+        lastAction: action.type,
       };
 
     case Actions.FETCH_WORDPRESS_CONTENT_SUCCESS:
       return {
         ...state,
         data: action.data,
-        lastAction: action.type
+        lastAction: action.type,
       };
 
     case Actions.FETCH_WORDPRESS_CONTENT_FAIL:
       return {
         ...state,
-        lastAction: action.type
+        lastAction: action.type,
       };
 
     default:

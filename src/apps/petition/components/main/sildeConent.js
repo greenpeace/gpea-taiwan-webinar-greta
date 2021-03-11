@@ -6,11 +6,7 @@ import * as themeActions from "store/actions/action-types/theme-actions";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const SlideContent = ({
-  swiper,
-  slideIndex,
-  updateSwiperSlide
-}) => {
+const SlideContent = ({ swiper, slideIndex, updateSwiperSlide }) => {
   const currentSlide = `${
     slideIndex + 1 >= 10 ? slideIndex + 1 : `0${slideIndex + 1}`
   }`;
@@ -36,7 +32,7 @@ const SlideContent = ({
 
   return (
     <>
-    <div className="hero-wrapper fl-wrap full-height hidden-item">
+      <div className="hero-wrapper fl-wrap full-height hidden-item">
         <div className="video-wrap">
           <div className="videobg">
             {/* <video autoPlay muted>
@@ -80,7 +76,7 @@ const SlideContent = ({
             </span>
           </div>
         </div>
-        </div>
+      </div>
     </>
   );
 };

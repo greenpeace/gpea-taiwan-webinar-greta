@@ -1,6 +1,6 @@
 import React from "react";
 import * as themeActions from "store/actions/action-types/theme-actions";
-import SurveyForm from "components/form/surveyForm"
+import SurveyForm from "components/form/surveyForm";
 import { connect } from "react-redux";
 
 const Content = ({ togglePanel }) => {
@@ -9,7 +9,7 @@ const Content = ({ togglePanel }) => {
       <div className="main-content-wrap">
         <section>
           <div className="container">
-          <SurveyForm/>
+            <SurveyForm />
           </div>
           {/* <div className="section-number">
             <span>問卷調查</span>

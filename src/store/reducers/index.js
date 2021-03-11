@@ -9,5 +9,5 @@ export const rootReducer = combineReducers({
   wordpress,
   swiper,
   theme,
-  petition
+  petition,
 });

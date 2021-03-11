@@ -13,7 +13,7 @@ export function* fetchWordpressContent() {
     if (response.statusText === "OK") {
       yield put({
         type: Actions.FETCH_WORDPRESS_CONTENT_SUCCESS,
-        data: response.data
+        data: response.data,
       });
     } else {
       yield put({ type: Actions.FETCH_WORDPRESS_CONTENT_FAIL });

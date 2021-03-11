@@ -27,7 +27,7 @@ const Index = ({ initState, fakeSubmit, submitted, petition }) => {
 
   return (
     <>
-      <Seo/>
+      <Seo />
       <div id="main">
         <Header />
         <Aside />

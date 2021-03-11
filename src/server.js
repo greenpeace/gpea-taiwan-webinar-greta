@@ -17,16 +17,19 @@ app.get("/", (req, res) => {
       .replace(/__TITLE__/g, "Greenpeace 綠色和平 | 香港")
       .replace(/__DESCRIPTION__/g, "Greenpeace 綠色和平 | 內容")
       .replace(/__AUTHOR__/g, "Greenpeace 綠色和平")
-      .replace(/__IMAGE__/g, "https://www.greenpeace.org/static/planet4-hongkong-stateless/2cac5add-wallpaper_banner.jpg")
+      .replace(
+        /__IMAGE__/g,
+        "https://www.greenpeace.org/static/planet4-hongkong-stateless/2cac5add-wallpaper_banner.jpg"
+      )
       .replace(/__TYPE__/g, "website")
-      .replace(/__FB_APP_ID__/g, "192994240714848")
+      .replace(/__FB_APP_ID__/g, "192994240714848");
 
-    res.send(data)
+    res.send(data);
   });
 });
 
-app.use(express.static(path.resolve(__dirname, "./build")))
+app.use(express.static(path.resolve(__dirname, "./build")));
 
 app.listen(PORT, () => {
-  console.log(`Server is listening on port ${PORT}`)
-})
+  console.log(`Server is listening on port ${PORT}`);
+});
