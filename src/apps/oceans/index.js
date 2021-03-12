@@ -4,7 +4,7 @@ import * as swiperActions from "store/actions/action-types/swiper-actions";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import { connect } from "react-redux";
 
-import Seo from "./Seo";
+import SEO from "./SEO";
 import RegistrationForm from "components/form/registrationForm";
 import SubmittedForm from "components/form/submittedForm";
 import SlideScreen from "./components/main/slideScreen";
@@ -26,7 +26,7 @@ const Index = ({ initState, fakeSubmit, submitted }) => {
 
   return (
     <>
-      <Seo />
+      <SEO />
       <div id="main">
         <Header />
         <Aside />

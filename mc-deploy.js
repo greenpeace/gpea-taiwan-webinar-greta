@@ -36,11 +36,11 @@ Install the dependencies first
 // definitions
 const buildFolder = path.join(__dirname, "build");
 const EndpointURL = "https://cloud.greenhk.greenpeace.org/petition-pp";
-let CampaignId = "7012u000000OxIOAA0";
+let CampaignId = "7012u000000P2LIAA0";
 const DonationPageUrl = "https://www.greenpeace.org/eastasia/"; // not used now
-const interests = ["Oceans"]; // Arctic, Climate, Forest, Health, Oceans, Plastics
+const interests = ["Climate"]; // Arctic, Climate, Forest, Health, Oceans, Plastics
 const ftpConfigName = "ftp_hk"; // refer to ~/.npm-en-uploader-secret
-const ftpRemoteDir = "/2021/oceans";
+const ftpRemoteDir = "/2021/fukushima";
 
 let indexHtmlFilePath = path.join(buildFolder, "index.html");
 let fbuf = fs.readFileSync(indexHtmlFilePath);

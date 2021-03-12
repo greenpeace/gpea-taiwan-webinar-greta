@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import React from "react";
 
-const Seo = () => {
+const SEO = () => {
   return (
     <Helmet>
       <html lang="zh" />
@@ -41,4 +41,4 @@ const Seo = () => {
   );
 };
 
-export default Seo;
+export default SEO;
