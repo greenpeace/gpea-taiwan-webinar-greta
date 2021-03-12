@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import swiperContent from "../../data/swiper.json";
 
 const MobileContent = () => {
-  const {data = []} = swiperContent
+  const { data = [] } = swiperContent;
   return (
     <div className="mobile-content-wrap">
       <Grid fluid>

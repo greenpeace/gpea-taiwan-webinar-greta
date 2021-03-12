@@ -11,6 +11,7 @@ import TagManager from "react-gtm-module";
 import "./index.css";
 import "./fontawesome";
 
+/* TODO: init TagManager only in Production */
 const tagManagerArgs = {
   gtmId: "GTM-M6LZL75",
 };
