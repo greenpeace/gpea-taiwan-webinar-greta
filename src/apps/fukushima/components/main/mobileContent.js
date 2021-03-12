@@ -1,12 +1,14 @@
 import React from "react";
 import { Grid, Row, Col } from "rsuite";
 import { connect } from "react-redux";
+import swiperContent from "../../data/swiper.json";
 
-const MobileContent = ({ content }) => {
+const MobileContent = () => {
+  const {data = []} = swiperContent
   return (
     <div className="mobile-content-wrap">
       <Grid fluid>
-        {(content || []).map((d) => {
+        {(data || []).map((d) => {
           const { title, description } = d.content;
           return (
             <Row key={d.id}>
@@ -33,10 +35,4 @@ const MobileContent = ({ content }) => {
   );
 };
 
-const mapStateToProps = ({ swiper }) => {
-  return {
-    content: swiper.data,
-  };
-};
-
-export default connect(mapStateToProps)(MobileContent);
+export default MobileContent;

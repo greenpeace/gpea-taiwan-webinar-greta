@@ -6,6 +6,11 @@
   padding: 0px;
 }
 
+.swiper-wrapper,
+.hero-slider-img .swiper-slide, .hero-slider-wrap .swiper-slide{
+  width: 100% !important;
+}
+
 .mobile-content-wrap {
   position: absolute;
   bottom: 60px;
@@ -198,6 +203,9 @@ h1.hhw_title {
 }
 
 @media screen and (max-width: 564px) {
+  .hero-slider-wrap, .hero-slider-img{
+    display: none;
+  }
   .half-hero-wrap,
   .fhhw .half-hero-wrap {
     left: 0;

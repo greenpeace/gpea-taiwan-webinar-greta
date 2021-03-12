@@ -1,12 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Banner from "../banner";
 import Carousel from "../carousel";
 import * as swiperActions from "store/actions/action-types/swiper-actions";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import swiperContent from "../../data/swiper.json";
 
-const SlideContent = ({ swiper, slideIndex, updateSwiperSlide }) => {
+import videoBG from "../../../../assets/videos/e96a2abcec677ba251bdd4e8c9ddb5ef.mp4";
+
+const SlideContent = ({
+  swiper,
+  slideIndex,
+  updateSwiperSlide,
+  setSwiperSlide,
+}) => {
+  useEffect(() => {
+    const { data = [] } = swiperContent;
+    setSwiperSlide(data);
+  }, []);
+
   const currentSlide = `${
     slideIndex + 1 >= 10 ? slideIndex + 1 : `0${slideIndex + 1}`
   }`;
@@ -35,18 +48,6 @@ const SlideContent = ({ swiper, slideIndex, updateSwiperSlide }) => {
       <div className="hero-wrapper fl-wrap full-height hidden-item">
         <div className="video-wrap">
           <div className="videobg">
-            {/*
-            <video autoPlay muted>
-              <source
-                src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.webm"
-                type="video/webm"
-              />
-              <source
-                src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
-                type="video/mp4"
-              />
-            </video>
-            */}
           </div>
         </div>
         <span className="hc_dec"></span>
@@ -98,6 +99,9 @@ const mapStateToProps = ({ swiper }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    setSwiperSlide: (data) => {
+      dispatch({ type: swiperActions.SET_SWIPER_DATA, data });
+    },
     updateSwiperSlide: (data) => {
       dispatch({ type: swiperActions.UPDATE_SWIPER_SLIDE, data });
     },
