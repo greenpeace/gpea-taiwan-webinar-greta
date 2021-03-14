@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { connect } from "react-redux";
 import * as themeActions from "store/actions/action-types/theme-actions";
-import { Schema } from "rsuite";
+import mailcheck from 'mailcheck';
 import {
   Form,
   FormGroup,
@@ -10,15 +10,34 @@ import {
   ControlLabel,
   SelectPicker,
   Checkbox,
+  Grid,
+  Row,
+  Col,
+  Schema
 } from "rsuite";
 import "rsuite/lib/styles/index.less";
-import { Grid, Row, Col } from "rsuite";
-// import MailCheck from "react-mailcheck";
-
 import ProgressBar from "components/progress";
 import SubmittedForm from "./submittedForm";
 
 import content from "./content.json";
+
+
+// for email correctness
+let domains = [
+  "me.com",
+  "outlook.com",
+  "netvigator.com",
+  "cloud.com",
+  "live.hk",
+  "msn.com",
+  "gmail.com",
+  "hotmail.com",
+  "ymail.com",
+  "yahoo.com",
+  "yahoo.com.tw",
+  "yahoo.com.hk"
+];
+let topLevelDomains = ["com", "net", "org"];
 
 let RegistrationForm = ({
   togglePanel,
@@ -30,6 +49,7 @@ let RegistrationForm = ({
   const refForm = useRef();
   const refCheckbox = useRef();
   const [hiddenFormValues, setHiddenFormValues] = useState([]);
+  const [emailSuggestion, setEmailSuggestion] = useState("內容");
   const [numSignupTarget, setNumSignupTarget] = useState(100000);
   const [numResponses, setNumResponses] = useState(0);
   const [mobileCountryCode, setMobileCountryCode] = useState([
@@ -48,6 +68,15 @@ let RegistrationForm = ({
     Email: StringType()
       .isEmail(formContent.invalid_email_alert)
       .isRequired(formContent.empty_data_alert),
+      // .addRule((value, data) => {
+      //   const suggest = mailcheck.run({
+      //     email: value,
+      //     domains: domains,                       // optional
+      //     topLevelDomains: topLevelDomains,       // optional
+      //     suggested: (suggestion) => suggestion
+      //   })
+      //   return suggest === undefined;
+      // }, emailSuggestion),
     LastName: StringType().isRequired(formContent.empty_data_alert),
     FirstName: StringType().isRequired(formContent.empty_data_alert),
     MobileCountryCode: StringType().isRequired(formContent.empty_data_alert),
@@ -102,7 +131,6 @@ let RegistrationForm = ({
 
   const handleSubmit = (isValid) => {
     const OptIn = refCheckbox.current.state?.checked;
-    console.log("hiddenFormValues--", hiddenFormValues);
     if (isValid) {
       const { formValue } = refForm.current.state;
       submitForm({
