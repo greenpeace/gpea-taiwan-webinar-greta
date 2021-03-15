@@ -8,6 +8,7 @@ const override = css`
 `;
 
 const clipWrap = {
+  textAlign: 'center',
   position: "absolute",
   left: 0,
   right: 0,

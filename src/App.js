@@ -1,4 +1,3 @@
-import "App.less";
 import React, { useEffect, Suspense } from "react";
 import { connect } from "react-redux";
 import * as themeActions from "store/actions/action-types/theme-actions";
