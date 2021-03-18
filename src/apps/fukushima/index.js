@@ -3,7 +3,7 @@ import * as swiperActions from "store/actions/action-types/swiper-actions";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import { connect } from "react-redux";
 
-import SEO from "./Seo";
+import SEO from "./SEO";
 import RegistrationForm from "components/form/registrationForm";
 import SubmittedForm from "components/form/submittedForm";
 import SlideScreen from "./components/main/slideScreen";

@@ -168,7 +168,7 @@ let headersTmpl = `%%[
       SET @Petition_Signup_Target__c = Field(@CampaignRow, "Petition_Signup_Target__c")
     ENDIF
 
-    /*UTM Tracking Params*/
+    /* UTM Tracking Params */
     SET @UtmMedium          = RequestParameter("utm_medium")
     SET @UtmSource          = RequestParameter("utm_source")
     SET @UtmCampaign        = RequestParameter("utm_campaign")
