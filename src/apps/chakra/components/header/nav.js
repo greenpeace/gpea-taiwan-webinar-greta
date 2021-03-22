@@ -20,9 +20,10 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon, AddIcon } from '@chakra-ui/icons';
 
+
 const Links = ['Dashboard', 'Projects', 'Team'];
 
-const NavLink = ({ children }: { children: ReactNode }) => (
+const NavLink = ({ children }) => (
   <Link
     px={2}
     py={1}
@@ -41,8 +42,8 @@ export default function Nav() {
 
   return (
     <>
-      <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
-      <Container maxW={'6xl'}>
+    <Box borderBottom="1px" borderColor="gray.100">
+      <Container maxW={'5xl'}>
         <Flex maxW={'6xl'} h={16} alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
             size={'md'}
@@ -58,21 +59,12 @@ export default function Nav() {
               objectFit="contain"
               src="https://api.greenpeace.org.hk/general/logo/GP-logo-2019-TC-green-%5bweb%5d-01.png"
             /></Box>
-            {/* <HStack
-              as={'nav'}
-              spacing={4}
-              display={{ base: 'none', md: 'flex' }}>
-              {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
-              ))}
-            </HStack> */}
           </HStack>
           <Flex alignItems={'center'}>
             <Button
               variant={'solid'}
               colorScheme={'teal'}
               size={'sm'}
-              mr={4}
               leftIcon={<AddIcon />}>
               聯署
             </Button>
