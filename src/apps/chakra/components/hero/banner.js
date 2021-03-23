@@ -35,12 +35,11 @@ export default function Banner({
         wrap="no-wrap"
         minH="35vh"
         maxW={"6xl"}
-        mb={16}
+        mb={8}
         {...rest}
       >
         <Box
           pt={{ base: 8 }}
-          mb={{ base: 12, md: 0 }}
           w={{ base: "100%", sm: "100%", md: "70%" }}
         >
           <Image src={image} size="100%" rounded="5px" />
@@ -49,12 +48,23 @@ export default function Banner({
           spacing={4}
           w={{ base: "80%", md: "27%" }}
           pt={{ base: 8 }}
-          mb={{ base: 12, md: 0 }}
           align={["center", "center", "flex-start", "flex-start"]}
         >
           <HStack spacing="12px">
-            <Box borderWidth="0px" borderRightWidth="1px" pr={{ base: 3 }}>
-              <Heading
+            <Box borderWidth="0px" borderRightWidth="1px" pr={{ base: 2 }} d="flex" alignItems="center" textAlign="center" fontWeight="normal">
+              <Text fontSize="4xl">
+              守護大嶼
+            </Text>
+            </Box>
+            <Box>
+              <Heading as="h2" size="sm" color="primary.400" fontWeight="normal">
+              堅守香港海洋最後一道防線
+              </Heading>
+            </Box>
+          </HStack>
+
+          {/* <Box>
+            <Heading
                 as="h3"
                 size="sm"
                 color="primary.400"
@@ -62,25 +72,10 @@ export default function Banner({
               >
                 {title}
               </Heading>
-            </Box>
-            <Box>
-              <Heading as="h2" size="sm" color="primary.400">
-              設計
-              </Heading>
-            </Box>
-          </HStack>
-
-          <Box>
-            <Text fontSize="xl">
-              haoshi 懶人花器 | 1秒上手的居家美學
-            </Text>
-            <Text fontSize="sm">
-              提案人 <Link>haoshi</Link>
-            </Text>
-          </Box>
+          </Box> */}
 
           {/* <Divider /> */}
-          <Text
+          {/* <Text
             fontSize="md"
             mt={2}
             textAlign="center"
@@ -89,7 +84,7 @@ export default function Banner({
             textAlign={["center", "center", "left", "left"]}
           >
             {content}
-          </Text>
+          </Text> */}
           <Text
             fontSize="xs"
             mt={2}
@@ -165,8 +160,8 @@ Banner.propTypes = {
 };
 
 Banner.defaultProps = {
-  title: "群眾集資",
+  title: "守護香港未來",
   // content: "香港海洋孕育近6千種海洋生物，東大嶼水域生態豐富多樣，是國家重點保護野生動物白腹海雕的繁殖及棲息地，更錄得全球獨有的鮑氏雙足蜥，附近水域亦發現稀有的軟珊瑚海筆。",
-  content: "嘿!原來多了花，可以這麼不一樣。",
+  content: "堅守香港海洋最後一道防線",
   image: "https://api.greenpeace.org.hk/2021/elm/static/img/DJI_0409.89f89e20.jpg",
 };

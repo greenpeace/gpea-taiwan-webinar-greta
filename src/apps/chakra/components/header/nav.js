@@ -43,8 +43,8 @@ export default function Nav() {
   return (
     <>
     <Box borderBottom="1px" borderColor="gray.100">
-      <Container maxW={'5xl'}>
-        <Flex maxW={'6xl'} h={16} alignItems={'center'} justifyContent={'space-between'}>
+      <Container maxW={'12xl'}>
+        <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
             size={'md'}
             icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
