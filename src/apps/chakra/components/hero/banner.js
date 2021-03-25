@@ -27,7 +27,7 @@ export default function Banner({
   ...rest
 }) {
   return (
-    <Container maxW={"5xl"}>
+    <Container maxW={"7xl"}>
       <Flex
         align="center"
         justify={{ base: "center", md: "space-around", xl: "space-between" }}
@@ -35,23 +35,24 @@ export default function Banner({
         wrap="no-wrap"
         minH="35vh"
         maxW={"6xl"}
-        mb={8}
+        mb={24}
+        mt={24}
         {...rest}
       >
         <Box
           pt={{ base: 8 }}
           w={{ base: "100%", sm: "100%", md: "70%" }}
         >
-          <Image src={image} size="100%" rounded="5px" />
+          <Image src={"https://api.greenpeace.org.hk/2021/elm/static/img/DJI_0439.50ce887e.jpg"} size="100%" rounded="5px" />
         </Box>
         <Stack
           spacing={4}
-          w={{ base: "80%", md: "27%" }}
+          w={{ base: "100%", md: "27%" }}
           pt={{ base: 8 }}
           align={["center", "center", "flex-start", "flex-start"]}
         >
           <HStack spacing="12px">
-            <Box borderWidth="0px" borderRightWidth="1px" pr={{ base: 2 }} d="flex" alignItems="center" textAlign="center" fontWeight="normal">
+            <Box w="100px" borderWidth="0px" borderRightWidth="1px" pr={{ base: 2 }} d="flex" alignItems="center" textAlign="center" fontWeight="normal">
               <Text fontSize="4xl">
               守護大嶼
             </Text>
@@ -95,7 +96,7 @@ export default function Banner({
             海洋住屋不對立，為了珍貴脆弱的海洋生態，及讓市民安居樂業，一起發聲，要求政府優先發展棕地，放棄不負責任的「明日大嶼」！
           </Text>
 
-          <HStack pacing={8}>
+          {/* <HStack pacing={8}>
             <Box pr={2}>
             <CircularProgress size="90px" value={40} color="green.400" thickness="3px">
   <CircularProgressLabel>40%</CircularProgressLabel>
@@ -115,7 +116,7 @@ export default function Banner({
             目標: HKD 250,000
           </Text>
             </Box>
-          </HStack>
+          </HStack> */}
 
           {/* <Divider /> */}
 
