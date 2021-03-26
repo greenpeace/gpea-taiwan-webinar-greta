@@ -69,11 +69,11 @@ export default function Nav() {
               leftIcon={<AddIcon />}>
               聯署
             </Button> */}
-            <HStack>
+            {/* <HStack>
   <Button colorScheme="facebook" leftIcon={<FaFacebook />}>
     Facebook
   </Button>
-</HStack>
+</HStack> */}
           </Flex>
         </Flex>
 
