@@ -11,7 +11,7 @@ export default function TabView(){
       <>
       <Sticky stickyStyle={{zIndex: 10}}>
       <Box mb={{base: 8}} pt={{base: 2}} pb={{base: 2}} borderTop="1px" borderBottom="1px" borderColor="gray.100" backgroundColor='#fff'>
-      <Container maxW={'7xl'} pb={1}>
+      <Container maxW={'6xl'} pb={1}>
       <Flex>
         <Box p="3" onClick={()=>setCurrentTab(0)}>
           內容
@@ -35,7 +35,7 @@ export default function TabView(){
       </Container>
       </Box>
       </Sticky>
-      <Container maxW={'7xl'} pb={1} >
+      <Container maxW={'6xl'} pb={24} >
       {currentTab === 1 && images.map(image => (
         <ParallaxImage key={image.src} {...image} />
       ))}

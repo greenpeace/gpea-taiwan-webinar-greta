@@ -106,7 +106,7 @@ const MyForm = props => {
         </Box>
 
         <HStack>
-          <Box pb={3}>
+          <Box pb={3} flex={1}>
             <FormControl id="lastName" isInvalid={errors.lastName && touched.lastName}>
               <FormLabel fontSize="sm">{formContent.label_last_name}</FormLabel>
               <Input
@@ -192,14 +192,13 @@ const MyForm = props => {
           <Box pb={3}>
             <FormControl id="mobileCountryCode" name="mobileCountryCode">
             <Checkbox defaultIsChecked>
-            <Text fontSize="xs">{formContent.form_remind}</Text>
+              <Text fontSize="xs">{formContent.form_remind}</Text>
             </Checkbox>
             </FormControl>
           </Box>
         </HStack>
         </Box>
       </Flex>
-      {errors.name && touched.name && <div id="feedback">{errors.name}</div>}
     </Form>
     </>
   );

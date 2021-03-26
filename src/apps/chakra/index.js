@@ -11,8 +11,11 @@ import {
   Text,
   Heading,
   HStack,
+  VStack,
   CircularProgress,
-  CircularProgressLabel
+  CircularProgressLabel,
+  Button,
+  extendTheme
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import Nav from "./components/header/nav";
@@ -22,6 +25,10 @@ import Content from "./components/feature/content";
 import Tab from "./components/tab";
 import Footer from "./components/footer";
 import NewFrameForm from "components/form/newFrameForm";
+import Panel from "components/panel/newFormPanel";
+import * as themeActions from "store/actions/action-types/theme-actions";
+import themeConfig from "./theme.js"
+
 import SwiperCore, {
   Navigation,
   Mousewheel,
@@ -38,17 +45,18 @@ import "swiper/swiper.scss";
 
 SwiperCore.use([Scrollbar, A11y, Autoplay, Mousewheel]);
 
-const Index = ({ initState, fakeSubmit, submitted, petition }) => {
+const Index = ({ initState, fakeSubmit, submitted, petition, togglePanel }) => {
 
   return (
-    <ChakraProvider>
-      <Box pos="absolute" w={120} h={90} zIndex={9} bgColor="rgba(0,0,0,.09)" p={3} pt={7}>
+    <ChakraProvider theme={themeConfig}>
+      {/* <Box pos="absolute" w={120} h={90} zIndex={9} bgColor="rgba(0,0,0,.09)" p={3} pt={7}>
         <Center><Image src="https://api.greenpeace.org.hk/2021/elm/static/img/gp-logo-vertical.a9c3712c.png" /></Center>
-      </Box>
-      {/* <Nav /> */}
+      </Box> */}
+      <Box bg="brand.900">Welcome</Box>
+      <Nav />
       <Grid
-        h="90vh"
-        templateRows="repeat(11, 1fr)"
+        h={{ base: 400, sm: '90vh'}}
+        templateRows={{ base: 'repeat(7, 1fr)', sm: 'repeat(11, 1fr)'}}
         templateColumns="repeat(15, 1fr)"
         gap={1}
       >
@@ -82,7 +90,7 @@ const Index = ({ initState, fakeSubmit, submitted, petition }) => {
             </SwiperSlide>
           </Swiper>
         </GridItem>
-        <GridItem rowSpan={{ base: 8, sm: 8 }} colSpan={{ base: 15, sm: 5 }}>
+        <GridItem d={{ base: 'none', sm: 'block' }} rowSpan={{ base: 8, sm: 8 }} colSpan={{ base: 15, sm: 5 }}>
           <Center h="100%" pl={10} pr={10}>
             <NewFrameForm />
           </Center>
@@ -102,11 +110,11 @@ const Index = ({ initState, fakeSubmit, submitted, petition }) => {
           </Flex>
         </GridItem>
 
-        <GridItem rowSpan={5} colSpan={3} bg="papayawhip">
+        <GridItem rowSpan={5} colSpan={3} bg="papayawhip" d={{ base: 'none', sm: 'block' }}>
 
         <Flex h="100%">
             <Center w="100%">
-              <HStack pacing={8}>
+              <VStack pacing={8}>
                 <Box
                   borderWidth="0px"
                   borderRightWidth="1px"
@@ -116,49 +124,79 @@ const Index = ({ initState, fakeSubmit, submitted, petition }) => {
                   textAlign="center"
                   fontWeight="normal"
                 >
-                  <Text fontSize="xl">已聯署人數</Text>
                 </Box>
                 <Box pr={2}>
                   <CircularProgress
-                    size="90px"
+                    size="180px"
                     value={40}
-                    color="green.400"
-                    thickness="3px"
+                    color="#00cbd0"
+                    thickness="10px"
                   >
                     <CircularProgressLabel>40%</CircularProgressLabel>
                   </CircularProgress>
                 </Box>
                 <Box>
-                  <Heading as="h2" size="xl" color="primary.400">
-                    134,000
-                  </Heading>
-                  <Text
-                    fontSize="md"
-                    mt={2}
-                    textAlign="left"
-                    color="primary.800"
-                    opacity="0.6"
-                  >
-                    目標: 250,000
-                  </Text>
+                <HStack pacing={8}>
+                  <Text fontSize="xl">已聯署人數 :</Text>
+                  <Box>
+                    <Heading as="h2" size="xl" color="primary.400">
+                      134,000
+                    </Heading>
+                    <Text
+                      fontSize="md"
+                      mt={2}
+                      textAlign="left"
+                      color="primary.800"
+                      opacity="0.6"
+                    >
+                      目標: 250,000
+                    </Text>
+                  </Box>
+                </HStack>
                 </Box>
-              </HStack>
+              </VStack>
             </Center>
           </Flex> 
 
         </GridItem>
       </Grid>
+      <Banner/>
+
+      {/* <Tab/> */}
+
+      <Button
+        d={{base: 'block', sm: 'none'}}
+        w="100%"
+        // isLoading={isSubmitting}
+        colorScheme="teal"
+        height="60px"
+        borderRadius="0"
+        size="lg"
+        pos="fixed"
+        bottom={0}
+        zIndex={9}
+        onClick={()=>togglePanel(true)}
+        // variant="outline"
+      >
+        立即聯署
+      </Button>
+      <Panel />
       <Footer />
     </ChakraProvider>
   );
 };
 
-const mapStateToProps = ({ swiper, theme }) => {
+const mapStateToProps = () => {
   return {};
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {};
+  return {
+    togglePanel: (bol) => {
+      dispatch({ type: themeActions.TOGGLE_PANEL, bol });
+    },
+  };
 };
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Index);

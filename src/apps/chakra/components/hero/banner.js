@@ -35,8 +35,8 @@ export default function Banner({
         wrap="no-wrap"
         minH="35vh"
         maxW={"6xl"}
-        mb={24}
-        mt={24}
+        mb={{base: 8, sm: 24}}
+        mt={{base: 8, sm: 24}}
         {...rest}
       >
         <Box
@@ -52,14 +52,14 @@ export default function Banner({
           align={["center", "center", "flex-start", "flex-start"]}
         >
           <HStack spacing="12px">
-            <Box w="100px" borderWidth="0px" borderRightWidth="1px" pr={{ base: 2 }} d="flex" alignItems="center" textAlign="center" fontWeight="normal">
-              <Text fontSize="4xl">
-              守護大嶼
+            <Box borderWidth="0px" d="flex" alignItems="center" textAlign="center" fontWeight="normal">
+              <Text fontSize="2xl">
+              具生態價值
             </Text>
             </Box>
             <Box>
               <Heading as="h2" size="sm" color="primary.400" fontWeight="normal">
-              堅守香港海洋最後一道防線
+              絕不應被刻意低估
               </Heading>
             </Box>
           </HStack>
@@ -87,13 +87,13 @@ export default function Banner({
             {content}
           </Text> */}
           <Text
-            fontSize="xs"
+            fontSize={{base: 'sm', sm: 'md'}}
             mt={2}
             textAlign="left"
             color="primary.800"
             opacity="0.6"
           >
-            海洋住屋不對立，為了珍貴脆弱的海洋生態，及讓市民安居樂業，一起發聲，要求政府優先發展棕地，放棄不負責任的「明日大嶼」！
+            我們與6個環保及關注團體發佈的生態調查發現，鄰近填海選址的周公島，具國家二級保護野生動物白腹海鵰的鳥巢，全球獨有的鮑氏雙足蜥，更在中部水域錄得一種稀有的軟珊瑚海筆，生態價值絕不應被刻意低估。
           </Text>
 
           {/* <HStack pacing={8}>
