@@ -3,6 +3,7 @@ import * as Actions from "../actions";
 const initState = {
   data: [],
   form: {},
+  hiddenFormValue: {},
   displayForm: false,
   displayPanel: false,
   lastAction: null,
@@ -28,6 +29,13 @@ const themeReducer = (state = initState, action) => {
       return {
         ...state,
         form: action.value,
+        lastAction: action.type,
+      };
+
+    case Actions.SET_HIDDEN_FORM_VALUE:
+      return {
+        ...state,
+        hiddenFormValue: action.value,
         lastAction: action.type,
       };
 

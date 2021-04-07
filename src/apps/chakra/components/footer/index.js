@@ -12,7 +12,7 @@ import {
 import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { ReactNode } from 'react';
 
-const Logo = (props: any) => {
+const Logo = (props) => {
   return (
     <Box>
             <Image
@@ -27,10 +27,6 @@ const SocialButton = ({
   children,
   label,
   href,
-}: {
-  children: ReactNode;
-  label: string;
-  href: string;
 }) => {
   return (
     <chakra.button

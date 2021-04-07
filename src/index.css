@@ -15,3 +15,15 @@ code {
 .slide-pane__overlay{
   z-index: 999
 }
+
+.sticky-box{
+  display: none;
+}
+
+.sticky .sticky-box{
+  display: block;
+}
+
+.sweet-loading{
+  height: 100vh;
+}

@@ -2,11 +2,9 @@ import React, { useRef, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { connect } from "react-redux";
 import * as themeActions from "store/actions/action-types/theme-actions";
-import { Formik, Field, Form, withFormik } from "formik";
+import { Form, withFormik } from "formik";
 import "rsuite/lib/styles/index.less";
 import ProgressBar from "components/progress";
-import SubmittedForm from "./submittedForm";
-
 import content from "./newFormContent.json";
 
 import {
@@ -26,6 +24,7 @@ import {
   Heading,
   HStack,
   Spacer,
+  Divider,
   Checkbox
 } from "@chakra-ui/react";
 
@@ -35,37 +34,35 @@ const MyForm = props => {
     touched,
     errors,
     handleChange,
-    formContent = content,
     handleBlur,
+    formContent = content,
     handleSubmit,
-    isSubmitting
+    isSubmitting,
+    setSubmitting,
+    setHiddenForm,
+    submitted
   } = props;
 
   const [hiddenFormValues, setHiddenFormValues] = useState([]);
   const [numSignupTarget, setNumSignupTarget] = useState(100000);
   const [numResponses, setNumResponses] = useState(0);
-  const [mobileCountryCode, setMobileCountryCode] = useState([
-    { label: "+852", value: "852" },
-    { label: "+853", value: "853" },
-  ]);
 
+  const mobileCountryCode = [{ label: "+852", value: "852" },{ label: "+853", value: "853" },]
+  const progress = [{ bgcolor: "#66cc00", completed: numResponses, target: numSignupTarget },];
   const [birthDateYear, setBirthDateYear] = useState([]);
+  const space = 8
 
   useEffect(() => {
-    let getHiddenFields = document.querySelectorAll(
-      'input[value][type="hidden"]:not([value=""])'
-    );
+    const getHiddenFields = document.querySelectorAll('input[value][type="hidden"]:not([value=""])');
+    const signupTarget = document.querySelector("input[name='numSignupTarget']");
+    const numResponses = document.querySelector("input[name='numResponses']");
+
     setHiddenFormValues(
       [...getHiddenFields].reduce(
         (obj, e) => ({ ...obj, [e.name]: e.value }),
         {}
       )
     );
-
-    const signupTarget = document.querySelector(
-      "input[name='numSignupTarget']"
-    );
-    const numResponses = document.querySelector("input[name='numResponses']");
 
     if (signupTarget) {
       setNumSignupTarget(signupTarget.value);
@@ -86,44 +83,64 @@ const MyForm = props => {
     fetchOptionYear(optionYear);
   }, []);
 
+  useEffect(() => {
+    setHiddenForm(hiddenFormValues)
+  }, [hiddenFormValues]);
+
+  useEffect(() => {
+    if(submitted){
+      setSubmitting(false)
+    }
+  }, [submitted]);
+
   return (
     <>
     <Form onSubmit={handleSubmit}>
     <Heading pb={3} size="xl">{formContent.form_header}</Heading>
     <Text pb={3}>{formContent.form_description}</Text>
+    {progress.map((item, idx) => (
+      <ProgressBar
+        key={idx}
+        bgcolor={item.bgcolor}
+        completed={item.completed}
+        target={item.target}
+      />
+    ))}
+    <Divider />
 
     <Flex direction="column">
-        <Box flex="1" pb="3">
-          <FormControl id="email" isInvalid={errors.email && touched.email}>
+        <Box flex="1" pb={space}>
+          <FormControl id="email" isInvalid={errors.Email && touched.Email}>
             <FormLabel fontSize="sm">{formContent.label_email}</FormLabel>
             <Input
-              name="email"
+              name="Email"
               type="email"
-              placeholder={errors.email && touched.email ? errors.email : formContent.label_email}
+              placeholder={errors.Email && touched.Email ? errors.Email : formContent.label_email}
               onChange={handleChange}
+              onBlur={handleBlur}
             />
           </FormControl>
         </Box>
 
         <HStack>
-          <Box pb={3} flex={1}>
-            <FormControl id="lastName" isInvalid={errors.lastName && touched.lastName}>
+          <Box pb={3} flex={1} pb={space}>
+            <FormControl id="lastName" isInvalid={errors.LastName && touched.LastName}>
               <FormLabel fontSize="sm">{formContent.label_last_name}</FormLabel>
               <Input
-                name="lastName"
+                name="LastName"
                 type="text"
-                placeholder={errors.lastName && touched.lastName ? errors.lastName : formContent.label_last_name}
+                placeholder={errors.LastName && touched.LastName ? errors.LastName : formContent.label_last_name}
                 onChange={handleChange}
               />
             </FormControl>
           </Box>
-          <Box flex="1" pb={3}>
-            <FormControl id="firstName" isInvalid={errors.firstName && touched.firstName}>
+          <Box flex="1" pb={space}>
+            <FormControl id="firstName" isInvalid={errors.FirstName && touched.FirstName}>
               <FormLabel fontSize="sm">{formContent.label_first_name}</FormLabel>
               <Input
-                name="firstName"
+                name="FirstName"
                 type="text"
-                placeholder={errors.firstName && touched.firstName ? errors.firstName : formContent.label_first_name}
+                placeholder={errors.FirstName && touched.FirstName ? errors.FirstName : formContent.label_first_name}
                 onChange={handleChange}
               />
             </FormControl>
@@ -133,24 +150,24 @@ const MyForm = props => {
         <FormLabel fontSize="sm">{formContent.label_phone}</FormLabel>
 
         <HStack align="flex-end">
-          <Box pb={3}>
-            <FormControl id="mobileCountryCode" name="mobileCountryCode">
-              <Select onChange={handleChange}>
+          <Box pb={space}>
+            <FormControl id="mobileCountryCode">
+              <Select name="MobileCountryCode" onChange={handleChange}>
               {mobileCountryCode &&
                 mobileCountryCode.map((d) => (
                     <option key={d.value} value={d.value}>
-                      {d.value}
+                      {d.label}
                     </option>
                   ))}
               </Select>
             </FormControl>
           </Box>
-          <Box flex="1" pb={3}>
-            <FormControl id="mobilePhone" isInvalid={errors.mobilePhone && touched.mobilePhone}>
+          <Box flex="1" pb={space}>
+            <FormControl id="mobilePhone" isInvalid={errors.MobilePhone && touched.MobilePhone}>
               <Input
                 type="number"
-                name="mobilePhone"
-                placeholder={errors.mobilePhone && touched.mobilePhone ? errors.mobilePhone : formContent.label_phone}
+                name="MobilePhone"
+                placeholder={errors.MobilePhone && touched.MobilePhone ? errors.MobilePhone : formContent.label_phone}
                 onChange={handleChange}
               />
               {/* <FormErrorMessage>{errors.mobilePhone}</FormErrorMessage> */}
@@ -158,10 +175,10 @@ const MyForm = props => {
           </Box>
         </HStack>
 
-        <Box flex="1" pb="3">
-          <FormControl id="birthdate" isInvalid={errors.birthdate && touched.birthdate}>
+        <Box flex="1" pb={space}>
+          <FormControl id="Birthdate" isInvalid={errors.Birthdate && touched.Birthdate}>
             <FormLabel fontSize="sm">{formContent.label_year_of_birth}</FormLabel>
-            <Select placeholder={errors.birthdate && touched.birthdate ? errors.birthdate : formContent.select} onChange={handleChange}>
+            <Select placeholder={errors.Birthdate && touched.Birthdate ? errors.Birthdate : formContent.select} onChange={handleChange}>
               {birthDateYear &&
                 birthDateYear.map((d) => (
                   <option key={d.value} value={d.value}>
@@ -190,8 +207,8 @@ const MyForm = props => {
         <Box>
         <HStack align="flex-start">
           <Box pb={3}>
-            <FormControl id="mobileCountryCode" name="mobileCountryCode">
-            <Checkbox defaultIsChecked>
+            <FormControl id="optIn">
+            <Checkbox name="OptIn" onChange={handleChange}>
               <Text fontSize="xs">{formContent.form_remind}</Text>
             </Checkbox>
             </FormControl>
@@ -205,44 +222,51 @@ const MyForm = props => {
 };
 
 const MyEnhancedForm = withFormik({
-  mapPropsToValues: () => ({ email: '', firstName: '', lastName: '', mobileCountryCode: '', mobilePhone: '', birthdate: '' }),
+  mapPropsToValues: () => ({ Email: '', FirstName: '', LastName: '', MobileCountryCode: '852', MobilePhone: '', Birthdate: '', OptIn: false }),
 
-  // Custom sync validation
   validate: values => {
     const errors = {};
  
-   if (!values.email) {
-     errors.email = content.empty_data_alert;
-   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-     errors.email = content.invalid_email_alert;
+   if (!values.Email) {
+     errors.Email = content.empty_data_alert;
+   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.Email)) {
+     errors.Email = content.invalid_email_alert;
    }
 
-  if (!values.firstName) {
-    errors.firstName = content.empty_data_alert;
+  if (!values.FirstName) {
+    errors.FirstName = content.empty_data_alert;
   }
 
-  if (!values.lastName) {
-    errors.lastName = content.empty_data_alert;
+  if (!values.LastName) {
+    errors.LastName = content.empty_data_alert;
   }
 
-  if (!values.mobilePhone) {
-    errors.mobilePhone = content.empty_data_alert;
-  }  else if (values.mobilePhone.length !== 8) {
-    errors.mobilePhone = content.minimum_8_characters;
+  if (!values.MobilePhone) {
+    errors.MobilePhone = content.empty_data_alert;
+  }  else if (values.MobilePhone.toString().length !== 8) {
+    errors.MobilePhone = content.minimum_8_characters;
   }
 
-  if (!values.birthdate) {
-    errors.birthdate = content.empty_data_alert;
+  if (!values.Birthdate) {
+    errors.Birthdate = content.empty_data_alert;
   }
 
    return errors;
   },
 
-  handleSubmit: (values, { setSubmitting }) => {
-    setTimeout(() => {
-      alert(JSON.stringify(values, null, 2));
-      setSubmitting(false);
-    }, 1000);
+  handleSubmit: (values, { setSubmitting, props }) => {
+    const {hiddenFormValue} = props.theme
+    const submitData = {
+      ...hiddenFormValue,
+      ...values,
+      Birthdate: `${values.Birthdate}-01-01`
+    }
+    props.submitForm(submitData);
+    // setTimeout(() => {
+    //   props.submitForm(submitData);
+    //   alert(JSON.stringify(values, null, 2));
+    //   setSubmitting(false);
+    // }, 1000);
   },
 
   displayName: 'BasicForm',
@@ -267,10 +291,15 @@ const mapDispatchToProps = (dispatch) => {
     setForm: (value) => {
       dispatch({ type: themeActions.SET_FORM_VALUE, value });
     },
+    setHiddenForm: (value) => {
+      dispatch({ type: themeActions.SET_HIDDEN_FORM_VALUE, value });
+    },
     submitForm: (form) => {
       dispatch({ type: themeActions.SUBMIT_FORM, form });
     },
   };
 };
+
+connect(null, mapDispatchToProps)(MyForm);
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyEnhancedForm);
