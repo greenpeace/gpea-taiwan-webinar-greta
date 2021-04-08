@@ -10,20 +10,14 @@ import content from "./newFormContent.json";
 import {
   FormControl,
   FormLabel,
-  FormErrorMessage,
-  FormHelperText,
   Input,
   Button,
   Box,
   Flex,
-  Center,
-  Square,
   Text,
   Select,
-  Container,
   Heading,
   HStack,
-  Spacer,
   Divider,
   Checkbox
 } from "@chakra-ui/react";
@@ -262,11 +256,6 @@ const MyEnhancedForm = withFormik({
       Birthdate: `${values.Birthdate}-01-01`
     }
     props.submitForm(submitData);
-    // setTimeout(() => {
-    //   props.submitForm(submitData);
-    //   alert(JSON.stringify(values, null, 2));
-    //   setSubmitting(false);
-    // }, 1000);
   },
 
   displayName: 'BasicForm',

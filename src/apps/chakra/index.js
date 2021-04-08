@@ -18,6 +18,7 @@ import {
 } from "@chakra-ui/react";
 import Footer from "./components/footer";
 import NewFrameForm from "components/form/newFrameForm";
+import NewFrameSubmittedForm from "components/form/newFrameSubmittedForm";
 import Panel from "components/panel/newFormPanel";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import Sticky from 'react-sticky-el';
@@ -88,7 +89,7 @@ const Index = ({ initState, fakeSubmit, submitted, petition, togglePanel }) => {
         </GridItem>
         <GridItem d={{ base: 'none', sm: 'block' }} rowSpan={{ base: 8, sm: 9 }} colSpan={{ base: 15, sm: 5 }}>
           <Center h="100%" pl={10} pr={10} name="test1" className="element">
-            <NewFrameForm />
+            {submitted ? <NewFrameSubmittedForm/> : <NewFrameForm />}
           </Center>
         </GridItem>
         <GridItem 
@@ -331,8 +332,10 @@ const Index = ({ initState, fakeSubmit, submitted, petition, togglePanel }) => {
   );
 };
 
-const mapStateToProps = () => {
-  return {};
+const mapStateToProps = ({ theme }) => {
+  return {
+    submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
