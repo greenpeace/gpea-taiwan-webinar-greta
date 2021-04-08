@@ -42,7 +42,7 @@ const MyForm = props => {
   const [numResponses, setNumResponses] = useState(0);
 
   const mobileCountryCode = [{ label: "+852", value: "852" },{ label: "+853", value: "853" },]
-  const progress = [{ bgcolor: "#66cc00", completed: numResponses, target: numSignupTarget },];
+  const progress = [{ bgcolor: "#62cbd7", completed: numResponses, target: numSignupTarget },];
   const [birthDateYear, setBirthDateYear] = useState([]);
   const space = 8
 
@@ -188,11 +188,12 @@ const MyForm = props => {
             w="100%"
             isLoading={isSubmitting}
             type="submit"
-            colorScheme="teal"
             height="60px"
             borderRadius="0"
             size="lg"
-            variant="outline"
+            color="#FFF"
+            bg="#62cbd7"
+            _hover={{ bg: "#21C5D8" }}
           >
             立即聯署
           </Button>

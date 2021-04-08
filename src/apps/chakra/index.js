@@ -42,11 +42,21 @@ import "swiper/swiper.scss";
 
 SwiperCore.use([Scrollbar, A11y, Autoplay, Mousewheel]);
 
-const Index = ({ initState, fakeSubmit, submitted, petition, togglePanel }) => {
+const Index = ({ submitted, togglePanel }) => {
 
-  const isMobile = useMediaQuery({
-    query: '(max-device-width: 564px)'
-  })
+  const isMobile = useMediaQuery({query: '(max-device-width: 564px)'})
+  // fontSize={{ base: 16, sm: 18 }} lineHeight={1.8}
+  const textStyle = {
+    fontSize: {base: 'md', sm: '18px'}, 
+    color: "rgba(0,0,0,.65)", 
+    lineHeight: 1.8
+  }
+
+  const textStyleOther = {
+    fontSize: {base: 'xs', sm: 'md'},
+    color: "rgba(0,0,0,.65)", 
+    lineHeight: 1.5
+  }
 
   const [currentTab, setCurrentTab] = useState(0);
 
@@ -99,13 +109,12 @@ const Index = ({ initState, fakeSubmit, submitted, petition, togglePanel }) => {
         </GridItem>
         <GridItem 
           rowSpan={{ base: 3, sm: 4 }} 
-          colSpan={{ base: 15, sm: 10 }}
-          bg="tomato">
+          colSpan={{ base: 15, sm: 10 }}>
           <Flex color="white" h="100%">
-            <Center bg="green.500" w="100%">
+            <Center bg="campaign.oceans" w="100%">
               <Box maxW="64rem" py={5} px={{base: 3, sm: 10}}>
                 <Heading fontSize={{ base: 'xl', sm: '3xl' }} mb={4}>守護大嶼</Heading>
-                <Text fontSize={{ base: 'md', sm: 'xl' }} lineHeight={1.8}>
+                <Text {...textStyle} color="#FFF">
                   香港海洋孕育近6千種海洋生物，東大嶼水域生態豐富多樣，是國家重點保護野生動物白腹海雕的繁殖及棲息地，更錄得全球獨有的鮑氏雙足蜥，附近水域亦發現稀有的軟珊瑚海筆。
                 </Text>
               </Box>
@@ -114,7 +123,7 @@ const Index = ({ initState, fakeSubmit, submitted, petition, togglePanel }) => {
         </GridItem>
       </Grid>
 
-      {!isMobile && <Sticky stickyStyle={{zIndex: 10}}>
+      {/* {!isMobile && <Sticky stickyStyle={{zIndex: 10}}>
       <Box className="sticky-box" mb={{base: 8}} pt={{base: 2}} pb={{base: 2}} borderTop="1px" borderBottom="1px" borderColor="gray.100" backgroundColor='rgba(255,255,255,0.8)'>
       <Container maxW={'8xl'} pb={1}>
       <Flex>
@@ -148,15 +157,21 @@ const Index = ({ initState, fakeSubmit, submitted, petition, togglePanel }) => {
       </Flex>
       </Container>
       </Box>
-      </Sticky>}
+      </Sticky>} */}
 
-      <Box bg={useColorModeValue('gray.50', 'gray.900')} pt={{base: 20, sm: 60}} pb={30}>
+      <Box bg={useColorModeValue('gray.50', 'gray.900')} pt={{base: 20, sm: 40}} pb={30}>
         <Center px={{base: 4, sm: 10}}>
           <VStack maxWidth={'3xl'}>
-            <Heading fontSize={{ base: '2xl', sm: '4xl' }} mb={8}>堅守香港海洋最後一道防線</Heading>
-            <Text fontSize={{ base: 16, sm: 18 }} lineHeight={1.8}>
+            <Heading fontSize={{ base: '2xl', sm: '4xl' }} mb={8} color="campaign.oceans">堅守香港海洋最後一道防線</Heading>
+            <Text {...textStyle}>
               政府強推「明日大嶼」，在如此敏感的生態區域大興土木，必然破壞珍貴的海洋生態；它亦是香港史上最昂貴的基建，造價至少6,240億元，不但可能於10年內（2031 - 32年度）耗盡香港的財政儲備，亦無法有效解決香港逼在眉睫的房屋問題。雖然財委會強行通過了「明日大嶼」5.5億元前期研究撥款，但距離真正落實填海工程仍有極多變數，綠色和平絕不會放棄「堅守大嶼」。
             </Text>
+            {/* <Text {...textStyle}>
+            事實上，香港有比「明日大嶼」更明智的選項：綠色和平調查發現，發展棕地造價僅333億元卻可興建近14萬伙公營房屋。
+            </Text>
+            <Text {...textStyle}>
+            海洋住屋不對立，為了珍貴脆弱的海洋生態，及讓市民安居樂業，一起發聲，要求政府優先發展棕地，放棄不負責任的「明日大嶼」！
+            </Text> */}
           </VStack>
         </Center>
         {
@@ -170,7 +185,10 @@ const Index = ({ initState, fakeSubmit, submitted, petition, togglePanel }) => {
       <Box p={{base: 0, sm: 4}} w={{base: '100%', sm: 980}}>
         <Image src="https://api.greenpeace.org.hk/2021/elm/static/img/DJI_0431.c6b2b22f.jpg" />
         <Box pt={6}>
-          <Text>事實上，香港有比「明日大嶼」更明智的選項：綠色和平調查發現，發展棕地造價僅333億元卻可興建近14萬伙公營房屋。</Text>
+        <Text {...textStyleOther}>
+            事實上，香港有比「明日大嶼」更明智的選項：綠色和平調查發現，發展棕地造價僅333億元卻可興建近14萬伙公營房屋。
+            </Text>
+          {/* <Text {...textStyleOther}><span style={{color: '#108ee9', fontWeight: 'bold'}}>填海選址鄰近海域具生態價值</span>，或令海洋或陸地物種的棲息地永久喪失。</Text> */}
         </Box>
       </Box>
       <Spacer/>
@@ -178,9 +196,9 @@ const Index = ({ initState, fakeSubmit, submitted, petition, togglePanel }) => {
       <Box mt={{base: 10, sm: 480}} p={{base: 0, sm: 4}} w={{base: '100%', sm: 480}}>
         <Image src="https://api.greenpeace.org.hk/2021/elm/static/img/close-up_WBSE_Kevin_Lok.c5c8bcfc.jpg" />
         <Box pt={6}>
-        <Text>
-        海洋住屋不對立，為了珍貴脆弱的海洋生態，及讓市民安居樂業，一起發聲，要求政府優先發展棕地，放棄不負責任的「明日大嶼」！
-        </Text>
+        <Text {...textStyleOther}>
+          海洋住屋不對立，為了珍貴脆弱的海洋生態，及讓市民安居樂業，一起發聲，要求政府優先發展棕地，放棄不負責任的「明日大嶼」！
+          </Text>
         </Box>
       </Box>
       </Flex>
@@ -189,12 +207,12 @@ const Index = ({ initState, fakeSubmit, submitted, petition, togglePanel }) => {
 
       </Box>
 
-      <Box pt={60} pb={30} mt={-40}>
+      <Box pt={{base: 20, sm: 40}} pb={30}>
         <Center px={{base: 4, sm: 0}}>
           <VStack maxWidth={'3xl'}>
             <Heading fontSize={{ base: 'xl', sm: '3xl' }} mb={4}>「明日」的生態威脅</Heading>
-            <Text fontSize={{ base: 'md', sm: 'xl' }} lineHeight={1.8}>
-              鄰近填海選址海域 具生態價值 生態價值 絕不應被刻意低估
+            <Text {...textStyle}>
+              鄰近填海選址海域 <span style={{color: '#108ee9', fontWeight: 'bold'}}>具生態價值</span> 生態價值 <span style={{color: '#108ee9', fontWeight: 'bold'}}>絕不應被刻意低估 </span>
             </Text>
           </VStack>
         </Center>
@@ -207,8 +225,8 @@ const Index = ({ initState, fakeSubmit, submitted, petition, togglePanel }) => {
           <Box mt={{base: 10, sm: 480}} p={{base: 0, sm: 4}} w={{base: '100%', sm: 480}}>
             <Image src="https://api.greenpeace.org.hk/2021/elm/static/img/hk-brownfield.9533d1d7.jpg" />
             <Box pt={6}>
-              <Text>
-              海洋住屋不對立，為了珍貴脆弱的海洋生態，及讓市民安居樂業，一起發聲，要求政府優先發展棕地，放棄不負責任的「明日大嶼」！
+              <Text {...textStyleOther}>
+              我們與6個環保及關注團體發佈的生態調查發現，鄰近填海選址的周公島，具國家二級保護野生動物白腹海鵰的鳥巢
               </Text>
             </Box>
           </Box>
@@ -217,8 +235,8 @@ const Index = ({ initState, fakeSubmit, submitted, petition, togglePanel }) => {
 
           <Box mt={{base: 10, sm: 0}} p={{base: 0, sm: 4}} w={{base: '100%', sm: 980}}>
             <Image src="https://api.greenpeace.org.hk/2021/elm/static/img/DJI_0439.50ce887e.jpg" />
-            <Box pt={6}>
-              <Text>事實上，香港有比「明日大嶼」更明智的選項：綠色和平調查發現，發展棕地造價僅333億元卻可興建近14萬伙公營房屋。</Text>
+            <Box pt={6} {...textStyleOther}>
+              <Text>全球獨有的鮑氏雙足蜥，更在中部水域錄得一種稀有的軟珊瑚海筆，<span style={{color: '#108ee9', fontWeight: 'bold'}}>生態價值絕不應被刻意低估</span>。</Text>
             </Box>
           </Box>
 
@@ -228,23 +246,20 @@ const Index = ({ initState, fakeSubmit, submitted, petition, togglePanel }) => {
 
       </Box>
 
-      <Box bg={useColorModeValue('gray.50', 'gray.900')} py={{base: 20, sm: 40}}>
+      <Box bg={useColorModeValue('gray.50', 'gray.900')} pt={{base: 20, sm: 40}} pb={60}>
         <Container maxWidth={'8xl'} pt={8} style={{overflow: 'hidden'}}>
-      <Flex direction={{base: 'column-reverse', sm: 'row'}}>
+      <Flex direction={{base: 'column-reverse', md: 'row'}}>
 
-      <Box mt={{base: -10, sm: 120}} w={{base: 'auto', sm: 720}} mr={{base: 0, sm: -180}} mx={{base: '10px', sm: 0}} style={{zIndex: 9}}>
+      <Box mt={{base: -10, md: 120}} w={{base: 'auto', md: 720}} mr={{base: 0, md: -180}} mx={{base: '10px', sm: 0}} style={{zIndex: 9}}>
         <Box p={6} bgColor="#FFF">
         <Center mb={50}>
           <VStack maxWidth={'3xl'}>
             <Heading fontSize={{ base: 'xl', sm: '3xl' }} mb={4}>史上最貴基建</Heading>
-            <Heading fontSize={{ base: 'xl', sm: '3xl' }} mb={4}>「明日」的生態威脅</Heading>
-            <Text fontSize={{ base: 18 }} lineHeight={1.8}>
-            耗時至少 13年 耗費至少 6,240億公帑
-            </Text>
+            <Text {...textStyle}>耗時至少 <span style={{color: '#108ee9', fontWeight: 'bold'}}>13年</span> 耗費至少 <span style={{color: '#108ee9', fontWeight: 'bold'}}>6,240億公帑</span></Text>
           </VStack>
         </Center>
-        <Text>現時輪候公屋年期為5.5年，逾20萬劏房戶等上樓，惟填海預料至少在13年後 - 2032年才能讓市民入伙，無法紓緩燃眉之急，甚至要「邊住邊填海」，居住環境堪憂。</Text>
-        <Text>「明日大嶼」耗費至少6,240億元公帑，工程延期超支仍未計算在內，令人擔憂將耗盡香港的財政儲備。</Text>
+        <Text {...textStyleOther}>現時輪候公屋年期為5.5年，逾20萬劏房戶等上樓，惟填海預料<span style={{color: '#108ee9', fontWeight: 'bold'}}>至少在13年後</span> - 2032年才能讓市民入伙，無法紓緩燃眉之急，甚至要「邊住邊填海」，居住環境堪憂。</Text>
+        <Text {...textStyleOther}>「明日大嶼」耗費<span style={{color: '#108ee9', fontWeight: 'bold'}}>至少6,240億元公帑</span>，工程延期超支仍未計算在內，令人擔憂將耗盡香港的財政儲備。</Text>
         </Box>
       </Box>
 
@@ -266,7 +281,7 @@ const Index = ({ initState, fakeSubmit, submitted, petition, togglePanel }) => {
       </Box>
 
       <Box>
-      <Flex direction={{base: 'column', sm: 'row'}}>
+      <Flex direction={{base: 'column', sm: 'row'}} >
 
       <Box w={{base: '100%', sm: 860}} h={{base: 'auto', sm: 720}} pos="relative" py={40}>
         <Box
@@ -285,23 +300,24 @@ const Index = ({ initState, fakeSubmit, submitted, petition, togglePanel }) => {
       <Center w="100%">
         <Box style={{zIndex: 9}} p={6} bgColor="#FFF" width="100%">
           <Center mb={50}>
-          <VStack maxWidth={'2xl'}>
-          <Heading fontSize={{ base: 'xl', sm: '3xl' }} mb={4}>我們有更明智的選擇</Heading>
-          <Text fontSize={{ base: 18 }} lineHeight={1.8}>
-            發展棕地成本比填海便宜8成 即可興建14萬伙公營房屋
+          <VStack maxWidth={'2xl'} align="baseline">
+          <Heading fontSize={{ base: '2xl', sm: '4xl' }} mb={8} color="campaign.oceans">我們有更明智的選擇</Heading>
+          <Text {...textStyle}>
+            發展棕地成本<span style={{color: '#108ee9', fontWeight: 'bold'}}>比填海便宜8成</span> 即可興建<span style={{color: '#108ee9', fontWeight: 'bold'}}>14萬伙公營房屋</span>
           </Text>
-          <br/><br/>
-          <Box>
-            <Text>事實上，香港有比「明日大嶼」更明智的選項：發展408公頃的棕地，造地成本估算為333億元。<br/>「除了比填海便宜8成以外，政府亦可引用《收回土地條例》，以比填海更快的速度，興建近14萬伙公營房屋 ，並取締棕地上的違法及違規作業。</Text>
+          <br/>
+          <Box >
+            <Text {...textStyleOther}>事實上，香港有比「明日大嶼」更明智的選項：發展408公頃的棕地，造地成本估算為333億元。<br/><br/>「除了比填海<span style={{color: '#108ee9', fontWeight: 'bold'}}>便宜8成</span>以外，政府亦可引用《收回土地條例》，以比填海更快的速度，興建近14萬伙公營房屋 ，並取締棕地上的違法及違規作業。</Text>
           </Box>
           <br/><br/>
-          {!isMobile && <Link activeClass="active" to="test1" spy={true} smooth={true} offset={50} duration={500}><Button
+          {!isMobile && <Link style={{textDecoration: 'none'}} to="test1" spy={true} smooth={true} offset={50} duration={500}><Button
             w="120"
-            colorScheme="teal"
-            height="50px"
+            height="60px"
             borderRadius="0"
             size="lg"
-            variant="outline"
+            color="#FFF"
+            bg="#108ee9"
+            _hover={{ bg: "#21C5D8" }}
           >
             立即聯署
           </Button>
