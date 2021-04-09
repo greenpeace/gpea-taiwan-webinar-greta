@@ -21,6 +21,7 @@ import Footer from "./components/footer";
 import NewFrameForm from "components/form/newFrameForm";
 import NewFrameSubmittedForm from "components/form/newFrameSubmittedForm";
 import Panel from "components/panel/newFormPanel";
+import Tab from "./components/sticky/tab"
 import * as themeActions from "store/actions/action-types/theme-actions";
 import Sticky from 'react-sticky-el';
 import themeConfig from "./theme.js"
@@ -45,7 +46,6 @@ SwiperCore.use([Scrollbar, A11y, Autoplay, Mousewheel]);
 const Index = ({ submitted, togglePanel }) => {
 
   const isMobile = useMediaQuery({query: '(max-device-width: 564px)'})
-  // fontSize={{ base: 16, sm: 18 }} lineHeight={1.8}
   const textStyle = {
     fontSize: {base: 'md', sm: '18px'}, 
     color: "rgba(0,0,0,.65)", 
@@ -53,7 +53,7 @@ const Index = ({ submitted, togglePanel }) => {
   }
 
   const textStyleOther = {
-    fontSize: {base: 'xs', sm: 'md'},
+    fontSize: {base: 'sm', sm: 'md'},
     color: "rgba(0,0,0,.65)", 
     lineHeight: 1.5
   }
@@ -66,8 +66,8 @@ const Index = ({ submitted, togglePanel }) => {
         <Center><Image src="https://api.greenpeace.org.hk/2021/elm/static/img/gp-logo-vertical.a9c3712c.png" /></Center>
       </Box>
       <Grid
-        h={{ base: 400, sm: '90vh'}}
-        minHeight={{ base: 400, sm: '960px'}}
+        h={{ base: 480, sm: '90vh'}}
+        minHeight={{ base: 480, sm: '960px'}}
         templateRows={{ base: 'repeat(7, 1fr)', sm: 'repeat(11, 1fr)'}}
         templateColumns="repeat(15, 1fr)"
       >
@@ -82,28 +82,25 @@ const Index = ({ submitted, togglePanel }) => {
             bgSize="cover"
           />
         </GridItem>
-        <GridItem rowSpan={{ base: 4, sm: 2 }} colSpan={{ base: 15, sm: 5 }} pos="relative">
+        <GridItem rowSpan={{ base: 4, sm: 2 }} colSpan={{ base: 15, sm: 5 }} pos="relative" name="test1">
           <Swiper
             slidesPerView={1}
             autoplay={{
               delay: 5000
             }}
+            autoHeight={true}
             style={{position: 'absolute', top: 0, bottom: 0, right: 0, left: 0}}
           >
             <SwiperSlide>
-              <Box>
-                <Image src="https://api.greenpeace.org.hk/2021/elm/static/img/DJI_0431.c6b2b22f.jpg" />
-              </Box>
-            </SwiperSlide>
+                <Image src={isMobile ? `${process.env.PUBLIC_URL}/oceans/oceans_1.jpg` : 'https://api.greenpeace.org.hk/2021/elm/static/img/DJI_0431.c6b2b22f.jpg'} />
+            </SwiperSlide> 
             <SwiperSlide>
-              <Box>
-                <Image src="https://api.greenpeace.org.hk/2021/elm/static/img/DJI_0439.50ce887e.jpg" />
-              </Box>
-            </SwiperSlide>
+            <Image src={isMobile ? `${process.env.PUBLIC_URL}/oceans/oceans_2.jpg` : 'https://api.greenpeace.org.hk/2021/elm/static/img/DJI_0439.50ce887e.jpg'} />
+            </SwiperSlide> 
           </Swiper>
         </GridItem>
         <GridItem d={{ base: 'none', sm: 'block' }} rowSpan={{ base: 8, sm: 9 }} colSpan={{ base: 15, sm: 5 }}>
-          <Center h="100%" pl={10} pr={10} name="test1" className="element">
+          <Center h="100%" pl={10} pr={10} className="element">
             {submitted ? <NewFrameSubmittedForm/> : <NewFrameForm />}
           </Center>
         </GridItem>
@@ -123,41 +120,7 @@ const Index = ({ submitted, togglePanel }) => {
         </GridItem>
       </Grid>
 
-      {/* {!isMobile && <Sticky stickyStyle={{zIndex: 10}}>
-      <Box className="sticky-box" mb={{base: 8}} pt={{base: 2}} pb={{base: 2}} borderTop="1px" borderBottom="1px" borderColor="gray.100" backgroundColor='rgba(255,255,255,0.8)'>
-      <Container maxW={'8xl'} pb={1}>
-      <Flex>
-        <Box p={5}>
-          <Image maxW="200px" objectFit="contain" src="https://api.greenpeace.org.hk/general/logo/GP-logo-2019-TC-green-%5bweb%5d-01.png"/>
-        </Box>
-        <Box p={5} onClick={()=>setCurrentTab(0)}>
-          <Button colorScheme="teal" variant="link">內容</Button>
-        </Box>
-        <Box p={5} onClick={()=>setCurrentTab(1)}>
-        <Button colorScheme="teal" variant="link">常見問題</Button>
-        </Box>
-        <Box p={5} onClick={()=>setCurrentTab(2)}>
-          <Button colorScheme="teal" variant="link">其他資料</Button>
-        </Box>
-        <Spacer />
-        <Box p="1">
-        <Link activeClass="active" to="test1" spy={true} smooth={true} offset={50} duration={500}>
-        <Button
-            w="100%"
-            colorScheme="teal"
-            height="50px"
-            borderRadius="0"
-            size="lg"
-            variant="outline"
-          >
-            立即聯署
-          </Button>
-          </Link>
-        </Box>
-      </Flex>
-      </Container>
-      </Box>
-      </Sticky>} */}
+      <Tab/>
 
       <Box bg={useColorModeValue('gray.50', 'gray.900')} pt={{base: 20, sm: 40}} pb={30}>
         <Center px={{base: 4, sm: 10}}>
@@ -166,12 +129,6 @@ const Index = ({ submitted, togglePanel }) => {
             <Text {...textStyle}>
               政府強推「明日大嶼」，在如此敏感的生態區域大興土木，必然破壞珍貴的海洋生態；它亦是香港史上最昂貴的基建，造價至少6,240億元，不但可能於10年內（2031 - 32年度）耗盡香港的財政儲備，亦無法有效解決香港逼在眉睫的房屋問題。雖然財委會強行通過了「明日大嶼」5.5億元前期研究撥款，但距離真正落實填海工程仍有極多變數，綠色和平絕不會放棄「堅守大嶼」。
             </Text>
-            {/* <Text {...textStyle}>
-            事實上，香港有比「明日大嶼」更明智的選項：綠色和平調查發現，發展棕地造價僅333億元卻可興建近14萬伙公營房屋。
-            </Text>
-            <Text {...textStyle}>
-            海洋住屋不對立，為了珍貴脆弱的海洋生態，及讓市民安居樂業，一起發聲，要求政府優先發展棕地，放棄不負責任的「明日大嶼」！
-            </Text> */}
           </VStack>
         </Center>
         {
@@ -188,7 +145,6 @@ const Index = ({ submitted, togglePanel }) => {
         <Text {...textStyleOther}>
             事實上，香港有比「明日大嶼」更明智的選項：綠色和平調查發現，發展棕地造價僅333億元卻可興建近14萬伙公營房屋。
             </Text>
-          {/* <Text {...textStyleOther}><span style={{color: '#108ee9', fontWeight: 'bold'}}>填海選址鄰近海域具生態價值</span>，或令海洋或陸地物種的棲息地永久喪失。</Text> */}
         </Box>
       </Box>
       <Spacer/>
@@ -246,15 +202,15 @@ const Index = ({ submitted, togglePanel }) => {
 
       </Box>
 
-      <Box bg={useColorModeValue('gray.50', 'gray.900')} pt={{base: 20, sm: 40}} pb={60}>
+      <Box bg={useColorModeValue('gray.50', 'gray.900')} pt={{base: 20, sm: 40}} pb={{base: 20, sm: 60}}>
         <Container maxWidth={'8xl'} pt={8} style={{overflow: 'hidden'}}>
       <Flex direction={{base: 'column-reverse', md: 'row'}}>
 
       <Box mt={{base: -10, md: 120}} w={{base: 'auto', md: 720}} mr={{base: 0, md: -180}} mx={{base: '10px', sm: 0}} style={{zIndex: 9}}>
         <Box p={6} bgColor="#FFF">
-        <Center mb={50}>
+        <Center mb={{base: 10, sm: 50}}>
           <VStack maxWidth={'3xl'}>
-            <Heading fontSize={{ base: 'xl', sm: '3xl' }} mb={4}>史上最貴基建</Heading>
+            <Heading fontSize={{ base: 'xl', sm: '3xl' }} mb={{base: 2, sm: 4}}>史上最貴基建</Heading>
             <Text {...textStyle}>耗時至少 <span style={{color: '#108ee9', fontWeight: 'bold'}}>13年</span> 耗費至少 <span style={{color: '#108ee9', fontWeight: 'bold'}}>6,240億公帑</span></Text>
           </VStack>
         </Center>
@@ -283,7 +239,7 @@ const Index = ({ submitted, togglePanel }) => {
       <Box>
       <Flex direction={{base: 'column', sm: 'row'}} >
 
-      <Box w={{base: '100%', sm: 860}} h={{base: 'auto', sm: 720}} pos="relative" py={40}>
+      <Box w={{base: '100%', sm: 960, md: 1180}} h={{base: 'auto', sm: 720}} pos="relative" py={40}>
         <Box
             pos="absolute"
             top="0"
@@ -309,7 +265,7 @@ const Index = ({ submitted, togglePanel }) => {
           <Box >
             <Text {...textStyleOther}>事實上，香港有比「明日大嶼」更明智的選項：發展408公頃的棕地，造地成本估算為333億元。<br/><br/>「除了比填海<span style={{color: '#108ee9', fontWeight: 'bold'}}>便宜8成</span>以外，政府亦可引用《收回土地條例》，以比填海更快的速度，興建近14萬伙公營房屋 ，並取締棕地上的違法及違規作業。</Text>
           </Box>
-          <br/><br/>
+          <br/>
           {!isMobile && <Link style={{textDecoration: 'none'}} to="test1" spy={true} smooth={true} offset={50} duration={500}><Button
             w="120"
             height="60px"
@@ -333,8 +289,9 @@ const Index = ({ submitted, togglePanel }) => {
       <Button
         d={{base: 'block', sm: 'none'}}
         w="100%"
-        // isLoading={isSubmitting}
-        colorScheme="teal"
+        color="#FFF"
+        bg="campaign.arctic"
+        _hover={{ bg: "campaign.oceans" }}
         height="60px"
         borderRadius="0"
         size="lg"

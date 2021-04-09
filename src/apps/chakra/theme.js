@@ -31,6 +31,16 @@ const theme = extendTheme({
       oceans: "#008fe2",
     },
   },
+  bg: {
+    campaign: {
+      arctic: "#62cbd7",
+      health: "#f96d8c",
+      climate: "#ffbe00",
+      plastics: "#afaa91",
+      forests: "#00b474",
+      oceans: "#008fe2",
+    },
+  }
 });
 
 export default theme;

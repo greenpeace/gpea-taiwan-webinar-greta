@@ -1,5 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import { Form, withFormik } from "formik";
@@ -192,8 +191,8 @@ const MyForm = props => {
             borderRadius="0"
             size="lg"
             color="#FFF"
-            bg="#62cbd7"
-            _hover={{ bg: "#21C5D8" }}
+            bg="campaign.arctic"
+            _hover={{ bg: "campaign.oceans" }}
           >
             立即聯署
           </Button>
