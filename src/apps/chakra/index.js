@@ -66,8 +66,8 @@ const Index = ({ submitted, togglePanel }) => {
         <Center><Image src="https://api.greenpeace.org.hk/2021/elm/static/img/gp-logo-vertical.a9c3712c.png" /></Center>
       </Box>
       <Grid
-        h={{ base: 480, sm: '90vh'}}
-        minHeight={{ base: 480, sm: '960px'}}
+        h={{ base: 640, sm: '90vh'}}
+        minHeight={{ base: 640, sm: '960px'}}
         templateRows={{ base: 'repeat(7, 1fr)', sm: 'repeat(11, 1fr)'}}
         templateColumns="repeat(15, 1fr)"
       >
@@ -91,11 +91,11 @@ const Index = ({ submitted, togglePanel }) => {
             autoHeight={true}
             style={{position: 'absolute', top: 0, bottom: 0, right: 0, left: 0}}
           >
-            <SwiperSlide>
-                <Image src={isMobile ? `${process.env.PUBLIC_URL}/oceans/oceans_1.jpg` : 'https://api.greenpeace.org.hk/2021/elm/static/img/DJI_0431.c6b2b22f.jpg'} />
+                      <SwiperSlide>
+            <Image src={isMobile ? `${process.env.PUBLIC_URL}/oceans/oceans_2.jpg` : 'https://api.greenpeace.org.hk/2021/elm/static/img/DJI_0439.50ce887e.jpg'} />
             </SwiperSlide> 
             <SwiperSlide>
-            <Image src={isMobile ? `${process.env.PUBLIC_URL}/oceans/oceans_2.jpg` : 'https://api.greenpeace.org.hk/2021/elm/static/img/DJI_0439.50ce887e.jpg'} />
+                <Image src={isMobile ? `${process.env.PUBLIC_URL}/oceans/oceans_1.jpg` : 'https://api.greenpeace.org.hk/2021/elm/static/img/DJI_0431.c6b2b22f.jpg'} />
             </SwiperSlide> 
           </Swiper>
         </GridItem>

@@ -27,3 +27,12 @@ code {
 .sweet-loading{
   height: 100vh;
 }
+
+.slide-pane{
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.slide-pane__content{
+  padding-bottom: 90px;
+}
