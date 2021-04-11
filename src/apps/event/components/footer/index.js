@@ -57,16 +57,17 @@ export default function SmallCentered() {
       color={useColorModeValue('gray.700', 'gray.200')}>
       <Container
         as={Stack}
-        maxW={'6xl'}
+        maxW={'100%'}
         py={4}
         spacing={4}
         justify={'center'}
         align={'center'}>
         <Logo />
         <Stack direction={'row'} spacing={6}>
-          <Link href={'#'}>首頁</Link>
-          <Link href={'#'}>私隱政策與個人資料收集聲明</Link>
-          <Link href={'#'}>捐助支持</Link>
+          <Link href={'https://www.greenpeace.org/hongkong'} target="_blank">首頁</Link>
+          <Link href={'https://www.greenpeace.org/hongkong/policies/privacy-and-cookies/?_ga=2.180264813.855211881.1618118536-438458975.1614842560'} target="_blank">私隱政策與個人資料收集聲明</Link>
+          <Link href={'https://www.greenpeace.org/hk/about'} target="_blank">聯絡我們</Link>
+          <Link href={'https://www.greenpeace.org/hongkong/about/overview'} target="_blank">關於綠色和平</Link>
         </Stack>
       </Container>
       <Box
