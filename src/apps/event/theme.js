@@ -40,6 +40,7 @@ const theme = extendTheme({
       forests: "#00b474",
       oceans: "#008fe2",
     },
+    orange: "#ff8100"
   }
 });
 

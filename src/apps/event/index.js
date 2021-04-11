@@ -1,45 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { useMediaQuery } from 'react-responsive'
-import {
-  ChakraProvider,
-  Grid,
-  GridItem,
-  Box,
-  Image,
-  Flex,
-  Center,
-  Text,
-  Heading,
-  VStack,
-  Button,
-  useColorModeValue,
-  Container,
-  Spacer
-} from "@chakra-ui/react";
+import content from './data/content'
+import { ChakraProvider, Grid, GridItem, Box, Image, Flex, Center, Text, Heading, VStack, Button, useColorModeValue, Container, Spacer} from "@chakra-ui/react";
+import SEO from "./seo";
 import Footer from "./components/footer";
 import NewFrameForm from "components/form/newFrameForm";
 import NewFrameSubmittedForm from "components/form/newFrameSubmittedForm";
 import Panel from "components/panel/newFormPanel";
-import Tab from "./components/sticky/tab"
 import * as themeActions from "store/actions/action-types/theme-actions";
 import themeConfig from "./theme.js"
-
 import { images, otherImages } from "./components/parallex/images";
 import ParallaxImage from './components/parallex/parallexImages'
-
 import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
-
-import SwiperCore, {
-  Mousewheel,
-  Scrollbar,
-  A11y,
-  Autoplay,
-} from "swiper";
-
+import SwiperCore, { Mousewheel, Scrollbar, A11y, Autoplay} from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.scss";
-
 SwiperCore.use([Scrollbar, A11y, Autoplay, Mousewheel]);
 
 const Index = ({ submitted, togglePanel }) => {
@@ -57,11 +33,24 @@ const Index = ({ submitted, togglePanel }) => {
     lineHeight: 1.5
   }
 
-  const [currentTab, setCurrentTab] = useState(0);
-
   return (
     <ChakraProvider theme={themeConfig}>
-      <Box pos="absolute" w={120} h={90} zIndex={9} bgColor="rgba(0,0,0,.09)" p={3} pt={7}>
+      <SEO/>
+
+      <Flex>
+        <Box flex="1" >
+          <Box pos="absolute" w={120} h={90} zIndex={9} bgColor="rgba(0,0,0,.09)" p={3} pt={7} d={{base: 'none', sm: 'block'}}>
+            <Center><Image src="https://api.greenpeace.org.hk/2021/elm/static/img/gp-logo-vertical.a9c3712c.png" /></Center>
+          </Box>
+          <Image src={`${process.env.PUBLIC_URL}/events/falala/main_banner.png`} />
+        </Box>
+        <Box w={{base: 0, sm: '640px'}} p={10} d={{base: 'none', sm: 'block'}}>
+        {submitted ? <NewFrameSubmittedForm formContent={content} /> : <NewFrameForm formContent={content} showProgress={false} newsLetter={false}/>}
+        </Box>
+      </Flex>
+
+
+      {/* <Box pos="absolute" w={120} h={90} zIndex={9} bgColor="rgba(0,0,0,.09)" p={3} pt={7}>
         <Center><Image src="https://api.greenpeace.org.hk/2021/elm/static/img/gp-logo-vertical.a9c3712c.png" /></Center>
       </Box>
       <Grid
@@ -70,14 +59,14 @@ const Index = ({ submitted, togglePanel }) => {
         templateRows={{ base: 'repeat(7, 1fr)', sm: 'repeat(11, 1fr)'}}
         templateColumns="repeat(15, 1fr)"
       >
-        <GridItem pos="relative" d={{ base: 'none', sm: 'block' }} rowSpan={{ base: 4, sm: 9 }} colSpan={{ base: 15, sm: 10 }}>
+        <GridItem pos="relative" d={{ base: 'none', sm: 'block' }} rowSpan={{ base: 4, sm: 8 }} colSpan={{ base: 15, sm: 10 }}>
           <Box
             pos="absolute"
             top="0"
             left="0"
             bottom="0"
             right="0"
-            backgroundImage="url('https://api.greenpeace.org.hk/2021/elm/static/img/DJI_0409.89f89e20.jpg')"
+            backgroundImage={mainImage}
             bgSize="cover"
           />
         </GridItem>
@@ -90,12 +79,9 @@ const Index = ({ submitted, togglePanel }) => {
             autoHeight={true}
             style={{position: 'absolute', top: 0, bottom: 0, right: 0, left: 0}}
           >
-                      <SwiperSlide>
+          <SwiperSlide>
             <Image src={isMobile ? `${process.env.PUBLIC_URL}/oceans/oceans_2.jpg` : 'https://api.greenpeace.org.hk/2021/elm/static/img/DJI_0439.50ce887e.jpg'} />
-            </SwiperSlide> 
-            <SwiperSlide>
-                <Image src={isMobile ? `${process.env.PUBLIC_URL}/oceans/oceans_1.jpg` : 'https://api.greenpeace.org.hk/2021/elm/static/img/DJI_0431.c6b2b22f.jpg'} />
-            </SwiperSlide> 
+          </SwiperSlide> 
           </Swiper>
         </GridItem>
         <GridItem d={{ base: 'none', sm: 'block' }} rowSpan={{ base: 8, sm: 9 }} colSpan={{ base: 15, sm: 5 }}>
@@ -104,22 +90,20 @@ const Index = ({ submitted, togglePanel }) => {
           </Center>
         </GridItem>
         <GridItem 
-          rowSpan={{ base: 3, sm: 4 }} 
+          rowSpan={{ base: 3, sm: 5 }} 
           colSpan={{ base: 15, sm: 10 }}>
           <Flex color="white" h="100%">
-            <Center bg="campaign.oceans" w="100%">
+            <Center bg="#FF8600" w="100%">
               <Box maxW="64rem" py={5} px={{base: 3, sm: 10}}>
-                <Heading fontSize={{ base: 'xl', sm: '3xl' }} mb={4}>守護大嶼</Heading>
+                <Heading fontSize={{ base: 'xl', sm: '3xl' }} mb={4}>「童你講故事」氣候與環境繪本線上共讀會</Heading>
                 <Text {...textStyle} color="#FFF">
-                  香港海洋孕育近6千種海洋生物，東大嶼水域生態豐富多樣，是國家重點保護野生動物白腹海雕的繁殖及棲息地，更錄得全球獨有的鮑氏雙足蜥，附近水域亦發現稀有的軟珊瑚海筆。
+                由綠色和平原創繪本《無家可歸的我》將於4月24日正式於網上發佈！我們邀請到故事導師Fa La La老師參與「童你講故事」氣候與環境繪本線上共讀會，與小朋友和家長共讀《無家可歸的我》。此原創繪本以小朋友豆豆，以及北極熊、樹熊、小丑魚等受氣候變化影響的動物為主角，深入淺出地教育兒童有關環境保護、氣候變化議題。
                 </Text>
               </Box>
             </Center>
           </Flex>
         </GridItem>
       </Grid>
-
-      <Tab/>
 
       <Box bg={useColorModeValue('gray.50', 'gray.900')} pt={{base: 20, sm: 40}} pb={30}>
         <Center px={{base: 4, sm: 10}}>
@@ -247,7 +231,6 @@ const Index = ({ submitted, togglePanel }) => {
             right="0"
             backgroundImage="url('https://api.greenpeace.org.hk/2021/elm/static/img/brownfield.71dd71ae.jpg')"
             bgSize="cover"
-            // backgroundPosition="center"
           />
       </Box>
 
@@ -283,27 +266,28 @@ const Index = ({ submitted, togglePanel }) => {
       </Center>
 
       </Flex>
-      </Box>
+      </Box> */}
 
       <Button
         d={{base: 'block', sm: 'none'}}
         w="100%"
         color="#FFF"
-        bg="campaign.arctic"
+        bg="orange"
         _hover={{ bg: "campaign.oceans" }}
         height="60px"
         borderRadius="0"
-        size="lg"
+        fontSize="2xl"
         pos="fixed"
         bottom={0}
         zIndex={9}
         onClick={()=>togglePanel(true)}
         style={{zIndex: 999}}
+        letterSpacing={4}
         // variant="outline"
       >
         立即聯署
       </Button>
-      <Panel />
+      <Panel formContent={content} />
       <Footer />
     </ChakraProvider>
   );

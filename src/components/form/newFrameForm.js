@@ -4,7 +4,6 @@ import * as themeActions from "store/actions/action-types/theme-actions";
 import { Form, withFormik } from "formik";
 import "rsuite/lib/styles/index.less";
 import ProgressBar from "components/progress";
-import content from "./newFormContent.json";
 
 import {
   FormControl,
@@ -28,8 +27,10 @@ const MyForm = props => {
     errors,
     handleChange,
     handleBlur,
-    formContent = content,
+    formContent,
     handleSubmit,
+    showProgress,
+    newsLetter,
     isSubmitting,
     setSubmitting,
     setHiddenForm,
@@ -90,8 +91,8 @@ const MyForm = props => {
     <>
     <Form onSubmit={handleSubmit}>
     <Heading pb={3} size="xl">{formContent.form_header}</Heading>
-    <Text pb={3}>{formContent.form_description}</Text>
-    {progress.map((item, idx) => (
+    {formContent.form_description && <Text pb={3}>{formContent.form_description}</Text>}
+    {showProgress && progress.map((item, idx) => (
       <ProgressBar
         key={idx}
         bgcolor={item.bgcolor}
@@ -100,7 +101,6 @@ const MyForm = props => {
       />
     ))}
     <Divider />
-
     <Flex direction="column">
         <Box flex="1" pb={space}>
           <FormControl id="email" isInvalid={errors.Email && touched.Email}>
@@ -163,7 +163,6 @@ const MyForm = props => {
                 placeholder={errors.MobilePhone && touched.MobilePhone ? errors.MobilePhone : formContent.label_phone}
                 onChange={handleChange}
               />
-              {/* <FormErrorMessage>{errors.mobilePhone}</FormErrorMessage> */}
             </FormControl>
           </Box>
         </HStack>
@@ -189,10 +188,11 @@ const MyForm = props => {
             type="submit"
             height="60px"
             borderRadius="0"
-            size="lg"
+            fontSize="2xl"
             color="#FFF"
-            bg="campaign.arctic"
-            _hover={{ bg: "campaign.oceans" }}
+            letterSpacing={4}
+            bg="#ff8100"
+            _hover={{ bg: "campaign.climate" }}
           >
             立即聯署
           </Button>
@@ -202,9 +202,11 @@ const MyForm = props => {
         <HStack align="flex-start">
           <Box pb={3}>
             <FormControl id="optIn">
-            <Checkbox name="OptIn" onChange={handleChange}>
+            {newsLetter ? <Checkbox name="OptIn" onChange={handleChange}>
               <Text fontSize="xs">{formContent.form_remind}</Text>
-            </Checkbox>
+            </Checkbox> :
+            <Text fontSize="xs"><sup>*</sup>{formContent.form_remind}</Text>
+            }
             </FormControl>
           </Box>
         </HStack>
@@ -218,31 +220,31 @@ const MyForm = props => {
 const MyEnhancedForm = withFormik({
   mapPropsToValues: () => ({ Email: '', FirstName: '', LastName: '', MobileCountryCode: '852', MobilePhone: '', Birthdate: '', OptIn: false }),
 
-  validate: values => {
+  validate: (values, {formContent}) => {
     const errors = {};
  
    if (!values.Email) {
-     errors.Email = content.empty_data_alert;
+     errors.Email = formContent.empty_data_alert;
    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.Email)) {
-     errors.Email = content.invalid_email_alert;
+     errors.Email = formContent.invalid_email_alert;
    }
 
   if (!values.FirstName) {
-    errors.FirstName = content.empty_data_alert;
+    errors.FirstName = formContent.empty_data_alert;
   }
 
   if (!values.LastName) {
-    errors.LastName = content.empty_data_alert;
+    errors.LastName = formContent.empty_data_alert;
   }
 
   if (!values.MobilePhone) {
-    errors.MobilePhone = content.empty_data_alert;
+    errors.MobilePhone = formContent.empty_data_alert;
   }  else if (values.MobilePhone.toString().length !== 8) {
-    errors.MobilePhone = content.minimum_8_characters;
+    errors.MobilePhone = formContent.minimum_8_characters;
   }
 
   if (!values.Birthdate) {
-    errors.Birthdate = content.empty_data_alert;
+    errors.Birthdate = formContent.empty_data_alert;
   }
 
    return errors;

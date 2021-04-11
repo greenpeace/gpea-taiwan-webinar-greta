@@ -56,8 +56,9 @@ const MyForm =  ({ formContent = content, submitted }) => {
 
   return (
     <Flex direction="column">
-    <Heading pb={3} size="xl">{formContent.thanks_title}</Heading>
-    <Text pb={3}>{formContent.thanks_content}</Text>
+    <Heading pb={3} fontSize={{base: "md", sm: "xl"}}>{formContent.thanks_title}</Heading>
+    {/* <Text pb={3}>{formContent.thanks_content}</Text> */}
+    <p style={{fontSize: '18px', paddingTop: '10px', paddingBottom: '10px', lineHeight: '30px'}} dangerouslySetInnerHTML={{__html: formContent.thanks_content}}/>
     <Divider />
 
     <Button
