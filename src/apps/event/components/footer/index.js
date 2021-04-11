@@ -60,10 +60,10 @@ export default function SmallCentered() {
         maxW={'100%'}
         py={4}
         spacing={4}
-        justify={'center'}
-        align={'center'}>
+        justify={{base: 'left', sm: 'center'}}
+        align={{base: 'left', sm: 'center'}}>
         <Logo />
-        <Stack direction={'row'} spacing={6}>
+        <Stack direction={{base: 'column', sm: 'row'}} spacing={6}>
           <Link href={'https://www.greenpeace.org/hongkong'} target="_blank">首頁</Link>
           <Link href={'https://www.greenpeace.org/hongkong/policies/privacy-and-cookies/?_ga=2.180264813.855211881.1618118536-438458975.1614842560'} target="_blank">私隱政策與個人資料收集聲明</Link>
           <Link href={'https://www.greenpeace.org/hk/about'} target="_blank">聯絡我們</Link>
@@ -78,19 +78,20 @@ export default function SmallCentered() {
           as={Stack}
           maxW={'6xl'}
           py={4}
+          pb={{base: 20, sm: 4}}
           direction={{ base: 'column', md: 'row' }}
           spacing={4}
-          justify={{ base: 'center', md: 'space-between' }}
-          align={{ base: 'center', md: 'center' }}>
+          justify={{ base: 'left', md: 'space-between' }}
+          align={{ base: 'left', md: 'center' }}>
           <Text>© GREENPEACE 2021</Text>
           <Stack direction={'row'} spacing={6}>
-            <SocialButton label={'Twitter'} href={'#'}>
+            <SocialButton label={'Twitter'} href={'https://twitter.com/greenpeace'} target="_blank">
               <FaTwitter />
             </SocialButton>
-            <SocialButton label={'YouTube'} href={'#'}>
+            <SocialButton label={'YouTube'} href={'https://www.youtube.com/channel/UCXTK00OzHT1lgMotSMNAVbg'} target="_blank">
               <FaYoutube />
             </SocialButton>
-            <SocialButton label={'Instagram'} href={'#'}>
+            <SocialButton label={'Instagram'} href={'https://www.instagram.com/greenpeace_hk/?hl=zh-hk'} target="_blank">
               <FaInstagram />
             </SocialButton>
           </Stack>
