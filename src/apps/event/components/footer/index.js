@@ -54,7 +54,9 @@ export default function SmallCentered() {
   return (
     <Box
       bg={useColorModeValue('gray.50', 'gray.900')}
-      color={useColorModeValue('gray.700', 'gray.200')}>
+      color={useColorModeValue('gray.700', 'gray.200')}
+      mt={{base: 20, sm: 0}}
+      >
       <Container
         as={Stack}
         maxW={'100%'}

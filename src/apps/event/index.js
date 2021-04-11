@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { useMediaQuery } from 'react-responsive'
 import Sticky from 'react-sticky-el';
 import content from './data/content'
 import { ChakraProvider, Grid, GridItem, Box, Image, Flex, Center, Text, Heading, VStack, Button, useColorModeValue, Container, Spacer, Divider, SimpleGrid, Stack} from "@chakra-ui/react";
@@ -11,13 +10,7 @@ import NewFrameSubmittedForm from "components/form/newFrameSubmittedForm";
 import Panel from "components/panel/newFormPanel";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import themeConfig from "./theme.js"
-import { images, otherImages } from "./components/parallex/images";
-import ParallaxImage from './components/parallex/parallexImages'
-import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
-import SwiperCore, { Mousewheel, Scrollbar, A11y, Autoplay} from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper.scss";
-SwiperCore.use([Scrollbar, A11y, Autoplay, Mousewheel]);
+import ImageWithColumn from "./components/feature/imageWithColumn"
 
 const Index = ({ submitted, togglePanel }) => {
 
@@ -25,20 +18,11 @@ const Index = ({ submitted, togglePanel }) => {
     as: "p",
     marginTop: 10,
     color: useColorModeValue('gray.700', 'gray.200'),
-    fontSize: "lg",
+    fontSize: {base: 'md', sm: 'lg'},
     lineHeight: "32px"
   }
 
   const flexBoxStyle = {
-    align: 'center',
-    justify: 'center',
-    color: 'white',
-    rounded: 'full',
-    bg: 'gray.100',
-    mb: 1
-  }
-
-  const flexBoxFontStyle = {
     align: 'center',
     justify: 'center',
     color: 'white',
@@ -74,19 +58,19 @@ const Index = ({ submitted, togglePanel }) => {
 
           <Box p={{base: 4, sm: 10}}>
             <Box>
-              <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
+              <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
                 <Stack>
                   <Flex {...flexBoxStyle}>
                     <Image src={`${process.env.PUBLIC_URL}/events/falala/Earth_day_storybook_1.jpg`} />
                   </Flex>
                   <Text>《無家可歸的我》繪本講述野生動物生活受到環境問題影響的故事，由綠色和平團隊耗時9個月製作而成。</Text>
                 </Stack>
-                <Stack>
+                {/* <Stack>
                   <Flex {...flexBoxStyle}>
                     <Image src={`${process.env.PUBLIC_URL}/events/falala/Falala_and_Brian.jpeg`} />
                   </Flex>
                   <Text>Falala老師曾與綠色和平、小作家Brian簡鏡倫合作分享保育海洋故事The Tale of Tom the Turtle。</Text>
-                </Stack>
+                </Stack> */}
                 <Stack>
                   <Flex {...flexBoxStyle}>
                     <Image src={`${process.env.PUBLIC_URL}/events/falala/Polar_bear_and_Koala.png`} />
@@ -97,8 +81,16 @@ const Index = ({ submitted, togglePanel }) => {
             </Box>
           </Box>
 
+          <Box p={{base: 4, sm: 10}}>
+            <Divider/>
+          </Box>
+
+          <Box p={{base: 4, sm: 10}}>
+            <ImageWithColumn pStyle={pStyle}/>
+          </Box>
+
         </Box>
-        <Box w={{base: 0, sm: '640px'}} p={10} d={{base: 'none', sm: 'block'}}>
+        <Box w={{base: 0, md: '640px'}} p={10} d={{base: 'none', md: 'block'}}>
           <Sticky stickyStyle={{zIndex: 10}}>
           <Box boxShadow="lg" p="6" rounded="md" bg="white">
           {submitted ? <NewFrameSubmittedForm formContent={content} /> : <NewFrameForm formContent={content} showProgress={false} newsLetter={false}/>}
@@ -327,7 +319,7 @@ const Index = ({ submitted, togglePanel }) => {
       </Box> */}
 
       <Button
-        d={{base: 'block', sm: 'none'}}
+        d={{base: 'block', md: 'none'}}
         w="100%"
         color="#FFF"
         bg="orange"
