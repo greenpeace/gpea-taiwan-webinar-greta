@@ -53,12 +53,12 @@ const Index = ({ submitted, togglePanel }) => {
     borderLeft: "4px solid #66cc00",
     paddingLeft: "12px",
     size: "sm",
-    color: "gary.700",
+    color: "gary.500",
   };
   const pStyle = {
     as: "p",
     marginTop: 8,
-    color: useColorModeValue("gray.700", "gray.200"),
+    color: "gray.700",
     fontSize: { base: "md", sm: "lg" },
     lineHeight: "1.7",
   };
@@ -146,6 +146,7 @@ const Index = ({ submitted, togglePanel }) => {
                   <Flex {...flexBoxStyle}>
                     <Image
                       src={`${process.env.PUBLIC_URL}/events/falala/Earth_day_storybook_1.jpg`}
+                      pb={4}
                     />
                   </Flex>
                   <Text {...captionStyle}>
@@ -162,6 +163,7 @@ const Index = ({ submitted, togglePanel }) => {
                   <Flex {...flexBoxStyle}>
                     <Image
                       src={`${process.env.PUBLIC_URL}/events/falala/Polar_bear_and_Koala.png`}
+                      pb={4}
                     />
                   </Flex>
                   <Text {...captionStyle}>
@@ -177,7 +179,50 @@ const Index = ({ submitted, togglePanel }) => {
           </Box>
 
           <Box p={{ base: 4, sm: 10 }}>
-            <ImageWithColumn pStyle={pStyle} />
+            <Box
+              maxW="120px"
+              borderColor="brand.600"
+              borderWidth="1px"
+              borderRadius="full"
+              overflow="hidden"
+              mb="6"
+            >
+              <Image
+                src={`${process.env.PUBLIC_URL}/events/falala/Miss Falala profile picture.png`}
+              />
+            </Box>
+            <Heading
+              fontSize={{ base: "md", sm: "2xl" }}
+              color="brand.600"
+              mb="6"
+            >
+              故事導師 Fa La La老師
+            </Heading>
+            <Stack spacing={4}>
+              <Feature
+                icon={
+                  <Icon as={IoTimeOutline} color={"yellow.500"} w={5} h={5} />
+                }
+                iconBg={useColorModeValue("yellow.100", "yellow.900")}
+                text={"日期：2021年4月24日（星期六）"}
+              />
+              <Feature
+                icon={
+                  <Icon as={IoTimeSharp} color={"yellow.500"} w={5} h={5} />
+                }
+                iconBg={useColorModeValue("yellow.100", "yellow.900")}
+                text={"時間：下午4時半至5時半"}
+              />
+              <Feature
+                icon={<Icon as={IoVideocam} color={"green.500"} w={5} h={5} />}
+                iconBg={useColorModeValue("green.100", "green.900")}
+                text={"線上分享會平台：Zoom（網上登記後會獲得相關鏈結和密碼）"}
+              />
+            </Stack>
+            <Text size="sm" color="gray.500" mt="4" mb="4">
+              資深幼兒教育工作者，並於公共圖書館擔任故事導師。
+            </Text>
+            <ImageWithColumn pStyle={pStyle} captionStyle={{ captionStyle }} />
           </Box>
         </Box>
         <Box
