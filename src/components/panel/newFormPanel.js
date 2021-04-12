@@ -39,18 +39,6 @@ const NewFormPanel = ({
 
   return (
     <div>
-      {theme.displayPanel && (
-        <Box
-          pos="absolute"
-          style={{ top: 15, right: 10, zIndex: 9999 }}
-          p={2}
-          bgColor="#FFF"
-          borderRadius={"24px"}
-          onClick={() => togglePanel(false)}
-        >
-          <SmallCloseIcon w={6} h={6} />
-        </Box>
-      )}
       <SlidingPane
         isOpen={theme.displayPanel}
         from="bottom"
@@ -60,6 +48,18 @@ const NewFormPanel = ({
         hideHeader={true}
         onRequestClose={() => null}
       >
+        {theme.displayPanel && (
+          <Box
+            pos="absolute"
+            style={{ top: -45, right: 10, zIndex: 9999 }}
+            p={2}
+            bgColor="#FFF"
+            borderRadius={"20px"}
+            onClick={() => togglePanel(false)}
+          >
+            <SmallCloseIcon w={6} h={6} />
+          </Box>
+        )}
         {submitted ? (
           <NewFrameSubmittedForm formContent={formContent} />
         ) : (
