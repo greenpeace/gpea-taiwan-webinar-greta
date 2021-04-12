@@ -29,10 +29,18 @@ code {
 }
 
 .slide-pane {
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
+  border-top-right-radius: 24px;
+  border-top-left-radius: 24px;
+}
+
+.slide-pane_from_bottom {
+  margin-top: 8vh;
 }
 
 .slide-pane__content {
-  padding-bottom: 140px !important;
+  padding: 32px 20px !important;
+}
+
+.slide-pane__content {
+  padding-bottom: 120px !important;
 }

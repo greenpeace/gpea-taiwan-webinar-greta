@@ -183,7 +183,9 @@ const MyForm = (props) => {
             </Box>
           </HStack>
 
-          <FormLabel {...labelStyle}>{formContent.label_phone}</FormLabel>
+          <FormControl>
+            <FormLabel {...labelStyle}>{formContent.label_phone}</FormLabel>
+          </FormControl>
 
           <HStack align="flex-end">
             <Box pb={space}>
@@ -269,8 +271,8 @@ const MyForm = (props) => {
                       <Text fontSize="xs">{formContent.form_remind}</Text>
                     </Checkbox>
                   ) : (
-                    <Text fontSize="xs">
-                      <sup>*</sup>
+                    <Text fontSize="xs" color="gray.500">
+                      <sup> * </sup>
                       {formContent.form_remind}
                     </Text>
                   )}
