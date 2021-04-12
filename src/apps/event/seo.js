@@ -16,7 +16,9 @@ const SEO = () => {
         `}
       </script>
       {/* title */}
-      <title>童你講故事」氣候與環境繪本線上共讀會 - Greenpeace 綠色和平 | 香港</title>
+      <title>
+        童你講故事」氣候與環境繪本線上共讀會 - Greenpeace 綠色和平 | 香港
+      </title>
       <meta
         property="og:title"
         content="童你講故事」氣候與環境繪本線上共讀會 - Greenpeace 綠色和平 | 香港"
@@ -33,7 +35,7 @@ const SEO = () => {
       {/* meta image */}
       <meta
         property="og:image"
-        content="https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/02/e1abe0f4-20210225_fukushima10th_petition_thumbnial-02.jpg"
+        content="https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/04/1d3a7e7b-earthday_main_banner.jpg"
       />
     </Helmet>
   );

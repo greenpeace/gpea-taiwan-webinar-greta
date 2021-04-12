@@ -5,6 +5,7 @@ import Sticky from "react-sticky-el";
 import content from "./data/content";
 import {
   ChakraProvider,
+  Circle,
   Box,
   Divider,
   Image,
@@ -34,17 +35,12 @@ const Index = ({ submitted, togglePanel }) => {
   const Feature = ({ text, icon, iconBg }) => {
     return (
       <Stack direction={"row"} align={"center"}>
-        <Flex
-          w={8}
-          h={8}
-          align={"center"}
-          justify={"center"}
-          rounded={"full"}
-          bg={iconBg}
-        >
+        <Circle size="40px" color="white" bg={iconBg}>
           {icon}
-        </Flex>
-        <Text>{text}</Text>
+        </Circle>
+        <Text pl="2" fontSize="lg" color="gray.900">
+          {text}
+        </Text>
       </Stack>
     );
   };
@@ -63,7 +59,7 @@ const Index = ({ submitted, togglePanel }) => {
     as: "p",
     marginTop: 8,
     color: "gray.700",
-    fontSize: { base: "md", sm: "lg" },
+    fontSize: { base: "sm", sm: "md" },
     lineHeight: "1.7",
   };
 
@@ -270,13 +266,12 @@ const Index = ({ submitted, togglePanel }) => {
           boxShadow: "0px 0px 20px 0px rgb(0 0 0 / 10%)",
           paddingTop: "6px",
           paddingBottom: "8px",
-          display: "flex",
           alignItems: "center",
           justifyContent: "center",
         }}
+        d={{ base: "flex", md: "none" }}
       >
         <Button
-          d={{ base: "block", md: "none" }}
           w="80%"
           color="#FFF"
           bg="orange"
