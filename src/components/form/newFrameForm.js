@@ -106,11 +106,11 @@ const MyForm = (props) => {
   return (
     <>
       <Form onSubmit={handleSubmit}>
-        <Heading pb={3} size="xl" color="gray.900">
+        <Heading pt="4" pb="4" size="xl" color="gray.900">
           {formContent.form_header}
         </Heading>
         {formContent.form_description && (
-          <Text pb={3}>{formContent.form_description}</Text>
+          <Text pb={4}>{formContent.form_description}</Text>
         )}
         {showProgress &&
           progress.map((item, idx) => (
@@ -121,7 +121,6 @@ const MyForm = (props) => {
               target={item.target}
             />
           ))}
-        <Divider />
         <Flex direction="column">
           <Box flex="1" pb={space}>
             <FormControl id="email" isInvalid={errors.Email && touched.Email}>

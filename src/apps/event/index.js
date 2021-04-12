@@ -5,20 +5,15 @@ import Sticky from "react-sticky-el";
 import content from "./data/content";
 import {
   ChakraProvider,
-  Grid,
-  GridItem,
   Box,
+  Divider,
   Image,
   Flex,
   Center,
   Text,
   Heading,
-  VStack,
   Button,
   useColorModeValue,
-  Container,
-  Spacer,
-  Divider,
   SimpleGrid,
   Stack,
   Icon,
@@ -104,14 +99,26 @@ const Index = ({ submitted, togglePanel }) => {
             </Box>
           )}
           <Image
-            src={`${process.env.PUBLIC_URL}/events/falala/main_banner.png`}
+            src={
+              "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/04/1d3a7e7b-earthday_main_banner.jpg"
+            }
           />
 
-          <Box p={{ base: 4, sm: 10 }}>
-            <Heading as="h1" size="xl" color="gray.900">
-              立即報名 「童你講故事」氣候與環境繪本線上共讀會
+          <Box p={{ base: 4, sm: 10 }} mt="4">
+            <Heading
+              as="h1"
+              fontSize={{ base: "2xl", md: "4xl" }}
+              color="brand.500"
+            >
+              立即報名 「童你講故事」
+              <br />
+              <Text mt="2" color="gray.900">
+                氣候與環境繪本線上共讀會
+              </Text>
             </Heading>
-            <Divider />
+            <Box p={{ base: 2 }}>
+              <Divider />
+            </Box>
             <Box>
               <Stack pt={4} spacing={4}>
                 <Feature
@@ -167,7 +174,7 @@ const Index = ({ submitted, togglePanel }) => {
                 <Stack>
                   <Flex {...flexBoxStyle}>
                     <Image
-                      src={`${process.env.PUBLIC_URL}/events/falala/Polar_bear_and_Koala.png`}
+                      src={`${process.env.PUBLIC_URL}/events/falala/Polar_bear_and_Koala.jpg`}
                       pb={4}
                     />
                   </Flex>
@@ -251,24 +258,38 @@ const Index = ({ submitted, togglePanel }) => {
           </Sticky>
         </Box>
       </Flex>
-      <Button
-        d={{ base: "block", md: "none" }}
-        w="100%"
-        color="#FFF"
-        bg="orange"
-        _hover={{ bg: "campaign.oceans" }}
-        height="48px"
-        borderRadius="0"
-        fontSize="xl"
+      <Box
         pos="fixed"
         bottom={0}
         zIndex={9}
-        onClick={() => togglePanel(true)}
-        style={{ zIndex: 999 }}
-        letterSpacing={4}
+        p="4"
+        w="100%"
+        style={{
+          background: "rgba(255, 255, 255, 0.8)",
+          borderColor: "rgba(255, 255, 255, 0.8)",
+          boxShadow: "0px 0px 20px 0px rgb(0 0 0 / 10%)",
+          paddingTop: "6px",
+          paddingBottom: "8px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
       >
-        {content.submit_text}
-      </Button>
+        <Button
+          d={{ base: "block", md: "none" }}
+          w="80%"
+          color="#FFF"
+          bg="orange"
+          _hover={{ bg: "campaign.oceans" }}
+          borderRadius="24px"
+          fontSize="xl"
+          letterSpacing={4}
+          style={{ zIndex: 999 }}
+          onClick={() => togglePanel(true)}
+        >
+          {content.submit_text}
+        </Button>
+      </Box>
       <Panel formContent={content} />
       <Footer />
     </ChakraProvider>

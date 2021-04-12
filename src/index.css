@@ -12,27 +12,27 @@ code {
     monospace;
 }
 
-.slide-pane__overlay{
-  z-index: 999
+.slide-pane__overlay {
+  z-index: 999;
 }
 
-.sticky-box{
+.sticky-box {
   display: none;
 }
 
-.sticky .sticky-box{
+.sticky .sticky-box {
   display: block;
 }
 
-.sweet-loading{
+.sweet-loading {
   height: 100vh;
 }
 
-.slide-pane{
+.slide-pane {
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
 }
 
-.slide-pane__content{
+.slide-pane__content {
   padding-bottom: 140px !important;
 }

@@ -18,10 +18,7 @@ import {
   Text,
   Select,
   Heading,
-  HStack,
-  VStack,
-  Divider,
-  Checkbox
+  Checkbox,
 } from "@chakra-ui/react";
 
 const buttonStyle = {
@@ -33,17 +30,20 @@ const buttonStyle = {
   padding: "12px 20px",
 };
 
-const MyForm =  ({ formContent = content, submitted }) => {
-
+const MyForm = ({ formContent = content, submitted }) => {
   const [hiddenFormValues, setHiddenFormValues] = useState([]);
   const [numSignupTarget, setNumSignupTarget] = useState(100000);
   const [numResponses, setNumResponses] = useState(0);
 
-  const progress = [{ bgcolor: "#66cc00", completed: numResponses, target: numSignupTarget },];
-  const space = 8
+  const progress = [
+    { bgcolor: "#66cc00", completed: numResponses, target: numSignupTarget },
+  ];
+  const space = 8;
 
   useEffect(() => {
-    const signupTarget = document.querySelector("input[name='numSignupTarget']");
+    const signupTarget = document.querySelector(
+      "input[name='numSignupTarget']"
+    );
     const numResponses = document.querySelector("input[name='numResponses']");
 
     if (signupTarget) {
@@ -56,42 +56,51 @@ const MyForm =  ({ formContent = content, submitted }) => {
 
   return (
     <Flex direction="column">
-    <Heading pb={3} fontSize={{base: "md", sm: "xl"}}>{formContent.thanks_title}</Heading>
-    {/* <Text pb={3}>{formContent.thanks_content}</Text> */}
-    <p style={{fontSize: '18px', paddingTop: '10px', paddingBottom: '10px', lineHeight: '30px'}} dangerouslySetInnerHTML={{__html: formContent.thanks_content}}/>
-    <Divider />
+      <Heading pt="4" pb="4" fontSize={{ base: "md", sm: "xl" }}>
+        {formContent.thanks_title}
+      </Heading>
+      {/* <Text pb={3}>{formContent.thanks_content}</Text> */}
+      <p
+        style={{
+          fontSize: "18px",
+          paddingTop: "10px",
+          paddingBottom: "10px",
+          lineHeight: "30px",
+        }}
+        dangerouslySetInnerHTML={{ __html: formContent.thanks_content }}
+      />
 
-    <Button
-      style={{ backgroundColor: "#fda22f", ...buttonStyle }}
-      onClick={()=>window.open(formContent.donateURL)}
-      target="_blank"
-      rel="noreferrer"
-    >
-      {formContent.donate_button}
-    </Button>
+      <Button
+        style={{ backgroundColor: "#fda22f", ...buttonStyle }}
+        onClick={() => window.open(formContent.donateURL)}
+        target="_blank"
+        rel="noreferrer"
+      >
+        {formContent.donate_button}
+      </Button>
 
-    <Button
-      style={{ backgroundColor: "#3b5998", ...buttonStyle }}
-      onClick={() =>
-        mainShare(
-          formContent.shareMessage,
-          formContent.fbURL,
-          formContent.mainURL
-        )
-      }
-      rel="noreferrer"
-    >
-      {formContent.share_button}
-    </Button>
-    <Button
-      style={{ backgroundColor: "#25d366", ...buttonStyle }}
-      onClick={() =>
-        whatsAppShare(formContent.shareMessage, formContent.whatsappURL)
-      }
-      rel="noreferrer"
-    >
-      <img src={whatsapp} alt="whatsapp" style={{ height: "24px" }} />
-    </Button>
+      <Button
+        style={{ backgroundColor: "#3b5998", ...buttonStyle }}
+        onClick={() =>
+          mainShare(
+            formContent.shareMessage,
+            formContent.fbURL,
+            formContent.mainURL
+          )
+        }
+        rel="noreferrer"
+      >
+        {formContent.share_button}
+      </Button>
+      <Button
+        style={{ backgroundColor: "#25d366", ...buttonStyle }}
+        onClick={() =>
+          whatsAppShare(formContent.shareMessage, formContent.whatsappURL)
+        }
+        rel="noreferrer"
+      >
+        <img src={whatsapp} alt="whatsapp" style={{ height: "24px" }} />
+      </Button>
     </Flex>
   );
 };
@@ -124,5 +133,3 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyForm);
-
-

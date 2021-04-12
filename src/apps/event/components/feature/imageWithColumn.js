@@ -32,7 +32,7 @@ const Feature = ({ text, icon, iconBg }) => {
 
 export default function SplitWithImage({ pStyle, captionStyle }) {
   return (
-    <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
+    <SimpleGrid mt="4" columns={{ base: 1, md: 2 }} spacing={10}>
       <Stack spacing={4}>
         <Text {...pStyle}>
           Fa La La老師亦是「Fa La La
@@ -48,7 +48,7 @@ export default function SplitWithImage({ pStyle, captionStyle }) {
           src={`${process.env.PUBLIC_URL}/events/falala/Falala_and_Brian.jpeg`}
           pb={4}
         />
-        <Text {...captionStyle}>
+        <Text>
           Falala老師曾與綠色和平、小作家Brian簡鏡倫合作分享保育海洋故事The Tale
           of Tom the Turtle。
         </Text>
