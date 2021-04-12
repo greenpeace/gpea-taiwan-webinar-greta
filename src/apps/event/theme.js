@@ -32,6 +32,7 @@ const theme = extendTheme({
     },
   },
   bg: {
+    darkblue: "#292f47",
     campaign: {
       arctic: "#62cbd7",
       health: "#f96d8c",
