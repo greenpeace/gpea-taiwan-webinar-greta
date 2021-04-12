@@ -19,7 +19,7 @@ import {
   Stack,
   Icon,
 } from "@chakra-ui/react";
-import SEO from "./seo";
+import SEO from "./SEO";
 import Nav from "./components/header/nav";
 import Footer from "./components/footer";
 import NewFrameForm from "components/form/newFrameForm";

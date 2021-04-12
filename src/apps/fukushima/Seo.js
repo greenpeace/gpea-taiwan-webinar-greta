@@ -10,7 +10,7 @@ const SEO = () => {
         {`
           var dataLayer = (window.dataLayer = window.dataLayer || []);
           dataLayer.push({
-            gCampaign: "oceans",
+            gCampaign: "climate",
             gBasket: "fukushima",
           });
         `}

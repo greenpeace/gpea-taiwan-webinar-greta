@@ -55,8 +55,6 @@ const MyForm = (props) => {
     color: "gray.400",
   };
 
-  const inputStyle = {};
-
   useEffect(() => {
     const getHiddenFields = document.querySelectorAll(
       'input[value][type="hidden"]:not([value=""])'

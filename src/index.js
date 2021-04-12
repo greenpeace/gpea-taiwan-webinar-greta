@@ -10,7 +10,6 @@ import TagManager from "react-gtm-module";
 import "./index.css";
 import "./fontawesome";
 
-
 if (process.env.NODE_ENV === "production") {
   const tagManagerArgs = {
     gtmId: "GTM-M6LZL75",
