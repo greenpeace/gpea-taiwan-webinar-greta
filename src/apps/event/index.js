@@ -21,6 +21,7 @@ import {
   Divider,
   SimpleGrid,
   Stack,
+  Icon,
 } from "@chakra-ui/react";
 import SEO from "./seo";
 import Nav from "./components/header/nav";
@@ -31,6 +32,8 @@ import Panel from "components/panel/newFormPanel";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import themeConfig from "./theme.js";
 import ImageWithColumn from "./components/feature/imageWithColumn";
+
+import { IoTimeSharp, IoTimeOutline, IoVideocam } from "react-icons/io5";
 
 const Index = ({ submitted, togglePanel }) => {
   const Feature = ({ text, icon, iconBg }) => {
@@ -100,10 +103,6 @@ const Index = ({ submitted, togglePanel }) => {
               </Center>
             </Box>
           )}
-          <Image
-            src={`${process.env.PUBLIC_URL}/events/falala/main_banner.png`}
-          />
-
           <Image
             src={`${process.env.PUBLIC_URL}/events/falala/main_banner.png`}
           />
@@ -200,10 +199,13 @@ const Index = ({ submitted, togglePanel }) => {
             <Heading
               fontSize={{ base: "md", sm: "2xl" }}
               color="brand.600"
-              mb="6"
+              mb="2"
             >
               故事導師 Fa La La老師
             </Heading>
+            <Text size="sm" color="gray.500" mb="6">
+              資深幼兒教育工作者，並於公共圖書館擔任故事導師。
+            </Text>
             <Stack spacing={4}>
               <Feature
                 icon={
@@ -225,9 +227,7 @@ const Index = ({ submitted, togglePanel }) => {
                 text={"線上分享會平台：Zoom（網上登記後會獲得相關鏈結和密碼）"}
               />
             </Stack>
-            <Text size="sm" color="gray.500" mt="4" mb="4">
-              資深幼兒教育工作者，並於公共圖書館擔任故事導師。
-            </Text>
+
             <ImageWithColumn pStyle={pStyle} captionStyle={{ captionStyle }} />
           </Box>
         </Box>
