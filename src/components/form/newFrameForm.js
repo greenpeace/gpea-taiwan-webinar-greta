@@ -106,7 +106,7 @@ const MyForm = (props) => {
   return (
     <>
       <Form onSubmit={handleSubmit}>
-        <Heading pt="4" pb="4" size="xl" color="gray.900">
+        <Heading pt="4" mb="4" size="xl" color="gray.900">
           {formContent.form_header}
         </Heading>
         {formContent.form_description && (
@@ -140,7 +140,7 @@ const MyForm = (props) => {
           </Box>
 
           <HStack>
-            <Box pb={3} flex={1} pb={space}>
+            <Box flex={1} pb={space}>
               <FormControl
                 id="lastName"
                 isInvalid={errors.LastName && touched.LastName}
@@ -291,7 +291,7 @@ const MyEnhancedForm = withFormik({
     MobileCountryCode: "852",
     MobilePhone: "",
     Birthdate: "",
-    OptIn: false,
+    OptIn: true,
   }),
 
   validate: (values, { formContent }) => {

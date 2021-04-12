@@ -56,7 +56,7 @@ const MyForm = ({ formContent = content, submitted }) => {
 
   return (
     <Flex direction="column">
-      <Heading pt="4" pb="4" fontSize={{ base: "md", sm: "xl" }}>
+      <Heading pt="4" pb="4" fontSize="2xl" color="brand.500">
         {formContent.thanks_title}
       </Heading>
       {/* <Text pb={3}>{formContent.thanks_content}</Text> */}

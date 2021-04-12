@@ -2,7 +2,7 @@
   "label_first_name": "名字",
   "label_last_name": "姓氏",
   "label_email": "電郵地址",
-  "label_phone": "手提號碼（接收活動SMS提示)",
+  "label_phone": "手提號碼（接收活動SMS提示）",
   "label_year_of_birth": "出生年份",
   "select": "請選擇",
 
@@ -19,7 +19,7 @@
   "submit_text": "立即登記",
 
   "thanks_title": "感謝您報名參加「童你講故事」氣候與環境繪本線上共讀會！",
-  "thanks_content": "您將會收到電郵確認。<br/>期待在 Zoom 座談會見到您！<br/><br/>緩減氣候危機，守護動物家園，綠色和平急需您的支持，在不接受政商界資助下，維持足夠資源推動項目工作！",
+  "thanks_content": "<strong>您將會收到電郵確認。<br/>期待在 Zoom 座談會見到您！</strong><br/><br/>緩減氣候危機，守護動物家園，綠色和平急需您的支持，在不接受政商界資助下，維持足夠資源推動項目工作！",
   "share_button": "分享出去",
   "donate_button": "捐助支持",
   "donateURL": "https://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK&campaign=earthday&utm_campaign=earthday&ref=earthday-registration-thankyou",
