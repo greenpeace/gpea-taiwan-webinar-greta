@@ -51,6 +51,13 @@ const MyForm = (props) => {
   const [birthDateYear, setBirthDateYear] = useState([]);
   const space = 4;
 
+  const labelStyle = {
+    fontSize: "xs",
+    color: "gray.400",
+  };
+
+  const inputStyle = {};
+
   useEffect(() => {
     const getHiddenFields = document.querySelectorAll(
       'input[value][type="hidden"]:not([value=""])'
@@ -99,7 +106,7 @@ const MyForm = (props) => {
   return (
     <>
       <Form onSubmit={handleSubmit}>
-        <Heading pb={3} size="xl">
+        <Heading pb={3} size="xl" color="gray.900">
           {formContent.form_header}
         </Heading>
         {formContent.form_description && (
@@ -118,7 +125,7 @@ const MyForm = (props) => {
         <Flex direction="column">
           <Box flex="1" pb={space}>
             <FormControl id="email" isInvalid={errors.Email && touched.Email}>
-              <FormLabel fontSize="sm">{formContent.label_email}</FormLabel>
+              <FormLabel {...labelStyle}>{formContent.label_email}</FormLabel>
               <Input
                 name="Email"
                 type="email"
@@ -139,7 +146,7 @@ const MyForm = (props) => {
                 id="lastName"
                 isInvalid={errors.LastName && touched.LastName}
               >
-                <FormLabel fontSize="sm">
+                <FormLabel {...labelStyle}>
                   {formContent.label_last_name}
                 </FormLabel>
                 <Input
@@ -159,7 +166,7 @@ const MyForm = (props) => {
                 id="firstName"
                 isInvalid={errors.FirstName && touched.FirstName}
               >
-                <FormLabel fontSize="sm">
+                <FormLabel {...labelStyle}>
                   {formContent.label_first_name}
                 </FormLabel>
                 <Input
@@ -176,7 +183,7 @@ const MyForm = (props) => {
             </Box>
           </HStack>
 
-          <FormLabel fontSize="sm">{formContent.label_phone}</FormLabel>
+          <FormLabel {...labelStyle}>{formContent.label_phone}</FormLabel>
 
           <HStack align="flex-end">
             <Box pb={space}>
@@ -215,7 +222,7 @@ const MyForm = (props) => {
               id="Birthdate"
               isInvalid={errors.Birthdate && touched.Birthdate}
             >
-              <FormLabel fontSize="sm">
+              <FormLabel {...labelStyle}>
                 {formContent.label_year_of_birth}
               </FormLabel>
               <Select

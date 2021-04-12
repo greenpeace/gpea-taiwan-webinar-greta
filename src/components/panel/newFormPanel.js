@@ -4,7 +4,7 @@ import NewFrameForm from "../form/newFrameForm";
 import NewFrameSubmittedForm from "../form/newFrameSubmittedForm";
 import { connect } from "react-redux";
 import { Box } from "@chakra-ui/react";
-import { SmallCloseIcon } from '@chakra-ui/icons'
+import { SmallCloseIcon } from "@chakra-ui/icons";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import "react-sliding-pane/dist/react-sliding-pane.css";
 
@@ -19,7 +19,13 @@ function usePrevious(value) {
   return ref.current;
 }
 
-const NewFormPanel = ({ theme, closePanel, togglePanel, formContent, submitted }) => {
+const NewFormPanel = ({
+  theme,
+  closePanel,
+  togglePanel,
+  formContent,
+  submitted,
+}) => {
   const prevClosePanel = usePrevious(closePanel);
 
   useEffect(() => {
@@ -33,9 +39,18 @@ const NewFormPanel = ({ theme, closePanel, togglePanel, formContent, submitted }
 
   return (
     <div>
-    {theme.displayPanel && <Box pos="absolute" style={{top: 15, right: 10, zIndex: 9999}} p={2} bgColor="#FFF" borderRadius={'20px'} onClick={()=>togglePanel(false)}>
-      <SmallCloseIcon w={6} h={6}/>
-    </Box>}
+      {theme.displayPanel && (
+        <Box
+          pos="absolute"
+          style={{ top: 15, right: 10, zIndex: 9999 }}
+          p={2}
+          bgColor="#FFF"
+          borderRadius={"24px"}
+          onClick={() => togglePanel(false)}
+        >
+          <SmallCloseIcon w={6} h={6} />
+        </Box>
+      )}
       <SlidingPane
         isOpen={theme.displayPanel}
         from="bottom"
@@ -45,7 +60,15 @@ const NewFormPanel = ({ theme, closePanel, togglePanel, formContent, submitted }
         hideHeader={true}
         onRequestClose={() => null}
       >
-        {submitted ? <NewFrameSubmittedForm formContent={formContent} /> : <NewFrameForm formContent={formContent} showProgress={false} newsLetter={false}/>}
+        {submitted ? (
+          <NewFrameSubmittedForm formContent={formContent} />
+        ) : (
+          <NewFrameForm
+            formContent={formContent}
+            showProgress={false}
+            newsLetter={false}
+          />
+        )}
       </SlidingPane>
     </div>
   );
