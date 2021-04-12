@@ -78,22 +78,6 @@ const Index = ({ submitted, togglePanel }) => {
       {isMobile && <Nav />}
       <Flex>
         <Box flex="1">
-          {!isMobile && (
-            <Box
-              pos="absolute"
-              w={120}
-              h={90}
-              zIndex={9}
-              bgColor="rgba(0,0,0,.09)"
-              p={3}
-              pt={7}
-              d={{ base: "none", sm: "block" }}
-            >
-              <Center>
-                <Image src="https://api.greenpeace.org.hk/2021/elm/static/img/gp-logo-vertical.a9c3712c.png" />
-              </Center>
-            </Box>
-          )}
           <Image
             src={
               "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/04/1d3a7e7b-earthday_main_banner.jpg"
@@ -206,10 +190,10 @@ const Index = ({ submitted, togglePanel }) => {
             >
               故事導師 Fa La La老師
             </Heading>
-            <Text size="sm" color="gray.500" mb="6">
+            <Text size="sm" color="gray.500" mb="8">
               資深幼兒教育工作者，並於公共圖書館擔任故事導師。
             </Text>
-            <Stack spacing={4}>
+            <Stack spacing={4} d="none">
               <Feature
                 icon={
                   <Icon as={IoTimeOutline} color={"yellow.500"} w={5} h={5} />
@@ -230,7 +214,6 @@ const Index = ({ submitted, togglePanel }) => {
                 text={"線上分享會平台：Zoom（網上登記後會獲得相關鏈結和密碼）"}
               />
             </Stack>
-
             <ImageWithColumn pStyle={pStyle} captionStyle={{ captionStyle }} />
           </Box>
         </Box>

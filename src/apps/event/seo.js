@@ -17,11 +17,11 @@ const SEO = () => {
       </script>
       {/* title */}
       <title>
-        童你講故事」氣候與環境繪本線上共讀會 - Greenpeace 綠色和平 | 香港
+        「童你講故事」氣候與環境繪本線上共讀會 - Greenpeace 綠色和平 | 香港
       </title>
       <meta
         property="og:title"
-        content="童你講故事」氣候與環境繪本線上共讀會 - Greenpeace 綠色和平 | 香港"
+        content="「童你講故事」氣候與環境繪本線上共讀會 - Greenpeace 綠色和平 | 香港"
       />
       {/* description */}
       <meta

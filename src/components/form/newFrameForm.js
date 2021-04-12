@@ -16,7 +16,6 @@ import {
   Select,
   Heading,
   HStack,
-  Divider,
   Checkbox,
 } from "@chakra-ui/react";
 
@@ -106,9 +105,13 @@ const MyForm = (props) => {
   return (
     <>
       <Form onSubmit={handleSubmit}>
-        <Heading pt="4" mb="4" size="xl" color="gray.900">
-          {formContent.form_header}
-        </Heading>
+        <Heading
+          pt="4"
+          mb="6"
+          size="xl"
+          color="gray.900"
+          dangerouslySetInnerHTML={{ __html: formContent.form_header }}
+        ></Heading>
         {formContent.form_description && (
           <Text pb={4}>{formContent.form_description}</Text>
         )}
@@ -255,7 +258,7 @@ const MyForm = (props) => {
               bg="#ff8100"
               _hover={{ bg: "campaign.climate" }}
             >
-              立即聯署
+              {formContent.submit_text}
             </Button>
           </Box>
 
