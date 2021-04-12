@@ -27,6 +27,8 @@ export default function SmallCentered() {
       color={useColorModeValue('gray.700', 'gray.200')}
       mt={{base: 20, sm: 0}}
       py={{base: 10}}
+      pos="relative"
+      style={{zIndex: 11}}
       >
       <Container
           as={Stack}
