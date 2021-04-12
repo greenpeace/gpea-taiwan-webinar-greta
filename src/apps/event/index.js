@@ -1,13 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
+import { useMediaQuery } from "react-responsive";
 import Sticky from "react-sticky-el";
 import content from "./data/content";
 import {
   ChakraProvider,
+  Grid,
+  GridItem,
   Box,
   Image,
-  Icon,
   Flex,
+  Center,
   Text,
   Heading,
   VStack,
@@ -19,8 +22,8 @@ import {
   SimpleGrid,
   Stack,
 } from "@chakra-ui/react";
-import { IoTimeSharp, IoTimeOutline, IoVideocam } from "react-icons/io5";
 import SEO from "./seo";
+import Nav from "./components/header/nav";
 import Footer from "./components/footer";
 import NewFrameForm from "components/form/newFrameForm";
 import NewFrameSubmittedForm from "components/form/newFrameSubmittedForm";
@@ -29,25 +32,27 @@ import * as themeActions from "store/actions/action-types/theme-actions";
 import themeConfig from "./theme.js";
 import ImageWithColumn from "./components/feature/imageWithColumn";
 
-const Feature = ({ text, icon, iconBg }) => {
-  return (
-    <Stack direction={"row"} align={"center"}>
-      <Flex
-        w={8}
-        h={8}
-        align={"center"}
-        justify={"center"}
-        rounded={"full"}
-        bg={iconBg}
-      >
-        {icon}
-      </Flex>
-      <Text>{text}</Text>
-    </Stack>
-  );
-};
-
 const Index = ({ submitted, togglePanel }) => {
+  const Feature = ({ text, icon, iconBg }) => {
+    return (
+      <Stack direction={"row"} align={"center"}>
+        <Flex
+          w={8}
+          h={8}
+          align={"center"}
+          justify={"center"}
+          rounded={"full"}
+          bg={iconBg}
+        >
+          {icon}
+        </Flex>
+        <Text>{text}</Text>
+      </Stack>
+    );
+  };
+
+  const isMobile = useMediaQuery({ query: "(max-device-width: 564px)" });
+
   const captionStyle = {
     as: "span",
     borderLeft: "4px solid #66cc00",
@@ -55,6 +60,7 @@ const Index = ({ submitted, togglePanel }) => {
     size: "sm",
     color: "gary.500",
   };
+
   const pStyle = {
     as: "p",
     marginTop: 8,
@@ -75,22 +81,28 @@ const Index = ({ submitted, togglePanel }) => {
   return (
     <ChakraProvider theme={themeConfig}>
       <SEO />
+      {isMobile && <Nav />}
       <Flex>
         <Box flex="1">
-          {/* <Box
-            pos="absolute"
-            w={120}
-            h={90}
-            zIndex={9}
-            bgColor="rgba(0,0,0,.09)"
-            p={3}
-            pt={7}
-            d={{ base: "none", sm: "block" }}
-          >
-            <Center>
-              <Image src="https://api.greenpeace.org.hk/2021/elm/static/img/gp-logo-vertical.a9c3712c.png" />
-            </Center>
-          </Box> */}
+          {!isMobile && (
+            <Box
+              pos="absolute"
+              w={120}
+              h={90}
+              zIndex={9}
+              bgColor="rgba(0,0,0,.09)"
+              p={3}
+              pt={7}
+              d={{ base: "none", sm: "block" }}
+            >
+              <Center>
+                <Image src="https://api.greenpeace.org.hk/2021/elm/static/img/gp-logo-vertical.a9c3712c.png" />
+              </Center>
+            </Box>
+          )}
+          <Image
+            src={`${process.env.PUBLIC_URL}/events/falala/main_banner.png`}
+          />
 
           <Image
             src={`${process.env.PUBLIC_URL}/events/falala/main_banner.png`}
@@ -153,12 +165,6 @@ const Index = ({ submitted, togglePanel }) => {
                     《無家可歸的我》繪本講述野生動物生活受到環境問題影響的故事，由綠色和平團隊耗時9個月製作而成。
                   </Text>
                 </Stack>
-                {/* <Stack>
-                  <Flex {...flexBoxStyle}>
-                    <Image src={`${process.env.PUBLIC_URL}/events/falala/Falala_and_Brian.jpeg`} />
-                  </Flex>
-                  <Text>Falala老師曾與綠色和平、小作家Brian簡鏡倫合作分享保育海洋故事The Tale of Tom the Turtle。</Text>
-                </Stack> */}
                 <Stack>
                   <Flex {...flexBoxStyle}>
                     <Image
@@ -260,7 +266,6 @@ const Index = ({ submitted, togglePanel }) => {
         onClick={() => togglePanel(true)}
         style={{ zIndex: 999 }}
         letterSpacing={4}
-        // variant="outline"
       >
         {content.submit_text}
       </Button>
