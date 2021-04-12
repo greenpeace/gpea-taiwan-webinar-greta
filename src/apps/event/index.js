@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { useMediaQuery } from 'react-responsive'
 import Sticky from 'react-sticky-el';
 import content from './data/content'
 import { ChakraProvider, Grid, GridItem, Box, Image, Flex, Center, Text, Heading, VStack, Button, useColorModeValue, Container, Spacer, Divider, SimpleGrid, Stack} from "@chakra-ui/react";
@@ -14,6 +15,8 @@ import themeConfig from "./theme.js"
 import ImageWithColumn from "./components/feature/imageWithColumn"
 
 const Index = ({ submitted, togglePanel }) => {
+
+  const isMobile = useMediaQuery({query: '(max-device-width: 564px)'})
 
   const pStyle = {
     as: "p",
@@ -35,12 +38,12 @@ const Index = ({ submitted, togglePanel }) => {
   return (
     <ChakraProvider theme={themeConfig}>
       <SEO/>
-      <Nav/>
+      {isMobile && <Nav/>}
       <Flex>
         <Box flex="1" >
-          {/* <Box pos="absolute" w={120} h={90} zIndex={9} bgColor="rgba(0,0,0,.09)" p={3} pt={7} d={{base: 'none', sm: 'block'}}>
+          {!isMobile && <Box pos="absolute" w={120} h={90} zIndex={9} bgColor="rgba(0,0,0,.09)" p={3} pt={7} d={{base: 'none', sm: 'block'}}>
             <Center><Image src="https://api.greenpeace.org.hk/2021/elm/static/img/gp-logo-vertical.a9c3712c.png" /></Center>
-          </Box> */}
+          </Box>}
           <Image src={`${process.env.PUBLIC_URL}/events/falala/main_banner.png`} />
 
           <Box p={{base: 4, sm: 10}}>

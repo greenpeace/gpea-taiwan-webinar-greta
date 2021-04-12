@@ -41,10 +41,10 @@ const Nav = ({togglePanel}) => {
             display={{ md: !isOpen ? 'none' : 'inherit' }}
             onClick={isOpen ? onClose : onOpen}
           /> */}
-          <HStack spacing={8} alignItems={'center'}>
+          <HStack spacing={{base: 4, sm: 8}} alignItems={'center'}>
             <Box>
             <Image
-              maxW={{base: '150px', sm: '200px'}}
+              maxW={{base: '170px', sm: '200px'}}
               objectFit="contain"
               src="https://api.greenpeace.org.hk/general/logo/GP-logo-2019-TC-green-%5bweb%5d-01.png"
             /></Box>
