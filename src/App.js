@@ -6,12 +6,12 @@ import ScrollHandler from "components/spinner/scrollHandler";
 
 const Main = React.lazy(() => import(`apps/${process.env.REACT_APP_PROJECT}`));
 
-let App = ({ loading, submitted }) => {
+let App = ({ loading, submitted, showPanel }) => {
   const [blockScroll, allowScroll] = ScrollHandler();
   const additionalClass = submitted ? `submitted-content` : "";
   useEffect(() => {
-    loading ? blockScroll() : allowScroll();
-  }, [loading, blockScroll, allowScroll]);
+    (loading || showPanel) ? blockScroll() : allowScroll();
+  }, [loading, showPanel, blockScroll, allowScroll]);
 
   return (
     <div className={`App ${additionalClass}`}>
@@ -25,6 +25,7 @@ let App = ({ loading, submitted }) => {
 
 const mapStateToProps = ({ theme }) => {
   return {
+    showPanel: theme.displayPanel,
     loading: theme.lastAction === themeActions.SUBMIT_FORM,
     submitted: theme.submitted,
   };

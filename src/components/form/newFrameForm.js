@@ -200,7 +200,7 @@ const MyForm = props => {
 
         <Box>
         <HStack align="flex-start">
-          <Box pb={3}>
+          <Box pb={10}>
             <FormControl id="optIn">
             {newsLetter ? <Checkbox name="OptIn" onChange={handleChange}>
               <Text fontSize="xs">{formContent.form_remind}</Text>
