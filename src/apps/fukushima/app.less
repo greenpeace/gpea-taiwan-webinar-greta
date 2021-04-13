@@ -1,0 +1,304 @@
+@custom-color: red;
+@green-background: #66cc00;
+@main-background: #fff;
+@second-background: #292f47;
+@third-background: #141829;
+@other-background: #1a1c26;
+@button-color: #0cf;
+@form-width: 480px;
+
+@import "../../App.less";
+@import "./content.less";
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+#main {
+  background: @third-background;
+  width: auto;
+  right: @form-width;
+}
+
+#wrapper {
+  right: 0;
+  left: 0;
+  top: 60px;
+}
+
+.img {
+  display: block;
+  width: 100%;
+}
+
+/* Header */
+.logo {
+  max-width: 160px;
+}
+
+.header {
+  background-color: @green-background;
+  padding: 8px 16px;
+}
+
+.main-header {
+  height: 60px;
+  background: @main-background;
+}
+
+.logo-holder {
+  top: 12px;
+}
+
+.left-header {
+  background: @second-background;
+}
+
+.left-header_social li {
+  background: @third-background;
+}
+
+.header-contacts {
+  right: 0;
+  ul {
+    height: 100%;
+    li {
+      height: 100%;
+      margin-right: 0;
+      letter-spacing: initial;
+    }
+  }
+}
+
+.hc_dec {
+  width: 350px;
+  height: 350px;
+}
+
+.hero-scroll-down-notifer,
+.hc_dec_color {
+  position: absolute;
+}
+
+.hero-scroll-down-notifer {
+  right: 20px;
+}
+
+.page-subtitle {
+  letter-spacing: 2px;
+}
+
+.hc_dec_color {
+  width: 20%;
+  height: 60px;
+  // background: @nu-yellow;
+  // background: none;
+  &:before {
+    right: 30px;
+    // background: @nu-yellow;
+  }
+  &:after {
+    width: 60px;
+    // opacity: 0.5;
+    background: none;
+  }
+}
+
+.hero-corner-dec {
+  right: 30px;
+}
+
+.custom-button-active {
+  color: #fff;
+  &:after {
+    background-color: @green-background;
+  }
+  &:before {
+    background-color: darken(@green-background, 15%);
+  }
+  &:hover {
+    color: #fff;
+    cursor: pointer;
+    &:before {
+      width: 100%;
+    }
+  }
+}
+
+.video-wrap {
+  background-color: @second-background;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.videobg {
+  height: 100vh;
+  overflow: hidden;
+  position: relative; /* requires for to position video properly */
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+video {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* combined with 'absolute', works like background-size, but for DOM elements */
+}
+
+.hero-conatiner,
+.start-btn {
+  background: @other-background;
+}
+
+.overlay {
+  background: rgb(25, 25, 25);
+  background: linear-gradient(
+    124deg,
+    rgba(25, 25, 25, 1) 0%,
+    rgba(65, 65, 65, 1) 100%
+  );
+  opacity: 0.5;
+}
+
+.page-subtitle span {
+  font-size: 0.75rem;
+}
+
+.page-subtitle {
+  top: 12px;
+}
+
+.btn span {
+  font-size: 12px;
+}
+
+a.btn:hover {
+  text-decoration: none;
+  color: #fff !important;
+  cursor: pointer;
+}
+
+.cta-custom-display:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.slide-pane__overlay {
+  z-index: 9999;
+}
+
+.slide-pane__header {
+  display: none !important;
+}
+
+.slide-pane__content {
+  padding: 0 !important;
+}
+
+.page-subtitle-custom {
+  right: 20px;
+  top: 12px;
+  span {
+    padding: 10px;
+  }
+}
+
+.page-subtitle-custom span {
+  text-align: left;
+}
+
+.share-btn span {
+  font-size: 0.75rem;
+}
+
+.slide-pane_from_bottom {
+  height: 100% !important;
+}
+
+@media only screen and (min-width: 1065px) {
+  .header-contacts {
+    display: block;
+    &ul {
+      display: block;
+    }
+  }
+
+  .hero-slider-wrap_halftwo {
+    left: 24%;
+  }
+  .cta-custom-display {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  .hero-slider_control-wrap {
+    left: 12%;
+  }
+  .hs_counter,
+  .clone-counter {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1064px) {
+  #main {
+    width: 100%;
+    right: 0;
+  }
+  .share-btn {
+    height: 60px;
+    span {
+      top: 24px;
+    }
+  }
+  .slide-pane__content {
+    padding-top: 20px !important;
+    background-color: #1a1c26;
+  }
+  .copy-right {
+    position: relative;
+    bottom: inherit;
+    right: initial;
+    text-align: center;
+    span {
+      display: inline-block;
+      padding: 15px 5px;
+    }
+  }
+}
+
+@media screen and (max-width: 564px) {
+  .main-header,
+  .share-btn {
+    height: 48px;
+  }
+  #wrapper {
+    top: 48px;
+  }
+  .share-btn span {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .logo-holder {
+    top: 50%;
+    left: 16px;
+    transform: translateY(-50%);
+  }
+  .hero-slider_control-wrap {
+    left: 0;
+  }
+  .overlay {
+    opacity: 0.5;
+  }
+}

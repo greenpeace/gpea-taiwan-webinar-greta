@@ -3,9 +3,11 @@ import * as Actions from "../actions";
 const initState = {
   data: [],
   form: {},
+  hiddenFormValue: {},
   displayForm: false,
   displayPanel: false,
   lastAction: null,
+  submitted: false,
 };
 
 const themeReducer = (state = initState, action) => {
@@ -30,6 +32,13 @@ const themeReducer = (state = initState, action) => {
         lastAction: action.type,
       };
 
+    case Actions.SET_HIDDEN_FORM_VALUE:
+      return {
+        ...state,
+        hiddenFormValue: action.value,
+        lastAction: action.type,
+      };
+
     case Actions.SUBMIT_FORM:
       return {
         ...state,
@@ -40,11 +49,23 @@ const themeReducer = (state = initState, action) => {
       return {
         ...state,
         lastAction: action.type,
+        submitted: true,
       };
 
     case Actions.SUBMIT_FORM_FAIL:
       return {
         ...state,
+        lastAction: action.type,
+      };
+
+    case Actions.INIT_FORM_STATE:
+      return {
+        ...initState,
+        lastAction: action.type,
+      };
+    case Actions.INIT_STATE:
+      return {
+        ...initState,
         lastAction: action.type,
       };
 

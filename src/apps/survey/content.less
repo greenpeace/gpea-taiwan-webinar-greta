@@ -1,0 +1,226 @@
+#main{
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 15px;
+  .logo-holder{
+    left: 0;
+  }
+}
+
+.rs-form-control-wrapper > .rs-input::-webkit-input-placeholder {
+  font-size: 14px;
+}
+
+.start-btn.cta-custom-display {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  border-color: @green-background;
+  span {
+    color: #fff;
+    font-size: 18px;
+  }
+}
+
+.section-title {
+  text-align: left;
+  &:before {
+    width: 0px;
+    background: #FFF;
+  }
+  &:after {
+    width: 100%;
+  }
+  p {
+    margin-right: 0px;
+    max-width: 980px;
+    font-size: 1.125rem;
+    line-height: 1.7777778;
+  }
+}
+
+.rs-radio-wrapper{
+  top: 13px;
+  // left: 0;
+  // right: 0;
+  // bottom: 0;
+  // width: 100%;
+  // height: 100%;
+}
+
+// .rs-radio-wrapper .rs-radio-inner::before,
+// .rs-radio-wrapper::after,
+// .rs-radio-checked .rs-radio-wrapper::before,
+// .rs-radio-checked .rs-radio-wrapper .rs-radio-inner::after,
+// .rs-radio-checked .rs-radio-wrapper .rs-radio-inner::before{
+//   transform: inherit;
+//   display: none;
+// }
+
+// .rs-radio-checker{
+//   padding: 0;
+//   min-height: inherit;
+//   border: @green-background 1px solid;
+//   border-radius: 30px;
+//   padding: 10px 30px;
+//   margin-bottom: 15px;
+// }
+
+// .rs-radio-checked .rs-radio-checker{
+//   background: @green-background;
+//   color: #fff;
+// }
+
+
+.rs-checkbox-wrapper{
+  top: 13px;
+  // left: 0;
+  // right: 0;
+  // bottom: 0;
+  // width: 100%;
+  // height: 100%;
+}
+
+.rs-checkbox-checked .rs-checkbox-wrapper .rs-checkbox-inner::before, .rs-checkbox-indeterminate .rs-checkbox-wrapper .rs-checkbox-inner::before{
+  border: 1px solid @green-background;
+  background-color: @green-background;
+}
+
+.rs-checkbox-checker:hover .rs-checkbox-wrapper .rs-checkbox-inner::before,
+.rs-checkbox-wrapper::before{
+  border: 1px solid @green-background;
+}
+
+.rs-radio-checked .rs-radio-wrapper .rs-radio-inner::before, .rs-radio-indeterminate .rs-radio-wrapper .rs-radio-inner::before{
+  border: 1px solid @green-background;
+  background-color: @green-background;
+}
+
+.rs-radio-checker:hover .rs-radio-wrapper .rs-radio-inner::before,
+.rs-radio-wrapper::before{
+  border: 1px solid @green-background;
+}
+
+// .rs-checkbox-wrapper .rs-checkbox-inner::before,
+// .rs-checkbox-wrapper::after,
+// .rs-checkbox-checked .rs-checkbox-wrapper::before,
+// .rs-checkbox-checked .rs-checkbox-wrapper .rs-checkbox-inner::after,
+// .rs-checkbox-checked .rs-checkbox-wrapper .rs-checkbox-inner::before{
+//   transform: inherit;
+//   display: none;
+// }
+
+// .rs-checkbox-checker{
+//   padding: 0;
+//   min-height: inherit;
+//   border: @green-background 1px solid;
+//   border-radius: 30px;
+//   padding: 10px 30px;
+//   margin-bottom: 15px;
+// }
+
+// .rs-checkbox-checked .rs-checkbox-checker{
+//   background: @green-background;
+//   color: #fff;
+// }
+.rs-control-label{
+  color: #1a202c;
+}
+.rs-checkbox {
+  text-align: left;
+  label{
+    color: #1a202c;
+  }
+}
+
+.main-content-wrap{
+  .container{
+    margin: 0;
+    width: 100%;
+  }
+  .section-title:first-child{
+    &:before{
+      background: @green-background;
+    }
+  }
+}
+
+.content {
+  float: initial;
+}
+
+.section-number {
+  position: absolute;
+  right: 60px;
+  top: -30px;
+  font-size: 65px;
+  font-weight: 700;
+  color: #eee;
+  opacity: 0.7;
+  font-family: Oswald, sans-serif;
+  transform: rotate(0deg);
+  span:before {
+    background: transparent;
+  }
+}
+
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(5vh);
+  visibility: hidden;
+  transition: opacity 1200ms ease-out, transform 800ms ease-out,
+    visibility 1200ms ease-out;
+  will-change: opacity, transform, visibility;
+}
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+}
+
+.donate-button {
+  background-color: #ff8100;
+  color: #fff;
+}
+
+.custom-form-reminder{
+  .rs-checkbox-wrapper{
+    top: 10px;
+  }
+}
+
+.footer-wrap {
+  position: relative;
+}
+
+.footer {
+  text-align: left;
+  padding: 60px 0px;
+  color: rgba(0, 0, 0, 0.65);
+  position: relative;
+  ul {
+    list-style: none;
+    text-align: right;
+    li {
+      display: inline-block;
+      margin-right: 15px;
+    }
+    li:last-child {
+      margin-right: 0;
+    }
+  }
+  span {
+    display: block;
+    text-align: right;
+  }
+}
+
+.footer:before {
+  content: "";
+  position: absolute;
+  left: 0px;
+  top: 20px;
+  height: 2px;
+  width: 60px;
+  background: @green-background;
+}

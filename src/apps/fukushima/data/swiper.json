@@ -1,0 +1,56 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "content": {
+        "header": "",
+        "title": "福島十年<br/>力阻核廢水排放",
+        "description": "2011年3月11日，日東大地震及海嘯導致日本福島第一核電廠嚴重核事故發生，大量放射性物質洩漏到附近環境。十年過去，福島現正儲存著超過120萬噸核廢水，當中致癌的鍶-90放射性同位素及具放射性的氚（超重水）仍未能完全消除。<br/><br/>日本政府考慮最遲在2022年作出決定，將數以百萬噸廢水排放到太平洋，一旦成為現實，將對鄰近海洋的生態和東亞地區造成難以估計的污染破壞，更可能損害人體基因。<br/><br/><div class='is-yellow'>請立即聯署，制止日本政府將核廢水從福島排放到太平洋，敦促其長期、妥善地存置這批危害生態和人體的廢水，阻止我們的海洋進一步受破壞。</div></div>",
+        "cta": {
+          "link": "",
+          "content": "立即聯署"
+        }
+      },
+      "image_url": "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/02/3af870e1-gp0stsx96_medium_res.jpg"
+    },
+    {
+      "id": 2,
+      "content": {
+        "header": "",
+        "title": "",
+        "description": "福島現存過千個儲藏核廢水的儲水罐，而且數量持續增加。日本政府考慮在2022年前把污水排放到太平洋。",
+        "cta": {
+          "link": "",
+          "content": "立即聯署"
+        }
+      },
+      "image_url": "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/02/4246ebf8-fukushima_water_storage.jpg"
+    },
+    {
+      "id": 3,
+      "content": {
+        "header": "",
+        "title": "",
+        "description": "鄰近福島的高瀨川河段，2019年鄰近堤岸輻射量仍超過標準百倍。污水最終會與其他水流合流，排出太平洋。",
+        "cta": {
+          "link": "",
+          "content": "立即聯署"
+        }
+      },
+      "image_url": "https://www.greenpeace.org/static/planet4-hongkong-stateless/2019/11/12bd5961-dsc_0582-1536x1024.jpg"
+    },
+    {
+      "id": 4,
+      "content": {
+        "header": "",
+        "title": "",
+        "description": "綠色和平曾30次到訪福島實地檢測，並聯同當地公民團體於去年10月上街請願，反對當局釋出核廢水至太平洋。",
+        "cta": {
+          "link": "",
+          "content": "立即聯署"
+        }
+      },
+      "image_url": "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/02/3cdf46a4-fukushima_tokyo_protest.jpg"
+    }
+  ]
+}

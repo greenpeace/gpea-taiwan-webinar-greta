@@ -9,7 +9,7 @@ let store;
 const sagaMiddleware = createSagaMiddleware();
 const isClient = typeof window !== "undefined";
 
-const bindMiddleware = middleware => {
+const bindMiddleware = (middleware) => {
   if (process.env.NODE_ENV !== "production") {
     const { composeWithDevTools } = require("redux-devtools-extension");
     return composeWithDevTools(applyMiddleware(...middleware, logger));
@@ -23,7 +23,7 @@ if (isClient) {
   const persistConfig = {
     key: "root",
     storage,
-    whitelist: ["user", "cart"]
+    whitelist: ["user", "cart"],
   };
   store = createStore(
     persistReducer(persistConfig, rootReducer),

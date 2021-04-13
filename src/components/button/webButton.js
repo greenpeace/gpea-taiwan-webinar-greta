@@ -1,13 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
-const WebButton = ({text}) => {
-  const [size, setSize] = useState('small');
+const WebButton = ({ text }) => {
+  const [size, setSize] = useState("small");
 
-  return(
-  <>
-    {text}
-  </>
-  )
-}
+  return <>{text}</>;
+};
 
-export default WebButton
+export default WebButton;
