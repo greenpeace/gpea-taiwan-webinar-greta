@@ -47,6 +47,8 @@ code {
   padding-bottom: 120px !important;
 }
 
-.chakra-select[aria-invalid=true], .chakra-input[aria-invalid=true], .chakra-input[data-invalid] {
+.chakra-select[aria-invalid="true"],
+.chakra-input[aria-invalid="true"],
+.chakra-input[data-invalid] {
   box-shadow: 0 0 0 1px red !important;
 }
