@@ -7,17 +7,17 @@ import {
   ChakraProvider,
   Circle,
   Box,
+  Button,
   Divider,
   Image,
   Flex,
-  Center,
   Text,
   Heading,
-  Button,
   useColorModeValue,
   SimpleGrid,
   Stack,
   Icon,
+  Link,
 } from "@chakra-ui/react";
 import SEO from "./SEO";
 import Nav from "./components/header/nav";
@@ -29,7 +29,7 @@ import * as themeActions from "store/actions/action-types/theme-actions";
 import themeConfig from "./theme.js";
 import ImageWithColumn from "./components/feature/imageWithColumn";
 
-import { IoTimeSharp, IoTimeOutline, IoVideocam } from "react-icons/io5";
+import { IoCalendarOutline, IoTimeSharp, IoVideocam } from "react-icons/io5";
 
 const Index = ({ submitted, togglePanel }) => {
   const Feature = ({ text, icon, iconBg }) => {
@@ -103,7 +103,12 @@ const Index = ({ submitted, togglePanel }) => {
               <Stack pt={4} spacing={4}>
                 <Feature
                   icon={
-                    <Icon as={IoTimeOutline} color={"yellow.500"} w={5} h={5} />
+                    <Icon
+                      as={IoCalendarOutline}
+                      color={"yellow.500"}
+                      w={5}
+                      h={5}
+                    />
                   }
                   iconBg={useColorModeValue("yellow.100", "yellow.900")}
                   text={"日期：2021年4月24日（星期六）"}
@@ -117,7 +122,7 @@ const Index = ({ submitted, togglePanel }) => {
                 />
                 <Feature
                   icon={
-                    <Icon as={IoVideocam} color={"green.500"} w={5} h={5} />
+                    <Icon as={IoVideocam} color={"brand.400"} w={5} h={5} />
                   }
                   iconBg={useColorModeValue("green.100", "green.900")}
                   text={
@@ -193,28 +198,58 @@ const Index = ({ submitted, togglePanel }) => {
             <Text size="sm" color="gray.500" mb="8">
               資深幼兒教育工作者，並於公共圖書館擔任故事導師。
             </Text>
-            <Stack spacing={4} d="none">
-              <Feature
-                icon={
-                  <Icon as={IoTimeOutline} color={"yellow.500"} w={5} h={5} />
-                }
-                iconBg={useColorModeValue("yellow.100", "yellow.900")}
-                text={"日期：2021年4月24日（星期六）"}
-              />
-              <Feature
-                icon={
-                  <Icon as={IoTimeSharp} color={"yellow.500"} w={5} h={5} />
-                }
-                iconBg={useColorModeValue("yellow.100", "yellow.900")}
-                text={"時間：下午4時半至5時半"}
-              />
-              <Feature
-                icon={<Icon as={IoVideocam} color={"green.500"} w={5} h={5} />}
-                iconBg={useColorModeValue("green.100", "green.900")}
-                text={"線上分享會平台：Zoom（網上登記後會獲得相關鏈結和密碼）"}
-              />
-            </Stack>
+
             <ImageWithColumn pStyle={pStyle} captionStyle={{ captionStyle }} />
+
+            <Box p={{ base: 2 }}>
+              <Divider />
+            </Box>
+            <SimpleGrid mt="4" columns={{ base: 1, md: 2 }} spacing={10}>
+              <Flex direction="column">
+                <Image
+                  rounded={"md"}
+                  alt={"feature image"}
+                  src={
+                    "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/04/86661c3b-說故事-storytelling-pic.jpg"
+                  }
+                  pb={4}
+                />
+                <Text>
+                  綠色和平目標在兩個月內，派送300本《無家可歸的我》繪本到香港各區幼稚園！
+                </Text>
+              </Flex>
+              <Stack spacing={4}>
+                <Heading
+                  as="h2"
+                  size="md"
+                  color="brand.500"
+                  style={{ lineHeight: "1.5" }}
+                >
+                  &nbsp;&nbsp;立即支持
+                  <br />
+                  「童愛環境 · 地球日贈書」活動
+                </Heading>
+                <Text {...pStyle}>
+                  只要您以每月$200（約每日$6）支持，我們將代表您送出三本原創繪本《無家可歸的我》給一間香港幼稚園，讓更多小朋友認識氣候變化，從小培養出愛護環境嘅意識。
+                </Text>
+                <Text {...pStyle}>
+                  為感謝您的支持，我們也另外贈送一本繪本給您。
+                </Text>
+                <Link href="https://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK&campaign=earthday&utm_campaign=earthday">
+                  <Button
+                    mt="2"
+                    color="#FFF"
+                    bg="brand.500"
+                    _hover={{ bg: "brand.400" }}
+                    borderRadius="24px"
+                    fontSize="md"
+                    letterSpacing={2}
+                  >
+                    立即支持
+                  </Button>
+                </Link>
+              </Stack>
+            </SimpleGrid>
           </Box>
         </Box>
         <Box

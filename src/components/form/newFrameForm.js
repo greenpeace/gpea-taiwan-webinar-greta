@@ -83,7 +83,7 @@ const MyForm = (props) => {
     async function fetchOptionYear() {
       let nowYear = new Date().getFullYear();
       let targetYear = nowYear - 110;
-      for (var i = nowYear - 20; i >= targetYear; i--) {
+      for (var i = nowYear; i >= targetYear; i--) {
         await optionYear.push({ label: i, value: i.toString() });
       }
       setBirthDateYear(optionYear);
