@@ -50,7 +50,7 @@ const Nav = ({ togglePanel }) => {
             <HStack spacing={{ base: 4, sm: 8 }} alignItems={"center"}>
               <Box>
                 <Image
-                  maxW={{ base: "170px", sm: "200px" }}
+                  maxW={{ base: "180px", sm: "220px" }}
                   objectFit="contain"
                   src="https://api.greenpeace.org.hk/general/logo/GP-logo-2019-TC-green-%5bweb%5d-01.png"
                 />
