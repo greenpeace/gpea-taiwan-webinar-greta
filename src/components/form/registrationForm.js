@@ -216,7 +216,8 @@ let RegistrationForm = ({
                 )}
               </Col>
             </Row>
-            <Row className="show-grid hidden">
+            {/*
+            <Row className="show-grid">
               <Col xs={24}>
                 {progress.map((item, idx) => (
                   <ProgressBar
@@ -229,6 +230,7 @@ let RegistrationForm = ({
                 <div className="sp-line"></div>
               </Col>
             </Row>
+                */}
           </Grid>
           <Form
             model={model}
