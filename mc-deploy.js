@@ -35,7 +35,11 @@ Install the dependencies first
 
 // definitions
 const buildFolder = path.join(__dirname, "build");
-const EndpointURL = "https://cloud.greenhk.greenpeace.org/petition-pp";
+//
+// const EndpointURL = "https://cloud.greenhk.greenpeace.org/petition-pp";
+//
+// New websign endpoint can accept optional fields
+const EndpointURL = "https://cloud.greenhk.greenpeace.org/websign";
 let CampaignId = "7012u000000P2LIAA0";
 const DonationPageUrl = "https://www.greenpeace.org/eastasia/"; // not used now
 const interests = ["Climate"]; // Arctic, Climate, Forest, Health, Oceans, Plastics
