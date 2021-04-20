@@ -1,0 +1,30 @@
+{
+  "label_first_name": "名字",
+  "label_last_name": "姓氏",
+  "label_email": "電郵地址",
+  "label_phone": "手提號碼（接收活動SMS提示）",
+  "label_year_of_birth": "出生年份",
+  "select": "請選擇",
+
+  "empty_data_alert": "請填寫資料",
+  "empty_select_data_alert": "請選擇",
+  "invalid_email_alert": "請填上有效電郵地址",
+  "invalid_format_alert": "請輸入有效格式",
+  "minimum_8_characters": "請輸入8位數字",
+
+  "form_header": "立即報名<br/>氣候與環境繪本線上共讀會",
+  "form_description": "",
+  "form_remind": "登記是次活動即代表我願意收到綠色和平發送的通訊，讓我能掌握環保工作的最新脈動！我同意綠色和平按照個人資料政策與我聯絡，包括提供環保工作資訊及捐款呼籲等。",
+
+  "submit_text": "立即登記",
+
+  "thanks_title": "感謝您報名參加「童你講故事」氣候與環境繪本線上共讀會！",
+  "thanks_content": "<strong>您將會收到電郵確認。<br/>期待在 Zoom 座談會見到您！</strong><br/><br/>緩減氣候危機，守護動物家園，綠色和平急需您的支持，在不接受政商界資助下，維持足夠資源推動項目工作！",
+  "share_button": "分享出去",
+  "donate_button": "捐助支持",
+  "donateURL": "https://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK&campaign=earthday&utm_campaign=earthday&ref=earthday-registration-thankyou",
+  "shareMessage": "緩減氣候危機，守護動物家園，綠色和平急需您的支持，在不接受政商界資助下，維持足夠資源推動項目工作！ ",
+  "fbURL": "https://act.gp/3d8aoTe",
+  "mainURL": "https://act.gp/3dVFRXR",
+  "whatsappURL": "https://act.gp/3g2DQMn"
+}

@@ -44,7 +44,7 @@ let CampaignId = "7012u000000P2LIAA0";
 const DonationPageUrl = "https://www.greenpeace.org/eastasia/"; // not used now
 const interests = ["Climate"]; // Arctic, Climate, Forest, Health, Oceans, Plastics
 const ftpConfigName = "ftp_hk"; // refer to ~/.npm-en-uploader-secret
-const ftpRemoteDir = "/2021/fukushima";
+const ftpRemoteDir = "/2021/earthday";
 
 let indexHtmlFilePath = path.join(buildFolder, "index.html");
 let fbuf = fs.readFileSync(indexHtmlFilePath);
