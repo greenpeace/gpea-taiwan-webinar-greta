@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { connect } from "react-redux";
 import * as themeActions from "store/actions/action-types/theme-actions";
-import mailcheck from 'mailcheck';
+import mailcheck from "mailcheck";
 import {
   Form,
   FormGroup,
@@ -13,14 +13,13 @@ import {
   Grid,
   Row,
   Col,
-  Schema
+  Schema,
 } from "rsuite";
 import "rsuite/lib/styles/index.less";
 import ProgressBar from "components/progress";
 import SubmittedForm from "./submittedForm";
 
 import content from "./content.json";
-
 
 // for email correctness
 let domains = [
@@ -35,7 +34,7 @@ let domains = [
   "ymail.com",
   "yahoo.com",
   "yahoo.com.tw",
-  "yahoo.com.hk"
+  "yahoo.com.hk",
 ];
 let topLevelDomains = ["com", "net", "org"];
 
@@ -68,15 +67,15 @@ let RegistrationForm = ({
     Email: StringType()
       .isEmail(formContent.invalid_email_alert)
       .isRequired(formContent.empty_data_alert),
-      // .addRule((value, data) => {
-      //   const suggest = mailcheck.run({
-      //     email: value,
-      //     domains: domains,                       // optional
-      //     topLevelDomains: topLevelDomains,       // optional
-      //     suggested: (suggestion) => suggestion
-      //   })
-      //   return suggest === undefined;
-      // }, emailSuggestion),
+    // .addRule((value, data) => {
+    //   const suggest = mailcheck.run({
+    //     email: value,
+    //     domains: domains,                       // optional
+    //     topLevelDomains: topLevelDomains,       // optional
+    //     suggested: (suggestion) => suggestion
+    //   })
+    //   return suggest === undefined;
+    // }, emailSuggestion),
     LastName: StringType().isRequired(formContent.empty_data_alert),
     FirstName: StringType().isRequired(formContent.empty_data_alert),
     MobileCountryCode: StringType().isRequired(formContent.empty_data_alert),
@@ -139,6 +138,15 @@ let RegistrationForm = ({
         OptIn,
         Birthdate: `${formValue.Birthdate}-01-01`,
       });
+      // Check submit value
+      /*
+      console.log("Submitting", {
+        ...hiddenFormValues,
+        ...formValue,
+        OptIn,
+        Birthdate: `${formValue.Birthdate}-01-01`,
+      });
+      */
     }
   };
 
@@ -208,7 +216,8 @@ let RegistrationForm = ({
                 )}
               </Col>
             </Row>
-            <Row className="show-grid hidden">
+            {/*
+            <Row className="show-grid">
               <Col xs={24}>
                 {progress.map((item, idx) => (
                   <ProgressBar
@@ -221,6 +230,7 @@ let RegistrationForm = ({
                 <div className="sp-line"></div>
               </Col>
             </Row>
+                */}
           </Grid>
           <Form
             model={model}

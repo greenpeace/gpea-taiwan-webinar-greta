@@ -1,3 +1,4 @@
+import "./app.less";
 import React, { useEffect } from "react";
 import * as swiperActions from "store/actions/action-types/swiper-actions";
 import * as themeActions from "store/actions/action-types/theme-actions";
@@ -12,9 +13,7 @@ import Header from "./components/header";
 import Panel from "components/panel";
 import formContent from "./data/formContent.json";
 
-import "./app.less";
-
-const Index = ({ initState, fakeSubmit, submitted, petition }) => {
+const Index = ({ initState, fakeSubmit, submitted }) => {
   useEffect(() => {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
@@ -41,7 +40,7 @@ const Index = ({ initState, fakeSubmit, submitted, petition }) => {
         {submitted ? (
           <SubmittedForm formContent={formContent} />
         ) : (
-          <RegistrationForm />
+          <RegistrationForm formContent={formContent} />
         )}
       </div>
       <Panel formContent={formContent} />

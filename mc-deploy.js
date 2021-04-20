@@ -35,8 +35,12 @@ Install the dependencies first
 
 // definitions
 const buildFolder = path.join(__dirname, "build");
-const EndpointURL = "https://cloud.greenhk.greenpeace.org/petition-pp";
-let CampaignId = "7012u000000P3djAAC";
+//
+// const EndpointURL = "https://cloud.greenhk.greenpeace.org/petition-pp";
+//
+// New websign endpoint can accept optional fields
+const EndpointURL = "https://cloud.greenhk.greenpeace.org/websign";
+let CampaignId = "7012u000000P2LIAA0";
 const DonationPageUrl = "https://www.greenpeace.org/eastasia/"; // not used now
 const interests = ["Climate"]; // Arctic, Climate, Forest, Health, Oceans, Plastics
 const ftpConfigName = "ftp_hk"; // refer to ~/.npm-en-uploader-secret
@@ -168,7 +172,7 @@ let headersTmpl = `%%[
       SET @Petition_Signup_Target__c = Field(@CampaignRow, "Petition_Signup_Target__c")
     ENDIF
 
-    /*UTM Tracking Params*/
+    /* UTM Tracking Params */
     SET @UtmMedium          = RequestParameter("utm_medium")
     SET @UtmSource          = RequestParameter("utm_source")
     SET @UtmCampaign        = RequestParameter("utm_campaign")

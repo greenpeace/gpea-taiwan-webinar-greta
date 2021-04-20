@@ -6,7 +6,7 @@ import whatsapp from "assets/images/social/whatsapp_icon.svg";
 import { mainShare, whatsAppShare } from "../../share";
 
 const buttonStyle = {
-  fontSize: "18px",
+  fontSize: "1rem",
   color: "#FFFFFF",
   fontWeight: "bold",
   marginTop: "10px",

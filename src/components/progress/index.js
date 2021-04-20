@@ -7,7 +7,7 @@ const ProgressBar = (props) => {
     height: 24,
     width: "100%",
     backgroundColor: "#e0e0de",
-    borderRadius: 5,
+    borderRadius: 4,
   };
 
   const fillerStyles = {
@@ -19,15 +19,25 @@ const ProgressBar = (props) => {
   };
 
   const labelStyles = {
-    padding: "5px 10px",
+    padding: "4px 12px",
     color: "white",
     fontSize: ".75rem",
     lineHeight: "24px",
+    overflow: "visible",
+    whiteSpace: "nowrap",
+    fontWeight: "bold",
+    letterSpacing: "0.5px",
+  };
+
+  const targetStyles = {
+    color: "white",
+    fontSize: ".75rem",
+    margin: "4px 4px 8px 4px",
   };
 
   return (
     <div>
-      <div className="target-number">{`目標人數: ${target.toLocaleString()}`}</div>
+      <div style={targetStyles}>{`目標人數: ${target.toLocaleString()}`}</div>
       <div style={containerStyles}>
         <div style={fillerStyles}>
           <span style={labelStyles}>

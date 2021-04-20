@@ -4,8 +4,6 @@ import { call, put } from "redux-saga/effects";
 import * as Actions from "../actions/action-types/theme-actions";
 import * as helper from "../../helper";
 
-// const FORM_URL = document.querySelector("#mc-form").action;
-// const CAMPAIGN_ID = document.querySelector('input[name="CampaignId"]').value;
 const FORM_URL = helper.getPostURL();
 const CAMPAIGN_ID = helper.getCampaignID();
 
@@ -15,7 +13,7 @@ export function* submitForm(actions) {
     CampaignId: `${CAMPAIGN_ID}`,
   };
 
-  // console.log('formData--', formData)
+  // console.log("formData--", formData);
 
   try {
     // console.log("formData-", formData);
