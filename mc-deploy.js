@@ -40,11 +40,10 @@ const buildFolder = path.join(__dirname, "build");
 //
 // New websign endpoint can accept optional fields
 const EndpointURL = "https://cloud.greenhk.greenpeace.org/websign";
-let CampaignId = "7012u000000P2LIAA0";
-const DonationPageUrl = "https://www.greenpeace.org/eastasia/"; // not used now
+const CampaignId = "7012u000000P2LIAA0";
 const interests = ["Climate"]; // Arctic, Climate, Forest, Health, Oceans, Plastics
 const ftpConfigName = "ftp_hk"; // refer to ~/.npm-en-uploader-secret
-const ftpRemoteDir = "/2021/earthday";
+const ftpRemoteDir = "/2021/fukushima";
 
 let indexHtmlFilePath = path.join(buildFolder, "index.html");
 let fbuf = fs.readFileSync(indexHtmlFilePath);
@@ -110,9 +109,11 @@ let formTmpl = `<form method="post" action="%%=v(@EndpointURL)=%%" id="mc-form" 
       <input type="hidden" name="UtmCampaign" value="%%=v(@UtmCampaign)=%%">
       <input type="hidden" name="UtmContent" value="%%=v(@UtmContent)=%%">
       <input type="hidden" name="UtmTerm" value="%%=v(@UtmTerm)=%%">
-      <input type="hidden" name="DonationPageUrl" value="%%=v(@DonationPageUrl)=%%">
-      <input name="req" type="hidden" value="post_data">
-
+      <input type="hidden" name="CampaignData1__c" value="" />
+      <input type="hidden" name="CampaignData2__c" value="" />
+      <input type="hidden" name="CampaignData3__c" value="" />
+      <input type="hidden" name="CampaignData4__c" value="" />
+      <input type="hidden" name="CampaignData5__c" value="" />
       <input type="hidden" name="numSignupTarget" value="%%=v(@Petition_Signup_Target__c)=%%">
       <input type="hidden" name="numResponses" value="%%=v(@NumberOfResponses)=%%">
     </form>
@@ -160,7 +161,6 @@ let headersTmpl = `%%[
     SET @Petition_Interested_In_Plastics__c     = "${
       interests.indexOf("Plastics") >= 0 ? "true" : "false"
     }"
-    SET @DonationPageUrl = "${DonationPageUrl}"
 
     /**** Retreive number of responses in campaign used for any petition where petition sign up progress bar is needed to display signups compared to targeted number of signups ****/
     SET @Rows = LookupRows("ENT.Campaign_Salesforce","Id", @CampaignId)

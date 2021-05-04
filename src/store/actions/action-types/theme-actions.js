@@ -8,5 +8,8 @@ export const SUBMIT_FORM = "SUBMIT_FORM";
 export const SUBMIT_FORM_SUCCESS = "SUBMIT_FORM_SUCCESS";
 export const SUBMIT_FORM_FAIL = "SUBMIT_FORM_FAIL";
 
+export const ACTIVE_AB_TESTING = "ACTIVE_AB_TESTING";
+export const SET_VARIANT = "SET_VARIANT";
+
 export const INIT_STATE = "INIT_STATE";
 export const INIT_FORM_STATE = "INIT_FORM_STATE";

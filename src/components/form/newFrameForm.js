@@ -130,14 +130,11 @@ const MyForm = (props) => {
               <Input
                 name="Email"
                 type="email"
-                placeholder={
-                  errors.Email && touched.Email
-                    ? errors.Email
-                    : formContent.label_email
-                }
+                placeholder={formContent.label_email}
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
+              <FormErrorMessage color="red">{errors.Email}</FormErrorMessage>
             </FormControl>
           </Box>
 
@@ -153,13 +150,12 @@ const MyForm = (props) => {
                 <Input
                   name="LastName"
                   type="text"
-                  placeholder={
-                    errors.LastName && touched.LastName
-                      ? errors.LastName
-                      : formContent.label_last_name
-                  }
+                  placeholder={formContent.label_last_name}
                   onChange={handleChange}
                 />
+                <FormErrorMessage color="red">
+                  {errors.LastName}
+                </FormErrorMessage>
               </FormControl>
             </Box>
             <Box flex="1" pb={space}>
@@ -173,23 +169,26 @@ const MyForm = (props) => {
                 <Input
                   name="FirstName"
                   type="text"
-                  placeholder={
-                    errors.FirstName && touched.FirstName
-                      ? errors.FirstName
-                      : formContent.label_first_name
-                  }
+                  placeholder={formContent.label_first_name}
                   onChange={handleChange}
                 />
+                <FormErrorMessage color="red">
+                  {errors.FirstName}
+                </FormErrorMessage>
               </FormControl>
             </Box>
           </HStack>
 
           <FormControl>
-            <FormLabel {...labelStyle}>{formContent.label_phone}</FormLabel>
+            <FormLabel {...labelStyle}>
+              {variant === 0
+                ? formContent.label_phone
+                : formContent.label_phone_optional}
+            </FormLabel>
           </FormControl>
 
           <HStack align="flex-end">
-            <Box pb={space}>
+            <Box pb={space} mb={errors.MobilePhone ? "28px" : 0}>
               <FormControl id="mobileCountryCode">
                 <Select name="MobileCountryCode" onChange={handleChange}>
                   {mobileCountryCode &&
@@ -209,13 +208,12 @@ const MyForm = (props) => {
                 <Input
                   type="number"
                   name="MobilePhone"
-                  placeholder={
-                    errors.MobilePhone && touched.MobilePhone
-                      ? errors.MobilePhone
-                      : formContent.label_phone
-                  }
+                  placeholder={formContent.label_phone}
                   onChange={handleChange}
                 />
+                <FormErrorMessage color="red">
+                  {errors.MobilePhone}
+                </FormErrorMessage>
               </FormControl>
             </Box>
           </HStack>
@@ -226,16 +224,11 @@ const MyForm = (props) => {
               isInvalid={errors.Birthdate && touched.Birthdate}
             >
               <FormLabel {...labelStyle}>
-                {formContent.label_year_of_birth}
+                {variant === 0
+                  ? formContent.label_year_of_birth
+                  : formContent.label_year_of_birth_optional}
               </FormLabel>
-              <Select
-                placeholder={
-                  errors.Birthdate && touched.Birthdate
-                    ? errors.Birthdate
-                    : formContent.select
-                }
-                onChange={handleChange}
-              >
+              <Select placeholder={formContent.select} onChange={handleChange}>
                 {birthDateYear &&
                   birthDateYear.map((d) => (
                     <option key={d.value} value={d.value}>
@@ -243,6 +236,9 @@ const MyForm = (props) => {
                     </option>
                   ))}
               </Select>
+              <FormErrorMessage color="red">
+                {errors.Birthdate}
+              </FormErrorMessage>
             </FormControl>
           </Box>
 
@@ -298,7 +294,7 @@ const MyEnhancedForm = withFormik({
     OptIn: true,
   }),
 
-  validate: (values, { formContent }) => {
+  validate: (values, { formContent, variant }) => {
     const errors = {};
 
     if (!values.Email) {
@@ -317,14 +313,22 @@ const MyEnhancedForm = withFormik({
       errors.LastName = formContent.empty_data_alert;
     }
 
-    if (!values.MobilePhone) {
-      errors.MobilePhone = formContent.empty_data_alert;
-    } else if (values.MobilePhone.toString().length !== 8) {
-      errors.MobilePhone = formContent.minimum_8_characters;
-    }
+    if (variant === 0) {
+      document.querySelector("input[name='CampaignData1__c']").value =
+        "Version A";
 
-    if (!values.Birthdate) {
-      errors.Birthdate = formContent.empty_data_alert;
+      if (!values.MobilePhone) {
+        errors.MobilePhone = formContent.empty_data_alert;
+      } else if (values.MobilePhone.toString().length !== 8) {
+        errors.MobilePhone = formContent.minimum_8_characters;
+      }
+
+      if (!values.Birthdate) {
+        errors.Birthdate = formContent.empty_data_alert;
+      }
+    } else {
+      document.querySelector("input[name='CampaignData1__c']").value =
+        "Version B";
     }
 
     return errors;

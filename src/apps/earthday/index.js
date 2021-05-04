@@ -264,6 +264,7 @@ const Index = ({ submitted, togglePanel }) => {
               ) : (
                 <NewFrameForm
                   formContent={content}
+                  version={true}
                   showProgress={false}
                   newsLetter={false}
                 />

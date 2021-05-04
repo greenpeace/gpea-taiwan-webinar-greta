@@ -68,11 +68,11 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "build:en": "PUBLIC_URL=https://api.greenpeace.org.hk/2021/earthday craco build",
+    "build:en": "PUBLIC_URL=https://api.greenpeace.org.hk/2021/fukushima craco build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "yarn build:en && node mc-deploy.js && react-snap && gzipper compress ./build && node mc-deploy.js",
-    "postbuild": "react-snap",
+    "deploy": "yarn build:en && node mc-deploy.js && react-snap && node mc-deploy.js",
+    "postbuild": "react-snap && node mc-deploy.js && purgecss",
     "purgecss": "purgecss --css build/static/css/*.css --content build/index.html build/static/js/*.js --output build/static/css"
   },
   "eslintConfig": {

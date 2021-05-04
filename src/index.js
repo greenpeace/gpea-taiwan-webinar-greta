@@ -10,11 +10,15 @@ import TagManager from "react-gtm-module";
 import "./index.css";
 import "./fontawesome";
 
+/* GTM is only applicable for production env */
 if (process.env.NODE_ENV === "production") {
-  const tagManagerArgs = {
-    gtmId: "GTM-M6LZL75",
-  };
-  TagManager.initialize(tagManagerArgs);
+  /* GTM is only applicable for cloud page */
+  if (window.location.hostname === "cloud.greenhk.greenpeace.org") {
+    const tagManagerArgs = {
+      gtmId: "GTM-M6LZL75",
+    };
+    TagManager.initialize(tagManagerArgs);
+  }
 }
 
 const rootElement = document.getElementById("root");
