@@ -35,6 +35,7 @@ const MyForm = (props) => {
     setSubmitting,
     setHiddenForm,
     submitted,
+    variant = 0,
   } = props;
 
   const [hiddenFormValues, setHiddenFormValues] = useState([]);
@@ -107,7 +108,7 @@ const MyForm = (props) => {
         <Heading
           pt="4"
           mb="6"
-          size="xl"
+          size="md"
           color="gray.900"
           dangerouslySetInnerHTML={{ __html: formContent.form_header }}
         ></Heading>

@@ -45,7 +45,7 @@ let RegistrationForm = ({
   submitted,
   formContent = content,
   activeABTesting,
-  variant
+  variant,
 }) => {
   const refForm = useRef();
   const refCheckbox = useRef();
@@ -90,7 +90,11 @@ let RegistrationForm = ({
     FirstName: StringType().isRequired(formContent.empty_data_alert),
   });
 
-  const setModel = activeABTesting ? variant === 0 ? modelVersionA : modelVersionB : modelVersionA
+  const setModel = activeABTesting
+    ? variant === 0
+      ? modelVersionA
+      : modelVersionB
+    : modelVersionA;
 
   const closeAll = () => {
     togglePanel(false);
@@ -192,8 +196,8 @@ let RegistrationForm = ({
     }
   }
 
-  console.log('activeABTesting--',activeABTesting)
-  console.log('variant--',variant)
+  console.log("activeABTesting--", activeABTesting);
+  console.log("variant--", variant);
 
   // console.log('{window.version}--',window.version)
 

@@ -25,6 +25,7 @@ const NewFormPanel = ({
   togglePanel,
   formContent,
   submitted,
+  children
 }) => {
   const prevClosePanel = usePrevious(closePanel);
 
@@ -51,6 +52,7 @@ const NewFormPanel = ({
         hideHeader={true}
         onRequestClose={() => null}
       >
+      {children}
         {submitted ? <NewFrameSubmittedForm formContent={formContent} /> : <NewFrameForm formContent={formContent} showProgress={false} newsLetter={false}/>}
       </SlidingPane>
     </div>

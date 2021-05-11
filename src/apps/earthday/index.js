@@ -207,7 +207,7 @@ const Index = ({ submitted, togglePanel }) => {
             <SimpleGrid mt="4" columns={{ base: 1, md: 2 }} spacing={10}>
               <Flex direction="column">
                 <Image
-                  rounded={"md"}
+                  borderRadius="8px"
                   alt={"feature image"}
                   src={
                     "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/04/86661c3b-說故事-storytelling-pic.jpg"
