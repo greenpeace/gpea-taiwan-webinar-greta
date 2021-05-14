@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from "react";
 import * as swiperActions from "store/actions/action-types/swiper-actions";
 import * as themeActions from "store/actions/action-types/theme-actions";
-import SwiperCore, {
-  Navigation,
-  Mousewheel,
-  Scrollbar,
-  A11y,
-  Autoplay,
-} from "swiper";
+import SwiperCore, { Mousewheel, Scrollbar, A11y, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { connect } from "react-redux";
 
