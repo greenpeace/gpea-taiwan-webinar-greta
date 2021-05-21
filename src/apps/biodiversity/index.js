@@ -220,9 +220,7 @@ const Index = ({ submitted, togglePanel }) => {
             </Box>
           </Box>
 
-          <Box px={{ base: 6, sm: 10 }}>
-            <Divider />
-          </Box>
+          <Divider my={{ base: 8, lg: 10 }} />
 
           <Box p={{ base: 4, sm: 10 }}>
             <Flex justifyContent="space-between" direction={{ base: "column" }}>
@@ -291,9 +289,7 @@ const Index = ({ submitted, togglePanel }) => {
             </Flex>
           </Box>
 
-          <Box p={{ base: 2 }}>
-            <Divider />
-          </Box>
+          <Divider my={{ base: 8, lg: 10 }} />
 
           <Box p={{ base: 4, sm: 10 }}>
             <Flex justifyContent="space-between" direction={{ base: "column" }}>
@@ -353,9 +349,7 @@ const Index = ({ submitted, togglePanel }) => {
                 </Center>
               </Box>
 
-              <Box p={{ base: 2 }}>
-                <Divider />
-              </Box>
+              <Divider my={{ base: 8, lg: 10 }} />
 
               <SimpleGrid mt="4" columns={{ base: 1, xl: 2 }} spacing={10}>
                 <Flex direction="column">

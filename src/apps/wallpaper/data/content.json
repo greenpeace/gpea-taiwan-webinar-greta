@@ -1,0 +1,32 @@
+{
+  "label_first_name": "名字",
+  "label_last_name": "姓氏",
+  "label_email": "電郵地址",
+  "label_phone": "手提號碼",
+  "label_phone_optional": "手提號碼(可選填)",
+  "label_year_of_birth": "出生年份",
+  "label_year_of_birth_optional": "出生年份(選填)",
+  "select": "請選擇",
+
+  "empty_data_alert": "請填寫資料",
+  "empty_select_data_alert": "請選擇",
+  "invalid_email_alert": "請填上有效電郵地址",
+  "invalid_format_alert": "請輸入有效格式",
+  "minimum_8_characters": "請輸入8位數字",
+
+  "form_header": "只需輸入電郵，便可立即免費下載！",
+  "form_description": "",
+  "form_remind": "登記是次活動即代表我願意收到綠色和平發送的通訊，讓我能掌握環保工作的最新脈動！我同意綠色和平按照個人資料政策與我聯絡，包括提供環保工作資訊及捐款呼籲等。",
+
+  "submit_text": "登記下載",
+
+  "thanks_title": "感謝您報名參加「與生態專家探索香港『野』」網上教室！",
+  "thanks_content": "<strong>您將會收到電郵確認。<br/>期待在 Zoom 網上教室見到您！</strong><br/><br/>綠色和平急需您的支持，以科學角度、調查研究及行動，奮力守護大嶼及保衛郊野，力保香港的生物多樣性！<br/><br/>您願意以每月$100 約每日$3小額捐款，支持綠色和平的工作嗎？",
+  "share_button": "分享出去",
+  "donate_button": "捐助支持",
+  "donateURL": "https://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK&campaign=biodiversity&ref=biodiversity-registration-thankyou",
+  "shareMessage": "綠色和平邀請到著名生態研究學者馬昀祺博士 (Dr. Xoni Ma) 與本地生態攝影師馮漢城和您分享香港生物多樣性的現況，包括本地獨特物種巡禮、基建工程對生態的破壞與相關保育工作，以及製作港版「Discovery Channel」生態紀錄片的點滴，令您在一小時內認識「香港野」。",
+  "fbURL": "https://act.gp/2SFW5xq",
+  "mainURL": "https://act.gp/3o2OfcM",
+  "whatsappURL": "https://act.gp/2RzSBfj"
+}

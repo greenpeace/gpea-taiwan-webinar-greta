@@ -96,9 +96,7 @@ const Index = ({ submitted, togglePanel }) => {
                 氣候與環境繪本線上共讀會
               </Text>
             </Heading>
-            <Box p={{ base: 2 }}>
-              <Divider />
-            </Box>
+            <Divider my={{ base: 8, lg: 10 }} />
             <Box>
               <Stack pt={4} spacing={4}>
                 <Feature
@@ -171,10 +169,7 @@ const Index = ({ submitted, togglePanel }) => {
             </Box>
           </Box>
 
-          <Box p={{ base: 2 }}>
-            <Divider />
-          </Box>
-
+          <Divider my={{ base: 8, lg: 10 }} />
           <Box p={{ base: 4, sm: 10 }}>
             <Box
               maxW="120px"
@@ -201,9 +196,7 @@ const Index = ({ submitted, togglePanel }) => {
 
             <ImageWithColumn pStyle={pStyle} captionStyle={{ captionStyle }} />
 
-            <Box p={{ base: 2 }}>
-              <Divider />
-            </Box>
+            <Divider my={{ base: 8, lg: 10 }} />
             <SimpleGrid mt="4" columns={{ base: 1, md: 2 }} spacing={10}>
               <Flex direction="column">
                 <Image

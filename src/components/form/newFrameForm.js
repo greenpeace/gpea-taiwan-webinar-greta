@@ -5,6 +5,8 @@ import { Form, withFormik } from "formik";
 import "rsuite/lib/styles/index.less";
 import ProgressBar from "components/progress";
 
+import Mailcheck from "mailcheck";
+
 import {
   FormControl,
   FormLabel,
@@ -19,6 +21,23 @@ import {
   HStack,
   Checkbox,
 } from "@chakra-ui/react";
+
+// For email correctness
+let domains = [
+  "me.com",
+  "outlook.com",
+  "netvigator.com",
+  "cloud.com",
+  "live.hk",
+  "msn.com",
+  "gmail.com",
+  "hotmail.com",
+  "ymail.com",
+  "yahoo.com",
+  "yahoo.com.tw",
+  "yahoo.com.hk",
+];
+let topLevelDomains = ["com", "net", "org"];
 
 const MyForm = (props) => {
   const {
@@ -35,7 +54,10 @@ const MyForm = (props) => {
     setSubmitting,
     setHiddenForm,
     submitted,
-    variant = 0,
+    birthDate = true,
+    activeABTesting,
+    variant,
+    togglePanel,
   } = props;
 
   const [hiddenFormValues, setHiddenFormValues] = useState([]);
@@ -182,14 +204,17 @@ const MyForm = (props) => {
 
           <FormControl>
             <FormLabel {...labelStyle}>
-              {variant === 0
+              {activeABTesting && variant === 0
                 ? formContent.label_phone
                 : formContent.label_phone_optional}
             </FormLabel>
           </FormControl>
 
           <HStack align="flex-end">
-            <Box pb={space} mb={errors.MobilePhone ? "28px" : 0}>
+            <Box
+              pb={space}
+              mb={errors.MobilePhone && touched.MobilePhone ? "28px" : 0}
+            >
               <FormControl id="mobileCountryCode">
                 <Select name="MobileCountryCode" onChange={handleChange}>
                   {mobileCountryCode &&
@@ -219,29 +244,34 @@ const MyForm = (props) => {
             </Box>
           </HStack>
 
-          <Box flex="1" pb={space}>
-            <FormControl
-              id="Birthdate"
-              isInvalid={errors.Birthdate && touched.Birthdate}
-            >
-              <FormLabel {...labelStyle}>
-                {variant === 0
-                  ? formContent.label_year_of_birth
-                  : formContent.label_year_of_birth_optional}
-              </FormLabel>
-              <Select placeholder={formContent.select} onChange={handleChange}>
-                {birthDateYear &&
-                  birthDateYear.map((d) => (
-                    <option key={d.value} value={d.value}>
-                      {d.value}
-                    </option>
-                  ))}
-              </Select>
-              <FormErrorMessage color="red">
-                {errors.Birthdate}
-              </FormErrorMessage>
-            </FormControl>
-          </Box>
+          {birthDate && (
+            <Box flex="1" pb={space}>
+              <FormControl
+                id="Birthdate"
+                isInvalid={errors.Birthdate && touched.Birthdate}
+              >
+                <FormLabel {...labelStyle}>
+                  {activeABTesting && variant === 0
+                    ? formContent.label_year_of_birth
+                    : formContent.label_year_of_birth_optional}
+                </FormLabel>
+                <Select
+                  placeholder={formContent.select}
+                  onChange={handleChange}
+                >
+                  {birthDateYear &&
+                    birthDateYear.map((d) => (
+                      <option key={d.value} value={d.value}>
+                        {d.value}
+                      </option>
+                    ))}
+                </Select>
+                <FormErrorMessage color="red">
+                  {errors.Birthdate}
+                </FormErrorMessage>
+              </FormControl>
+            </Box>
+          )}
 
           <Box flex="1" pt={3} pb={3}>
             <Button
@@ -255,6 +285,7 @@ const MyForm = (props) => {
               letterSpacing={4}
               bg="#ff8100"
               _hover={{ bg: "campaign.climate" }}
+              type="submit"
             >
               {formContent.submit_text}
             </Button>
@@ -295,7 +326,7 @@ const MyEnhancedForm = withFormik({
     OptIn: true,
   }),
 
-  validate: (values, { formContent, variant }) => {
+  validate: (values, { formContent, variant, activeABTesting, birthDate }) => {
     const errors = {};
 
     if (!values.Email) {
@@ -305,6 +336,18 @@ const MyEnhancedForm = withFormik({
     ) {
       errors.Email = formContent.invalid_email_alert;
     }
+    // else {
+    //   TODO: NEED CONFIRM ERROR MSG
+    //   Mailcheck.run({
+    //     email: values.Email,
+    //     domains: domains,
+    //     topLevelDomains: topLevelDomains,
+    //     suggested: function(suggestion) {
+    //       if(values.Email !== suggestion.domain)
+    //       errors.Email = `您是否想輸入${suggestion.full}`
+    //     }
+    //   })
+    // }
 
     if (!values.FirstName) {
       errors.FirstName = formContent.empty_data_alert;
@@ -314,22 +357,16 @@ const MyEnhancedForm = withFormik({
       errors.LastName = formContent.empty_data_alert;
     }
 
-    if (variant === 0) {
-      document.querySelector("input[name='CampaignData1__c']").value =
-        "Version A";
-
+    if (activeABTesting && variant === 0) {
       if (!values.MobilePhone) {
         errors.MobilePhone = formContent.empty_data_alert;
       } else if (values.MobilePhone.toString().length !== 8) {
         errors.MobilePhone = formContent.minimum_8_characters;
       }
 
-      if (!values.Birthdate) {
+      if (birthDate && !values.Birthdate) {
         errors.Birthdate = formContent.empty_data_alert;
       }
-    } else {
-      document.querySelector("input[name='CampaignData1__c']").value =
-        "Version B";
     }
 
     return errors;
@@ -337,10 +374,14 @@ const MyEnhancedForm = withFormik({
 
   handleSubmit: (values, { setSubmitting, props }) => {
     const { hiddenFormValue } = props.theme;
+    let birthdateValue = values.Birthdate ? `${values.Birthdate}-01-01` : "";
+    // issue:
+    // form submit with '-01-01' will cause submission error
     const submitData = {
       ...hiddenFormValue,
       ...values,
-      Birthdate: `${values.Birthdate}-01-01`,
+      Birthdate: birthdateValue,
+      // Birthdate: `${values.Birthdate}-01-01`,
     };
     props.submitForm(submitData);
   },
@@ -352,6 +393,8 @@ const mapStateToProps = ({ theme }) => {
   return {
     theme: theme,
     submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
+    activeABTesting: theme.abTesting,
+    variant: theme.variant,
   };
 };
 

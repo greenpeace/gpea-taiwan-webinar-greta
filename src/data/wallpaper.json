@@ -68,6 +68,23 @@
           "/wallpaper/Oceans/GP04L30_Web_size.jpg"
         ]
       }
+    },
+    {
+      "issue": "Biodiversity",
+      "content": {
+        "wallpaperList": [
+          "/wallpaper/Biodiversity/DSC_2235_GPxFHS.jpg",
+          "/wallpaper/Biodiversity/DSC_3683_GPxFHS.jpg",
+          "/wallpaper/Biodiversity/DSC_4373_GPxFHS.jpg",
+          "/wallpaper/Biodiversity/DSC_4938_1_GPxFHS.jpg",
+          "/wallpaper/Biodiversity/DSC_5225_GPxFHS.jpg",
+          "/wallpaper/Biodiversity/DSC_5629_GPxFHS.jpg",
+          "/wallpaper/Biodiversity/DSC_7163_GPxFHS.jpg",
+          "/wallpaper/Biodiversity/DSC_8458_GPxFHS.jpg",
+          "/wallpaper/Biodiversity/DSC_9612_GPxFHS.jpg",
+          "/wallpaper/Biodiversity/IMG_3369_GPxFHS.jpg"
+        ]
+      }
     }
   ]
 }
