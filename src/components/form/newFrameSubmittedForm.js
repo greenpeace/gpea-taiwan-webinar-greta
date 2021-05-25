@@ -1,25 +1,11 @@
 import React, { useRef, useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import whatsapp from "assets/images/social/whatsapp_icon.svg";
 import { connect } from "react-redux";
 import * as themeActions from "store/actions/action-types/theme-actions";
-import { Form, withFormik } from "formik";
-import ProgressBar from "components/progress";
 import { mainShare, whatsAppShare } from "../../share";
 import content from "./newFormContent.json";
 
-import {
-  FormControl,
-  FormLabel,
-  Input,
-  Button,
-  Box,
-  Flex,
-  Text,
-  Select,
-  Heading,
-  Checkbox,
-} from "@chakra-ui/react";
+import { Button, Flex, Heading} from "@chakra-ui/react";
 
 const buttonStyle = {
   fontSize: "18px",
@@ -30,15 +16,9 @@ const buttonStyle = {
   padding: "12px 20px",
 };
 
-const MyForm = ({ formContent = content, submitted }) => {
-  const [hiddenFormValues, setHiddenFormValues] = useState([]);
+const MyForm = ({ formContent = content }) => {
   const [numSignupTarget, setNumSignupTarget] = useState(100000);
   const [numResponses, setNumResponses] = useState(0);
-
-  const progress = [
-    { bgcolor: "#66cc00", completed: numResponses, target: numSignupTarget },
-  ];
-  const space = 8;
 
   useEffect(() => {
     const signupTarget = document.querySelector(

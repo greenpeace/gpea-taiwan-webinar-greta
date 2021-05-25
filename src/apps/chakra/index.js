@@ -24,7 +24,7 @@ import Panel from "components/panel/newFormPanel";
 import Tab from "./components/sticky/tab"
 import * as themeActions from "store/actions/action-types/theme-actions";
 import Sticky from 'react-sticky-el';
-import themeConfig from "./theme.js"
+import themeConfig from "../../../theme";
 
 import { images, otherImages } from "./components/parallex/images";
 import ParallaxImage from './components/parallex/parallexImages'
@@ -47,14 +47,14 @@ const Index = ({ submitted, togglePanel }) => {
 
   const isMobile = useMediaQuery({query: '(max-device-width: 564px)'})
   const textStyle = {
-    fontSize: {base: 'md', sm: '18px'}, 
-    color: "rgba(0,0,0,.65)", 
+    fontSize: {base: 'md', sm: '18px'},
+    color: "rgba(0,0,0,.65)",
     lineHeight: 1.8
   }
 
   const textStyleOther = {
     fontSize: {base: 'sm', sm: 'md'},
-    color: "rgba(0,0,0,.65)", 
+    color: "rgba(0,0,0,.65)",
     lineHeight: 1.5
   }
 
@@ -93,10 +93,10 @@ const Index = ({ submitted, togglePanel }) => {
           >
                       <SwiperSlide>
             <Image src={isMobile ? `${process.env.PUBLIC_URL}/oceans/oceans_2.jpg` : 'https://api.greenpeace.org.hk/2021/elm/static/img/DJI_0439.50ce887e.jpg'} />
-            </SwiperSlide> 
+            </SwiperSlide>
             <SwiperSlide>
                 <Image src={isMobile ? `${process.env.PUBLIC_URL}/oceans/oceans_1.jpg` : 'https://api.greenpeace.org.hk/2021/elm/static/img/DJI_0431.c6b2b22f.jpg'} />
-            </SwiperSlide> 
+            </SwiperSlide>
           </Swiper>
         </GridItem>
         <GridItem d={{ base: 'none', sm: 'block' }} rowSpan={{ base: 8, sm: 9 }} colSpan={{ base: 15, sm: 5 }}>
@@ -104,8 +104,8 @@ const Index = ({ submitted, togglePanel }) => {
             {submitted ? <NewFrameSubmittedForm/> : <NewFrameForm />}
           </Center>
         </GridItem>
-        <GridItem 
-          rowSpan={{ base: 3, sm: 4 }} 
+        <GridItem
+          rowSpan={{ base: 3, sm: 4 }}
           colSpan={{ base: 15, sm: 10 }}>
           <Flex color="white" h="100%">
             <Center bg="campaign.oceans" w="100%">
@@ -279,7 +279,7 @@ const Index = ({ submitted, togglePanel }) => {
           </Button>
           </Link>}
           </VStack>
-        </Center> 
+        </Center>
           </Box>
       </Center>
 

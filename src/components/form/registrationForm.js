@@ -49,6 +49,7 @@ let RegistrationForm = ({
 }) => {
   const refForm = useRef();
   const refCheckbox = useRef();
+  const refMobileCountryCode = useRef();
   const [hiddenFormValues, setHiddenFormValues] = useState([]);
   const [emailSuggestion, setEmailSuggestion] = useState("內容");
   const [numSignupTarget, setNumSignupTarget] = useState(100000);
@@ -78,7 +79,17 @@ let RegistrationForm = ({
       .isRequired(formContent.empty_data_alert)
       .addRule((value) => {
         return value.toString().length === 8;
-      }, formContent.minimum_8_characters),
+      }, formContent.minimum_8_characters)
+      .addRule((value) => {
+        let regex
+        const {MobileCountryCode} = refForm.current.state.formValue
+        if(!MobileCountryCode || MobileCountryCode === "852"){
+          regex = /^[2,3,5,6,8,9]{1}[0-9]{7}$/i; 
+        } else if(MobileCountryCode === "853"){
+          regex = /^[6]{1}[0-9]{7}$/i
+        }
+        return regex.test(value);
+      }, formContent.invalid_format_alert),
     Birthdate: StringType().isRequired(formContent.empty_data_alert),
   });
 
@@ -296,6 +307,7 @@ let RegistrationForm = ({
                         placeholder={formContent.select}
                         accepter={SelectPicker}
                         data={mobileCountryCode}
+                        ref={refMobileCountryCode}
                       />
                     </Col>
                     <Col xs={18} style={{ paddingRight: 0 }}>

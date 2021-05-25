@@ -106,7 +106,7 @@ const MyForm = (props) => {
     async function fetchOptionYear() {
       let nowYear = new Date().getFullYear();
       let targetYear = nowYear - 110;
-      for (var i = nowYear; i >= targetYear; i--) {
+      for (var i = nowYear - 20; i >= targetYear; i--) {
         await optionYear.push({ label: i, value: i.toString() });
       }
       setBirthDateYear(optionYear);
@@ -362,6 +362,20 @@ const MyEnhancedForm = withFormik({
         errors.MobilePhone = formContent.empty_data_alert;
       } else if (values.MobilePhone.toString().length !== 8) {
         errors.MobilePhone = formContent.minimum_8_characters;
+      } 
+
+      if(values.MobilePhone.toString().length === 8 && values.MobileCountryCode === "852"){
+        const regex = /^[2,3,5,6,8,9]{1}[0-9]{7}$/i;
+        if(!regex.test(values.MobilePhone)){
+          errors.MobilePhone = formContent.invalid_format_alert;
+        }
+      }
+
+      if(values.MobilePhone.toString().length === 8 && values.MobileCountryCode === "853"){
+        const regex = /^[6]{1}[0-9]{7}$/i;
+        if(!regex.test(values.MobilePhone)){
+          errors.MobilePhone = formContent.invalid_format_alert;
+        }
       }
 
       if (birthDate && !values.Birthdate) {
@@ -375,8 +389,7 @@ const MyEnhancedForm = withFormik({
   handleSubmit: (values, { setSubmitting, props }) => {
     const { hiddenFormValue } = props.theme;
     let birthdateValue = values.Birthdate ? `${values.Birthdate}-01-01` : "";
-    // issue:
-    // form submit with '-01-01' will cause submission error
+    // issue: form submit with '-01-01' will cause submission error
     const submitData = {
       ...hiddenFormValue,
       ...values,

@@ -17,7 +17,7 @@ let Footer = () => {
               <ul>
                 <li>
                   <a
-                    href="http://www.greenpeace.org/hk/"
+                    href="http://www.greenpeace.org/hongkong/"
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -35,7 +35,7 @@ let Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="https://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK&ref=wallpaper_footer"
+                    href="https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK"
                     target="_blank"
                     rel="noreferrer"
                   >

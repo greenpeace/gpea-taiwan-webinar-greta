@@ -25,7 +25,7 @@ import NewFrameForm from "components/form/newFrameForm";
 import NewFrameSubmittedForm from "components/form/newFrameSubmittedForm";
 import Panel from "components/panel/newFormPanel";
 import * as themeActions from "store/actions/action-types/theme-actions";
-import themeConfig from "../theme.js";
+import themeConfig from "../../../theme";
 
 import banner from "../assets/images/73.jpg";
 import subImage from "../assets/images/wallpaper_removed.jpg";

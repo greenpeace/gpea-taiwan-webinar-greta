@@ -1,5 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# deploy to ftp and generate mc build page
+mc-deploy.js
+
 # dependencies
 /node_modules
 /.pnp
@@ -23,5 +26,5 @@ yarn-debug.log*
 yarn-error.log*
 node_modules
 
-#cache
+# cache
 .eslintcache

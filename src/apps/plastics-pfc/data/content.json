@@ -1,0 +1,32 @@
+{
+  "label_first_name": "名字",
+  "label_last_name": "姓氏",
+  "label_email": "電郵地址",
+  "label_phone": "手提號碼（接收活動SMS提示）",
+  "label_phone_optional": "手提號碼（接收活動SMS提示）(選填)",
+  "label_year_of_birth": "出生年份",
+  "label_year_of_birth_optional": "出生年份(選填)",
+  "select": "請選擇",
+
+  "empty_data_alert": "請填寫資料",
+  "empty_select_data_alert": "請選擇",
+  "invalid_email_alert": "請填上有效電郵地址",
+  "invalid_format_alert": "請輸入有效格式",
+  "minimum_8_characters": "請輸入8位數字",
+
+  "form_header": "「綠色社區點做起？達人同你渾身解塑」網上共學教室",
+  "form_description": "",
+  "form_remind": "登記是次活動即代表我願意收到綠色和平發送的通訊，讓我能掌握環保工作的最新脈動！我同意綠色和平按照個人資料政策與我聯絡，包括提供環保工作資訊及捐款呼籲等。",
+
+  "submit_text": "立即登記",
+
+  "thanks_title": "感謝您報名參加「綠色社區點做起？達人同你渾身解塑」網上共學教室！",
+  "thanks_content": "<strong>您將會收到電郵確認。<br/>期待在 Zoom 網上教室見到您！</strong><br/><br/>走塑社區 有您有可能！<br/><br/>綠色和平在2018年推出「全城走塑計劃」，至今已有逾600間商戶加入走塑行列，<b>我們希望能在2021年完結前，達成全港1,100間走塑商戶目標！</b><br/><br/>您願意以每月$100 [每日約$3] 小額捐助，支持綠色和平團隊的工作，將更多您關心的社區建成走塑社區，擴大全港走塑版圖嗎？",
+  "share_button": "分享出去",
+  "donate_button": "捐助支持",
+  "donateURL": "https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=plastics&ref=plastics-pfc-registration-thankyou",
+  "shareMessage": "綠色和平邀請到兩位積極於社區中尋求改變的「社區達人」來分享：大埔街坊暨社區營造行動者連桷璋，以及「日常豊作」裸買店店主Ann。談談過去在營造社區過程中的的社區實驗，必定有成功有失敗，一起探討如何在社區推動議題，如何見招拆招！而要講社區走塑，嘉賓又有何想法？綠色和平想同你一齊設計社區走塑計劃，即刻參加「全城走塑社區小隊」，一齊學一齊試，實現理想走塑社區！",
+  "fbURL": "https://act.gp/3vfdf3l",
+  "mainURL": "https://act.gp/3vhpPir",
+  "whatsappURL": "https://act.gp/3oH0E6D"
+}
