@@ -362,18 +362,24 @@ const MyEnhancedForm = withFormik({
         errors.MobilePhone = formContent.empty_data_alert;
       } else if (values.MobilePhone.toString().length !== 8) {
         errors.MobilePhone = formContent.minimum_8_characters;
-      } 
+      }
 
-      if(values.MobilePhone.toString().length === 8 && values.MobileCountryCode === "852"){
+      if (
+        values.MobilePhone.toString().length === 8 &&
+        values.MobileCountryCode === "852"
+      ) {
         const regex = /^[2,3,5,6,8,9]{1}[0-9]{7}$/i;
-        if(!regex.test(values.MobilePhone)){
+        if (!regex.test(values.MobilePhone)) {
           errors.MobilePhone = formContent.invalid_format_alert;
         }
       }
 
-      if(values.MobilePhone.toString().length === 8 && values.MobileCountryCode === "853"){
+      if (
+        values.MobilePhone.toString().length === 8 &&
+        values.MobileCountryCode === "853"
+      ) {
         const regex = /^[6]{1}[0-9]{7}$/i;
-        if(!regex.test(values.MobilePhone)){
+        if (!regex.test(values.MobilePhone)) {
           errors.MobilePhone = formContent.invalid_format_alert;
         }
       }

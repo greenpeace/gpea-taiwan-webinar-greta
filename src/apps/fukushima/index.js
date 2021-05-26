@@ -60,7 +60,7 @@ const Index = ({
         const variant = window.google_optimize.get(
           process.env.REACT_APP_EXPERIMENT_ID
         );
-        if (variant === 0 || variant === undefined) {
+        if (variant == 0 || variant === undefined) {
           setVariant(0);
           //
           document.querySelector("input[name='CampaignData1__c']").value =
@@ -80,7 +80,7 @@ const Index = ({
     //     process.env.REACT_APP_EXPERIMENT_ID
     //   );
     //   console.log("variant--", variant);
-    //   if (variant === 0 || variant === undefined) {
+    //   if (variant == 0 || variant === undefined) {
     //     setVariant(0);
     //   } else {
     //     setVariant(1);
