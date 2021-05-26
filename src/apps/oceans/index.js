@@ -13,15 +13,65 @@ import Header from "./components/header";
 import Panel from "components/panel";
 import formContent from "./data/formContent.json";
 
-const Index = ({ initState, fakeSubmit, submitted }) => {
-  useEffect(() => {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    if (urlParams.get("page") === "2") {
-      fakeSubmit();
-    } else {
-      initState();
+const Index = ({
+  initState,
+  fakeSubmit,
+  submitted,
+  activeABTesting,
+  setVariant,
+}) => {
+  useEffect(async () => {
+    console.log(
+      "process.env.REACT_APP_EXPERIMENT_ID--",
+      process.env.REACT_APP_EXPERIMENT_ID
+    );
+    // active AB Testing
+    activeABTesting(true);
+    if (window.dataLayer) {
+      await window.dataLayer.push({ event: "optimize.activate" });
     }
+
+    // let countdown = 10
+
+    const intervalId = setInterval(() => {
+      // For checking loop
+
+      // console.log('loop')
+      // countdown -= 1
+      // if(countdown === 0){
+      //   clearInterval(intervalId);
+      // }
+
+      if (window.google_optimize !== undefined) {
+        const variant = window.google_optimize.get(
+          process.env.REACT_APP_EXPERIMENT_ID
+        );
+        if (variant === 0 || variant === undefined) {
+          setVariant(0);
+          //
+          document.querySelector("input[name='CampaignData1__c']").value =
+            "Version A";
+        } else {
+          setVariant(1);
+          //
+          document.querySelector("input[name='CampaignData1__c']").value =
+            "Version B";
+        }
+        clearInterval(intervalId);
+      }
+    }, 500);
+
+    // if (window.google_optimize) {
+    //   const variant = await window.google_optimize.get(
+    //     process.env.REACT_APP_EXPERIMENT_ID
+    //   );
+    //   console.log("variant--", variant);
+    //   if (variant === 0 || variant === undefined) {
+    //     setVariant(0);
+    //   } else {
+    //     setVariant(1);
+    //   }
+    // }
   }, []);
 
   return (
@@ -67,6 +117,12 @@ const mapDispatchToProps = (dispatch) => {
     },
     updateSwiperSlide: (data) => {
       dispatch({ type: swiperActions.UPDATE_SWIPER_SLIDE, data });
+    },
+    activeABTesting: (bol) => {
+      dispatch({ type: themeActions.ACTIVE_AB_TESTING, bol });
+    },
+    setVariant: (value) => {
+      dispatch({ type: themeActions.SET_VARIANT, value });
     },
   };
 };

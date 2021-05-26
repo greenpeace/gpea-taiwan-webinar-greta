@@ -80,35 +80,7 @@ const Index = ({ submitted, togglePanel }) => {
       {isMobile && <Nav />}
       <Flex>
         <Box className="wrap" flex="1" style={{ minWidth: "0px" }}>
-          {/*
-          {submitted ? (
-            !isMobile ? (
-              <ContentSwiper />
-            ) : (
-              <Image
-                src={
-                  process.env.PUBLIC_URL +
-                  "/events/biodiversity/Artboard-1_2-BD-webinar-final-tinypng.jpg"
-                }
-              />
-            )
-          ) : (
-            <Image
-              src={
-                process.env.PUBLIC_URL +
-                "/events/biodiversity/Artboard-1_2-BD-webinar-final-tinypng.jpg"
-              }
-            />
-          )}
-            */}
-
-          <Image
-            src={
-              process.env.PUBLIC_URL +
-              "/events/biodiversity/Artboard-1_2-BD-webinar-final-tinypng.jpg"
-            }
-          />
-
+          <Image src="https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/db589459-artboard-1_2-bd-webinar-final-tinypng.jpg" />
           <Box p={{ base: 4, sm: 10 }} mt="4">
             <Stack pb={4}>
               <Box>
@@ -161,28 +133,6 @@ const Index = ({ submitted, togglePanel }) => {
                     }
                   />
                 </Stack>
-                {/*
-                <Box d={{ base: "block", sm: "none" }} pt={12} pb={2}>
-                  <Flex {...flexBoxStyle} p={3}>
-                    <Image
-                      src={
-                        "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/6389a5bc-vlcsnap-2021-04-23-16h48m08s619.jpg"
-                      }
-                      borderRadius="8px"
-                    />
-                  </Flex>
-                </Box>
-                <Box d={{ base: "block", sm: "none" }} pt={12} pb={2}>
-                  <Flex {...flexBoxStyle} p={3}>
-                    <Image
-                      src={
-                        "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/3feb5562-vlcsnap-2021-04-23-16h49m12s648.jpg"
-                      }
-                      borderRadius="8px"
-                    />
-                  </Flex>
-                </Box>
-                    */}
                 <Text {...pStyle}>
                   香港的自然環境蘊含豐富生物多樣性，本地海洋、山林和郊野公園養育的物種繁多，我們的家園同樣是動植物的重要生境。然而，寶貴的生物與大自然正面臨威脅，例如明日大嶼填海工程、開發郊野公園等計劃，均會破壞海洋與陸上野生生物的生存環境。
                 </Text>
@@ -208,9 +158,7 @@ const Index = ({ submitted, togglePanel }) => {
                   <Stack>
                     <Flex {...flexBoxStyle}>
                       <Image
-                        src={
-                          "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/3feb5562-vlcsnap-2021-04-23-16h49m12s648.jpg"
-                        }
+                        src="https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/3feb5562-vlcsnap-2021-04-23-16h49m12s648.jpg"
                         borderRadius="8px"
                       />
                     </Flex>
@@ -228,9 +176,7 @@ const Index = ({ submitted, togglePanel }) => {
                 <Flex direction={{ base: "column", xl: "row" }}>
                   <Box maxW={{ base: "100%" }}>
                     <Image
-                      src={
-                        "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/92b5573a-drxonima_pic-1-2.jpg"
-                      }
+                      src="https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/92b5573a-drxonima_pic-1-2.jpg"
                       borderRadius="8px"
                       w="100%"
                     />

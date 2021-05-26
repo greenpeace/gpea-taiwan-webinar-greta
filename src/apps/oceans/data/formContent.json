@@ -3,7 +3,9 @@
   "label_last_name": "姓氏 Last Name",
   "label_email": "電郵地址 Email Address",
   "label_phone": "手提號碼 Phone Number",
-  "label_year_of_birth": "出生年份 Year Of Birth",
+  "label_phone_optional": "手提號碼（選填）",
+  "label_year_of_birth": "出生年份",
+  "label_year_of_birth_optional": "出生年份（選填）",
   "select": "請選擇",
 
   "empty_data_alert": "請填寫資料",

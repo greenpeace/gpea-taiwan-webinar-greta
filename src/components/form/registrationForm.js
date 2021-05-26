@@ -45,7 +45,7 @@ let RegistrationForm = ({
   submitted,
   formContent = content,
   activeABTesting,
-  variant
+  variant,
 }) => {
   const refForm = useRef();
   const refCheckbox = useRef();
@@ -81,12 +81,12 @@ let RegistrationForm = ({
         return value.toString().length === 8;
       }, formContent.minimum_8_characters)
       .addRule((value) => {
-        let regex
-        const {MobileCountryCode} = refForm.current.state.formValue
-        if(!MobileCountryCode || MobileCountryCode === "852"){
-          regex = /^[2,3,5,6,8,9]{1}[0-9]{7}$/i; 
-        } else if(MobileCountryCode === "853"){
-          regex = /^[6]{1}[0-9]{7}$/i
+        let regex;
+        const { MobileCountryCode } = refForm.current.state.formValue;
+        if (!MobileCountryCode || MobileCountryCode === "852") {
+          regex = /^[2,3,5,6,8,9]{1}[0-9]{7}$/i;
+        } else if (MobileCountryCode === "853") {
+          regex = /^[6]{1}[0-9]{7}$/i;
         }
         return regex.test(value);
       }, formContent.invalid_format_alert),
@@ -101,7 +101,11 @@ let RegistrationForm = ({
     FirstName: StringType().isRequired(formContent.empty_data_alert),
   });
 
-  const setModel = activeABTesting ? variant === 0 ? modelVersionA : modelVersionB : modelVersionA
+  const setModel = activeABTesting
+    ? variant === 0
+      ? modelVersionA
+      : modelVersionB
+    : modelVersionA;
 
   const closeAll = () => {
     togglePanel(false);
@@ -110,13 +114,17 @@ let RegistrationForm = ({
 
   const handleSubmit = (isValid) => {
     const OptIn = refCheckbox.current.state?.checked;
+
     if (isValid) {
       const { formValue } = refForm.current.state;
+      let birthdateValue = formValue.Birthdate
+        ? `${formValue.Birthdate}-01-01`
+        : "";
       submitForm({
         ...hiddenFormValues,
         ...formValue,
         OptIn,
-        Birthdate: `${formValue.Birthdate}-01-01`,
+        Birthdate: birthdateValue,
       });
       // Check submit value
       /*
