@@ -11,6 +11,7 @@ const Index = ({ toggleTheme }) => {
     <header className="main-header">
       <div className="logo-holder">
         <img
+          loading="lazy"
           src="https://api.greenpeace.org.hk/general/logo/GP-logo-2019-TC-green-%5bweb%5d-01.png"
           alt="Greenpeace 綠色和平"
         />

@@ -5,7 +5,7 @@ import * as themeActions from "store/actions/action-types/theme-actions";
 import { mainShare, whatsAppShare } from "../../share";
 import content from "./newFormContent.json";
 
-import { Button, Flex, Heading} from "@chakra-ui/react";
+import { Button, Flex, Heading } from "@chakra-ui/react";
 
 const buttonStyle = {
   fontSize: "18px",
@@ -79,7 +79,12 @@ const MyForm = ({ formContent = content }) => {
         }
         rel="noreferrer"
       >
-        <img src={whatsapp} alt="whatsapp" style={{ height: "24px" }} />
+        <img
+          loading="lazy"
+          src={whatsapp}
+          alt="whatsapp"
+          style={{ height: "24px" }}
+        />
       </Button>
     </Flex>
   );

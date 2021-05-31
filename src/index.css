@@ -30,6 +30,8 @@ code {
   position: fixed !important;
 }
 
+/* slide pane */
+
 .slide-pane {
   border-top-right-radius: 24px;
   border-top-left-radius: 24px;
@@ -39,12 +41,16 @@ code {
   margin-top: 8vh;
 }
 
+.slide-pane__overlay.overlay-after-open {
+  background-color: rgba(0, 0, 0, 0.75) !important;
+}
+
 .slide-pane__content {
   padding: 32px 20px !important;
 }
 
 .slide-pane__content {
-  padding-bottom: 120px !important;
+  padding-bottom: 80px !important;
 }
 
 .chakra-select[aria-invalid="true"],

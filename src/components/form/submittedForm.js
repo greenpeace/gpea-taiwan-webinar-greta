@@ -64,7 +64,12 @@ let SubmittedForm = ({ formContent = content }) => {
               }
               rel="noreferrer"
             >
-              <img src={whatsapp} alt="whatsapp" style={{ height: "24px" }} />
+              <img
+                loading="lazy"
+                src={whatsapp}
+                alt="whatsapp"
+                style={{ height: "24px" }}
+              />
             </Button>
           </Col>
         </Row>

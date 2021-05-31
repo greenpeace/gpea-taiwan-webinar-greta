@@ -204,7 +204,7 @@ const MyForm = (props) => {
 
           <FormControl>
             <FormLabel {...labelStyle}>
-              {activeABTesting && variant === 0
+              {activeABTesting && variant == 0
                 ? formContent.label_phone
                 : formContent.label_phone_optional}
             </FormLabel>
@@ -251,7 +251,7 @@ const MyForm = (props) => {
                 isInvalid={errors.Birthdate && touched.Birthdate}
               >
                 <FormLabel {...labelStyle}>
-                  {activeABTesting && variant === 0
+                  {activeABTesting && variant == 0
                     ? formContent.label_year_of_birth
                     : formContent.label_year_of_birth_optional}
                 </FormLabel>
@@ -357,7 +357,7 @@ const MyEnhancedForm = withFormik({
       errors.LastName = formContent.empty_data_alert;
     }
 
-    if (activeABTesting && variant === 0) {
+    if (activeABTesting && variant == 0) {
       if (!values.MobilePhone) {
         errors.MobilePhone = formContent.empty_data_alert;
       } else if (values.MobilePhone.toString().length !== 8) {

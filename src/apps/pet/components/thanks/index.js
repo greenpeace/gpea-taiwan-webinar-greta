@@ -190,6 +190,7 @@ const Thanks = ({ selectedImage }) => {
                   </p>
                 </div>
                 <img
+                  loading="lazy"
                   src={`${process.env.PUBLIC_URL}${download}`}
                   className="img"
                   alt=""

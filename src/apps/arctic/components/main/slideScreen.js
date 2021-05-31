@@ -1,8 +1,3 @@
-import "swiper/swiper.scss";
-import "swiper/components/navigation/navigation.scss";
-import "swiper/components/pagination/pagination.scss";
-import "swiper/components/scrollbar/scrollbar.scss";
-
 import React from "react";
 import SlideContent from "./sildeConent";
 import MobileContent from "./mobileContent";
@@ -10,6 +5,12 @@ import { useMediaQuery } from "react-responsive";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import { connect } from "react-redux";
+
+// Import Swiper styles
+import "swiper/swiper.scss";
+import "swiper/components/navigation/navigation.scss";
+import "swiper/components/pagination/pagination.scss";
+import "swiper/components/scrollbar/scrollbar.scss";
 
 const SlideScreen = ({ togglePanel }) => {
   const handleTogglePanel = () => {

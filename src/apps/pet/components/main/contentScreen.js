@@ -50,6 +50,7 @@ const Content = ({ togglePanel }) => {
                   <Col xs={24}>
                     <div className="dec-img fl-wrap">
                       <img
+                        loading="lazy"
                         src={Banner}
                         alt={"Banner"}
                         className="img respimg"

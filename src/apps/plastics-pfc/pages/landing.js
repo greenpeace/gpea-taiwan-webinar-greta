@@ -25,8 +25,8 @@ import {
 import SEO from "../SEO";
 import content from "../data/content";
 import Nav from "../components/header/nav";
-import HeroSwiper from "../components/feature/heroSwiper";
 import Footer from "../components/footer";
+import Webinar from "components/sections/webinar";
 import NewFrameForm from "components/form/newFrameForm";
 import NewFrameSubmittedForm from "components/form/newFrameSubmittedForm";
 import Panel from "components/panel/newFormPanel";
@@ -142,6 +142,12 @@ const Landing = ({ submitted, togglePanel }) => {
     },
   ];
 
+  const WebinarContent = {
+    date: "日期：2021年6月7日（星期一）",
+    time: "時間：晚上8時至9時",
+    description: "線上分享會平台：Zoom（網上登記後會獲得相關鏈結和密碼）"
+  }
+
   const [current, setCurrent] = useState(authorContent[0]);
 
   return (
@@ -191,45 +197,9 @@ const Landing = ({ submitted, togglePanel }) => {
                   覺得自己只是被動的一方？見到社會好多事都看似沒可能改變？
                 </Heading>
                 <Divider my={{ base: 8 }} />
-                <Box>
-                  <Text {...subHeadline}>WEBINAR STARTS IN</Text>
-                  <Stack spacing={4}>
-                    <Feature
-                      icon={
-                        <Icon
-                          as={IoCalendarOutline}
-                          color={"yellow.500"}
-                          w={5}
-                          h={5}
-                        />
-                      }
-                      iconBg={useColorModeValue("yellow.100", "yellow.900")}
-                      text={"日期：2021年6月7日（星期一）"}
-                    />
-                    <Feature
-                      icon={
-                        <Icon
-                          as={IoTimeSharp}
-                          color={"yellow.500"}
-                          w={5}
-                          h={5}
-                        />
-                      }
-                      iconBg={useColorModeValue("yellow.100", "yellow.900")}
-                      text={"時間：晚上8時至9時"}
-                    />
-                    <Feature
-                      icon={
-                        <Icon as={IoVideocam} color={"brand.400"} w={5} h={5} />
-                      }
-                      iconBg={useColorModeValue("green.100", "green.900")}
-                      text={
-                        "線上分享會平台：Zoom（網上登記後會獲得相關鏈結和密碼）"
-                      }
-                    />
-                  </Stack>
-                </Box>
 
+                <Webinar content={WebinarContent}/>
+                
                 <Divider my={{ base: 8 }} />
 
                 <Text {...subHeadline}>ABOUT</Text>

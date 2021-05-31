@@ -39,15 +39,15 @@ const Index = ({ submitted, activeABTesting, setVariant, togglePanel }) => {
     checkVariant();
   }, []);
 
-  useEffect( async () => {
+  useEffect(async () => {
     // Close panel layer
-    if(submitted){
-      await togglePanel(false)
-      setSubmittedForm(true)
+    if (submitted) {
+      await togglePanel(false);
+      setSubmittedForm(true);
     }
   }, [submitted]);
 
-  return submittedForm ? <Download /> : <Landing />
+  return submittedForm ? <Download /> : <Landing />;
 };
 
 const mapStateToProps = ({ theme }) => {

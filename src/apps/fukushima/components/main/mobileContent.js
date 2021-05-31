@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import swiperContent from "../../data/swiper.json";
 
 const MobileContent = () => {
-  const {data = []} = swiperContent
+  const { data = [] } = swiperContent;
   return (
     <div className="mobile-content-wrap">
       <Grid fluid>
@@ -15,6 +15,7 @@ const MobileContent = () => {
               {d.image_url && (
                 <Col xs={24}>
                   <img
+                    loading="lazy"
                     src={d.image_url}
                     alt={description}
                     className="img mobile-image"

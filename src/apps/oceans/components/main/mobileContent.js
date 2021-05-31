@@ -15,6 +15,7 @@ const MobileContent = () => {
               {d.image_url && (
                 <Col xs={24}>
                   <img
+                    loading="lazy"
                     src={d.image_url}
                     alt={description}
                     className="img mobile-image"

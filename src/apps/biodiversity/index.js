@@ -1,4 +1,3 @@
-import "swiper/swiper.scss";
 import React from "react";
 import { connect } from "react-redux";
 import { useMediaQuery } from "react-responsive";
@@ -32,6 +31,9 @@ import Panel from "components/panel/newFormPanel";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import themeConfig from "../../../theme";
 import { IoCalendarOutline, IoTimeSharp, IoVideocam } from "react-icons/io5";
+
+// Import Swiper styles
+import "swiper/swiper.scss";
 
 const Index = ({ submitted, togglePanel }) => {
   const Feature = ({ text, icon, iconBg }) => {
