@@ -40,10 +40,10 @@ const buildFolder = path.join(__dirname, "build");
 //
 // New websign endpoint can accept optional fields
 const EndpointURL = "https://cloud.greenhk.greenpeace.org/websign";
-const CampaignId = "7012u000000P581AAC";
-const interests = ["Plastics"]; // Arctic, Climate, Forest, Health, Oceans, Plastics
+const CampaignId = "7012u000000P5RHAA0";
+const interests = ["Oceans"]; // Arctic, Climate, Forest, Health, Oceans, Plastics
 const ftpConfigName = "ftp_hk"; // refer to ~/.npm-en-uploader-secret
-const ftpRemoteDir = "/2021/plastics-pfc";
+const ftpRemoteDir = "/2021/oceansday";
 
 let indexHtmlFilePath = path.join(buildFolder, "index.html");
 let fbuf = fs.readFileSync(indexHtmlFilePath);

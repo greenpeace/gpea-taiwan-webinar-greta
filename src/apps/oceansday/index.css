@@ -1,0 +1,20 @@
+.sticky-wallpaper-image {
+  background-color: #fff;
+  z-index: 999;
+}
+
+.fade-in {
+  animation: fadeIn 0.4s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.slide-pane_from_bottom {
+  margin-top: 8vh;
+}

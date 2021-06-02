@@ -2,6 +2,7 @@ import "swiper/swiper.scss";
 import React from "react";
 import { Box, Text, Stack, useColorModeValue, Circle, Icon} from "@chakra-ui/react";
 import { IoCalendarOutline, IoTimeSharp, IoVideocam } from "react-icons/io5";
+import { GoBook } from "react-icons/go";
 import { MdAccessTime } from "react-icons/md";
 import { SiAirplayvideo } from "react-icons/si";
 import { BiCalendar } from "react-icons/bi";
@@ -27,6 +28,7 @@ const Webinar = ({content}) => {
     mt: "10",
     mb: "4",
     pl: "2",
+    borderLeft: "4px solid #00b474"
   };
 
   return (
@@ -64,6 +66,13 @@ const Webinar = ({content}) => {
         iconBg={"green.900"}
         text={content.description}
       />
+      {content.other && <Feature
+        icon={
+          <Icon as={GoBook} color={"#FFF"} w={5} h={5} />
+        }
+        iconBg={"gray.500"}
+        text={content.other}
+      />}
     </Stack>
   </Box>
   );
