@@ -145,8 +145,8 @@ const Landing = ({ submitted, togglePanel }) => {
   const WebinarContent = {
     date: "日期：2021年6月7日（星期一）",
     time: "時間：晚上8時至9時",
-    description: "線上分享會平台：Zoom（網上登記後會獲得相關鏈結和密碼）"
-  }
+    description: "線上分享會平台：Zoom（網上登記後會獲得相關鏈結和密碼）",
+  };
 
   const [current, setCurrent] = useState(authorContent[0]);
 
@@ -198,8 +198,8 @@ const Landing = ({ submitted, togglePanel }) => {
                 </Heading>
                 <Divider my={{ base: 8 }} />
 
-                <Webinar content={WebinarContent}/>
-                
+                <Webinar content={WebinarContent} />
+
                 <Divider my={{ base: 8 }} />
 
                 <Text {...subHeadline}>ABOUT</Text>

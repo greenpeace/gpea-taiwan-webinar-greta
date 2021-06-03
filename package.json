@@ -9,6 +9,7 @@
     "@craco/craco": "^5.9.0",
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.1.5",
+    "@fontsource/noto-sans-tc": "^4.4.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
     "@fortawesome/free-regular-svg-icons": "^5.15.1",
@@ -63,11 +64,10 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "build:en": "PUBLIC_URL=https://api.greenpeace.org.hk/2021/plastics-pfc craco build",
+    "build:en": "PUBLIC_URL=https://api.greenpeace.org.hk/2021/oceansday craco build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "yarn build:en && node mc-deploy.js && react-snap && purgecss && node mc-deploy.js",
-    "postbuild": "react-snap && node mc-deploy.js && purgecss",
+    "deploy": "yarn build:en && node mc-deploy.js && react-snap && node mc-deploy.js",
     "purgecss": "purgecss --css build/static/css/*.css --content build/index.html build/static/js/*.js --output build/static/css"
   },
   "eslintConfig": {

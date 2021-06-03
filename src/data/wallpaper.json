@@ -73,16 +73,16 @@
       "issue": "Biodiversity",
       "content": {
         "wallpaperList": [
-          "/wallpaper/Biodiversity/DSC_2235_GPxFHS.jpg",
-          "/wallpaper/Biodiversity/DSC_3683_GPxFHS.jpg",
-          "/wallpaper/Biodiversity/DSC_4373_GPxFHS.jpg",
-          "/wallpaper/Biodiversity/DSC_4938_1_GPxFHS.jpg",
-          "/wallpaper/Biodiversity/DSC_5225_GPxFHS.jpg",
-          "/wallpaper/Biodiversity/DSC_5629_GPxFHS.jpg",
-          "/wallpaper/Biodiversity/DSC_7163_GPxFHS.jpg",
-          "/wallpaper/Biodiversity/DSC_8458_GPxFHS.jpg",
-          "/wallpaper/Biodiversity/DSC_9612_GPxFHS.jpg",
-          "/wallpaper/Biodiversity/IMG_3369_GPxFHS.jpg"
+          {"label_zh": "廣東米蝦", "label_common": "Freshwater Dwaf Shrimp", "label_scientific": "Caridina cantonensis", "source": "/wallpaper/Biodiversity/DSC_2235_GPxFHS.jpg" },
+          {"label_zh": "領角鴞", "label_common": "Collared Scops Owl", "label_scientific": "Otus lettia", "source": "/wallpaper/Biodiversity/DSC_3683_GPxFHS.jpg" },
+          {"label_zh": "黑臉琵鷺", "label_common": "Black-faced Spoonbill", "label_scientific": "Platalea minor", "source": "/wallpaper/Biodiversity/DSC_4373_GPxFHS.jpg" },
+          {"label_zh": "黑腹濱鷸", "label_common": "Dunlin", "label_scientific": "Calidris alpina", "source": "/wallpaper/Biodiversity/DSC_4938_1_GPxFHS.jpg" },
+          {"label_zh": "海南藍仙鶲", "label_common": "Hainan Blue Flycatcher", "label_scientific": "Cyornis hainanus", "source": "/wallpaper/Biodiversity/DSC_5225_GPxFHS.jpg" },
+          {"label_zh": "擬平鰍", "label_common": "Broken Band Hillstream Loach", "label_scientific": "Liniparhomaloptera disparis", "source": "/wallpaper/Biodiversity/DSC_5629_GPxFHS.jpg" },
+          {"label_zh": "香港瘰螈", "label_common": "Hong Kong Newt", "label_scientific": "Paramesotriton hongkongensis", "source": "/wallpaper/Biodiversity/DSC_7163_GPxFHS.jpg" },
+          {"label_zh": "大綠蛙", "label_common": "Green Cascade Frog", "label_scientific": "Odorrana chloronota", "source": "/wallpaper/Biodiversity/DSC_8458_GPxFHS.jpg" },
+          {"label_zh": "藍喉太陽鳥", "label_common": "Mrs Gould's Sunbird", "label_scientific": "Aethopyga gouldiae", "source": "/wallpaper/Biodiversity/DSC_9612_GPxFHS.jpg" },
+          {"label_zh": "紅頸瓣蹼鷸", "label_common": "Red-necked Phalarope", "label_scientific": "Phalaropus lobatus", "source": "/wallpaper/Biodiversity/IMG_3369_GPxFHS.jpg" }
         ]
       }
     }

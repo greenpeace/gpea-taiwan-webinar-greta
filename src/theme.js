@@ -1,7 +1,13 @@
 // 1. Import `extendTheme`
 import { extendTheme } from "@chakra-ui/react";
+import { TextStyles as Text } from "../src/styles/components/textStyles"
+import { ButtonStyles as Button } from "../src/styles/components/buttonStyles"
 
 const theme = extendTheme({
+  fonts: {
+    heading: "Noto Sans TC",
+    body: "Noto Sans TC",
+  },
   colors: {
     brand: {
       100: "#ddffa3",
@@ -50,6 +56,10 @@ const theme = extendTheme({
     },
     orange: "#ff8100",
   },
+  components: {
+    Text,
+    Button
+  }
 });
 
 export default theme;

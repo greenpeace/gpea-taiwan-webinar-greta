@@ -125,15 +125,25 @@ const MyForm = (props) => {
   }, [submitted]);
 
   return (
-    <>
+    <Box
+      borderTop={{base: null, sm: "4px solid #66cc00"}}
+      boxShadow={{base: null, sm: "lg"}}
+      p={{base:0, sm: 6}}
+      rounded={{base: 0, sm: "md"}}
+      bg="white"
+      overflow="hidden"
+    >
       <Form onSubmit={handleSubmit}>
-        <Heading
+      <Text py={4} variant="heading" fontSize="2xl" color="gray.900" py={2}>
+        <span dangerouslySetInnerHTML={{ __html: formContent.form_header }}/>
+      </Text>
+        {/* <Heading
           pt="4"
           mb="6"
           size="md"
           color="gray.900"
           dangerouslySetInnerHTML={{ __html: formContent.form_header }}
-        ></Heading>
+        ></Heading> */}
         {formContent.form_description && (
           <Text pb={4}>{formContent.form_description}</Text>
         )}
@@ -311,7 +321,7 @@ const MyForm = (props) => {
           </Box>
         </Flex>
       </Form>
-    </>
+    </Box>
   );
 };
 

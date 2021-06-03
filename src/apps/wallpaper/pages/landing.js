@@ -144,14 +144,6 @@ const Landing = ({ submitted, togglePanel }) => {
           d={{ base: "none", md: "block" }}
         >
           <Sticky stickyStyle={{ zIndex: 10 }}>
-            <Box
-              borderTop="4px solid #66cc00"
-              boxShadow="lg"
-              p="6"
-              rounded="md"
-              bg="white"
-              overflow="hidden"
-            >
               {submitted ? (
                 <NewFrameSubmittedForm formContent={content} />
               ) : (
@@ -164,7 +156,6 @@ const Landing = ({ submitted, togglePanel }) => {
                   thanksScreen={true}
                 />
               )}
-            </Box>
           </Sticky>
         </Box>
       </Flex>
