@@ -12,7 +12,6 @@ import {
   Text,
   Heading,
   Link,
-  SimpleGrid,
   Stack,
   Center,
 } from "@chakra-ui/react";
@@ -20,12 +19,11 @@ import SEO from "../SEO";
 import content from "../data/content";
 import Nav from "../components/header/nav";
 import Footer from "../components/footer";
+import SimpleCarousel from "components/banner/imageCarousel";
 import Webinar from "components/sections/webinar";
 import NewFrameForm from "components/form/newFrameForm";
-import DonateForm from "components/form/donateForm";
 import NewFrameSubmittedForm from "components/form/newFrameSubmittedForm";
 import Panel from "components/panel/newFormPanel";
-import SwiperContent from "../components/carousal";
 
 import * as themeActions from "store/actions/action-types/theme-actions";
 import themeConfig from "../../../theme";
@@ -40,11 +38,16 @@ import "swiper/components/navigation/navigation.min.css";
 // import Swiper core and required modules
 import SwiperCore, { Navigation } from "swiper/core";
 
-import banner from "../assets/images/hero.jpg";
+import banner from "../assets/images/hero_v2.jpg";
 import kellyProfile from "../assets/images/MD-GP-PORTRAITKELLYHUANG001.jpg";
 import thumbnail from "../assets/images/GP0STUTFE_Medium_res.jpg";
 import thumbnailTwo from "../assets/images/GP1SUZTO_Medium_res.jpg";
 import thumbnailThree from "../assets/images/GP1SV4UD_High_res.jpg";
+import swiper1 from "../assets/images/swiper1.jpg";
+import swiper2 from "../assets/images/swiper2.jpg";
+import swiper3 from "../assets/images/swiper3.jpg";
+import swiper4 from "../assets/images/swiper4.jpg";
+import swiper5 from "../assets/images/swiper5.jpg";
 
 const Landing = ({ submitted, togglePanel }) => {
   const swiperRef = useRef(null);
@@ -57,8 +60,12 @@ const Landing = ({ submitted, togglePanel }) => {
     pl: "2",
     borderLeft: "4px solid #00b474",
   };
+  const creditLine = {
+    mt: "4",
+  };
 
   const WebinarContent = {
+    title: "分享會詳情",
     date: "日期：2021年6月19日（星期六）",
     time: "時間：下午2時半至3時半",
     description: "線上分享會平台：Zoom（網上登記後會獲得相關鏈結和密碼）",
@@ -67,21 +74,26 @@ const Landing = ({ submitted, togglePanel }) => {
 
   const thumbnailContent = [
     {
-      thumbnail: thumbnail,
-      content:
-        "綠色和平團隊駕駛橡皮艇靠近巨大的採礦機器，舉起橫額與畫上「RISK」字眼抗議。",
-    },
-    {
       thumbnail: thumbnailTwo,
+      credit: "© Marten van Dijl / Greenpeace",
       content:
         "Kelly在航程中遇見野生海豚、吞拿魚、極度瀕危的欖蠵龜等海洋生物。",
     },
     {
+      thumbnail: thumbnail,
+      credit: "© Marten van Dijl / Greenpeace",
+      content:
+        "綠色和平團隊駕駛橡皮艇靠近巨大的採礦機器，舉起橫額與畫上「RISK」字眼抗議。",
+    },
+    {
       thumbnail: thumbnailThree,
+      credit: "© Marten van Dijl / Greenpeace",
       content:
         "Kelly與團隊24小時站崗，觀察採礦機器的一舉一動，揭露企業污染海洋的真相。",
     },
   ];
+
+  const simpleSwiperData = [swiper1, swiper2, swiper3, swiper4, swiper5];
 
   // install Swiper modules
   SwiperCore.use([Navigation]);
@@ -109,7 +121,6 @@ const Landing = ({ submitted, togglePanel }) => {
 
           <Box px={{ base: 4, lg: 6 }}>
             <Box>
-              <Text {...subHeadline}>WEBINAR</Text>
               <Text
                 as="h1"
                 fontSize={{ base: "2xl", sm: "3xl", xl: "4xl" }}
@@ -118,7 +129,7 @@ const Landing = ({ submitted, togglePanel }) => {
                 lineHeight={1.2}
               >
                 <Text color="brand.500" mb={2} maxWidth="780px">
-                  直擊「彩虹勇士號」工作：三個月的海上任務
+                  直擊「彩虹勇士號」工作：3個月的海上任務
                 </Text>
               </Text>
             </Box>
@@ -130,10 +141,10 @@ const Landing = ({ submitted, togglePanel }) => {
 
                 <Divider my={{ base: 8 }} />
 
-                <Text {...subHeadline}>ABOUT</Text>
+                <Text {...subHeadline}>活動簡介</Text>
 
                 <Text variant="paragraph">
-                  綠色和平全球守護海洋專員黃毓琪Kelly在年頭登上「彩虹勇士號」船艦，任務地點極為偏遠，航行近三個月，見證並抗議太平洋深海採礦測試，更揭露GSR採礦機器墜海第一手消息，向世界說出企業破壞海洋生態的真相。
+                  綠色和平全球守護海洋專員黃毓琪Kelly在年頭登上「彩虹勇士號」船艦，任務地點極為偏遠，航行近3個月，見證並抗議太平洋深海採礦測試，更揭露GSR採礦機器墜海第一手消息，向世界說出企業破壞海洋生態的真相。
                 </Text>
 
                 <Text variant="paragraph">
@@ -147,7 +158,7 @@ const Landing = ({ submitted, togglePanel }) => {
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 240">
               <path
                 fill="#DEECFF"
-                fill-opacity="1"
+                fillOpacity="1"
                 d="M0,224L48,208C96,192,192,160,288,165.3C384,171,480,213,576,229.3C672,245,768,235,864,202.7C960,171,1056,117,1152,96C1248,75,1344,85,1392,90.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
               ></path>
             </svg>
@@ -191,13 +202,13 @@ const Landing = ({ submitted, togglePanel }) => {
                     <Stack direction="column" p={{ base: 4, sm: 8 }}>
                       <Box mb={{ base: 2, sm: 6 }}>
                         <Text variant="authorName">黃毓琪 Kelly</Text>
-                        <Text variant="authorTitle">守護海洋專員</Text>
+                        <Text variant="authorTitle">全球守護海洋專員</Text>
                       </Box>
                       <Text variant="paragraph">
-                        來自台灣的綠色和平全球守護海洋專員，曾於綠色和平台北及香港辦公室工作。Kelly在2021年登上「彩虹勇士號」，與24位行動者、船員在太平洋展開為期三個月的守護海洋任務。Kelly與團隊曾見證並阻止企業深海採礦測試，24小時輪流監察採礦機器，行動者更駕駛快艇到企業巨輪旁，抗議破壞海洋的活動。
+                        來自台灣的綠色和平全球守護海洋專員，曾於綠色和平台北及香港辦公室工作。Kelly在2021年登上「彩虹勇士號」，與24位行動者、船員在太平洋展開為期3個月的守護海洋任務。Kelly與團隊曾見證並阻止企業深海採礦測試，24小時輪流監察採礦機器，行動者更駕駛快艇到企業巨輪旁，抗議破壞海洋的活動。
                       </Text>
                       <Text variant="paragraph">
-                        在這三個月中，Kelly亦穿越巴拿馬運河、駐守太平洋、遇見海豚、記錄採礦機墜海第一手消息⋯⋯日以繼夜地守護海洋，為推動成立海洋公約、杜絕海洋破壞而奮鬥。
+                        在這3個月中，Kelly亦穿越巴拿馬運河、駐守太平洋、遇見海豚、記錄採礦機墜海第一手消息⋯⋯日以繼夜地守護海洋，為推動成立海洋公約、杜絕海洋破壞而奮鬥。
                       </Text>
                     </Stack>
                   </Box>
@@ -218,8 +229,6 @@ const Landing = ({ submitted, togglePanel }) => {
             <Swiper
               spaceBetween={20}
               slidesPerView={2}
-              // onSwiper={(swiper) => console.log(swiper)}
-              // navigation={true}
               ref={swiperRef}
               breakpoints={{
                 320: {
@@ -231,10 +240,13 @@ const Landing = ({ submitted, togglePanel }) => {
               }}
             >
               {thumbnailContent.map((d, i) => (
-                <SwiperSlide>
-                  <Box key={i} pos="relative" borderRadius="8px" flex="1">
+                <SwiperSlide key={i}>
+                  <Box pos="relative" borderRadius="8px" flex="1">
                     <Image src={d.thumbnail} borderRadius="8px" />
                     <Text pt={2}>{d.content}</Text>
+                    <Text as="span" fontSize="xs" mt={4}>
+                      {d.credit}
+                    </Text>
                   </Box>
                 </SwiperSlide>
               ))}
@@ -269,8 +281,11 @@ const Landing = ({ submitted, togglePanel }) => {
               mt="4"
               spacing={{ base: 10 }}
             >
-              <Box flex="1">
-                <Image borderRadius="8px" src={thumbnail} />
+              <Box flex="1" minWidth="0px">
+                <SimpleCarousel
+                  swiperData={simpleSwiperData}
+                  style={{ borderRadius: "8px" }}
+                />
               </Box>
               <Stack spacing={4} flex="1">
                 <Heading
@@ -283,13 +298,13 @@ const Landing = ({ submitted, togglePanel }) => {
                   <br />
                   急需您的支持！
                 </Heading>
-                <Text>
+                <Text variant="paragraph">
                   此刻，全球公海只有約1%受保護，要有效管制破壞海洋的行為，以保護、維持、復育海洋。
                   <br />
                   綠色和平急需您的支持，在今年爭取訂立「全球海洋公約」，大步邁向擴展全球海洋保護區至30%的目標。
                 </Text>
                 <Link
-                  href="https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=plastics&ref=plastics-pfc-page"
+                  href="https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=oceans&ref=oceansday-page"
                   isExternal
                 >
                   <Button
@@ -305,7 +320,7 @@ const Landing = ({ submitted, togglePanel }) => {
                     立即捐助
                   </Button>
                 </Link>
-                <Text>
+                <Text variant="paragraph">
                   綠色和平成立50年，從不接受政商界捐助，在環境工作上維持公正獨立！
                 </Text>
               </Stack>

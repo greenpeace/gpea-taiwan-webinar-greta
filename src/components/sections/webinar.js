@@ -33,7 +33,7 @@ const Webinar = ({content}) => {
 
   return (
     <Box>
-    <Text {...subHeadline}>WEBINAR STARTS IN</Text>
+    <Text {...subHeadline}>{content.title}</Text>
     <Stack spacing={4}>
       <Feature
         icon={

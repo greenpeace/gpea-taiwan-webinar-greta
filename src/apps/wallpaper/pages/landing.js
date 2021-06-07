@@ -5,6 +5,7 @@ import { useMediaQuery } from "react-responsive";
 import Sticky from "react-sticky-el";
 import {
   ChakraProvider,
+  Avatar,
   Box,
   Button,
   Divider,
@@ -12,6 +13,7 @@ import {
   Flex,
   Text,
   Heading,
+  HStack,
   Link,
   SimpleGrid,
   Stack,
@@ -24,9 +26,11 @@ import Footer from "../components/footer";
 import NewFrameForm from "components/form/newFrameForm";
 import NewFrameSubmittedForm from "components/form/newFrameSubmittedForm";
 import Panel from "components/panel/newFormPanel";
+import { FaFacebookSquare, FaInstagram } from "react-icons/fa";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import themeConfig from "../../../theme";
 
+import shing from "../assets/images/shing_2x.png";
 import banner from "../assets/images/73.jpg";
 import subImage from "../assets/images/wallpaper_removed.jpg";
 
@@ -88,6 +92,58 @@ const Landing = ({ submitted, togglePanel }) => {
               </Box>
             </Flex>
 
+            <Box mt={6} py={4}>
+              <SimpleGrid
+                columns={{ base: 1 }}
+                p={6}
+                borderRadius={"md"}
+                borderType="solid"
+                borderWidth="1px"
+                borderColor="brand.400"
+              >
+                <Box flex="1">
+                  <Stack
+                    direction={["column", "row"]}
+                    columns={{ base: 1, xl: 2 }}
+                    alignItems="center"
+                    spacing="8px"
+                    mb={4}
+                  >
+                    <Avatar size="xl" name={"Shing"} src={shing} />
+                    <Box pt={4}>
+                      <Heading fontSize="2xl" mb={2}>
+                        <Text color="brand.900">馮漢城（阿城）</Text>
+                      </Heading>
+                      <Heading color="gray.500" fontSize="md">
+                        香港生態攝影師
+                      </Heading>
+                    </Box>
+                  </Stack>
+
+                  <Text variant="paragraph" pb={4}>
+                    獨立生態紀錄片製作人。香港電台本地生態紀錄片節目《大自然大不同》第二季單元編導、攝影、剪接。
+                  </Text>
+                  <Flex
+                    justifyContent="flex-end"
+                    fontSize={{ base: "10px", sm: "12px" }}
+                  >
+                    <HStack spacing={1} pr={4}>
+                      <FaInstagram />
+                      <Box>
+                        <Text>fhs.f</Text>
+                      </Box>
+                    </HStack>
+                    <HStack spacing={1}>
+                      <FaFacebookSquare />
+                      <Box>
+                        <Text>FHS Wildlife</Text>
+                      </Box>
+                    </HStack>
+                  </Flex>
+                </Box>
+              </SimpleGrid>
+            </Box>
+
             <Divider my={{ base: 8, lg: 10 }} />
 
             <SimpleGrid mt="4" columns={{ base: 1, xl: 2 }} spacing={10}>
@@ -144,18 +200,18 @@ const Landing = ({ submitted, togglePanel }) => {
           d={{ base: "none", md: "block" }}
         >
           <Sticky stickyStyle={{ zIndex: 10 }}>
-              {submitted ? (
-                <NewFrameSubmittedForm formContent={content} />
-              ) : (
-                <NewFrameForm
-                  formContent={content}
-                  version={true}
-                  showProgress={false}
-                  newsLetter={false}
-                  birthDate={false}
-                  thanksScreen={true}
-                />
-              )}
+            {submitted ? (
+              <NewFrameSubmittedForm formContent={content} />
+            ) : (
+              <NewFrameForm
+                formContent={content}
+                version={true}
+                showProgress={false}
+                newsLetter={false}
+                birthDate={false}
+                thanksScreen={true}
+              />
+            )}
           </Sticky>
         </Box>
       </Flex>

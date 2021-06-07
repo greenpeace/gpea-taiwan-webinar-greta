@@ -17,12 +17,12 @@ const SEO = () => {
       </script>
       {/* title */}
       <title>
-        立即報名：直擊「彩虹勇士號」工作：三個月的海上任務 - Greenpeace 綠色和平
+        立即報名：直擊「彩虹勇士號」工作：3個月的海上任務 - Greenpeace 綠色和平
         | 香港
       </title>
       <meta
         property="og:title"
-        content="立即報名：直擊「彩虹勇士號」工作：三個月的海上任務 - Greenpeace 綠色和平 | 香港"
+        content="立即報名：直擊「彩虹勇士號」工作：3個月的海上任務 - Greenpeace 綠色和平 | 香港"
       />
       {/* description */}
       <meta
@@ -36,7 +36,7 @@ const SEO = () => {
       {/* meta image */}
       <meta
         property="og:image"
-        content="https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/06/b5c28d4e-artboard-1-od-webinar-main.jpg"
+        content="https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/06/3fd19734-hero_v2_preview.jpg"
       />
     </Helmet>
   );

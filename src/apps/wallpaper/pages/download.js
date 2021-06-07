@@ -16,7 +16,7 @@ import {
   HStack,
   Stack,
   Avatar,
-  Flex
+  Flex,
 } from "@chakra-ui/react";
 import Nav from "../components/header/nav";
 import Footer from "../components/footer";
@@ -146,6 +146,14 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
     borderRadius: "20px",
   };
 
+  const photoCaption = {
+    position: "absolute",
+    left: 0,
+    top: 0,
+    backgroundColor: "rgba(255,255,255,0.65)",
+    padding: "2px",
+  };
+
   return (
     <ChakraProvider theme={themeConfig}>
       <Nav showButton={false} />
@@ -197,7 +205,6 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
             </Center>
           </Box> */}
 
-
           {/* <Flex direction="column">
                 <Box
                   bgColor="#FFF"
@@ -248,7 +255,6 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
                   </Box>
                 </Box>
               </Flex> */}
-
 
           <HStack align="center" pt="6" pb="4" spacing="4">
             <Link
@@ -322,7 +328,6 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
                 </LazyLoad>
               </Link>
             </Box>
-
           </Sticky>
           {/* Category navbar */}
           {/* <HStack mb={10}>
@@ -354,18 +359,18 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
           {isMobile ? (
             <SimpleGrid columns={2} spacing="12px">
               {current.content?.wallpaperList.map((d, i) => {
-              return(
-                <Box
-                  pos="relative"
-                  key={i}
-                  _hover={{ cursor: "pointer", opacity: 0.8 }}
-                  onClick={() => handleSetDownload(d.source)}
-                >
-                  {/* <Link
+                return (
+                  <Box
+                    pos="relative"
+                    key={i}
+                    _hover={{ cursor: "pointer", opacity: 0.8 }}
+                    onClick={() => handleSetDownload(d.source)}
+                  >
+                    {/* <Link
                     href={`${process.env.PUBLIC_URL}${d}`}
                     download={d.split("/").pop()}
                   ></Link> */}
-                  {/* <Box
+                    {/* <Box
                 bgImage={`url(${process.env.PUBLIC_URL}${d})`}
                 bgSize="cover"
                 height={{base: "160px"}}
@@ -375,37 +380,42 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
               <Box pos="absolute" bottom="6px" right="6px" zIndex={2}><DownloadIcon color="#FFF" w={4} h={4}/></Box>
               <Box pos="absolute" {...mobileDownloadButtonStyle} zIndex={1}></Box>
             </Box> */}
-                  <LazyLoad height={240} once offset={100}>
-                    {/* <Box pos="absolute" left="4px" top="4px">
+                    <LazyLoad height={240} once offset={100}>
+                      {/* <Box pos="absolute" left="4px" top="4px">
                       <DownloadIcon color="#FFF" w={4} h={4} />
                     </Box>
                     <Box pos="absolute" {...mobileDownloadButtonStyle}></Box>
                     */}
-                    <Image src={`${process.env.PUBLIC_URL}${d.source}`} />
-                  </LazyLoad>
-                  <Text align="center" pt={1}>{d.label_zh}</Text>
-                </Box>
-              )})}
+                      <Image src={`${process.env.PUBLIC_URL}${d.source}`} />
+                    </LazyLoad>
+                    <Text as="span" {...photoCaption}>
+                      {d.label_zh}
+                    </Text>
+                  </Box>
+                );
+              })}
             </SimpleGrid>
           ) : (
             <SimpleGrid minChildWidth="180px" spacing="20px">
               {current.content?.wallpaperList.map((d, i) => (
-              <Box>
-                <Box
-                  name={d}
-                  key={i}
-                  bgImage={`url(${process.env.PUBLIC_URL}${d.source})`}
-                  bgSize="cover"
-                  height={{ base: "240px", sm: "180px" }}
-                  _hover={{ cursor: "pointer", opacity: 0.8 }}
-                  onClick={() => handleSetDownload(d.source)}
-                />
-                <Text align="center" pt={1}>{d.label_zh}</Text>
-              </Box>
+                <Box pos="relative">
+                  <Box
+                    name={d}
+                    key={i}
+                    bgImage={`url(${process.env.PUBLIC_URL}${d.source})`}
+                    bgSize="cover"
+                    height={{ base: "240px", sm: "180px" }}
+                    _hover={{ cursor: "pointer", opacity: 0.8 }}
+                    onClick={() => handleSetDownload(d.source)}
+                  />
+                  <Text as="span" {...photoCaption}>
+                    {d.label_zh}
+                  </Text>
+                </Box>
               ))}
             </SimpleGrid>
           )}
-          
+
           <Text
             mt="4"
             px="4"
@@ -417,7 +427,14 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
             - 持續更新中 -
           </Text>
           <Box py={4}>
-            <SimpleGrid columns={{ base: 1}} p={6} borderRadius={'md'} borderType="solid" borderWidth="1px" borderColor="gray.100">
+            <SimpleGrid
+              columns={{ base: 1 }}
+              p={6}
+              borderRadius={"md"}
+              borderType="solid"
+              borderWidth="1px"
+              borderColor="brand.400"
+            >
               <Box flex="1">
                 <Stack
                   direction={["column", "row"]}
@@ -426,17 +443,13 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
                   spacing="8px"
                   mb={4}
                 >
-                  <Avatar
-                    size="xl"
-                    name={'Shing'}
-                    src={shing}
-                  />
+                  <Avatar size="xl" name={"Shing"} src={shing} />
                   <Box pt={4}>
                     <Heading fontSize="2xl" mb={2}>
                       <Text color="brand.900">馮漢城（阿城）</Text>
                     </Heading>
                     <Heading color="gray.500" fontSize="md">
-                    香港生態攝影師
+                      香港生態攝影師
                     </Heading>
                   </Box>
                 </Stack>
@@ -444,17 +457,26 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
                 <Text variant="paragraph" pb={4}>
                   獨立生態紀錄片製作人。香港電台本地生態紀錄片節目《大自然大不同》第二季單元編導、攝影、剪接。
                 </Text>
-                <Flex justifyContent="flex-end" fontSize={{base: '10px', sm: '12px'}}>
+                <Flex
+                  justifyContent="flex-end"
+                  fontSize={{ base: "10px", sm: "12px" }}
+                >
                   <HStack spacing={1} pr={4}>
-                    <FaInstagram/><Box><Text>fhs.f</Text></Box>
+                    <FaInstagram />
+                    <Box>
+                      <Text>fhs.f</Text>
+                    </Box>
                   </HStack>
                   <HStack spacing={1}>
-                    <FaFacebookSquare/><Box><Text>FHS Wildlife</Text></Box>
+                    <FaFacebookSquare />
+                    <Box>
+                      <Text>FHS Wildlife</Text>
+                    </Box>
                   </HStack>
                 </Flex>
               </Box>
             </SimpleGrid>
-            </Box>
+          </Box>
         </Box>
       </SimpleGrid>
       <Footer />
