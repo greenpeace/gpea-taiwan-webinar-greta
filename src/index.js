@@ -14,9 +14,9 @@ import "./index.css";
 /* GTM is only applicable for production env */
 if (process.env.NODE_ENV === "production") {
   /* GTM is only applicable for cloud page */
-  if (window.location.hostname === "cloud.greenhk.greenpeace.org") {
+  if (window.location.hostname === "cloud.greentw.greenpeace.org") {
     const tagManagerArgs = {
-      gtmId: "GTM-M6LZL75",
+      gtmId: "GTM-WRM6WK6",
     };
     TagManager.initialize(tagManagerArgs);
   }

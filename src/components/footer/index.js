@@ -17,7 +17,7 @@ let Footer = () => {
               <ul>
                 <li>
                   <a
-                    href="http://www.greenpeace.org/hongkong/"
+                    href="http://www.greenpeace.org/taiwan/?ref=2021-greta-webinar"
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -26,7 +26,7 @@ let Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="https://www.greenpeace.org/hongkong/policies/privacy-and-cookies/"
+                    href="https://www.greenpeace.org/taiwan/policies/privacy-and-cookies/?ref=2021-greta-webinar"
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -35,7 +35,7 @@ let Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK"
+                    href="https://supporter.ea.greenpeace.org/tw/s/donate?campaign=climate&ref=2021-greta-webinar"
                     target="_blank"
                     rel="noreferrer"
                   >

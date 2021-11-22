@@ -36,57 +36,18 @@ const MyForm = ({ formContent = content }) => {
       overflow="hidden"
     >
     <Flex direction="column">
-      <Text py={4} variant="heading" py={2}>
+      <Text py={2} variant="heading" py={2}>
         <span dangerouslySetInnerHTML={{ __html: formContent.thanks_title }}/>
       </Text>
       <Text as="p" variant="description" py={2}>
         <span dangerouslySetInnerHTML={{ __html: formContent.thanks_content_top_section }}/>
-      </Text>
+      </Text>      
       <Text as="p" variant="description" py={2}>
         <span dangerouslySetInnerHTML={{ __html: formContent.thanks_content_center_section }}/>
-      </Text>
-      <Button
-        variant="donateButton"
-        style={{ backgroundColor: "#3b5998"}}
-        onClick={() =>
-          mainShare(
-            formContent.shareMessage,
-            formContent.fbURL,
-            formContent.mainURL
-          )
-        }
-        rel="noreferrer"
-      >
-        {formContent.share_button}
-      </Button>
-      <Button
-        variant="donateButton"
-        style={{ backgroundColor: "#25d366"}}
-        onClick={() =>
-          whatsAppShare(formContent.shareMessage, formContent.whatsappURL)
-        }
-        rel="noreferrer"
-      >
-        <img
-          loading="lazy"
-          src={whatsapp}
-          alt="whatsapp"
-          style={{ height: "24px" }}
-        />
-      </Button>
-      <Text as="p" variant="description" py={1}>
+      </Text>     
+      <Text as="p" variant="description" py={2}>
         <span dangerouslySetInnerHTML={{ __html: formContent.thanks_content_bottom_section }}/>
-      </Text>
-      <Button
-        variant="donateButton"
-        style={{ backgroundColor: "#fda22f" }}
-        onClick={() => window.open(formContent.donateURL)}
-        target="_blank"
-        rel="noreferrer"
-      >
-        {formContent.donate_button}
-      </Button>
-
+      </Text>  
       {/* <DonateForm/> */}
 
     </Flex>

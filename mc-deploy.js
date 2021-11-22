@@ -39,9 +39,10 @@ const buildFolder = path.join(__dirname, "build");
 // const EndpointURL = "https://cloud.greenhk.greenpeace.org/petition-pp";
 //
 // New websign endpoint can accept optional fields
-const EndpointURL = "https://cloud.greenhk.greenpeace.org/websign";
-const CampaignId = "7012u000000P5RHAA0";
-const interests = ["Oceans"]; // Arctic, Climate, Forest, Health, Oceans, Plastics
+const EndpointURL = "https://cloud.greentw.greenpeace.org/websign";
+//const EndpointURL = "https://cloud.greentw.greenpeace.org/websign-dummy";
+const CampaignId = "7012u000000P6LAAA0";
+const interests = ["Climate"]; // Arctic, Climate, Forest, Health, Oceans, Plastics
 const ftpConfigName = "ftp_hk"; // refer to ~/.npm-en-uploader-secret
 const ftpRemoteDir = "/2021/oceansday";
 
@@ -90,7 +91,7 @@ let formTmpl = `<form method="post" action="%%=v(@EndpointURL)=%%" id="mc-form" 
       <input placeholder="FirstName" name="FirstName" type="text" value="">
       <input placeholder="LastName" name="LastName" type="text" value="">
       <input placeholder="Email" name="Email" type="email" value="">
-      <input placeholder="MobileCountryCode" name="MobileCountryCode" type="text">
+      <input placeholder="MobileCountryCode" name="MobileCountryCode" type="text" value="886">
       <input placeholder="MobilePhone" name="MobilePhone" type="tel" value="">
       <input placeholder="Birthdate" name="Birthdate" type="text" value="">
       <input placeholder="OptIn" name="OptIn" type="checkbox" value="">
@@ -194,9 +195,11 @@ fs.writeFileSync(path.join(__dirname, "build", "index.mc.html"), content);
 console.log("content patched");
 
 // upload the folder to FTP
+/*
 let raw = fs.readFileSync(path.join(os.homedir(), ".npm-en-uploader-secret"));
 let secrets = JSON.parse(raw);
 
 let ftpSetting = secrets[ftpConfigName];
 ftpSetting["remoteDir"] = ftpRemoteDir;
 upload_folder(ftpSetting, buildFolder);
+*/

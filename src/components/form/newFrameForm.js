@@ -65,8 +65,7 @@ const MyForm = (props) => {
   const [numResponses, setNumResponses] = useState(0);
 
   const mobileCountryCode = [
-    { label: "+852", value: "852" },
-    { label: "+853", value: "853" },
+    { label: "+886", value: "886" },
   ];
   const progress = [
     { bgcolor: "#62cbd7", completed: numResponses, target: numSignupTarget },
@@ -124,6 +123,36 @@ const MyForm = (props) => {
     }
   }, [submitted]);
 
+  let isFull = false;
+  useEffect(() => {
+    // fetch the signup numbers
+    fetch("https://cloud.greentw.greenpeace.org/campaign-member-counts")  
+    .then(response => response.json())
+    .then(response => {      
+      let rows = response;
+      rows.forEach(serverRow => {
+        let campaignId = serverRow["Id"]
+        
+        // find that campaign        
+        if (campaignId === "7012u000000P6LAAA0") {          
+          let numRes = parseInt(serverRow["NumberOfResponses"], 10);
+          let targetSignups = 300;          
+          
+          if (numRes >= targetSignups) {
+            isFull = true;
+          }
+          
+          return;
+        }
+      });
+
+      if (isFull && document.querySelector('form')) {
+        document.querySelector('form').remove();
+        document.querySelector('#formBox').innerHTML= `<p style='font-size:30px; text-align:center;'>報名已額滿。</p>`;
+      }
+    });
+  });
+
   return (
     <Box
       borderTop={{base: null, sm: "4px solid #66cc00"}}
@@ -132,6 +161,7 @@ const MyForm = (props) => {
       rounded={{base: 0, sm: "md"}}
       bg="white"
       overflow="hidden"
+      id="formBox"
     >
       <Form onSubmit={handleSubmit}>
       <Text py={4} variant="heading" fontSize="2xl" color="gray.900" py={2}>
@@ -220,22 +250,7 @@ const MyForm = (props) => {
             </FormLabel>
           </FormControl>
 
-          <HStack align="flex-end">
-            <Box
-              pb={space}
-              mb={errors.MobilePhone && touched.MobilePhone ? "28px" : 0}
-            >
-              <FormControl id="mobileCountryCode">
-                <Select name="MobileCountryCode" onChange={handleChange}>
-                  {mobileCountryCode &&
-                    mobileCountryCode.map((d) => (
-                      <option key={d.value} value={d.value}>
-                        {d.label}
-                      </option>
-                    ))}
-                </Select>
-              </FormControl>
-            </Box>
+          <HStack align="flex-end">            
             <Box flex="1" pb={space}>
               <FormControl
                 id="mobilePhone"
@@ -323,6 +338,7 @@ const MyForm = (props) => {
       </Form>
     </Box>
   );
+  
 };
 
 const MyEnhancedForm = withFormik({
@@ -371,29 +387,14 @@ const MyEnhancedForm = withFormik({
       if (!values.MobilePhone) {
         errors.MobilePhone = formContent.empty_data_alert;
       } else if (values.MobilePhone.toString().length !== 8) {
-        errors.MobilePhone = formContent.minimum_8_characters;
-      }
-
-      if (
-        values.MobilePhone.toString().length === 8 &&
-        values.MobileCountryCode === "852"
-      ) {
-        const regex = /^[2,3,5,6,8,9]{1}[0-9]{7}$/i;
-        if (!regex.test(values.MobilePhone)) {
-          errors.MobilePhone = formContent.invalid_format_alert;
-        }
-      }
-
-      if (
-        values.MobilePhone.toString().length === 8 &&
-        values.MobileCountryCode === "853"
-      ) {
-        const regex = /^[6]{1}[0-9]{7}$/i;
-        if (!regex.test(values.MobilePhone)) {
-          errors.MobilePhone = formContent.invalid_format_alert;
-        }
-      }
-
+        const phoneReg6 = new RegExp(/^(0|886|\+886)?(9\d{8})$/).test(values.MobilePhone);
+			  const phoneReg7 = new RegExp(/^(0|886|\+886){1}[3-8]-?\d{6,8}$/).test(values.MobilePhone);
+			  const phoneReg8 = new RegExp(/^(0|886|\+886){1}[2]-?\d{8}$/).test(values.MobilePhone);
+        
+        if (!phoneReg6 && !phoneReg7 && !phoneReg8)
+          errors.MobilePhone = formContent.invalid_phone_alert;
+      }      
+      
       if (birthDate && !values.Birthdate) {
         errors.Birthdate = formContent.empty_data_alert;
       }

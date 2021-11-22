@@ -1,0 +1,37 @@
+{
+  "label_first_name": "名字",
+  "label_last_name": "姓氏",
+  "label_email": "電子信箱",
+  "label_phone": "手機號碼（接收活動簡訊提示）",
+  "label_phone_optional": "手機號碼（選填）",
+  "label_year_of_birth": "出生年份",
+  "label_year_of_birth_optional": "出生年份（選填）",
+  "select": "請選擇",
+
+  "empty_data_alert": "請填寫資料",
+  "empty_select_data_alert": "請選擇",
+  "invalid_email_alert": "請填上有效電子信箱",
+  "invalid_format_alert": "請輸入有效格式",
+  "minimum_8_characters": "請輸入8位數字",
+  "invalid_phone_alert": "電話格式不正確，請輸入格式 0912345678 或 02-12345678",
+
+  "form_header": "彩虹勇士號的海上任務：向世界說出海洋被污染的真相",
+  "form_description": "",
+  "form_remind": "登記這次活動即代表我願意收到綠色和平發送的通訊，讓我能掌握環保工作的最新脈動！我同意綠色和平按照個人資料政策</a>與我聯絡，包括提供環保工作資訊及捐款呼籲等。",
+
+  "submit_text": "立即登記",
+
+  "thanks_title": "<span style='color:#000'>感謝您報名參加</span><br/>彩虹勇士號的海上任務",
+  "thanks_content": "<p style='text-align:center;'>您將會收到信件確認。<br/>期待在 Zoom 上見到您！</p><p style='text-align:center; font-weight:bolder; font-size:large;'>守護全球海洋，急需您的支持！</p><br/><br/>您願意以每月$100 [每日約$3] 小額捐助，支持綠色和平團隊的工作，將更多您關心的社區建成走塑社區，擴大全港走塑版圖嗎？",
+  "thanks_content_top_section": "<p style='text-align:center;'>您將會收到信件確認。<br/>期待在 Zoom 上見到您！</p>",
+  "thanks_content_center_section": "<p style='text-align:center; font-weight:bolder; font-size:large;' align='center'>守護全球海洋，急需您的支持！</p><p style='display:flex; justify-content:center; align-items:center;'><img src='https://change.greenpeace.org.tw/2021/webinar/oceansday/static/media/ocean_webinar_ty_page_gif.gif' style='max-width:200px;'></p>",
+  "thanks_content_bottom_section": "懇請您在這關鍵時刻伸出援手，<br>以每月$600 [約每日$20]小額捐助，支持綠色和平守護海洋的工作！",
+  "thanks_content_ps_section": "為了維持公正性和獨立性，綠色和平成立以來不接受任何政府、企業或政治團體的資助，以保持100%公正獨立，而您的定期資助，將持續地支持我們的工作，讓我們改善環境的工作和計劃得以長遠實行。",
+  "share_button": "分享出去",
+  "donate_button": "捐助支持",
+  "donateURL": "https://supporter.ea.greenpeace.org/tw/s/donate?campaign=oceans2&ref=2021-webinar-oceansday",
+  "shareMessage": "綠色和平全球海洋數位專案主任黃毓琪Kelly將向大家介紹「彩虹勇士號」船艦，分享組織保護海洋的工作，也會分享阻止深海採礦測試的行動，與大家直擊團隊乘快艇靠近企業商船抗議的時刻。",
+  "fbURL": "",
+  "mainURL": "",
+  "whatsappURL": ""
+}

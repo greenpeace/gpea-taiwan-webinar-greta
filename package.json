@@ -64,7 +64,7 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "build:en": "PUBLIC_URL=https://api.greenpeace.org.hk/2021/oceansday craco build",
+    "build:en": "set PUBLIC_URL=https://change.greenpeace.org.tw/2021/webinar/Greta&&yarn build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy": "yarn build:en && node mc-deploy.js && react-snap && node mc-deploy.js",

@@ -1,0 +1,36 @@
+{
+  "label_first_name": "名字",
+  "label_last_name": "姓氏",
+  "label_email": "電子信箱",
+  "label_phone": "手機號碼（接收活動簡訊提示）",
+  "label_phone_optional": "手機號碼（選填）",
+  "label_year_of_birth": "出生年份",
+  "label_year_of_birth_optional": "出生年份（選填）",
+  "select": "請選擇",
+
+  "empty_data_alert": "請填寫資料",
+  "empty_select_data_alert": "請選擇",
+  "invalid_email_alert": "請填上有效電子信箱",
+  "invalid_format_alert": "請輸入有效格式",
+  "minimum_8_characters": "請輸入8位數字",
+  "invalid_phone_alert": "電話格式不正確，請輸入格式 0912345678 或 02-12345678",
+
+  "form_header": "【線上電影院】《我是葛雷塔 I am Greta》從環保少女到全球青年運動",
+  "form_description": "",
+  "form_remind": "報名這次活動即代表我願意收到綠色和平發送的通訊，讓我能掌握環保工作的最新脈動！我同意綠色和平按照個人資料政策與我聯絡，包括提供環保工作資訊及捐款呼籲等。",
+
+  "submit_text": "立即報名",
+
+  "thanks_title": "<span style='color:#000'>恭喜您，您已成功完成報名！</span>",  
+  "thanks_content_top_section": "<p style='text-align:left;'>感謝您的參與，屆時將以Zoom視訊的形式進行，以下是該活動的連線資訊：<br/><br/>日期：2021年07月27日（週二）<br>時間：晚上19:00－21:00<br><br>Zoom連結：<a href='https://greenpeace.zoom.us/j/95093245639?pwd=RDhtaUx2QktUUW1wVElvTUZhby81QT09' target='_blank' style='color:#2462d0;'>Join Zoom Meeting</a><br>會議ID：95093245639<br>會議密碼：729164</p>",
+  "thanks_content_center_section": "<p style='text-align:left;'>若您對視訊工具不熟悉，請參考<a href='https://image.greentw.greenpeace.org/lib/fe3211717564047d7c1278/m/1/b7147cf7-1fdc-499d-be81-c675eb3c51af.png' target='_blank' style='color:#2462d0;'>視訊工具<b>ZOOM</b>的教學</a>。</p>",
+  "thanks_content_bottom_section": "若有任何問題，歡迎來信至會員服務信箱donor.services.tw@greenpeace.org。<br>也歡迎您造訪<a href='https://www.greenpeace.org/taiwan/?ref=2021-greta-webinar' target='_blank' style='color:#2462d0;'>綠色和平官方網站</a>，獲得環境專案工作進展的最新消息。",
+  "thanks_content_ps_section": "為了維持公正性和獨立性，綠色和平成立以來不接受任何政府、企業或政治團體的資助，以保持100%公正獨立，而您的定期資助，將持續地支持我們的工作，讓我們改善環境的工作和計劃得以長遠實行。",
+  "share_button": "分享出去",
+  "donate_button": "捐助支持",
+  "donateURL": "https://supporter.ea.greenpeace.org/tw/s/donate?campaign=climate&ref=2021-greta-webinar",
+  "shareMessage": "綠色和平全球海洋數位專案主任黃毓琪Kelly將向大家介紹「彩虹勇士號」船艦，分享組織保護海洋的工作，也會分享阻止深海採礦測試的行動，與大家直擊團隊乘快艇靠近企業商船抗議的時刻。",
+  "fbURL": "",
+  "mainURL": "",
+  "whatsappURL": ""
+}
